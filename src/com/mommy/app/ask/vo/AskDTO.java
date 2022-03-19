@@ -6,8 +6,11 @@ public class AskDTO {
 	private int askStatus;
 	private String askTitle;
 	private String askContent;
+	private String askAnswer;
 	private String askDate;
 	private int userNum;
+	
+	
 	
 	public AskDTO() {;}
 	
@@ -18,6 +21,7 @@ public class AskDTO {
 		this.categoryNum = askVO.getCategoryNum();
 		this.askTitle = askVO.getAskTitle();
 		this.askContent = askVO.getAskContent();
+		this.askAnswer = askVO.getAskAnswer();
 		this.askDate = askVO.getAskDate();
 		this.askStatus = askVO.getAskStatus();
 	}
@@ -60,6 +64,14 @@ public class AskDTO {
 
 	public void setAskContent(String askContent) {
 		this.askContent = askContent;
+	}
+	
+	public String getAskAnswer() {
+		return askAnswer;
+	}
+	
+	public void setAskAnswer(String askAnswer) {
+		this.askAnswer = askAnswer;
 	}
 
 

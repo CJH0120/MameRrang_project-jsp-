@@ -34,7 +34,7 @@ public class UserFindIdPwOk implements Action {
 	      
 	      
 	      userId = userDao.findIdPw(findIdPw);
-	      System.out.println(userId);
+	    
 			if(userId ==null) {
 			
 

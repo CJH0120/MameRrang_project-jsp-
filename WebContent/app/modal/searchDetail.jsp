@@ -13,17 +13,18 @@
 
 <body>
     <!-- main -->
+   
 <div class="main">
         <div class="header">
         <div	style="
         background-color: #ffb61a9e;
 	    width: 550px;
 	    height: 98px;
-	    line-height: 5;   "
+	    line-height: 5;"
         class="media1"
         ><h3 style="color:white; margin-left: -30px; font-size:23px; " class="media2">상세 검색</h3></div>
-       
-        <input type="button" value="적용" class="apply" style="cursor: pointer;" class="media3" >
+      <%--  onclick="location.href='${pageContext.request.contextPath}/service/MomDetailModalOk.ser'" --%>
+        <input type="button" value="적용" class="apply" style="cursor: pointer;" class="media3" id="close" >
         </div>
   
          
@@ -134,6 +135,7 @@
 
 
 </div>
+
 </body>
 <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/jquery.scrolly.min.js"></script>

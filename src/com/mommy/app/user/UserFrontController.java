@@ -84,6 +84,12 @@ public class UserFrontController extends HttpServlet{
 			
 		}else if(command.equals("/user/UserDeleteOk.user")) {
 			af = new UserDeleteOk().execute(req, resp);	
+		}else if(command.equals("/user/ChangePw.user")) {
+			af = new ActionForward();
+			af.setRedirect(false);
+			af.setPath("/app/user/changePw.jsp");
+		}else if(command.equals("/user/ChangePwOk.user")) {
+			af = new UserChangePwOk().execute(req, resp);
 		}
 				
 		

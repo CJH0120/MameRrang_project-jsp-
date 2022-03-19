@@ -61,6 +61,33 @@
 		where communityNum = #{communityNum}
 	</update>
  
+ 
+ <!-- 댓글 목록 -->
+	<select id="selectComments" parameterType="_int" resultType="communityCommentDTO">		
+		select commentNum, communityNum, commentDate, c.userNum, userId, commentContent
+		from tbl_communitycomment c join tbl_user u 
+		on c.userNum = u.userNum and communityNum = #{communityNum}
+		order by 1 desc
+	</select>
+	
+	<!-- 댓글 등록 -->
+	<insert id="insertComment" parameterType="communityCommentVO">
+		insert into tbl_communitycomment
+		(communityNum, commentDate, userNum, commentContent)
+		values(#{communityNum}, now(), #{userNum}, #{commentContent});
+	</insert>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="deleteComment" parameterType="_int">
+		delete from tbl_communitycomment where commentNum = #{commentNum}
+	</delete>
+	
+	<!-- 댓글 수정 -->
+	<update id="updateComment" parameterType="communityCommentVO">
+		update tbl_communitycomment 
+		set commentContent = #{commentContent} 
+		where commentNum = #{commentNum}
+	</update>
 </mapper>
 	
 	<!-- 게시글 상세보기(전체 정보 조회) 

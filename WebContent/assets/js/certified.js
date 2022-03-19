@@ -26,8 +26,10 @@ $('#phone_ok').click(function() {
 		          url:context + "/user/UserPhoneOk.user?userPhone=" +$('#input_number').val(),
 		          cache : false,
 		          dataType: "json",
-		          success:function(result){
-		        	  code = result.verifyCode;
+		          success:function(result){code = result.verifyCode;
+		        	  										
+		          			
+		          
 		          }
 		       });
 	  	      
@@ -54,7 +56,9 @@ $('#phone_ok').click(function() {
 
 
 
+var count=0;
 function checkCode(){
+	count++;
 
 	var $userCode=$('.number_two').val();
 	if ($userCode == code){
@@ -65,9 +69,20 @@ function checkCode(){
 		
 		phoneCheck = true;
 	}else{
-		$(".text_error").text("인증번호가 일치하지 않습니다.");
-		$(".text_error").css("color", "red");
-		$("input#userCode").focus();
+			
+	
+		if(count >= 5){
+		$('#idFaildText').text("비밀번호 인증 횟수 초과입니다. 고객센터로 문의하세요");
+		$('#idFaildText').css("color", "red");
+		$(".text_error").css("display", "none");
+		$("#second_warp").css("display", "none");
+		
+		}else{
+			$(".text_error").text("인증번호가 일치하지 않습니다. (남은 시도횟수"+ (5 -count) +"회)");
+			$(".text_error").css("color", "red");
+			$("input#userCode").focus();
+				}
+						
 	}
 }
 
@@ -77,6 +92,34 @@ function showid(){
 	$('.nohiddenid').css('display','block')
 	
 }
+
+
+
+
+
+$("#FEEID").click(function() {
+	
+	localStorage.setItem('userId',userId);
+	location.href= context +"/user/ChangePw.user";
+		
+
+		       });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ public class MomDetailModalOk implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		HashMap<String, Integer> boardMap = new HashMap<>();
+		HashMap<String, Integer> modalInput= new HashMap<>();
 		ActionForward af = new ActionForward();
 		
 		

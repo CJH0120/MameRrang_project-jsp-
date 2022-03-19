@@ -139,7 +139,7 @@ public class UserLoginOk  implements Action{
 		
       
       
-      System.out.println(selectName);
+ 
       return af;
       
       

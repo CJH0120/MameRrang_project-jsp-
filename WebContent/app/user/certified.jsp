@@ -51,13 +51,14 @@
 								<input id="input_number" type="text" placeholder="전화번호 11자리를 입력하세요"  maxlength='11'  class="number_one" >
 								<button class=input_btn id="phone_ok">인증번호 전송</button>
 							</div>
+							<div><p id="idFaildText"></p></div>
 							<div><p class='text_error'></p></div>
 							<div style=" width: 60%; text-align: center; margin: 0 auto; margin-top: 5px; display:none;"id="second_warp">
 								<input id="input_number2" type="text"placeholder="인증번호 6자리를 입력하세요" maxlength='6' class="number_two"  >
 								<button  class=input_btn onclick="checkCode();">인증번호 확인</button>
 							</div>
 							<div id="success_find" style="display:none;">
-								<button onclick="showid();" class=input_Click_btn>아이디 전체 확인</button><br><button  class=input_Click_btn>비밀번호 찾기</button>
+								<button onclick="showid();" class=input_Click_btn >아이디 전체 확인</button><br>      <button  id="FEEID" class="input_Click_btn">비밀번호 찾기</button>
 							
 							</div>
 							<div>

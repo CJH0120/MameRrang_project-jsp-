@@ -33,7 +33,6 @@ public class AdminQnaUpdateOk implements Action{
 			AdminDAO aDao = new AdminDAO();
 			AdminFilesDAO afDao = new AdminFilesDAO();
 			List<AdminFilesVO> files = null;
-			AskVO ask = new AskVO();
 			
 			int askNum = 0, page = 0;
 			
@@ -44,10 +43,10 @@ public class AdminQnaUpdateOk implements Action{
 			
 			page = Integer.parseInt(multi.getParameter("page"));
 			askNum = Integer.parseInt(multi.getParameter("askNum"));
-			ask.setAskTitle(multi.getParameter("title"));
-			ask.setAskContent(multi.getParameter("content"));
-			ask.setCategoryNum(Integer.parseInt(multi.getParameter("select")));
-			ask.setAskNum(askNum);
+			admin.setAskTitle(multi.getParameter("title"));
+			admin.setAskContent(multi.getParameter("content"));
+			admin.setAskAnswer(multi.getParameter("answer"));
+			admin.setAskNum(askNum);
 			
 			files = afDao.select(askNum);
 			
@@ -69,7 +68,7 @@ public class AdminQnaUpdateOk implements Action{
 			af.setRedirect(true);
 
 			//목록보기(페이지 기억)
-			af.setPath(req.getContextPath() + "/ask/AskListOk.com?page=" + page);
+			af.setPath(req.getContextPath() + "/admin/AdminQnaListOk.ad?page=" + page);
 			
 			return af;
 		}

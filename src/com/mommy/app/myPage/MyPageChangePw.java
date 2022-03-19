@@ -15,7 +15,7 @@ public class MyPageChangePw implements Action{
 		// TODO Auto-generated method stub
 		ActionForward af = new ActionForward();
 		af.setRedirect(false);
-		af.setPath("/app/myPage/myPageChangePw.jsp");
+		af.setPath("");
 	
 
 		return af;

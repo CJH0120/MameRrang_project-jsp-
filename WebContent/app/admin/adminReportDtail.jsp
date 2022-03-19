@@ -41,7 +41,7 @@
                <a href="${pageContext.request.contextPath}app/admin/adminReport.jsp"><p id="report" class="s-title bGray" >신고</p></a>
                <a href="${pageContext.request.contextPath}app/admin/adminAuth.jsp"><p id="auth" class="s-title bGray">인증</p></a>
                <a href="${pageContext.request.contextPath}app/admin/adminMList.jsp"><p id="memberList" class="s-title bGray" >회원목록</p></a>
-               <a href="${pageContext.request.contextPath}app/admin/admin-inform.jsp"><p id="inform" class="s-title bGray" >공지</p></a>
+               <a href="${pageContext.request.contextPath}/admin/AdminNoticeListOk.ad"><p id="inform" class="s-title bGray" >공지</p></a>
 			</div>
 								<div class="twoBox" style="width: 91.5%;">
 									<div class="col-6 col-12-small" style=" margin-left: -3em; ">

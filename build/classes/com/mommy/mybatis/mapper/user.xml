@@ -87,5 +87,15 @@
 	 select count(profileNum) from tbl_profile p
 	 join tbl_user u on  p.userNum = u.userNum 
 	 where u.userNum = #{userNum};
-	</select>   
+	</select> 
+	
+	
+		<!-- 비밀번호 변경 -->
+	<update id="updateUserPw"  parameterType="map" >
+			update tbl_user set userPw = hex(aes_encrypt(#{userPw}, 'abc')) where userId = #{userId};
+	</update>  
+	
+	
+	
+	  
 </mapper>

@@ -136,10 +136,10 @@ width: 9%;
     border-width: thin;
 		}
 		.filter{
-		width: 20px;
+		width: 23px;
     position: absolute;
-    margin-top: 14.5px;
-   margin-left: 90.7%;
+    margin-top: 10px;
+    margin-left: 13.5%;
 		}
 		.fontSize{
 			font-size: 15px;
@@ -168,76 +168,333 @@ width: 9%;
 		
 		}
 		   
-               #my_modal {
-      display: none;
-   width: 458px;
-    height: 82%;
-    background-color: #fefefe;
-    border: 1px solid #888;
-   border-radius: 17px;
-    overflow: hidden;
-            }
+		   .detailSearch{
+		       margin-left: 90.5%;
+    margin-top: -48px;
+    margin-bottom: 14px;
+		   }
+		   
+		   
+  
+            	            #searchDetail{
+			              width: 112px;
+				    height: 39px;
+				    background-color: white;
+				    border: 1px solid #b6b6b6;
+				    border-radius: 11px;
+				    padding-left: 19px;
+				    font-size: 16px;
+				    color: #8d8d8d;
+				    padding-right: 11px;
+				    font-family: 'Noto Sans KR';
+				   
+			            }
+			            
+            
+            		            
+		/* 상세검색 모달창 -------------------------------------------------------------------*/	        
+        .modal {
+          position: fixed;
+          top: 44px;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow:hidden;
+        }
 
-            #my_modal .modal_close_btn {
-                position: absolute;
-                top: 10px;
-                right: 28px;
-            }
-                  #myModal2 {
-        display: none;
-    width: 502px;
-    height: 82%;
-    background-color: #fefefe;
-    border: 1px solid #888;
- border-radius: 17px;
+        .modal .bg {
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .modalBox {
+           position: absolute;
+    background-color: #fff;
+    width: 538px;
+    height: 741px;
+    border-radius: 6px;
+    text-align: center;
     overflow: hidden;
-            }
-            .modalCloseBtn2{
-                position: absolute;
-                top: 10px;
-                right: 28px;
-            }
+        }
+
+        .modalBox button {
+          display: block;
+          width: 80px;
+          margin: 0 auto;
+        }
+
+        .hidden {
+          display: none;
+        }
+        
+
+
+        .quit{
+            font-size: 14px;
+            color: #d4cfcf;
+
+        }
+
+
+        /* 상세정보모달창 ----------------------------------------------------------------------- */
+
+
+  .header{
+   
+      height: 100px;
+      text-align: center;
+      margin: 0 auto;
+      position: relative;
+     margin-bottom: 4px;
+     /* background-color: pink; */
+  }
+
+  .apply{
+position: absolute;
+    background-color: white !important;
+    font-weight: bold !important;
+    height: 35px !important;
+    border: none !important;
+    border-radius: 15px !important;
+    font-size: 16px;
+    margin: -42px 178px;
+    width: 82px !important;
+    text-align: center !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+
+  }
+  hr{
+    width: 550px;
+    color:#f6f6f6;
+    margin:10px 0 !Important;
+  }
+
+
+ .content{
+
+    margin: 0 auto;
+    
+ }
+.gradeImgSize{
+ width: 39px; 
+}
+ .grade{
+   margin: 0 35px;
+    cursor: pointer;
+   
+ }
+.grade2{
+ margin: 0px 34px;
+    display: inline-block;
+    font-size: 15px !important;
+    
+    
+}
+
+.time{
+margin: 0 20px;
+    font-size: 12px;
+    margin-top: -6px;
+}
+.timeIcon{
+    margin: 0px 14px;
+    cursor: pointer;
+    width: 70px;
+    margin-top: -9px;
+}
+.age{
+    margin: 0px 19px;
+    width: 50px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.activity{
+width: 46px;
+    margin: 0 20px;
+    cursor: pointer;
+    margin-top: 13px;
+}
+
+.days2{
+width: 50px;
+    margin: 4px;
+cursor: pointer;
+margin-top:9px;
+}
+    .main2{
+  text-align: center;
+    margin: 0 auto;
+    width: 537px;
+    height: 733px;
+    }
+.font-size{
+	font-size:15px;
+}
+        
             
-            #myModal3{
-                display: none;
-               width: 587px;
-    			height: 32%;
-                padding: 20px 60px;
-                background-color: #fefefe;
-                border: 1px solid #888;
-              border-radius: 17px;
-              
-            
-            }
-            .area{
-            margin-bottom: 11px;
-  			  background-color: white;
-            }
-            
-            
-           .modalCloseBtn3 {
-            position: absolute;
-		    margin-top: -39%;
-		    margin-left: 80%;
-            }
-		
-		            
-                       #myModal4 {
-display: none;
-    width: 300px;
-    height: 347px;
-    background-color: #fefefe;
-    border: 1px solid #888;
-border-radius: 17px;
+        
+        
+        /* 돌봄유형 선택 모달창 --------------------------------------------------------------------*/
+        	             
+        .modal2{
+          position: fixed;
+          top: 44px;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow:hidden;
+        }
+
+        .modal2 .bg2 {
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .modalBox2 {
+    position: absolute;
+    background-color: #fff;
+    width: 477px;
+    height: 741px;
+    border-radius: 6px;
+    text-align: center;
     overflow: hidden;
-            }
-            .modalCloseBtn4{
-                position: absolute;
-                top: 10px;
-            right: 15px;
-            }
-            
-            
+        }
+
+        .modalBox2 button {
+          display: block;
+          width: 80px;
+          margin: 0 auto;
+        }
+
+        .hidden {
+          display: none;
+        }
+        
+
+
+        .quit2{
+            font-size: 14px;
+            color: #d4cfcf;
+
+        }
+
+
+        .phoneBtn2{
+            background-color: #ffb61a;
+            border: hidden;
+            width:20%;
+            font-weight: bold;
+            color:white;
+        }
+        
+        
+	p{
+	font-size: 13px;}
+
+    .main3{
+    text-align: center;
+    margin: 0 auto;
+    position: absolute;
+    width: 499px;
+    height: 796px;
+    }
+    .child{
+       width: 180px;
+    height: 36px;
+    margin: 24px auto;
+    background-color: #ffd270;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    line-height: 2.5;
+    font-size: 14px;
+    }
+    .text{
+        float: left;
+        margin-left: 60px;
+        font-weight: bold;
+    }
+    .p2{
+        margin:0px;
+        color:rgb(163, 163, 163);
+        font-size: 13px;
+        font-weight: lighter;
+        font-family: GmarketSansLight;
+    }
+
+    .button{
+        width: 300px;
+    height: 49px;
+    border-radius: 11px;
+    background-color: #Ff7065;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    margin-top: 4px;
+    margin-bottom: 120px;
+    }
+       
+     /* 돌봄지역선택 모달 -------------------------------- */
+      
+        .modal3 {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow:hidden;
+        }
+
+        .modal3 .bg3 {
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .modalBox3 {
+	    position: absolute;
+	    background-color: #fff;
+	    width: 527px;
+	    height: 323px;
+	    padding: 15px;
+	    border-radius: 6px;
+	    text-align: center;
+        }
+
+        .modalBox3 button {
+          display: block;
+          width: 80px;
+          margin: 0 auto;
+        }
+
+        .hidden {
+          display: none;
+        }
+        
+
+
+        .quit3{
+            font-size: 14px;
+            color: #d4cfcf;
+
+        }
+
+                    
             
 		/* ---------------------------------------------------------------------------------------------- */
 		@media (max-width: 576px){

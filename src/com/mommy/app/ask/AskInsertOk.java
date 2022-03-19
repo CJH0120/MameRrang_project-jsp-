@@ -31,6 +31,7 @@ public class AskInsertOk implements Action{
 		ask.setCategoryNum(Integer.parseInt(multi.getParameter("category")));
 		ask.setAskTitle(multi.getParameter("title"));
 		ask.setAskContent(multi.getParameter("content"));
+		ask.setAskAnswer(multi.getParameter("answer"));
 		ask.setUserNum((Integer)req.getSession().getAttribute("userNum"));
 		
 		//게시글 추가

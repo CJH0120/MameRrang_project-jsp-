@@ -7,7 +7,7 @@
          <c:set var="userStatus" value="${sessionScope.userStatus}"/>
          <c:set var="userName" value="${sessionScope.userName}"/>
        
-            <a href = "${pageContext.request.contextPath}/app/etc/main.jsp" style="border-bottom: none;"><img class = "mommyLogo"  style = "width:112px; margin-top:15px; margin-left:20px" src="${pageContext.request.contextPath}/images/로고1.png"></a></h1>
+            <a href = "${pageContext.request.contextPath}/user/UserMainOk.user" style="border-bottom: none;"><img class = "mommyLogo"  style = "width:112px; margin-top:15px; margin-left:20px" src="${pageContext.request.contextPath}/images/로고1.png"></a></h1>
             <nav id="nav">
                <ul>
                
@@ -48,7 +48,7 @@
                      <a href="#menu" class="icon solid fa-bars">Menu</a>
                      <div id="menu">
                         <ul>
-                        <li><a href="${pageContext.request.contextPath}/app/user/login.jsp">로그인</a></li>
+                        <li><a href="${pageContext.request.contextPath}/user/UserJoin.user">로그인</a></li>
                            <li><a href="${pageContext.request.contextPath}/myPage/Mypage.my">마이페이지</a></li>
                             <li><a onclick="location.href='${pageContext.request.contextPath}/service/SearchJobOk.ser'">일자리 찾기</a></li>
                              <li><a onclick="location.href='${pageContext.request.contextPath}/service/SearchMomOk.ser'">시터 찾기</a></li>

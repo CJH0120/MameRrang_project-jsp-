@@ -6,8 +6,11 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.mommy.app.admin.vo.AdminNoticeVO;
+import com.mommy.app.admin.vo.AdminQnaDTO;
 import com.mommy.app.admin.vo.AdminQnaVO;
 import com.mommy.app.admin.vo.AdminVO;
+import com.mommy.app.notice.vo.NoticeVO;
 import com.mommy.app.user.vo.UserVO;
 import com.mommy.mybatis.config.MyBatisConfig;
 
@@ -20,10 +23,10 @@ public class AdminDAO
 	  {
 		    sqlSession = sqlSessionFactory.openSession(true);
 	  }
-	//----------문의 신고 페이지-------------------------------------------------------	
+//----------문의 신고 페이지-------------------------------------------------------	
 
 		//게시글 전체(문의+신고) 목록
-		public List<AdminQnaVO> selectAll(Map<String, Integer> qnareMap) {
+		public List<AdminQnaDTO> selectAll(Map<String, Integer> qnareMap) {
 			return sqlSession.selectList("Admin.selectAll", qnareMap);
 		}
 		
@@ -37,7 +40,13 @@ public class AdminDAO
 			return sqlSession.selectOne("Admin.getSeq");
 		}
 		
-		//Qna글 전체 개수
+		//답변 달기
+		public void update(AdminQnaVO admin) {
+			sqlSession.update("Admin.update", admin);
+		}
+		
+//----------------문의--------------------------------------------------	
+		//문의글 전체 개수
 		public int getQnaTotal() {
 			return sqlSession.selectOne("Admin.getQnaTotal");
 		}
@@ -49,14 +58,49 @@ public class AdminDAO
 		
 		//문의 처리완료 게시글 천제 개수(처리중0 처리완료1)
 		public int getQnaTotal1() {
-			return sqlSession.selectOne("Admin.getQnaTotal1");
+			return sqlSession.selectOne("Admin.getReportTotal1");
+		}
+//----------------------------------------------------------------------
+		
+//----------------신고---------------------------------------------------
+		//신고글 전체 개수
+		public int getReportTotal() {
+			return sqlSession.selectOne("Admin.getReportTotal");
 		}
 		
-		//답변 달기
-		public void update(AdminQnaVO admin) {
-			sqlSession.update("Admin.update", admin);
+		//신고 처리중 게시글 전체 개수 (처리중0 처리완료1)
+		public int getReportTotal0() {
+			return sqlSession.selectOne("Admin.getReportTotal0");
 		}
-
-	//----------------------------------------------------------------------	  
+		
+		//신고 처리완료 게시글 천제 개수(처리중0 처리완료1)
+		public int getReportTotal1() {
+			return sqlSession.selectOne("Admin.getReportTotal1");
+		}
+//----------------------------------------------------------------------		
+//----------------공지---------------------------------------------------
+		
+		//공지 게시판 목록
+		public List<AdminNoticeVO> noticeSelectAll(Map<String, Integer> noticeMap){
+			return sqlSession.selectList("Admin.noticeSelectAll", noticeMap);
+		}
+		
+		//공지 게시글 총 개수
+		public int noticeGetTotal() {
+			return sqlSession.selectOne("Admin.noticeGetTotal");
+		}
+		
+		//공지 게시판 상세보기
+		public AdminNoticeVO noticeSelectDetail(int noticeNum) {
+			return sqlSession.selectOne("Admin.noticeSelectDetail", noticeNum);
+		}
+		
+		
+		//공지 글쓰기
+		public void insert(AdminNoticeVO notice) {
+			sqlSession.selectOne("Admin.insert", notice);
+		}
+		
 	  
+//----------------------------------------------------------------------	  
 }

@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mommy.action.Action;
 import com.mommy.action.ActionForward;
 import com.mommy.app.admin.dao.AdminDAO;
 import com.mommy.app.admin.vo.AdminQnaVO;
@@ -13,7 +14,7 @@ import com.mommy.app.ask.dao.AskFilesDAO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class AdminQnaDetail {
+public class AdminQnaDetail implements Action{
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		req.setCharacterEncoding("utf-8");
 		

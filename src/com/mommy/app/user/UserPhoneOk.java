@@ -33,10 +33,10 @@ public class UserPhoneOk implements Action{
 				JSONObject obj = new JSONObject();
 				
 				String userPhone = req.getParameter("userPhone");
-				System.out.println(userPhone);
+			
 						//휴대폰 번호 인증
-				   String api_key = "NCSFMCXCD9LFA67O"; // 내 API key
-				       String api_secret = "S3RHBWKSNGFDFDPFFKTP87SNVHYEIDOQ"; // 내 API secret key 		
+				   String api_key = "NCSTLDI4YOFAFBDH"; // 내 API key
+				       String api_secret = "N1FVJOXIPM0XU7KHPPHDEH9DPMMLFADS"; // 내 API secret key 		
 /*					String api_key = "NCSTFZGSGACJE9SI"; // 자신의API 키 
 					String api_secret = "WW3ZOL6NAB2G0XATZRY0OFNXJDZBRAMF"; // API SECRET KEY 
 				*/

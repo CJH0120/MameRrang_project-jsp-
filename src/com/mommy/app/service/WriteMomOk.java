@@ -18,6 +18,9 @@ public class WriteMomOk implements Action{
 		UserDAO dao = new UserDAO();
 		ActionForward af = new ActionForward();
 		
+		// 키 값을 가져왔을 때 req.getParameter("babyType") 
+		// 
+		
 		
 		
 		return af;

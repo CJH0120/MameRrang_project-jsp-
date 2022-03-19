@@ -89,7 +89,7 @@
                               		<h2 class = "myh2">${community.getCommunityTitle()}</h2>	  
                               		<div class="content">
                               		<!-- 15자 자른거 넣기 -->
-                                 	<p >${fn:substring(content,0,15)} </p>
+                                 	<p >${fn:substring(content,0,15)}...</p>
                                  	<p>작성일: ${community.getBoardDate()}</p>
                               </div>
                            </a>
@@ -101,7 +101,7 @@
                            			<a onclick="location.href ='${pageContext.request.contextPath}/community/CommunityDetailOk.com?communityNum=${community.getCommunityNum()}&page=${page}'">
                               		<h2 class = "myh2">${community.getCommunityTitle()}</h2>	  
                               		<div class="content">
-                                 	<p >${fn:substring(content,0,15)}</p>
+                                 	<p >${fn:substring(content,0,15)}...</p>
                                  	<p>작성일: ${community.getBoardDate()}</p>
                               </div>
                            </a>
@@ -113,7 +113,7 @@
                            			<a onclick="location.href ='${pageContext.request.contextPath}/community/CommunityDetailOk.com?communityNum=${community.getCommunityNum()}&page=${page}'">
                               		<h2 class = "myh2">${community.getCommunityTitle()}</h2>	  
                               		<div class="content">
-                                 	<p >${fn:substring(content,0,15)}</p>
+                                 	<p >${fn:substring(content,0,15)}...</p>
                                  	<p>작성일: ${community.getBoardDate()}</p>
                               </div>
                            </a>

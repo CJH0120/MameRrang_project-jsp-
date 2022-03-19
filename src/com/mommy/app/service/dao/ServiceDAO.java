@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.mommy.app.service.vo.SearchDetailDTO;
 import com.mommy.app.service.vo.ServiceDTO;
 import com.mommy.mybatis.config.MyBatisConfig;
 
@@ -40,7 +41,10 @@ public class ServiceDAO {
 		return sqlSession.selectOne("Service.momTotal");
 	}
 	
-	
+	//상세검색 필터링
+	public List<ServiceDTO> searchDetail(Map<String, Integer> modalInput) {
+		return sqlSession.selectList("Service.searchDetail", modalInput);  
+	}
 	
 	
 	

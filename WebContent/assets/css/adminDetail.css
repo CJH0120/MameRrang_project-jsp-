@@ -171,3 +171,11 @@
          textarea {
          	resize: none; 
          }
+         
+         			.note-editable {
+				height: 444.045px;
+				
+			}
+
+			.note-editor .note-editable {
+    			line-height: 10%; 

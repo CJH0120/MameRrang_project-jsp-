@@ -26,7 +26,7 @@ public class UserFindId implements Action {
 		HttpSession  session = req.getSession();
 		String userId = (String) session.getAttribute("userId");
 		String userId2 = (String) session.getAttribute("userId");
-		System.out.println(userId);
+	
 //
 			userId2= hiddenId(userId);
 //		

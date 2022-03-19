@@ -75,10 +75,10 @@
 								<div class="side-header">
                <a href="${pageContext.request.contextPath}/app/admin/admin.jsp" style="border-bottom:2px solid #ffb61a;"><p id="total" class="s-title text bYellow">통계 </p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminQnaListOk.ad"><p id="qna" class="s-title text bGray" >문의</p></a>
-               <a href="${pageContext.request.contextPath}/app/admin/adminReport.jsp"><p id="report" class="s-title bGray" >신고</p></a>
+               <a href="${pageContext.request.contextPath}/admin/AdminReportListOk.ad"><p id="report" class="s-title bGray" >신고</p></a>
                <a href="${pageContext.request.contextPath}/app/admin/adminAuth.jsp"><p id="auth" class="s-title bGray">인증</p></a>
                <a href="${pageContext.request.contextPath}/app/admin/adminMList.jsp"><p id="memberList" class="s-title bGray" >회원목록</p></a>
-               <a href="${pageContext.request.contextPath}/app/admin/admin-inform.jsp"><p id="inform" class="s-title bGray" >공지</p></a>
+               <a href="${pageContext.request.contextPath}/admin/AdminNoticeListOk.ad"><p id="inform" class="s-title bGray" >공지</p></a>
 			</div>
 			<div class="twoBox">
 				<div class="col-6 col-12-small" style=" margin-left: -3em; ">
@@ -103,13 +103,13 @@
                      									<c:when test="${qna.getAskStatus() eq 1}"><td class="qa-result" style="color:blue;">완료</td></c:when>
                      								</c:choose>
                     								<td><a href="${pageContext.request.contextPath}/admin/AdminQnaUpdate.ad?askNum=${qna.getAskNum()}&page=${page}" class = "titleTag">${qna.getAskTitle()}</a></td>
-                     								<td>${userId}</td>
-                     								<td>${userName}</td>
+                     								<td>${qna.getUserId()}</td>
+                     								<td>${qna.getUserName()}</td>
                      								<c:choose>
-                     									<c:when test="${userStatus eq 1}">
+                     									<c:when test="${qna.getUserStatus() eq 1}">
                      										<td>맘</td>
                      									</c:when>
-                     									<c:when test="${userStatus eq 2}">
+                     									<c:when test="${qna.getUserStatus() eq 2}">
                      										<td>시터</td>
                      									</c:when>
                      								</c:choose>
@@ -175,14 +175,10 @@
 										<hr>
 		
 									<div class="sBox" style="border-bottom: 1px solid #d8dadb; border-top: 1px solid #d8dadb; display: flex; padding-top: 1em; padding-bottom: 1em;">
-										<div style="width: 50%; border-right: 1px solid #d8dadb;">
+										<div style="width: 50%;">
 											<span class="s-title link-title" >문의글 개수</span>
 											<hr>
 											<p>${total} 개</p>
-										</div>
-										<div style="width: 50%; padding-left:1em">
-											<span class="s-title link-title" >일평균</span>
-											<p>${total0} 개</p>
 										</div>
 									</div>
 									<div class="sBox" style="display: flex; padding-top: 1em;">

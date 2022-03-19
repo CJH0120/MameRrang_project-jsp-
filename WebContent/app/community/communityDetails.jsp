@@ -105,31 +105,39 @@
                                   	
 				
 				<!-- 댓글 ㅣ 댓글 작성 했을 때 자동으로 열리게 구현 -->
-				<div id="replyBackground"> 
+				  <!-- 댓글 글쓰기 -->
+                                    <div style = "margin-top:30px;">
+                                        <form method="post" action="#" class="combined" style="width:auto;">	                        
+                                            <textarea name="content" id="content" class = "commentBox" placeholder="커뮤니티가 더 훈훈해지는 댓글 부탁드립니다." class="invert" rows="5"></textarea>
+                                            <input type="button" value="등록하기" class = "submitButton" id = "register" onclick="regist()"/>
+                                        </form>
+                                       
+                                    </div>
+				<div id="replyBackground" style = "margin: 80px 0 30px 0 !important;"> 
                      <img src = "${pageContext.request.contextPath}/images/comment.png" class = "commentImg">
                                 
+                           
                             <span id="toc-toggle" onclick="openCloseToc()">댓글 보기</span>
-                                <ol id="toc-content">
-                                    
+                              <ol id="toc-content">
+                           
                                     <!-- 펼치기 내용 -->
-                                    <div id="reply" style = "padding-top: 40px;">
+                                    <div id="comments" style = "padding-top: 40px;">
                                         <div class="replyPart">
+                                        <form action="#" id="replies" class="combined" style="flex-direction:column; margin:0; display:contents;">
+                        				</form>
+                        				
+                        			  <!-- 예시 부분 
                                             <div class="rep">
                                                 <img class="profileComment" src="${pageContext.request.contextPath}/images/댓글프로필아이콘.jpg" style = "float:left;">
-                                                <div class="rep_a"><p class = "nickname">&nbsp;<strong id = "username">기영누나</strong>  <a class = "commentGray" style ="float:right; margin-left:12px;">삭제</a>
+                                                <div class="rep_a"><p class = "nickname">&nbsp;<strong id = "username">기영누나</strong>  
+                                                <a class = "commentGray" style ="float:right; margin-left:12px;">삭제</a>
                                                     <a class = "commentGray" style ="float:right;">수정</a></p></div>
                                                 <p class = "comment">우와 너무 귀여워요~</p>
                                                 <p class = "commentDate">2022/03/04</p>
                                            </div>
+                                         
                                            <hr class = "splitComment">
-                                           <div class="rep">
-                                                <img class="profileComment" src="${pageContext.request.contextPath}/images/댓글프로필아이콘.jpg" style = "float:left;">
-                                                <div class="rep_a"><p class = "nickname">&nbsp;<strong id = "username">기영누나</strong>  <a class = "commentGray" style ="float:right; margin-left:12px;">삭제</a>
-                                                    <a class = "commentGray" style ="float:right;">수정</a></p></div>
-                                                <p class = "comment">졸리당</p>
-                                                <p class = "commentDate">2022/03/04</p>
-                                            </div>
-                                            <hr class = "splitComment">
+                                          
                                             <div class="rep">
                                                  <img class="profileComment" src="${pageContext.request.contextPath}/images/프로필아이콘.jpg" style = "float:left;">
                                                  <div class="rep_a"><p class = "nickname">&nbsp;<strong id = "username">최고심</strong>  <a class = "commentGray" style ="float:right; margin-left:12px;">삭제</a>
@@ -137,19 +145,13 @@
                                                  <p class = "comment">울와기 오구오구</p>
                                                  <p class = "commentDate">2022/03/04</p>
                                              </div>
+                                             -->
                                         </div>
                                     </div>
                                 </ol>
                             
 
-                                <!-- 댓글 글쓰기 -->
-                                    <div style = "margin-top:30px;">
-                                        <form method="post" action="#" class="combined" style="width:auto;">	                        
-                                            <textarea name="content" id="content" class = "commentBox" placeholder="커뮤니티가 더 훈훈해지는 댓글 부탁드립니다. 불쾌감을 주는 욕설과 악플은 삭제될 수 있습니다." class="invert" rows="5"></textarea>
-                                            <input type="submit" value="등록하기" class = "submitButton">
-                                        </form>
-                                       
-                                    </div>
+                              
                                     <br>
                             </div>
                                         
@@ -163,12 +165,8 @@
 
                     </div>
 		</div>
-		<%-- <!--footer-->
-			<div class="wrapper">
-				<div class="inner">
-				   <jsp:include page="${pageContext.request.contextPath}/app/fix/footer.jsp"/>
-				</div>
-			 </div> --%>
+		 <!--footer-->
+			  <jsp:include page="../fix/footer.jsp" flush="true"/>
 
 		<!-- Scripts -->
 			<script src="${pageContext.request.contextPath}/assets/js/jquery.min2.js"></script>
@@ -183,6 +181,12 @@
 			<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/communityDetails.js"></script>
+			<script>
+				var contextPath = "${pageContext.request.contextPath}";
+	         	var communityNum = "${community.getCommunityNum()}";
+	         	var userNum = "${userNum}";
+			</script>
+			<script src="${pageContext.request.contextPath}/assets/js/comment.js"></script>
 			
 			
 			 

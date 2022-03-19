@@ -5,12 +5,13 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mommy.action.Action;
 import com.mommy.action.ActionForward;
 import com.mommy.app.admin.dao.AdminDAO;
 
 
 
-public class AdminQnaUpdate {
+public class AdminQnaUpdate implements Action{
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
 		int page = Integer.parseInt(req.getParameter("page"));

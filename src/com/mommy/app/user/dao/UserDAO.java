@@ -27,7 +27,7 @@ public class UserDAO {
       public boolean CheckEmail(String EmilFnd) {
           return (Integer)sqlSession.selectOne("User.CheckEmail", EmilFnd) == 1;
        }
-      
+     
     
       //회원가입
       public void join(UserVO user) {
@@ -95,7 +95,16 @@ public class UserDAO {
        
           return SelectPhone;
       }
-     
+      //비밀번호 재설정
+      public String updateUserPw(Map<String, String> updateCUserPw) {
+    	  
+    	  String updateUserPw = null;
+    	
+          try {updateUserPw = sqlSession.selectOne("User.updateUserPw", updateCUserPw);
+                
+          } catch (Exception e) {;}
+          return updateUserPw;
+      }
       
       
       
@@ -136,7 +145,7 @@ public class UserDAO {
   	}
     // 프로필 유무 검사
   	public boolean myPageProfileCk(int userNum) {
-  		System.out.println(userNum);
+  
        return (Integer)sqlSession.selectOne("User.myPageProfileCk", userNum)== 1;
     }  	
       

@@ -57,13 +57,47 @@ public class AdminFrontController extends HttpServlet
 			System.out.println("adQDetail FC");
 			
 		}else if(command.equals("/admin/AdminQnaUpdate.ad")) {
-			af = new AdminQnaUpdateOk().execute(req, resp);
+			af = new AdminQnaUpdate().execute(req, resp);
 			System.out.println("adQUp FC");
 			
 		}else if(command.equals("/admin/AdminQnaUpdateOk.ad")) {
 			af = new AdminQnaUpdateOk().execute(req, resp);
 			System.out.println("adQUpOk FC");
+			
+		}else if (command.equals("/admin/AdminReportListOk.ad")) {
+			af = new AdminReportListOk().execute(req, resp);
+			System.out.println("adRListOk FC");
+			
+		}else if(command.equals("/admin/AdminReportDetailOk.ad")) {
+			af = new AdminReportDetailOk().execute(req, resp);
+			System.out.println("adReportOk FC");
+			
+		}else if(command.equals("/admin/AdminReportDetail.ad")) {
+			af = new AdminReportDetail().execute(req, resp);
+			System.out.println("adRDetail FC");
+			
+		}else if(command.equals("/admin/AdminReportUpdate.ad")) {
+			af = new AdminReportUpdate().execute(req, resp);
+			System.out.println("adRUp FC");
+			
+		}else if(command.equals("/admin/AdminReportUpdateOk.ad")) {
+			af = new AdminReportUpdateOk().execute(req, resp);
+			System.out.println("adRUpOk FC");
+			
+		}else if(command.equals("/admin/AdminNoticeInsert.ad")) {
+			af = new AdminNoticeInsert().execute(req, resp);
+			System.out.println("adNoInsert FC");
+			
+		}else if(command.equals("/admin/AdminNoticeListOk.ad")) {
+			af = new AdminNoticeListOk().execute(req, resp);
+			System.out.println("adNoListOk FC");
+			
+		}else if(command.equals("/admin/AdminNoticeDetail.ad")) {
+			af = new AdminNoticeDetail().execute(req, resp);
+			System.out.println("adNoDetail FC");
+			
 		}
+		
 		
 		//전송안할지
 		if(af != null) {

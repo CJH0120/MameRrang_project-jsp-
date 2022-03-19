@@ -26,8 +26,7 @@ public class CommunityFrontController extends HttpServlet {
 		String contextPath = req.getContextPath();
 		String command = requestURI.substring(contextPath.length());
 		ActionForward af = null;
-		
-		System.out.println("fc 들어왔음");
+	
 		
 		if(command.equals("/communtiy/CommunityInsertOk.com")) { 
 			af = new CommunityInsertOk().execute(req, resp); //String email, MultipartFile file
@@ -45,8 +44,17 @@ public class CommunityFrontController extends HttpServlet {
 		} else if (command.equals("/community/CommunityUpdate.com")) {
 			af = new CommunityUpdate().execute(req, resp);
 		} else if (command.equals("/community/CommunityUpdateOk.com")) {
-			System.out.println("분기처리 들어옴");
 			af = new CommunityUpdateOk().execute(req, resp);
+		} else if (command.equals("/community/FileDownloadOk.com")) {
+			af = new FileDownloadOk().execute(req, resp);
+		} else if (command.equals("/community/CommunityCommentListOk.com")) {
+			new CommunityCommentListOk().execute(req, resp);
+		} else if (command.equals("/community/CommunityCommentUpdateOk.com")) {
+			new CommunityCommentUpdateOk().execute(req, resp);
+		} else if (command.equals("/community/CommunityCommentWriteOk.com")) {
+			new CommunityCommentWriteOk().execute(req, resp);
+		} else if (command.equals("/community/CommunityCommentDeleteOk.com")) {
+			new CommunityCommentDeleteOk().execute(req, resp);
 		}
 		 
 		//전송안할지
