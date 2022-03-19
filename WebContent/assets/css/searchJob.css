@@ -1,0 +1,443 @@
+	a{ 
+		border:none;
+	}
+	
+	span.span{
+		font-size:15px;
+	}
+	
+	@font-face {
+          font-family: 'GmarketSansMedium';
+          src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+      }
+
+        @font-face {
+            font-family: 'GmarketSansLight';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+	
+
+	
+		input:focus{
+			border: none;
+			box-shadow: none;
+			cursor: pointer;
+		}
+	
+	
+		.main{
+			width:70%;
+			margin: 0 auto;
+			padding-bottom: 22px !important;
+			
+			margin-bottom: 30px;
+		}
+		.locationFilter{
+		background-color: #f6f6f6;
+    width: 17%;
+    height: 50px;
+    border-radius: 15px;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 21px;
+    margin-top: -5px;
+		}
+		.userPf{
+			
+    position: relative;
+    background-color: white;
+    width: 100%;
+    height: 200px;
+    border-radius: 20px;
+    border: 1px solid #d4cfcf;
+    margin-bottom: 15px;
+		
+		}
+		.userImg{
+width: 9%;
+    float: left;
+    margin-top: 33px;
+    margin-left: 40px;
+		}
+		.userImgDetail{
+			width:100%;
+			border-radius: 20px;
+			
+		}
+		.userName{
+		float: left;
+    margin-top: 29px;
+    margin-left: 17px;
+    width: 65%;
+		}
+	
+	
+	
+	
+		.heart{
+			width: 34px;
+			position: absolute;
+			margin-top: 22px;
+    		margin-left: 93%;
+		}
+		.infoDetail{
+			display: inline; 
+			font-size: 14px;
+		}
+
+		/* .line{
+			width: 1px;
+			height: 13px;
+			background-color: gray;
+			position: relative;
+			margin-left: 24.7%;
+    		margin-top: -15.2%;
+		} */
+	
+
+		.locationImg{
+			width: 20px;
+			display: inline-block;
+			margin-left: 20px;
+			margin-top: 10px;
+		}
+		input:focus { outline: none !important; }
+		
+		input.locationInput{
+			width: 60% ; 
+			height: 47px;
+			display: inline-block;
+		
+			background-color: white ; 
+			border: none ;
+			
+
+		}
+		.baby{
+			width: 25px;
+    margin-left: 18px;
+    margin-top: 11px;
+		}
+
+		.detailSearchButton{
+	 width: 120px;
+    height: 40px;
+    background-color: white;
+    margin-left: 89.5%;
+    margin-top: 5px;
+    border-radius: 20px;
+    line-height: 2;
+    border-color: #93999a;
+    box-shadow: none;
+    border-width: thin;
+		}
+		.filter{
+		width: 20px;
+    position: absolute;
+    margin-top: 14.5px;
+   margin-left: 90.7%;
+		}
+		.fontSize{
+			font-size: 15px;
+
+		}
+		.money{
+			width: 23px;
+			display: inline-block;
+		}
+		.line{
+			display: inline-block; width: 1px; height: 15px; background-color: gray;
+			margin-top: 11px;
+    		position: absolute;
+		}
+
+		.day{
+		margin-left: -12%;
+			position: relative;
+			
+		}
+		.days{
+			position: absolute;
+			display: inline;
+	margin-top: 0.5%;
+  margin-left: 92px;
+		
+		}
+		   
+               #my_modal {
+      display: none;
+   width: 458px;
+    height: 82%;
+    background-color: #fefefe;
+    border: 1px solid #888;
+   border-radius: 17px;
+    overflow: hidden;
+            }
+
+            #my_modal .modal_close_btn {
+                position: absolute;
+                top: 10px;
+                right: 28px;
+            }
+                  #myModal2 {
+        display: none;
+    width: 502px;
+    height: 82%;
+    background-color: #fefefe;
+    border: 1px solid #888;
+ border-radius: 17px;
+    overflow: hidden;
+            }
+            .modalCloseBtn2{
+                position: absolute;
+                top: 10px;
+                right: 28px;
+            }
+            
+            #myModal3{
+                display: none;
+               width: 587px;
+    			height: 32%;
+                padding: 20px 60px;
+                background-color: #fefefe;
+                border: 1px solid #888;
+              border-radius: 17px;
+              
+            
+            }
+            .area{
+            margin-bottom: 11px;
+  			  background-color: white;
+            }
+            
+            
+           .modalCloseBtn3 {
+            position: absolute;
+		    margin-top: -39%;
+		    margin-left: 80%;
+            }
+		
+		            
+                       #myModal4 {
+display: none;
+    width: 300px;
+    height: 347px;
+    background-color: #fefefe;
+    border: 1px solid #888;
+border-radius: 17px;
+    overflow: hidden;
+            }
+            .modalCloseBtn4{
+                position: absolute;
+                top: 10px;
+            right: 15px;
+            }
+            
+            
+            
+		/* ---------------------------------------------------------------------------------------------- */
+		@media (max-width: 576px){
+		.mo1{
+		padding-left: 21px !important;
+		}
+		
+		
+		.main{
+			width: 92% !important;
+		}
+		.locationFilter{
+			background-color: whitesmoke;
+			width: 95%;
+			height: 50px;
+   			margin: 10px auto;
+			border-radius: 15px;
+		}
+		.userPf{
+    position: relative;
+    background-color: white;
+    width: 100%;
+    height: 187px;
+    border-radius: 20px;
+    border: 1px solid #d4cfcf;
+    margin-bottom: 15px;
+		}
+		.userImg{
+	width: 20%;
+    float: left;
+    margin-left: 13px !important;
+    margin-top: 33px;
+		}
+		.userImgDetail{
+			width:100%;
+			border-radius: 20px;
+			
+		}
+		.userName{
+			float: left;
+   			margin-top: 39px;
+    		margin-left: 17px;
+			width: 65%;
+		}
+	
+	
+	
+	
+		.heart{
+		width: 30px;
+    margin-top: 6px;
+    margin-left: 90.5%;
+		}
+		.infoDetail{
+			display: inline; 
+			font-size: 14px;
+		}
+
+		/* .line{
+			width: 1px;
+			height: 13px;
+			background-color: gray;
+			position: relative;
+			margin-left: 24.7%;
+    		margin-top: -15.2%;
+		} */
+		span.span{
+			font-size: 15px;
+		}
+
+		.locationImg{
+		    width: 20px;
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-right: -16px;
+		}
+		input:focus { outline: none !important; }
+		
+		input.locationInput{
+			width: 60% ; 
+			height: 47px;
+			display: inline-block;
+		
+			background-color: white ; 
+			border: none ;
+			
+
+		}
+		.baby{
+			width:25px;
+			margin-left: 18px;
+			margin-top: 13px;
+		}
+
+		.detailSearchButton{
+		margin-left: 67%;
+		}
+		.filter{
+		margin-left: 72%;
+		}
+		.fontSize{
+		    font-size: 15px;
+    margin-top: 1px;
+		}
+		.money{
+			width: 23px;
+			display: inline-block;
+		}
+		.line{
+			display: inline-block; width: 1px; height: 15px; background-color: gray;
+			margin-top: 11px;
+    		position: absolute;
+		}
+
+		.day{
+			margin-left: -40%;
+			position: relative;
+			
+		}
+		
+		
+		p{
+		margin-bottom: -18px;
+		margin-left: -18px;
+		}
+		
+		
+		h4{
+		    font-size: 13px;
+		}
+		.span{
+		font-size: 12px !important;
+    margin-left: -3px !important;
+		}
+		.mobileAd{
+		height: 30px !important;
+		}
+		
+		           #my_modal {
+       display: none;
+    width: 352px;
+    height: 530px;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    border-radius: 36px;
+    overflow: hidden;
+            }
+
+            #my_modal .modal_close_btn {
+                position: absolute;
+                top: 10px;
+                right: 28px;
+            }
+                  #myModal2 {
+ display: none;
+    width: 352px;
+    height: 62%;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    border-radius: 36px;
+    overflow: hidden;
+            }
+            .modalCloseBtn2{
+                position: absolute;
+                top: 10px;
+                right: 28px;
+            }
+            
+            #myModal3{
+            display: none;
+    width: 347px;
+    height: 31%;
+    padding: 20px 29px;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    border-radius: 36px;
+              
+            
+            }
+            .area{
+            margin-bottom: 11px;
+  			  background-color: white;
+            }
+            
+            
+           .modalCloseBtn3 {
+            position: absolute;
+		    margin-top: -61%;
+		    margin-left: 80%;
+            }
+            
+            .modal{
+    margin-left: -13px !important;
+    width: 111% !important;
+    margin-top: -14px !important;
+            }
+			.modal2{
+margin-left: -40px !important;
+    width: 400px !important;
+			}
+		
+		}
