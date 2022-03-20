@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE HTML>
 <!--
    Exponent by Pixelarity
@@ -22,8 +24,13 @@
       </style>
    </head>
    <body class="is-preload" style="display:block; padding-top: 0; overflow-y: hidden">
+		<c:set var="authList" value="${authList}"/>
 
-
+		<c:set var="page" value="${page}"/>
+		<c:set var="startPage" value="${startPage}"/>
+		<c:set var="endPage" value="${endPage}"/>
+		<c:set var="realEndPage" value="${realEndPage}"/>
+		<c:set var="total" value="${total}"/>
 
       <!-- Main -->
          <div id="main" class="container">
@@ -43,7 +50,7 @@
                <a href="${pageContext.request.contextPath}/app/admin/admin.jsp" style="border-bottom:2px solid #ffb61a;"><p id="total" class="s-title text bYellow">통계 </p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminQnaListOk.ad"><p id="qna" class="s-title text bGray" >문의</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminReportListOk.ad"><p id="report" class="s-title bGray" >신고</p></a>
-               <a href="${pageContext.request.contextPath}/app/admin/adminAuth.jsp"><p id="auth" class="s-title bGray">인증</p></a>
+               <a href="${pageContext.request.contextPath}/admin/AdminAuthListOk.ad"><p id="auth" class="s-title bGray">인증</p></a>
                <a href="${pageContext.request.contextPath}/app/admin/adminMList.jsp"><p id="memberList" class="s-title bGray" >회원목록</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminNoticeListOk.ad"><p id="inform" class="s-title bGray" >공지</p></a>
          </div>
@@ -53,151 +60,113 @@
                                  <table>
                                     <tr>
                                        <td style="width:86.8px;"></td>
-                                       <td>상태</td>
+                                       <td>프로필번호</td>
                                        <td>이름</td>
                                        <td>아이디</td>
                                        <td>첨부파일</td>
                                        <td>작성일</td>
                                     </tr>
 
-							
 								<tbody class="tr_wrap">
+								<c:choose>
+								<c:when test="${authList != null}">
+									<c:forEach var="auth" items="${authList}">
+								 
+								  <script>
+								 /*  	var asd='copy1.${auth.getProfileNum()}';
+									console.log(asd);	
+							     	console.log($(asd).val());
+							     	 */
+								  </script>
+								  
+								  	
+								<tr class="wrap">
+									<td class="test"><img id="qwe"
+										src="${pageContext.request.contextPath}/images/v2.png "
+										style="width: 15px"></td>
+									<td>${auth.getProfileNum()}</td>
+									<td>${auth.getUserName()}</td>
+									<td >${auth.getUserId()}</td>
+									<td><a
+										href="${pageContext.request.contextPath}/images/학력증명서.png"
+										download="학력증명서">학력증명서.pdf</a></td>
+									<td>${auth.getProfileDate()}</td>
+								</tr>
+
+								<tr class="td1">
+									<td colspan="7">
+									
+									
+									
+										<div class="certification_wrap"> 
+											<div style = "float:left;">
+											<c:choose>
+											<c:when test="${auth.getCheckMedi() eq 0}">
+											<input type="checkbox" id="copyA${auth.getProfileNum()}" name="copy" value="1"  >
+											<label for="copyA${auth.getProfileNum()}" class="text">건강인증</label>
+											<div id='result' ></div>
+												</c:when>
+											</c:choose>			
+											</div>
+											
 								
-								<tr class="wrap">
-									<td class="test"><img id="qwe"
-										src="${pageContext.request.contextPath}/images/v2.png "
-										style="width: 15px"></td>
-									<td style="color: red;">대기</td>
-									<td>사토미</td>
-									<td>qwe1234</td>
-									<td><a
-										href="${pageContext.request.contextPath}/images/학력증명서.png"
-										download="학력증명서">학력증명서.pdf</a></td>
-									<td>2022-03-01</td>
-								</tr>
-
-								<tr class="td1">
-									<td colspan="7">
-										<div class="certification_wrap">
+											
+											
+												
+											
+											<!-- ////////////////////////////// -->
 											<div style = "float:left;">
-											<input type="checkbox" id="copy1" name="copy1" class="copy1">
-											<label for="copy1" class="text">건강인증</label> 
+											<c:choose>
+											<c:when test="${auth.getCheckMom() eq 0}">
+											<input type="checkbox" id="copyB${auth.getProfileNum()}" name="copy"value="1"  >
+											<label for="copyB${auth.getProfileNum()}" class="text">부모님인증</label>
+											</c:when>
+											</c:choose>
 											</div>
-											<div style = "float:left;">
-											<input type="checkbox" id="copy2" name="copy2" >
-											<label for="copy2" class="text">부모님인증</label>
-											</div>
-											<div style = "float:left;">
-											<input type="checkbox" id="copy3" name="copy3" >
-											<label for="copy3" class="text">교사인증</label> 
-											</div>
-											<div style = "float:left;">
-											<input type="checkbox" id="copy4" name="copy4" >
-											<label for="copy4" class="text">본인인증</label>
-											</div>
-											<div style = "float:left;">
-											<input type="checkbox" id="copy5" name="copy5" >
-											<label for="copy5" class="text">학력인증</label>
-											</div>
-										</div>
 										
-										<form action="" class="submit_btn">
-											<div>
-												<button type="submit" class="btn">인증확인</button>
+										
+											<!-- ////////////////////////////// -->
+											<div style = "float:left;">
+											<c:choose>
+											<c:when test="${auth.getCheckTeacher() eq 0}">
+											<input type="checkbox" id="copyC${auth.getProfileNum()}" name="copy"value="1"  >
+											<label for="copyC${auth.getProfileNum()}" class="text">교사인증</label> 
+											</c:when>
+											</c:choose>
 											</div>
-										</form>
+												<!-- ////////////////////////////// -->
+											<div style = "float:left;">
+											<c:choose>
+											<c:when test="${auth.getCheckCitizen() eq 0}">
+											<input type="checkbox" id="copyD${auth.getProfileNum()}" name="copy"value="1"  >
+											<label for="copyD${auth.getProfileNum()}" class="text">본인인증</label>
+											</c:when>
+											</c:choose>
+											</div>
+									
+											<div style = "float:left;">
+											<c:choose>
+											<c:when test="${auth.getCheckUniversity() eq 0}">
+											<input type="checkbox" id="copyE${auth.getProfileNum()}" name="copy"value="1" >
+											<label for="copyE${auth.getProfileNum()}" class="text">학력인증</label>
+											</c:when>
+											</c:choose>
+											</div>
+											
+											<div>
+												 <button class="btn">인증확인</button>
+											
+											</div>
+											</div> 
+										
 									</td>
 								</tr>
-								<tr class="wrap">
-									<td class="test"><img id="qwe"
-										src="${pageContext.request.contextPath}/images/v2.png "
-										style="width: 15px"></td>
-									<td style="color: red;">대기</td>
-									<td>사토미</td>
-									<td>qwe1234</td>
-									<td><a
-										href="${pageContext.request.contextPath}/images/학력증명서.png"
-										download="학력증명서">학력증명서.pdf</a></td>
-									<td>2022-03-01</td>
-								</tr>
-
-								<tr class="td1">
-									<td colspan="7">
-										<div class="certification_wrap">
-											<div style = "float:left;">
-											<input type="checkbox" id="copy1" name="copy1" class="copy1">
-											<label for="copy1" class="text">건강인증</label> 
-											</div>
-											<div style = "float:left;">
-											<input type="checkbox" id="copy2" name="copy2" >
-											<label for="copy2" class="text">부모님인증</label>
-											</div>
-											<div style = "float:left;">
-											<input type="checkbox" id="copy3" name="copy3" >
-											<label for="copy3" class="text">교사인증</label> 
-											</div>
-											<div style = "float:left;">
-											<input type="checkbox" id="copy4" name="copy4" >
-											<label for="copy4" class="text">본인인증</label>
-											</div>
-											<div style = "float:left;">
-											<input type="checkbox" id="copy5" name="copy5" >
-											<label for="copy5" class="text">학력인증</label>
-											</div>
-										</div>
-										
-										<form action="" class="submit_btn">
-											<div>
-												<button type="submit" class="btn">인증확인</button>
-											</div>
-										</form>
-									</td>
-								</tr>
-								<tr class="wrap">
-									<td class="test"><img id="qwe"
-										src="${pageContext.request.contextPath}/images/v2.png "
-										style="width: 15px"></td>
-									<td style="color: red;">대기</td>
-									<td>사토미</td>
-									<td>qwe1234</td>
-									<td><a
-										href="${pageContext.request.contextPath}/images/학력증명서.png"
-										download="학력증명서">학력증명서.pdf</a></td>
-									<td>2022-03-01</td>
-								</tr>
-
-								<tr class="td1">
-									<td colspan="7">
-										<div class="certification_wrap">
-											<div style = "float:left;">
-											<input type="checkbox" id="copy1" name="copy1" class="copy1">
-											<label for="copy1" class="text">건강인증</label> 
-											</div>
-											<div style = "float:left;">
-											<input type="checkbox" id="copy2" name="copy2" >
-											<label for="copy2" class="text">부모님인증</label>
-											</div>
-											<div style = "float:left;">
-											<input type="checkbox" id="copy3" name="copy3" >
-											<label for="copy3" class="text">교사인증</label> 
-											</div>
-											<div style = "float:left;">
-											<input type="checkbox" id="copy4" name="copy4" >
-											<label for="copy4" class="text">본인인증</label>
-											</div>
-											<div style = "float:left;">
-											<input type="checkbox" id="copy5" name="copy5" >
-											<label for="copy5" class="text">학력인증</label>
-											</div>
-										</div>
-										
-										<form action="" class="submit_btn">
-											<div>
-												<button type="submit" class="btn">인증확인</button>
-											</div>
-										</form>
-									</td>
-								</tr>
+								</c:forEach>
+								</c:when>
+								<c:otherwise>
+                        			<td colspan="7" style="text-align: center;">인증이 필요한 회원이 없습니다.</td>
+                        		</c:otherwise>
+                			</c:choose> 
 								</tbody>
 
 							</table>
@@ -226,12 +195,12 @@
                               <div style="width: 100%;">
                                  <span class="s-title link-title" >인증된 회원수</span>
                                  <hr>
-                                 <p>700명</p>
+                                 <p>700 명</p>
                               </div>
                            </div><div class="sBox" style="display: flex; padding-top: 1em;">
                               <div style="width: 100%;">
                                  <span class="s-title link-title" >대기중</span>
-                                 <p>14명</p>
+                                 <p>${total} 명</p>
                               </div>
                            </div>
                            
@@ -242,9 +211,19 @@
               
                            
       <!-- Scripts -->
+      <%-- id="copy1${auth.getProfileNum()}"  --%>
+ 	<script>
+ 	
+	var	userId = '${auth.getUserId()/>''
+		console.log(userId.val);
+ 		 	
+ 	
+ 	</script>
+      
          <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
          <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-         
+         <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+         <script> var context = '${pageContext.request.contextPath}'</script>
          <script src="${pageContext.request.contextPath}/assets/js/jquery.scrolly.min.js"></script>
          <script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
          <script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>

@@ -413,6 +413,7 @@ overflow: hidden;
             width:20%;
             font-weight: bold;
             color:white;
+            cursor: pointer;
         }
 
         input.uploadButton{

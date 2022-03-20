@@ -45,6 +45,10 @@ public class ServiceDAO {
 	public List<ServiceDTO> searchDetail(Map<String, Integer> modalInput) {
 		return sqlSession.selectList("Service.searchDetail", modalInput);  
 	}
+	//상세검색 게시글 총 갯수
+	public int searchDetailGetTotal(Map<String, Integer> modalInput) {
+		return sqlSession.selectOne("Service.searchDetailGetTotal", modalInput);  
+	}
 	
 	
 	

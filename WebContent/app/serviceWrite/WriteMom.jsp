@@ -40,7 +40,7 @@
          
          <!-- 모달창 -->
 		   <div id="my_modal">
-	<iframe src="${pageContext.request.contextPath}/app/modal/periodModal2.jsp" style="
+	<iframe src="${pageContext.request.contextPath}/app/modal/periodModal.jsp" style="
       position: absolute;
     width: 106%;
     margin-left: -69px;
@@ -53,7 +53,7 @@
 		<!-- Main -->
 		<div id="main" class="container medium" style = "display:flex;">
 			<!-- profile header -->
-			<form action="${pageContext.request.contextPath}/service/WriteMomOk.ser" name="writeForm" method="post" enctype="multipart/form-data">
+		
             <div style = "width: 70%; background: white; position:relative;" class="mediaMain">
            
                 <div style="text-align: left; display:inline-block; margin-left:15px;">
@@ -62,7 +62,8 @@
                     <img src="${pageContext.request.contextPath}/images/유저.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">
                     </label>
                     <div style = "position:absolute; top: 19px; left: 136px;">
-                          <h3 style="margin-bottom: 3px; font-size: 18px;">김아무개</h3><span style = "margin-top: 20px; font-size:16px;">29세, 여</span>
+                          <h3 style="margin-bottom: 3px; font-size: 18px;">김아무개 <span style="font-size: 15px;">부모님</span></h3>
+                          <span style = "margin-top: 20px; font-size:16px;">29세, 여</span>
                      </div>
                      
                      
@@ -79,24 +80,28 @@
                         <p class ="innerTitle">선호하는 돌봄유형</p>
                         <div>
                             <div style = "float:left; margin-right:30px;">
-                                <input type="checkbox" id="inside" name="inside">
-                                <label for="inside" style = "font-size:16px;">실내놀이</label>
+                                <input type="checkbox" id="careIndoor" value="careIndoor" name="caretype">
+                                <label for="careIndoor" style = "font-size:16px;">실내놀이</label>
                             </div>
                             <div style = "float:left;  margin-right:30px;">
-                                <input type="checkbox" id="commit" name="commit" checked>
-                                <label for="commit" style = "font-size:16px;">등하원</label>
+                                <input type="checkbox" id="careCommit" value="careCommit" name="caretype" >
+                                <label for="careCommit" style = "font-size:16px;">등하원</label>
                             </div>
                             <div style = "float:left;  margin-right:30px;">
-                                <input type="checkbox" id="food" name="food" checked>
-                                <label for="food" style = "font-size:16px;">밥 챙겨주기</label>
+                                <input type="checkbox" id="careFood" value="careFood" name="caretype" >
+                                <label for="careFood" style = "font-size:16px;">밥 챙겨주기</label>
                             </div>
                             <div style = "float:left;  margin-right:30px;">
-                                <input type="checkbox" id="clean" name="clean" checked>
-                                <label for="clean" style = "font-size:16px;">청소</label>
+                                <input type="checkbox" id="careClean" value="careClean" name="caretype" >
+                                <label for="careClean" style = "font-size:16px;">청소</label>
                             </div>
                             <div>
-                                <input type="checkbox" id="teach" name="teach" checked>
-                                <label for="teach" style = "font-size:16px;">학습 지도</label>
+                                <input type="checkbox" id="careStudy" value="careStudy" name="caretype" >
+                                <label for="careStudy" style = "font-size:16px;">학습 지도</label>
+                            </div>
+                             <div>
+                                <input type="checkbox" id="careEmergency" value="careEmergency" name="caretype" >
+                                <label for="careEmergency" style = "font-size:16px;">긴급 돌봄</label>
                             </div>
                         </div>
                     </div>
@@ -105,20 +110,20 @@
                             <p class ="innerTitle">아이 정보</p>
                             <div>
                                 <div style = "float:left; margin-right:30px;">
-                                    <input type="checkbox" id="newborn" name="newborn">
-                                    <label for="newborn" style = "font-size:16px;">신생아</label>
+                                    <input type="checkbox" id="babyNewborn" value = "babyNewborn" name="babytype">
+                                    <label for="babyNewborn" style = "font-size:16px;">신생아</label>
                                 </div>
                                 <div style = "float:left;  margin-right:30px;">
-                                    <input type="checkbox" id="baby" name="baby">
-                                    <label for="baby" style = "font-size:16px;">영아</label>
+                                    <input type="checkbox" id="babyChild" value="babyChild" name="babytype">
+                                    <label for="babyChild" style = "font-size:16px;">영아</label>
                                 </div>
                                 <div style = "float:left;  margin-right:30px;">
-                                    <input type="checkbox" id="kinder" name="kinder" checked>
-                                    <label for="kinder" style = "font-size:16px;">유치원생</label>
+                                    <input type="checkbox" id="babyKinder" value="babyKinder" name="babytype" checked>
+                                    <label for="babyKinder" style = "font-size:16px;">유치원생</label>
                                 </div>
                                 <div style = "float:left;  margin-right:30px;">
-                                    <input type="checkbox" id="elememtary" name="elememtary" checked>
-                                    <label for="elememtary" style = "font-size:16px;">초등학생</label>
+                                    <input type="checkbox" id="babyElementary" value="babyElementary" name="babytype" checked>
+                                    <label for="babyElementary" style = "font-size:16px;">초등학생</label>
                                 </div>
                                
                             </div>
@@ -129,7 +134,6 @@
                             <p class ="innerTitle">원하는 돌봄 기간</p>
                             <div class = "innerModify" id="period">수정</div> <!-- 모달 창으로 이동 -->
                             <div class="content3">
-                                <!-- ajax 로 선택한 것 여기에 출력 -->
                                <p style ="font-size:16px;" >원하는 돌봄 기간을 입력해주세요.</p>
                             </div>
                         </div>

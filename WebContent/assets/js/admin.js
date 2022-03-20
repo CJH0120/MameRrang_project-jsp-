@@ -64,9 +64,190 @@
              $($aw[index]).toggle();
          })
      });           
+//         var test1 = document.getElementsByName('copy4');
+//         
+//         
+//         var test1Result = test1.getAttribute("checked");
+//         
+//         
+         
+//         $('copy').prop("checked");
+//         $('copy').is(":checked");
+//         console.log($('copy').is(":checked"));
+//         
+//        $("copy").prop("checked", true);
+//         
+//        
+//        $("dddd").click(function() {
+//            if(this.checked) {
+//            	alert('체크됨');
+//                //Do stuff
+//            }else{
+//            	alert('체크풀림');
+//            }
+//        });
+        
+//         const dataForm =$(document.forms["submitform"]).serialize();
+//         
+//         dataForm["copy"]=$('copy').is("checked")?"0" :"1";
+//         
+//         
+//         
+//         
+//         
+//         
+//         $('.btn').click(function() {
+//		console.log(dataForm.copy);	
+//		})
+//         
+//         
+//         
+//        
+//    
+//        	  if ($(".dddd").is(":checked")){
+//        		  $('input:checkbox[name=copy3]:checked').eq(0).prop("checked", false);
+//        	       
+//        	     }else {
+//        	    	  $('input:checkbox[name=copy3]:not(checked)').eq(0).prop("checked", true);
+//        	     } 
+//        	  $('input:checkbox[name=copy3]').each(function()
+//        	  {
+//        	   if($(this).prop("disabled")) {
+//        	    $(this).prop("checked", false);
+//        	   }
+//        	  });    
+//        	  
+//         
+       
+//        
 
-           
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+//      	  var chk_len =  $(this).parent().parent().find(":checkbox:checked");
+//      		  $('.certification_wrap').$(this).find(":checkbox:checked") ;
+      	  
+      	  
+      	  
+      	  
+
+      	
+      	  		
+
       
+      	  		
+      	  		
+      	  	   $(".btn").click(function(){
+      	  		   
+      	  		   var one = $(this).parent().parent().find(":checkbox:checked").eq(0).val();
+      	  		   var two = $(this).parent().parent().find(":checkbox:checked").eq(1).val();
+      	  		   var three = $(this).parent().parent().find(":checkbox:checked").eq(2).val();
+      	  		   var four = $(this).parent().parent().find(":checkbox:checked").eq(3).val();
+      	  		   var five = $(this).parent().parent().find(":checkbox:checked").eq(4).val();
+      	  		   var name = userId;
+      	  		   	console.log(name);
+      	  		alert(name);
+      	  	  	 $.ajax({ 
+      	  			 url : context+"/admin/AdminCheckOk.ad",
+      	  			 type : "Post", 
+      	  			 data : {"one": one,"two" :two,"three" :three,
+      	  				 	"four":four,"five":five	, "userId": userId },        			 
+      	  			 dataType: 'JSON', 
+      	  			 success : function (data){
+      	  			 
+      	  				 }
+      	  			         		 
+      	  			 
+      	  	 })
+      	  	   })
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//         
+//         if($("input:checkbox[class='dddd']").is(":checked") == true){
+//        	 console.log(ddd);
+//         
+//         }else{
+//         
+//         }
+//     
+//         var ck =  $('.certification_wrap').contents().find('copy').is(':checked');
+//		   $('.certification_wrap').contents().find('copy').each(function() {
+//			      if(this.checked){//checked 처리된 항목의 값
+//		    	  $("#formDataFromIf").append("<input type='hidden' name='"+this.name+"' value='"+this.value+"'>");	
+//			      }
+//			 });
+//         
+//         
+         
+         
+         
+         
+         
+         
+         
+
+//         if($('copy4').is(":checked") == true){
+//        	    console.log('chk ok!!');
+//        	}
+//         if($('copy4').is(":checked") == false){
+//        	    console.log('no chk!!');
+//        	}
+         
+//         $('checksubmit').click(function() {
+//        	 if($(this).is(":checked") == true){
+//         	    console.log('chk ok!!');
+//         	}
+//		})
+       
+        	 
+//        	 
+
+
+     
+//         
+//       var count =0;
+//       
+//       
+//        	for(i=0;i<val.length;i++){
+//        		$('.btn').click(function() {
+//					alert('눌린갯수' +count)
+//					
+//					count++
+//				})
+//        		
+//        		
+//        	}
+//         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
            
            
            

@@ -76,7 +76,7 @@
       <form name="loginForm" method="post" action="${pageContext.request.contextPath }/user/UserLoginOk.user">
          <div id="main" class="container">
             <header class="major">
-               <a href="${pageContext.request.contextPath}/app/etc/main.jsp"><h2><img alt="" src="${pageContext.request.contextPath}/images/로고1.png"></h2></a>
+            	<h2><img alt="" src="${pageContext.request.contextPath}/images/로고1.png"></h2>
             </header>
             <div class="col-3">
                <div class="col-1">

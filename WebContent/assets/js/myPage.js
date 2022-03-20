@@ -171,17 +171,10 @@ var flag = false;
 					}else{
 						console.log('비밀번호 체크 실패')
 						var text = "";
-						++pwCkCnt;
 						
-					
 						$("#idFaildText").html(text);
-						if(pwCkCnt >= 5){
-						text = "<p>비밀번호 인증 횟수 초과입니다. 고객센터로 문의하세요</p>";
-						$(".infoWrapper").html(text);
-						}else{
-							text ="<p>비밀번호 인증에 실패하였습니다. (남은 시도횟수"+ (5 -pwCkCnt) +"회)</p>"
+							text ="<p>입력한 비밀번호가 맞지 않습니다.</p>"
 							$("#idFaildText").html(text);
-						}
 					}
 				},
 				error:function(){
@@ -189,6 +182,67 @@ var flag = false;
 				}
 				
 			});
+/*--------------------------------원래코드-----------------------------------------------*/
+/*				// 마이페이지 아이디, 비밀번호 입력후 검사 성공 한다면 실행할 이벤트 
+				function myPageCk() {
+					//	비밀번호 검사후 아래 ajax로 창이동   
+							var $myPagePwInput=$('input[name=myPagePwInput]').val();
+							console.log($myPagePwInput);
+							console.log('===========');
+							console.log(contextPath);
+							contents=$.ajax({
+							url: contextPath +"/myPage/MyPagePwCkOk.my", // 통신할url
+							data:{"userPw":$myPagePwInput},
+							type:"POST"	,
+							dataType: "json",
+							success: function(data) {
+								
+								// 인증성공
+								// 컨트롤러에서 인증에 성공했다면 세션에 로그인한 유저번호를 받아서 
+								// 현재 세션의 번호와맞는지 한번더 검사한다. 
+								if(data.userNum == userNum){
+									console.log('비밀번호 체크  성공')
+									contents=$.ajax({
+										url: contextPath +"/myPage/MyPageInfo.my", 		// 통신할url
+										dataType: "html",			//전송받은 데이터를 변환시킬 컨텐츠 타입
+										type:"get"	,
+										success:function(e){
+											$('div#informatiom').html(e);
+										},
+										error:function(){
+											alert("실패");
+										}
+										
+									});
+									
+								}else{
+									console.log('비밀번호 체크 실패')
+									var text = "";
+									++pwCkCnt;
+									
+								
+									$("#idFaildText").html(text);
+									if(pwCkCnt >= 5){
+									text = "<p>비밀번호 인증 횟수 초과입니다. 고객센터로 문의하세요</p>";
+									$(".infoWrapper").html(text);
+									}else{
+										text ="<p>비밀번호 인증에 실패하였습니다. (남은 시도횟수"+ (5 -pwCkCnt) +"회)</p>"
+										$("#idFaildText").html(text);
+									}
+								}
+							},
+							error:function(){
+								console.log('실패')
+							}
+							
+						});
+						if (window.matchMedia("(max-width: 700px)").matches) {
+							$main.css('display','none');
+							$mainBox.css('display','block');
+					}
+				}*/
+/*--------------------------------------------------------------------------------------------------------*/
+				
 /*			if (window.matchMedia("(max-width: 700px)").matches) {
 				$main.css('display','none');
 				$mainBox.css('display','block');

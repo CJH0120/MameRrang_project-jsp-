@@ -25,6 +25,8 @@
        <typeAlias type="com.mommy.app.admin.vo.AdminQnaVO" alias="AdminQnaVO"/>
        <typeAlias type="com.mommy.app.admin.vo.AdminQnaDTO" alias="AdminQnaDTO"/>
        <typeAlias type="com.mommy.app.admin.vo.AdminNoticeVO" alias="AdminNoticeVO"/>
+       <typeAlias type="com.mommy.app.admin.vo.AdminAuthVO" alias="AdminAuthVO"/>
+       <typeAlias type="com.mommy.app.admin.vo.AdminAuthDTO" alias="AdminAuthDTO"/>
 
    </typeAliases>
 

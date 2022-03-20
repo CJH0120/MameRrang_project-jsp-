@@ -55,7 +55,7 @@
 				<div class="col-6 col-12-small" style=" margin-left: -3em; margin-top: -0.5em;">
 					<section id="content" style="width: 100%; padding: 0 0 0 0; font-size: 14px;">
           				<div style="">
-               				<input type="button" value="글쓰기" onclick="location.href='admin-informDetail.jsp'" style="float: right; font-size:14px;">
+               				<input type="button" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/admin/AdminNoticeDetail.ad'" style="float: right; font-size:14px;">
 						</div>
                			<table style="background-color: white;">
                   			<tr>

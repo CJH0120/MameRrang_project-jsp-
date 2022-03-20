@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.mommy.app.admin.vo.AdminAuthDTO;
 import com.mommy.app.admin.vo.AdminNoticeVO;
 import com.mommy.app.admin.vo.AdminQnaDTO;
 import com.mommy.app.admin.vo.AdminQnaVO;
@@ -60,6 +61,9 @@ public class AdminDAO
 		public int getQnaTotal1() {
 			return sqlSession.selectOne("Admin.getReportTotal1");
 		}
+		
+		
+		
 //----------------------------------------------------------------------
 		
 //----------------신고---------------------------------------------------
@@ -102,5 +106,15 @@ public class AdminDAO
 		}
 		
 	  
-//----------------------------------------------------------------------	  
+//----------------------------------------------------------------------
+		
+	//인증글 목록 조회
+	public List<AdminAuthDTO> authSelectAll(Map<String, Integer> authMap){
+		return sqlSession.selectList("Admin.authSelectAll", authMap);
+	}	
+
+	//공지 게시글 총 개수
+	public int authGetTotal() {
+		return sqlSession.selectOne("Admin.authGetTotal");
+	}	
 }

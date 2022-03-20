@@ -346,36 +346,30 @@
                      <!-- 돌봄유형 모달창 main -->
     <div class="main3">
    
-        <div style="    background-color: #ffb61a9e;
-    width: 477px;
-    height: 86px;
-    text-align: center;">
-        <h2 style="color:white; line-height: 3;
-    font-size: 29px;">&nbsp;돌봄유형 선택</h2></div>
-     <div style="    text-align: center;
-    width: 477px;
-    height: 683px;" class="media2">
+        <div style=" background-color: #ffb61a9e; width: 477px;height: 86px; text-align: center;">
+        <h2 style="color:white; line-height: 3;font-size: 29px;">&nbsp;돌봄유형 선택</h2></div>
+    	<div style=" text-align: center;width: 477px; height: 683px;" >
         <br>
-        <h3 style="margin: 1px; font-family: GmarketSansMedium;" class="media20">어떤 돌봄이 필요하세요?</h3>
+        <h3 style="margin: 1px; font-family: GmarketSansMedium;" >어떤 돌봄이 필요하세요?</h3>
         <p style="margin: 0; color: gray;" class="media21">돌봄 유형을 선택하시면, 맞춤 시터를 보여드려요</p>
 
-        <div >
-            <div class="child media4">
+        <div>
+            <div class="child">
                 2~10세 정기 돌봄
             </div>
 
             <div>
-                <img src="${pageContext.request.contextPath}/images/등하원.png" style="width: 50px; margin: 0 70px;" class="media6">
-                <img src="${pageContext.request.contextPath}/images/학습지도.png" style="width: 50px; margin: 0 70px;" class="media6">
+                <img src="${pageContext.request.contextPath}/images/등하원.png" style="width: 50px; margin: 0 70px; cursor:pointer;" id="goToSchool" >
+                <img src="${pageContext.request.contextPath}/images/학습지도.png" style="width: 50px; margin: 0 70px; cursor:pointer;" id="play">
             </div>
-            <div style="margin: 0 auto; width: 500px; height: 45px; margin-left: -7px;" >
-                <div class="text media8">
+            <div style="margin: 0 auto; width: 500px; height: 45px; margin-left: -7px; margin-top: -15px;" >
+                <div class="text">
                    주 5일 등하원 
-                    <p class="p2 media9">기관 전/후 등하원 및 돌봄</p>
+                    <p class="p2">기관 전/후 등하원 및 돌봄</p>
                 </div>
-                <div class="text media21">
+                <div class="text" style="margin-left: 60px;">
                     놀이/학습시터
-                    <p class="p2 media9">주 1~4일 또는 짧은시간</p>
+                    <p class="p2">주 1~4일 또는 짧은시간</p>
                 </div>
             </div>
         </div>
@@ -383,46 +377,46 @@
 
 
         <div>
-            <div class="child media10" style="margin-top:20px;">
+            <div class="child" style="margin-top:20px;">
                 신생아/영아 정기돌봄
             </div>
             <div>
-                <img src="${pageContext.request.contextPath}/images/풀타임.png" style="width: 55px; margin: 0 70px;" class="media11">
-                <img src="${pageContext.request.contextPath}/images/보조.png" style="width: 55px; margin: 0 70px;" class="media11">
+                <img src="${pageContext.request.contextPath}/images/풀타임.png" style="width: 55px; margin: 0 70px; cursor:pointer;" id="fullTime">
+                <img src="${pageContext.request.contextPath}/images/보조.png" style="width: 55px; margin: 0 70px; cursor:pointer;"  id="assistance">
             </div>
-            <div style="margin: 0 auto; width: 500px; height: 45px;     margin-left: 3px;" >
-                <div class="text media13">
+            <div style="margin: 0 auto; width: 500px; height: 45px; margin-left: 3px; margin-top: -14px !important;" >
+                <div class="text" style="margin-left: 91px;">
                   풀타임
-                    <p class="p2 media14">주5일 평균8시간 이상</p>
+                    <p class="p2">평균8시간 이상</p>
                 </div>
-                <div class="text media22" style="margin-left: 74px;">
+                <div class="text" style="margin-left: 139px;">
                     보조
-                    <p class="p2 media14">주 1~4일 또는 짧은시간</p>
+                    <p class="p2">짧은시간</p>
                 </div>
             </div>
         </div>
 
 
         <div class="media15">
-            <div class="child media16" style="margin-top:20px;">
+            <div class="child" style="margin-top:20px;">
                 긴급/단기 돌봄
             </div>
-            <div class="main">
-                <img src="${pageContext.request.contextPath}/images/긴급.png" style="width: 50px;" class=" media17">
+            <div>
+                <img src="${pageContext.request.contextPath}/images/긴급.png" style="width: 50px; cursor:pointer;" id="emergency">
 
             </div>
-            <div class="main media18" style="font-weight: bold;">
+            <div class="main" style="font-weight: bold;">
                 긴급/단기
-                <p class="p2 media23">하루 또는 며칠만 급하게 필요할 때</p>
+                <p class="p2">하루 또는 며칠만 급하게 필요할 때</p>
               </div>
-        </div>
+        	</div>
 
-            <button class="button media19">모든 돌봄유형 보기</button>
+            <button class="button" id="fullType">모든 돌봄유형 보기</button>
             
-		</div>
-
-
-   		 </div>
+			</div>
+	
+	
+	   		 </div>
                     </div>
                 </div>
 		
@@ -433,13 +427,13 @@
                     <div class="bg3"></div>
                     <div class="modalBox3">
                       <div style="margin-top: 62px;">
-						    <select id="sido" class="area">
+						    <select id="sido" class="area" style="background-color: white;">
 						      <option value="">'시/도'를 선택해주세요</option>
 						    </select>
-						    <select id="sigugun" class="area">
+						    <select id="sigugun" class="area" style="background-color: white;">
 						      <option value="">'시/군/구'를 선택해주세요</option>
 						    </select>
-						    <select id="dong" class="area">
+						    <select id="dong" class="area" style="background-color: white;">
 						      <option value="">'동'을 선택해주세요</option>
 						    </select>
 						 

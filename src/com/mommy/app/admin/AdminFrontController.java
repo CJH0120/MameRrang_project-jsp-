@@ -96,8 +96,16 @@ public class AdminFrontController extends HttpServlet
 			af = new AdminNoticeDetail().execute(req, resp);
 			System.out.println("adNoDetail FC");
 			
+		}else if(command.equals("/admin/AdminAuthListOk.ad")) {
+			af = new AdminAuthListOk().execute(req, resp);
+			System.out.println("adAuthListOk FC");
+			
+		}else if(command.equals("/admin/AdminCheckOk.ad")) {
+			System.out.println("와버렸나?");
+			af = new AdminCheckOk().execute(req, resp);
+			System.out.println("가버렸나?");
+
 		}
-		
 		
 		//전송안할지
 		if(af != null) {

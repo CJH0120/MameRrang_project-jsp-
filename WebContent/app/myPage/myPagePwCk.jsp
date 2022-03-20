@@ -22,15 +22,14 @@
      <!-- 폼으로 수정 -->
     <!--   <form name="myPagePwCkForm"> -->
 	       <div class="infoWrapper">
-	           <p class="p-font-color" >비밀번호 </p>
+	           <p class="p-font-color"  >비밀번호 <span id="idFaildText"></span></p>
 	            <input id="myPagePwInput" name="myPagePwInput" type="password" class="input-font" style="width: 95%;" >
 	            
 		       <br>
 		       <div class="myPagePwBtnWrap">
 		       		<button class = "phoneBtn" id="myPageCkbtn" onclick="myPageCk(myPagePwInput)">확인</button> 
 		       </div>
-		       <div id="idFaildText">
-		       </div>
+		       
 		     
 	       </div>                         
 	         <!--  <button class = "phoneBtn" id="myPageCkbtn">확인</button> -->

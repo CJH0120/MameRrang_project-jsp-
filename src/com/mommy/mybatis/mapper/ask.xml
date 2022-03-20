@@ -16,7 +16,7 @@
 	
 	<!-- 게시글 상세보기(전체 정보 조회) -->
 	<select id="selectDetail" parameterType="_int" resultType="askDTO">
-		select askNum, askTitle, askContent, askDate, askStatus, categoryNum, a.userNum
+		select askNum, askTitle, askContent, askDate, askAnswer, askStatus, categoryNum, a.userNum
 		from tbl_ask a join tbl_user u
 		on  a.userNum = u.userNum and askNum = #{askNum}
 	</select>

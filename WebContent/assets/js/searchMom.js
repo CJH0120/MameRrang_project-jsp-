@@ -35,19 +35,17 @@
     
  
 
-
-
 	
 		const $heart = $('.heart');
 
 		$heart.on("click", function(){
-		
-			if($heart.attr("src")=='../../images/heart.png'){
+
+			if($(this).attr("src")=='../images/emptyHeart.png'){
 				
-				$heart.attr("src", '../../images/emptyHeart.png');
+				$(this).attr("src", '../images/heart.png');
 			}else{
 			
-				$heart.attr("src", '../../images/heart.png');
+				$(this).attr("src", '../images/emptyHeart.png');
 			}
 		
 			
@@ -151,10 +149,10 @@
 		    })
 		    $friday.on("click",function(){
 		        if($friday.attr('src')=='../images/금1.png'){
-		        	$tuesday.removeClass('on');
+		        	$friday.removeClass('on');
 		            $friday.attr('src','../images/금.png');
 					}else{$friday.attr('src','../images/금1.png');
-		        	$tuesday.addClass('on');
+					$friday.addClass('on');
 		}
 		    })
 		    $saturday.on("click",function(){
@@ -162,7 +160,7 @@
 		        	$saturday.removeClass('on');
 		            $saturday.attr('src','../images/토.png');
 					}else{$saturday.attr('src','../images/토1.png');
-					saturday.addClass('on');}
+					$saturday.addClass('on');}
 		    })
 		    $sunday.on("click",function(){
 		        if($sunday.attr('src')=='../images/일1.png'){
@@ -299,7 +297,7 @@
     	if($("#saturday").hasClass('on')==true){
     		saturday =1;
     	}
-    	if($("sunday").hasClass('on')==true){
+    	if($("#sunday").hasClass('on')==true){
     		sunday =1; 
     	}
     	if($("#morning").hasClass('on')==true){

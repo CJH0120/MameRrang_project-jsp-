@@ -88,5 +88,19 @@
 		values(#{noticeTitle}, #{noticeContent}, now())
 	</insert>
 	
+	<!-- 인증글 목록 조회 -->
+	<select id="authSelectAll" parameterType="map" resultType="AdminAuthDTO">
+		select profileNum, profileAttach, userName, userId, 
+		p.userNum, profileDate, checkMedi, checkMom, checkTeacher, 
+		checkCitizen, checkUniversity 
+		from tbl_profile p join tbl_user u 
+		where p.userNum=u.userNum
+		order by 1 desc limit #{startRow}, #{rowCount}
+	</select>
+	
+	<!-- 인증 게시글 총 갯수 -->
+	<select id="authGetTotal" resultType="_int">
+		select count(profileNum) from tbl_profile
+	</select>
 	
 	</mapper>

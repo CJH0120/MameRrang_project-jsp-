@@ -52,7 +52,8 @@
                     <img src="${pageContext.request.contextPath}/images/유저.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">
                     </label>
                     <div style = "position:absolute; top: 19px; left: 136px;">
-                          <h3 style="margin-bottom: 3px; font-size: 18px;">김아무개</h3><span style = "margin-top: 20px; font-size:16px;">29세, 여</span>
+                          <h3 style="margin-bottom: 3px; font-size: 18px;">김아무개 <span style="font-size: 15px;">시터님</span></h3>
+                          <span style = "margin-top: 20px; font-size:16px;">29세, 여</span>
                      </div>
                      <div  style = "position:absolute; top: 30px; left: 76%;">
                             <button class = "button">글 저장하기</button></a>
@@ -61,27 +62,31 @@
                 
                 <hr class = "split">
                     <div class = "innerContent">
-                        <p class ="innerTitle">선호하는 돌봄유형</p>
-                        <div>
+                        <p class ="innerTitle">활동 가능한 돌봄유형</p>
+                       <div>
                             <div style = "float:left; margin-right:30px;">
-                                <input type="checkbox" id="inside" name="inside">
-                                <label for="inside" style = "font-size:16px;">실내놀이</label>
+                                <input type="checkbox" id="careIndoor" value="careIndoor" name="caretype">
+                                <label for="careIndoor" style = "font-size:16px;">실내놀이</label>
                             </div>
                             <div style = "float:left;  margin-right:30px;">
-                                <input type="checkbox" id="commit" name="commit" checked>
-                                <label for="commit" style = "font-size:16px;">등하원</label>
+                                <input type="checkbox" id="careCommit" value="careCommit" name="caretype" >
+                                <label for="careCommit" style = "font-size:16px;">등하원</label>
                             </div>
                             <div style = "float:left;  margin-right:30px;">
-                                <input type="checkbox" id="food" name="food" checked>
-                                <label for="food" style = "font-size:16px;">밥 챙겨주기</label>
+                                <input type="checkbox" id="careFood" value="careFood" name="caretype" >
+                                <label for="careFood" style = "font-size:16px;">밥 챙겨주기</label>
                             </div>
                             <div style = "float:left;  margin-right:30px;">
-                                <input type="checkbox" id="clean" name="clean" checked>
-                                <label for="clean" style = "font-size:16px;">청소</label>
+                                <input type="checkbox" id="careClean" value="careClean" name="caretype" >
+                                <label for="careClean" style = "font-size:16px;">청소</label>
                             </div>
                             <div>
-                                <input type="checkbox" id="teach" name="teach" checked>
-                                <label for="teach" style = "font-size:16px;">학습 지도</label>
+                                <input type="checkbox" id="careStudy" value="careStudy" name="caretype" >
+                                <label for="careStudy" style = "font-size:16px;">학습 지도</label>
+                            </div>
+                             <div>
+                                <input type="checkbox" id="careEmergency" value="careEmergency" name="caretype" >
+                                <label for="careEmergency" style = "font-size:16px;">긴급 돌봄</label>
                             </div>
                         </div>
                     </div>
@@ -89,24 +94,24 @@
                     <hr style = "margin: 0px; width: 95%; padding: 10px 0;" >
                         <div class = "innerContent">
                             <p class ="innerTitle">아이 정보</p>
-                            <div>
+                             <div>
                                 <div style = "float:left; margin-right:30px;">
-                                    <input type="checkbox" id="newborn" name="newborn">
-                                    <label for="newborn" style = "font-size:16px;">신생아</label>
+                                    <input type="checkbox" id="babyNewborn" value = "babyNewborn" name="babytype">
+                                    <label for="babyNewborn" style = "font-size:16px;">신생아</label>
                                 </div>
                                 <div style = "float:left;  margin-right:30px;">
-                                    <input type="checkbox" id="baby" name="baby" checked>
-                                    <label for="baby" style = "font-size:16px;">영아</label>
+                                    <input type="checkbox" id="babyChild" value="babyChild" name="babytype">
+                                    <label for="babyChild" style = "font-size:16px;">영아</label>
                                 </div>
                                 <div style = "float:left;  margin-right:30px;">
-                                    <input type="checkbox" id="kinder" name="kinder" checked>
-                                    <label for="kinder" style = "font-size:16px;">유치원생</label>
+                                    <input type="checkbox" id="babyKinder" value="babyKinder" name="babytype" checked>
+                                    <label for="babyKinder" style = "font-size:16px;">유치원생</label>
                                 </div>
                                 <div style = "float:left;  margin-right:30px;">
-                                    <input type="checkbox" id="elememtary" name="elememtary" checked>
-                                    <label for="elememtary" style = "font-size:16px;">초등학생</label>
+                                    <input type="checkbox" id="babyElementary" value="babyElementary" name="babytype" checked>
+                                    <label for="babyElementary" style = "font-size:16px;">초등학생</label>
                                 </div>
-                                
+                               
                             </div>
                         </div>
                      
@@ -164,7 +169,7 @@
       
                          <div>
                           <span><img src = "${pageContext.request.contextPath}/images/questions.png" style = "width:25px;"></span>
-                           <p class = "arrow_box">건강진단서 / 가족관계증명서 / 보육교사·유치원·특수교사<br>
+                           <p class = "arrow_box">총 5개의 인증이 가능합니다<br>건강진단서 / 가족관계증명서 / 보육교사·유치원·특수교사<br>
                           초등학교 정교사 자격증 / 주민등록 등·초본 / 재학·졸업증명서</p>
                          </div>
                     <div style = "display:flex;">     
