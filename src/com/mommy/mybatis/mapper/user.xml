@@ -51,7 +51,7 @@
 	<!-- user정보 조회 -->
 
 	<select id="getInfo" parameterType="_int" resultType="userVO">
-	 select userNum, userName, userId, userPw, userPhone, userBirthYear, userBirthMonth, userBirthDate, userStatus, userEmail
+	 select userNum, userName, userId, userPw, userPhone, userBirthYear, userBirthMonth, userBirthDate, userStatus, userEmail, userGender
 	 from tbl_user
 	 where userNum= #{userNum}
 	

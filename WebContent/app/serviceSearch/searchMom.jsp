@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
  
 <!DOCTYPE html>
 
@@ -27,13 +28,7 @@
 		<c:set var="realEndPage" value="${realEndPage}"/>
 		<c:set var="total" value="${total}"/>
 
-	
-	
 
-	
-		
-		
-		
 		
 <!-- Header -->
   <jsp:include page="../fix/header.jsp" flush="true"/>
@@ -93,10 +88,11 @@
 			<c:when test="${momList != null and fn:length(momList) > 0}">
 				<c:forEach var="mom" items="${momList}">
 					<c:if test="${mom.getUserStatus() == 2}">
-					
+						<input type="hidden" value="${mom.getProfileNum()}">
+						
 							<!-- 유저정보 -->
 							<div class="userPf">
-								<img src="${pageContext.request.contextPath}/images/heart.png" class="heart" id="heart">
+								<%-- <img src="${pageContext.request.contextPath}/images/heart.png" class="heart" id="heart"> --%>
 							<div class="userImg">
 								<img src="${pageContext.request.contextPath}/images/img1.jpeg"class="userImgDetail">
 							<div>
@@ -108,7 +104,7 @@
 							</div>
 							</div>
 								<div class="userName">
-								<h4 style="margin-bottom: 0;"><a href="${pageContext.request.contextPath}/service/LookMomProfileOk.ser"  style="border:none;">
+								<h4 style="margin-bottom: 0;"><a href="${pageContext.request.contextPath}/service/LookSitterProfileOk.ser?userNum=${mom.getUserNum()}"  style="border:none;">                                                  
 								${mom.getProfileDescription()}</a></h4>
 								<div class="infoDetail">${mom.getLocationSido()}  ${mom.getLocationSigun()}</div>&nbsp;
 								<div class="infoDetail">27세</div>
@@ -360,7 +356,7 @@
 
             <div>
                 <img src="${pageContext.request.contextPath}/images/등하원.png" style="width: 50px; margin: 0 70px; cursor:pointer;" id="goToSchool" >
-                <img src="${pageContext.request.contextPath}/images/학습지도.png" style="width: 50px; margin: 0 70px; cursor:pointer;" id="play">
+                <img src="${pageContext.request.contextPath}/images/학습지도.png" style="width: 50px; margin: 0 70px; cursor:pointer;" id="teach">
             </div>
             <div style="margin: 0 auto; width: 500px; height: 45px; margin-left: -7px; margin-top: -15px;" >
                 <div class="text">
@@ -411,12 +407,13 @@
               </div>
         	</div>
 
-            <button class="button" id="fullType">모든 돌봄유형 보기</button>
+            <button class="button" id="fullType" 
+            onclick="location.href='/mommy_workspace/service/SearchMomOk.ser?careType=6'";
+            >모든 돌봄유형 보기</button>
             
 			</div>
-	
-	
-	   		 </div>
+
+	   				 </div>
                     </div>
                 </div>
 		
@@ -426,21 +423,29 @@
 		 <div class="modal3 hidden">
                     <div class="bg3"></div>
                     <div class="modalBox3">
-                      <div style="margin-top: 62px;">
-						    <select id="sido" class="area" style="background-color: white;">
-						      <option value="">'시/도'를 선택해주세요</option>
+                    	<div class="location_title">
+                      		<h2 style="color: white; line-height: 3; font-size: 29px;">&nbsp;돌봄지역 선택</h2>
+          				</div>
+                      <div class="region_select">
+						    <select id="sido" name="sido" class="area" style="background-color: white; cursor:pointer;">
+						      <option value="" >'시/도'를 선택해주세요</option>
 						    </select>
-						    <select id="sigugun" class="area" style="background-color: white;">
-						      <option value="">'시/군/구'를 선택해주세요</option>
+						    <select id="sigugun" name="sigugun" class="area" style="background-color: white; cursor:pointer;">
+						      <option value="" >'시/군/구'를 선택해주세요</option>
 						    </select>
-						    <select id="dong" class="area" style="background-color: white;">
+						    <select id="dong" name="dong" class="area" style="background-color: white; cursor:pointer;">
 						      <option value="">'동'을 선택해주세요</option>
 						    </select>
-						 
-						  </div>
-                      
-                    </div>
-                </div>
+						     <div>
+					               <input class="region_btn" type="button" id="areaButton" value="확인" style="    color: #ffb61a !important;
+				    outline: 0 !important;
+				    border: none !important;
+				    padding: 0 !important;
+				    line-height: 0;">
+					            </div>
+						 </div>
+                   </div>
+               </div>
 		
 		
 		

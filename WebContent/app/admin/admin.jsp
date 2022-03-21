@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE HTML>
 <!--
    Exponent by Pixelarity
@@ -17,7 +19,31 @@
       <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
 	  <link href="${pageContext.request.contextPath}/assets/css/admin.css"" rel="stylesheet" type="text/css"> 
    </head>
+   <style>
+   		td{
+   			background-color: white;
+   		}
+   		
+		a { text-decoration: none;
+    border-bottom: 0px solid;}
+   </style>
    <body class="is-preload" style="display:block; padding-top: 0; overflow-y: hidden">
+   		<c:set var="qnaList" value="${qnaList}"/>
+   		<c:set var="reportList" value="${reportList}"/>
+   		<c:set var="authList" value="${authList}"/>
+   		<c:set var="noticeList" value="${noticeList}"/>
+
+		<c:set var="page" value="${page}"/>
+		<c:set var="startPage" value="${startPage}"/>
+		<c:set var="endPage" value="${endPage}"/>
+		<c:set var="realEndPage0" value="${realEndPage0}"/>
+		<c:set var="realEndPage1" value="${realEndPage1}"/>
+		<c:set var="realEndPage2" value="${realEndPage2}"/>
+		<c:set var="realEndPage3" value="${realEndPage3}"/>
+		<c:set var="total0" value="${total0}"/>
+		<c:set var="total1" value="${total1}"/>
+		<c:set var="total2" value="${total2}"/>
+		<c:set var="total3" value="${total3}"/>
 
 
 
@@ -36,56 +62,131 @@
 					<section id="three" class="feature">
 						<div class="row row-total main-total" style="display: flex; justify-content: center; margin-right: 0em;">
 								<div class="side-header">
-               <a href="${pageContext.request.contextPath}/app/admin/admin.jsp" style="border-bottom:2px solid #ffb61a;"><p id="total" class="s-title text bYellow">통계 </p></a>
+               <a href="${pageContext.request.contextPath}/admin/AdminMainOk.ad" style="border-bottom:2px solid #ffb61a;"><p id="total" class="s-title text bYellow">통계 </p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminQnaListOk.ad"><p id="qna" class="s-title text bGray" >문의</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminReportListOk.ad"><p id="report" class="s-title bGray" >신고</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminAuthListOk.ad"><p id="auth" class="s-title bGray">인증</p></a>
                <a href="${pageContext.request.contextPath}/app/admin/adminMList.jsp"><p id="memberList" class="s-title bGray" >회원목록</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminNoticeListOk.ad"><p id="inform" class="s-title bGray" >공지</p></a>
 			</div>
-								<div class="twoBox">
-									<div class="col-6 col-12-small" style=" margin-left: -3em; ">
-										<a class="title" href="#">
-											<span class="s-title">이용 현황</span>
-										</a>
-										<hr>
-										<div id="linechart_material" style="margin-left: 1em;"></div>
-									</div>
-								</div>
-								<div class="col-6 col-12-small v-total" style="width: 30%; display:table; height: 400px; border: 1px solid #bbb; border-radius: 3px; padding-top: 1em;">
-									<div class="oneBox" style="margin-bottom: 3%; width: 35%; display: contents;">
-										<a class="title" href="#">
-											<span class="s-title link-title" >주간 통계</span>
-										</a>
-										<hr>
-										<hr>
-		
-									<div class="sBox" style="border-bottom: 1px solid #d8dadb; border-top: 1px solid #d8dadb; display: flex; padding-top: 1em; padding-bottom: 1em;">
-										<div style="width: 50%; border-right: 1px solid #d8dadb;">
-											<span class="s-title link-title" >글개수</span>
-											<hr>
-											<p>600개</p>
-										</div>
-										<div style="width: 50%; padding-left:1em">
-											<span class="s-title link-title" >일평균</span>
-											<p>85개</p>
-										</div>
-									</div><div class="sBox" style="display: flex; padding-top: 1em;">
-										<div style="width: 50%; border-right: 1px solid #d8dadb;">
-											<span class="s-title link-title" >댓글수</span>
-											<p>900개</p>
-										</div>
-										<div style="width: 50%; padding-left:1em">
-											<span class="s-title link-title" >일평균</span>
-											<p>144개</p>
-										</div>
-									</div>
-									
-								</div>
-							</div>
+			<!-- 메인페이지 -->
+			<div class="twoBox" style="width: 91.5%;">
+			<div style="margin-top: 0.5em;">
+			
+					<div>
+					<!-- 문의 테이블 -->
+						<div>
+							<a href="${pageContext.request.contextPath}/admin/AdminQnaListOk.ad">
+								<span style="margin-right: 22em; font-size: 20px; position: fixed; margin-top: 0.6em;">문의</span>
+								<img src="${pageContext.request.contextPath}/images/right.png" style="width:5%; margin-left: 26em;">
+							</a>
 						</div>
-					</section>
+				<div style="width: 45%; margin-right: 3em; height: 261.88px; border:1px solid;">
+					<table>
+						<c:choose>
+							<c:when test="${qnaList != null}">
+								<c:forEach var="qna" items="${qnaList}">
+						<tr>
+							<td colspan = "4" style="width: 16em; padding-left: 2em;"><a href="${pageContext.request.contextPath}/admin/AdminQnaUpdate.ad?askNum=${qna.getAskNum()}&page=${page}" class = "titleTag">${qna.getAskTitle()}</a></td>
+							<td>${qna.getAskDate()}</td>
+						</tr>
+								</c:forEach>
+							</c:when>
+						<c:otherwise>
+                  				<tr>
+                  					<td colspan="3" align="center">등록된 게시물이 없습니다.</td>
+                  				</tr>
+                  				</c:otherwise>
+						</c:choose>	
+					</table>
 				</div>
+				<!-- 신고 테이블 -->
+						<div style="position: absolute; margin-top: -17.65em; margin-left: 31.8em;">
+							<a href="${pageContext.request.contextPath}/admin/AdminReportListOk.ad">
+								<span style="margin-right: 22em; font-size: 20px; position: fixed; margin-top: 0.6em;">신고</span>
+								<img src="${pageContext.request.contextPath}/images/right.png" style="width:8.051%; margin-left: 25.96em;">
+							</a>
+						</div>
+				<div style="width: 45%; margin-right: 3em; height: 261.88px; border:1px solid; float: right; margin-top: -14em;">
+					<table>
+						<c:choose>
+							<c:when test="${reportList != null}">
+								<c:forEach var="report" items="${reportList}">
+						<tr>
+							<td colspan = "4" style="width: 16em; padding-left: 2em;"><a href="${pageContext.request.contextPath}/admin/AdminReportUpdate.ad?askNum=${report.getAskNum()}&page=${page}" class = "titleTag">${report.getAskTitle()}</a></td>
+							<td>${report.getAskDate()}</td>
+						</tr>
+								</c:forEach>
+							</c:when>
+						<c:otherwise>
+                  				<tr>
+                  					<td colspan="3" align="center">등록된 게시물이 없습니다.</td>
+                  				</tr>
+                  				</c:otherwise>
+						</c:choose>	
+					</table>
+				</div>
+				</div>
+				<div style="margin-bottom:1.5em"></div>
+				<div>
+					<!-- 인증 테이블 -->
+						<div>
+							<a href="${pageContext.request.contextPath}/admin/AdminAuthListOk.ad">
+								<span style="margin-right: 22em; font-size: 20px; position: fixed; margin-top: 0.6em;">인증</span>
+								<img src="${pageContext.request.contextPath}/images/right.png" style="width:5%; margin-left: 26em;">
+							</a>
+						</div>
+				<div style="width: 45%; margin-right: 3em; height: 261.88px; border:1px solid;">
+					<table>
+						<c:choose>
+							<c:when test="${authList != null}">
+								<c:forEach var="auth" items="${authList}">
+						<tr>
+							<td colspan = "4" style="width: 0em; padding-left: 2em;">${auth.getProfileNum()}</td>
+							<td colspan = "4" style="width: 12em; padding-left: 2em;">${auth.getUserId()}</td>
+							<td>${auth.getProfileDate()}</td>
+						</tr>
+								</c:forEach>
+							</c:when>
+							<c:otherwise>
+                        			<td colspan="3" style="text-align: center;">인증이 필요한 회원이 없습니다.</td>
+                        	</c:otherwise>
+						</c:choose>
+						
+						
+					</table>
+				</div>
+					<!-- 공지 테이블 -->
+						<div style="position: absolute; margin-top: -17.65em; margin-left: 31.8em;">
+							<a href="${pageContext.request.contextPath}/admin/AdminNoticeListOk.ad">
+								<span style="margin-right: 22em; font-size: 20px; position: fixed; margin-top: 0.6em;">공지</span>
+								<img src="${pageContext.request.contextPath}/images/right.png" style="width:8.051%; margin-left: 25.96em;">
+							</a>
+						</div>
+				<div style="width: 45%; margin-right: 3em; height: 261.88px; border:1px solid; float: right; margin-top: -14em;">
+					<table>
+						<c:choose>
+							<c:when test="${noticeList != null}">
+								<c:forEach var="notice" items="${noticeList}">
+									<tr>
+										<td colspan = "4" style="width: 16em; padding-left: 2em;">${notice.getNoticeTitle()}</td>
+										<td>${notice.getNoticeDate()}</td>
+									</tr>
+								</c:forEach>
+							</c:when>
+							<c:otherwise>
+                        			<td colspan="3" style="text-align: center;">등록된 게시물이 없습니다.</td>
+                        		</c:otherwise>
+						</c:choose>
+
+						
+					</table>
+				</div>
+				</div>
+			</div>
+			</div>
+		</section>
+	</div>
 		<!-- Scripts -->
 			<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/jquery.scrolly.min.js"></script>

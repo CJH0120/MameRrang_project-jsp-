@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE HTML>
 <!--
    Exponent by Pixelarity
@@ -18,10 +20,11 @@
       <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin.css"  type="text/css"/>
    </head>
    <body class="is-preload" style="display:block; padding-top: 0; overflow-y: hidden">
-
-
-
-      <!-- Main -->
+     <c:set var="members" value="${members}" />
+     <c:set var="membersTotal" value="${membersTotal}" />
+     <c:set var="membersMom" value="${membersMom}" />
+     <c:set var="membersSiter" value="${membersSitter}" />
+     <!-- Main -->
          <div id="main" class="container">
                <!-- 배너 -->
          <div class="mainBox" style="padding-top: 3.5em;">
@@ -36,11 +39,11 @@
 					<section id="three" class="feature">
 						<div class="row row-total main-total" style="display: flex; justify-content: center; margin-right: 0em;">
 								<div class="side-header">
-               <a href="${pageContext.request.contextPath}/app/admin/admin.jsp" style="border-bottom:2px solid #ffb61a;"><p id="total" class="s-title text bYellow">통계 </p></a>
+               <a href="${pageContext.request.contextPath}/admin/AdminMainOk.ad" style="border-bottom:2px solid #ffb61a;"><p id="total" class="s-title text bYellow">통계 </p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminQnaListOk.ad"><p id="qna" class="s-title text bGray" >문의</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminReportListOk.ad"><p id="report" class="s-title bGray" >신고</p></a>
-               <a href="${pageContext.request.contextPath}/app/admin/adminAuth.jsp"><p id="auth" class="s-title bGray">인증</p></a>
-               <a href="${pageContext.request.contextPath}/app/admin/adminMList.jsp"><p id="memberList" class="s-title bGray" >회원목록</p></a>
+               <a href="${pageContext.request.contextPath}/admin/AdminAuthListOk.ad"><p id="auth" class="s-title bGray">인증</p></a>
+               <a href="${pageContext.request.contextPath}/admin/AdminMemberListOk.ad"><p id="memberList" class="s-title bGray" >회원목록</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminNoticeListOk.ad"><p id="inform" class="s-title bGray" >공지</p></a>
 			</div>
 								<div class="twoBox">
@@ -54,145 +57,41 @@
 										<option value="3">시터</option>
 									</select>
 								</div>
-          <table>
+                                <table>
                   						<tr>
                      						<td>번호</td>
-                     						<td>이름</td>
                      						<td>아이디</td>
-                     						<td>구분</td>
-                     						<td>가입날짜</td>
-                     						<td>글갯수</td>
-                     						<td>댓글수</td>
-                     						
-                  						</tr></a>
-                  						<tr>
-                     						<td>1</td>
-                     						<td><a href="#"  onclick="winPopup();">나도몰라</a></td>
-                    						<td>aigb0900</td>
-                     						<td>시터</td>
-                     						<td>2022-03-01</td>
-                     						<td>300</td>
-                     						<td>600</td>
+                     						<td>이름</td>
+                     						<td>분류</td>
                   						</tr>
-                  						<tr>
-                     						<td>1</td>
-                     						<td >나도몰라</td>
-                    						<td>aigb0900</td>
-                     						<td>시터</td>
-                     						<td>2022-03-01</td>
-                     						<td>300</td>
-                     						<td>600</td>
-                  						</tr>
-                  						<tr>
-                     						<td>1</td>
-                     						<td >나도몰라</td>
-                    						<td>aigb0900</td>
-                     						<td>시터</td>
-                     						<td>2022-03-01</td>
-                     						<td>300</td>
-                     						<td>600</td>
-                  						</tr>
-                  						<tr>
-                     						<td>1</td>
-                     						<td >나도몰라</td>
-                    						<td>aigb0900</td>
-                     						<td>시터</td>
-                     						<td>2022-03-01</td>
-                     						<td>300</td>
-                     						<td>600</td>
-                  						</tr>
-                  						<tr>
-                     						<td>1</td>
-                     						<td >나도몰라</td>
-                    						<td>aigb0900</td>
-                     						<td>시터</td>
-                     						<td>2022-03-01</td>
-                     						<td>300</td>
-                     						<td>600</td>
-                  						</tr>
-                  						<tr>
-                     						<td>1</td>
-                     						<td >나도몰라</td>
-                    						<td>aigb0900</td>
-                     						<td>시터</td>
-                     						<td>2022-03-01</td>
-                     						<td>300</td>
-                     						<td>600</td>
-                  						</tr>
-                  						<tr>
-                     						<td>1</td>
-                     						<td >나도몰라</td>
-                    						<td>aigb0900</td>
-                     						<td>시터</td>
-                     						<td>2022-03-01</td>
-                     						<td>300</td>
-                     						<td>600</td>
-                  						</tr>
-                  						<tr>
-                     						<td>1</td>
-                     						<td >나도몰라</td>
-                    						<td>aigb0900</td>
-                     						<td>시터</td>
-                     						<td>2022-03-01</td>
-                     						<td>300</td>
-                     						<td>600</td>
-                  						</tr>
-                  						<tr>
-                     						<td>1</td>
-                     						<td >나도몰라</td>
-                    						<td>aigb0900</td>
-                     						<td>시터</td>
-                     						<td>2022-03-01</td>
-                     						<td>300</td>
-                     						<td>600</td>
-                  						</tr>
-                  						<tr>
-                     						<td>1</td>
-                     						<td >나도몰라</td>
-                    						<td>aigb0900</td>
-                     						<td>시터</td>
-                     						<td>2022-03-01</td>
-                     						<td>300</td>
-                     						<td>600</td>
-                  						</tr>
-                  						<tr>
-                     						<td>1</td>
-                     						<td >나도몰라</td>
-                    						<td>aigb0900</td>
-                     						<td>맘</td>
-                     						<td>2022-03-01</td>
-                     						<td>300</td>
-                     						<td>600</td>
-                  						</tr>
-                  						<tr>
-                     						<td>1</td>
-                     						<td >나도몰라</td>
-                    						<td>aigb0900</td>
-                     						<td>맘</td>
-                     						<td>2022-03-01</td>
-                     						<td>300</td>
-                     						<td>600</td>
-                  						</tr>
-                  						<tr>
-                     						<td>1</td>
-                     						<td >나도몰라</td>
-                    						<td>aigb0900</td>
-                     						<td>시터</td>
-                     						<td>2022-03-01</td>
-                     						<td>300</td>
-                     						<td>600</td>
-                  						</tr>
-                  						<tr>
-                     						<td>14</td>
-                     						<td >나도몰라</td>
-                    						<td>aigb0900</td>
-                     						<td>시터</td>
-                     						<td>2022-03-01</td>
-                     						<td>300</td>
-                     						<td>600</td>
-                  						</tr>
-                						</table>
-               						<!-- 페이징 처리 -->	
+                                          <c:choose>
+                                                <c:when test="${members != null}" >
+                                          	 <c:forEach var="members" items="${members}" >
+                                                                 <tr>
+                                                                    <td>${members.getUserNum()}</td>
+                                                                    <td>${members.getUserId()}</td>
+                                                                    <td>${members.getUserName()}</td>
+                                                                    <c:choose>
+                                                                    	<c:when test="${members.getUserStatus() eq 1}">
+                                                                    		<td>맘</td>
+                                                                    	</c:when>
+                                                                    	<c:when test="${members.getUserStatus() eq 2}">
+                                                                    		<td>시터</td>
+                                                                    	</c:when>
+                                                                    </c:choose>
+                                                                 </tr> 
+                                               </c:forEach>  
+                                                </c:when>
+                                                 <c:when test="${members eq null}">
+															<tr>
+                                                         <td colspan=4 style="text-align: center;">
+                                                            <b>등록된 회원이 없습니다.</b>
+                                                         </td>  
+                                                       </tr>
+                                                </c:when>
+                                          </c:choose>
+                				</table>
+               					<!-- 페이징 처리 -->	
                															<!-- 페이징 처리 -->	
 					<table style="text-align:center;">
 						<tr>
@@ -214,18 +113,18 @@
 										<div style="width: 100%;">
 											<span class="s-title link-title" >회원수</span>
 											<hr>
-											<p>700명</p>
+											<p>${membersTotal}</p>
 										</div>
 									</div>
 									<div class="sBox" style="display: flex; padding-top: 1em; padding-bottom: 1em;">
 										<div style="width: 50%; border-right: 1px solid #d8dadb;">
 											<span class="s-title link-title" >맘</span>
 											<hr>
-											<p>300명</p>
+											<p>${membersMom}</p>
 										</div>
 										<div style="width: 50%; padding-left:1em">
 											<span class="s-title link-title" >시터</span>
-											<p>400명</p>
+											<p><c:set var="sitterCount" value="${membersSitter}" /></p>
 										</div>
 									</div>
 									

@@ -59,7 +59,7 @@ ${noticeDetail.getNoticeContent()}
                     
 
                     <!-- 다음. 이전 글 목록-->
-                    <div>
+<!--                     <div>
                         <table style = "margin-top: 55px;">
                             <tr class = "next">
                                 <td style = "width:140px;;padding: 0.75em 1.75em;">다음</td>
@@ -71,7 +71,7 @@ ${noticeDetail.getNoticeContent()}
                             </tr>
                         </table>
 
-                    </div>
+                    </div> -->
                     <div style="text-align: center;">
                         <a href = "${pageContext.request.contextPath}/notice/NoticeListOk.no"><button class = "goBack">목록</button></a>
                         <br>

@@ -90,8 +90,12 @@ public class UserFrontController extends HttpServlet{
 			af.setPath("/app/user/changePw.jsp");
 		}else if(command.equals("/user/ChangePwOk.user")) {
 			af = new UserChangePwOk().execute(req, resp);
+			
+		}else if(command.equals("/user/UserLoginFailOk.user")) {
+			af = new UserLoginOk().execute(req, resp);	
+			af.setRedirect(false);
+			af.setPath("/app/user/loginFail.jsp");
 		}
-				
 		
 		//전송안할지
 		if(af != null) {

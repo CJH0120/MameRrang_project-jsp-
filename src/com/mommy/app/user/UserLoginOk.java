@@ -20,8 +20,10 @@ public class UserLoginOk  implements Action{
       
       HashMap<String, String> loginMap = new HashMap<>();
       UserDAO userDao = new UserDAO();
+      UserVO user = new UserVO();
       ActionForward af = new ActionForward();
       HttpSession session = req.getSession();
+      
       int userNum = 0;
       int selectStatus = -1;
       String selectName = "";
@@ -33,12 +35,14 @@ public class UserLoginOk  implements Action{
       selectStatus = userDao.selectStatus(userNum);
       selectName = userDao.selectName(userNum);
       
+
+      
       
         
       
       // --------------------------------------쿠키 ---------------------------
       
-    UserVO user = new UserVO();
+   
       user = userDao.getInfo(userNum);
       
       if(req.getParameter("saveId") != null){ //아이디 저장이 체크되었다면
@@ -98,23 +102,15 @@ public class UserLoginOk  implements Action{
       	}
       }
 
-      
-      
-      
-      
 
-      
-      
-      
-      
-      
       
       
       
       //로그인 실패
       if(userNum == 0 || selectStatus == -1) {
+    	 System.out.println("로그인실패");
          af.setRedirect(false);
-         af.setPath("/user/UserLogin.user?=code"+ userNum);
+         af.setPath("/user/UserLoginFailOk.user");
       
       }else {
     	 
@@ -139,12 +135,10 @@ public class UserLoginOk  implements Action{
 		
       
       
- 
-      return af;
-      
-      
 
-   
+//      System.out.println(selectName);
+      	return af;
+
    }
    
 }

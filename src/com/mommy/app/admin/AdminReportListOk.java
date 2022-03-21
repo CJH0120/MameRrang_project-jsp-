@@ -13,7 +13,7 @@ import com.mommy.app.user.dao.UserDAO;
 
 public class AdminReportListOk implements Action{
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
-		HashMap<String, Integer> qnareMap = new HashMap<>();
+		HashMap<String, Integer> reportMap = new HashMap<>();
 		UserDAO uDao = new UserDAO();
 		ActionForward af = new ActionForward();
 		AdminDAO dao = new AdminDAO();
@@ -54,8 +54,8 @@ public class AdminReportListOk implements Action{
 		endPage = endPage > realEndPage ? realEndPage : endPage;
 		
 		//DB에서 필요한 데이터를 Map에 담는다.
-		qnareMap.put("startRow", startRow);
-		qnareMap.put("rowCount", rowCount);
+		reportMap.put("startRow", startRow);
+		reportMap.put("rowCount", rowCount);
 
 //		//게시글 전체 정보
 //		List<BoardVO> boardVO_list = bDao.selectAll(boardMap);
@@ -93,7 +93,7 @@ public class AdminReportListOk implements Action{
 		req.setAttribute("userStatus", userStatus);
 		
 		//시작 인덱스와, 개수를 전달하여 게시글 목록을 가져온 뒤 requestScope에 담아준다.
-		req.setAttribute("reportList", dao.selectAll(qnareMap));
+		req.setAttribute("reportList", dao.reportSelectAll(reportMap));
 //		req.setAttribute("boardList", boardDTO_list);
 		//현재 페이지를 requestScope에 담아준다.
 		req.setAttribute("page", page);
@@ -104,7 +104,7 @@ public class AdminReportListOk implements Action{
 		req.setAttribute("total0", total0);
 		req.setAttribute("total1", total1);
 		
-		System.out.println(dao.selectAll(qnareMap));
+		System.out.println(dao.reportSelectAll(reportMap));
 		System.out.println(userId);
 		System.out.println(userName);
 		System.out.println(userStatus);

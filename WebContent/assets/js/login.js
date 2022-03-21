@@ -1,3 +1,16 @@
+function send(){
+	var form = loginForm;
+	if(!form.userId.value){
+		alert("아이디를 입력해주세요.");
+		form.userId.focus();
+		return;
+	}
+	if(!form.userPw.value){
+		alert("패스워드를 입력해주세요.");
+		form.userPw.focus();
+		return;
+	}
+ }
           
 
 //로그인
@@ -22,20 +35,4 @@
 		send();
 	}
 	
-    function send(){
-        var form = loginForm;
-        if(!form.memberId.value){
-            alert("아이디를 입력해주세요.");
-            form.memberId.focus();
-            return;
-        }
-        if(!form.memberPw.value){
-            alert("패스워드를 입력해주세요.");
-            form.memberPw.focus();
-            return;
-        }
-
 //        form.memberPw.value = btoa(form.memberPw.value);
-
-        form.submit();
-    }

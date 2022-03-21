@@ -18,10 +18,14 @@
       <!-- 
       <typeAlias type="com.mommy.app.myPage.vo.myPageVO" alias="myPageVO"/>
       <typeAlias type="com.mommy.app.myPage.vo.myPageDTO" alias="myPageDTO"/>
-       -->
+      
+       <typeAlias type="com.mommy.app.service.vo.FavoriteVO" alias="FavoriteVO"/>
+       <typeAlias type="com.mommy.app.service.vo.FavoriteDTO" alias="FavoriteDTO"/>
+      --> 
        <typeAlias type="com.mommy.app.notice.vo.NoticeVO" alias="NoticeVO"/>
        <typeAlias type="com.mommy.app.service.vo.ServiceVO" alias="ServiceVO"/>
        <typeAlias type="com.mommy.app.service.vo.ServiceDTO" alias="ServiceDTO"/>
+       <typeAlias type="com.mommy.app.service.vo.LookProfileDTO" alias="LookProfileDTO"/>
        <typeAlias type="com.mommy.app.admin.vo.AdminQnaVO" alias="AdminQnaVO"/>
        <typeAlias type="com.mommy.app.admin.vo.AdminQnaDTO" alias="AdminQnaDTO"/>
        <typeAlias type="com.mommy.app.admin.vo.AdminNoticeVO" alias="AdminNoticeVO"/>
@@ -51,7 +55,9 @@
       <mapper resource="com/mommy/mybatis/mapper/notice.xml"/>
       <mapper resource="com/mommy/mybatis/mapper/service.xml"/>
       <mapper resource="com/mommy/mybatis/mapper/myPage.xml"/>
-      <!--  <mapper resource="com/mommy/mybatis/mapper/myPage.xml"/> -->
+      <!--  <mapper resource="com/mommy/mybatis/mapper/myPage.xml"/>
+      <mapper resource="com/mommy/mybatis/mapper/favorite.xml"/> -->
+      
       <mapper resource="com/mommy/mybatis/mapper/admin.xml"/>
       <mapper resource="com/mommy/mybatis/mapper/adminFiles.xml"/>
    </mappers>

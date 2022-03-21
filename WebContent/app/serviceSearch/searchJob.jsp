@@ -80,11 +80,19 @@
 			<c:choose>
 				<c:when test="${jobList != null and fn:length(jobList) > 0}">
 					<c:forEach var="job" items="${jobList}">
+				
+            <script>
+                var job= "${job.getUserStatus()}";
+                console.log(job);
+
+            </script>
+			
+			
 			
 						<c:if test="${job.getUserStatus() == 1}">
 								<!-- 유저정보 -->
 								<div class="userPf">
-								<img src="${pageContext.request.contextPath}/images/heart.png" class="heart">
+								<%-- <img src="${pageContext.request.contextPath}/images/heart.png" class="heart"> --%>
 								
 								<div class="userImg">
 									<!-- 유저 사진 -->
@@ -210,7 +218,7 @@
 			
 			
 			
-			  <!-- 상세검색 모달 --> 
+			   <!-- 상세검색 모달 --> 
 
                 <div class="modal hidden">
                  <div class="bg"></div>
@@ -226,7 +234,7 @@
 					   		line-height: 5;">
 					    <h3 style="color:white; margin-left: -30px; font-size:23px;padding-top: 25px; " class="media2">상세 검색</h3></div>
 				      <%--  onclick="location.href='${pageContext.request.contextPath}/service/MomDetailModalOk.ser'" --%>
-				        <input type="button" value="적용" class="apply" style="cursor: pointer; color: #ffb61a !important;" class="media3" id="close" >
+				        <input type="button" value="적용" class="apply" style="cursor: pointer; color: #ffb61a !important;" id="close" >
 				        </div>
   
          
@@ -287,7 +295,7 @@
        
 					        <hr>
 					
-					        <div class="content media17">
+				<%-- 	        <div class="content media17">
 					            <h3 style="text-align: left;" class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;원하는 시터 나이대</h3>
 					            
 					            <div class="time">
@@ -305,7 +313,7 @@
 					            </div>
 					        </div>
 					        
-					        <hr>
+					        <hr> --%>
 
 						        <div class="content media20">
 						            <h3 style="text-align: left;" class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;원하는 활동</h3>
@@ -341,116 +349,123 @@
 					</div>
                 
 		
-			
-			   <!-- 돌봄유형 선택 모달 --> 
-	
-	                <div class="modal2 hidden">
-	                    <div class="bg2"></div>
-	                    <div class="modalBox2">
-	                     <!-- 돌봄유형 모달창 main -->
-	    <div class="main3">
-	   
-	        <div style="    background-color: #ffb61a9e;
-	    width: 477px;
-	    height: 86px;
-	    text-align: center;">
-	        <h2 style="color:white; line-height: 3;
-	    font-size: 29px;">&nbsp;돌봄유형 선택</h2></div>
-	     <div style="    text-align: center;
-	    width: 477px;
-	    height: 683px;" class="media2">
-	        <br>
-	        <h3 style="margin: 1px; font-family: GmarketSansMedium;" class="media20">어떤 돌봄이 필요하세요?</h3>
-	        <p style="margin: 0; color: gray;" class="media21">돌봄 유형을 선택하시면, 맞춤 시터를 보여드려요</p>
-	
-	        <div >
-	            <div class="child media4">
-	                2~10세 정기 돌봄
-	            </div>
-	
-	            <div>
-	                <img src="${pageContext.request.contextPath}/images/등하원.png" style="width: 50px; margin: 0 70px;" class="media6">
-	                <img src="${pageContext.request.contextPath}/images/학습지도.png" style="width: 50px; margin: 0 70px;" class="media6">
-	            </div>
-	            <div style="margin: 0 auto; width: 500px; height: 45px; margin-left: -7px;" >
-	                <div class="text media8">
-	                   주 5일 등하원 
-	                    <p class="p2 media9">기관 전/후 등하원 및 돌봄</p>
-	                </div>
-	                <div class="text media21">
-	                    놀이/학습시터
-	                    <p class="p2 media9">주 1~4일 또는 짧은시간</p>
-	                </div>
-	            </div>
-	        </div>
-	
-	
-	
-	        <div>
-	            <div class="child media10" style="margin-top:20px;">
-	                신생아/영아 정기돌봄
-	            </div>
-	            <div>
-	                <img src="${pageContext.request.contextPath}/images/풀타임.png" style="width: 55px; margin: 0 70px;" class="media11">
-	                <img src="${pageContext.request.contextPath}/images/보조.png" style="width: 55px; margin: 0 70px;" class="media11">
-	            </div>
-	            <div style="margin: 0 auto; width: 500px; height: 45px;     margin-left: 3px;" >
-	                <div class="text media13">
-	                  풀타임
-	                    <p class="p2 media14">주5일 평균8시간 이상</p>
-	                </div>
-	                <div class="text media22" style="margin-left: 74px;">
-	                    보조
-	                    <p class="p2 media14">주 1~4일 또는 짧은시간</p>
-	                </div>
-	            </div>
-	        </div>
-	
-	
-	        <div class="media15">
-	            <div class="child media16" style="margin-top:20px;">
-	                긴급/단기 돌봄
-	            </div>
-	            <div class="main">
-	                <img src="${pageContext.request.contextPath}/images/긴급.png" style="width: 50px;" class=" media17">
-	
-	            </div>
-	            <div class="main media18" style="font-weight: bold;">
-	                긴급/단기
-	                <p class="p2 media23">하루 또는 며칠만 급하게 필요할 때</p>
-	              </div>
-	        </div>
-	
-	            <button class="button media19">모든 돌봄유형 보기</button>
-	            
+		
+		   <!-- 돌봄유형 선택 모달 --> 
+
+                <div class="modal2 hidden">
+                    <div class="bg2"></div>
+                    <div class="modalBox2">
+                     <!-- 돌봄유형 모달창 main -->
+    <div class="main3">
+   
+        <div style=" background-color: #ffb61a9e; width: 477px;height: 86px; text-align: center;">
+        <h2 style="color:white; line-height: 3;font-size: 29px;">&nbsp;돌봄유형 선택</h2></div>
+    	<div style=" text-align: center;width: 477px; height: 683px;" >
+        <br>
+        <h3 style="margin: 1px; font-family: GmarketSansMedium;" >어떤 돌봄이 필요하세요?</h3>
+        <p style="margin: 0; color: gray;" class="media21">돌봄 유형을 선택하시면, 맞춤 시터를 보여드려요</p>
+
+        <div>
+            <div class="child">
+                2~10세 정기 돌봄
+            </div>
+
+            <div>
+                <img src="${pageContext.request.contextPath}/images/등하원.png" style="width: 50px; margin: 0 70px; cursor:pointer;" id="goToSchool" >
+                <img src="${pageContext.request.contextPath}/images/학습지도.png" style="width: 50px; margin: 0 70px; cursor:pointer;" id="teach">
+            </div>
+            <div style="margin: 0 auto; width: 500px; height: 45px; margin-left: -7px; margin-top: -15px;" >
+                <div class="text">
+                   주 5일 등하원 
+                    <p class="p2">기관 전/후 등하원 및 돌봄</p>
+                </div>
+                <div class="text" style="margin-left: 60px;">
+                    놀이/학습시터
+                    <p class="p2">주 1~4일 또는 짧은시간</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div>
+            <div class="child" style="margin-top:20px;">
+                신생아/영아 정기돌봄
+            </div>
+            <div>
+                <img src="${pageContext.request.contextPath}/images/풀타임.png" style="width: 55px; margin: 0 70px; cursor:pointer;" id="fullTime">
+                <img src="${pageContext.request.contextPath}/images/보조.png" style="width: 55px; margin: 0 70px; cursor:pointer;"  id="assistance">
+            </div>
+            <div style="margin: 0 auto; width: 500px; height: 45px; margin-left: 3px; margin-top: -14px !important;" >
+                <div class="text" style="margin-left: 91px;">
+                  풀타임
+                    <p class="p2">평균8시간 이상</p>
+                </div>
+                <div class="text" style="margin-left: 139px;">
+                    보조
+                    <p class="p2">짧은시간</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="media15">
+            <div class="child" style="margin-top:20px;">
+                긴급/단기 돌봄
+            </div>
+            <div>
+                <img src="${pageContext.request.contextPath}/images/긴급.png" style="width: 50px; cursor:pointer;" id="emergency">
+
+            </div>
+            <div class="main" style="font-weight: bold;">
+                긴급/단기
+                <p class="p2">하루 또는 며칠만 급하게 필요할 때</p>
+              </div>
+        	</div>
+
+            <button class="button" id="fullType" 
+            onclick="location.href='/mommy_workspace/service/SearchJobOk.ser?careType=6'";
+            >모든 돌봄유형 보기</button>
+            
 			</div>
-	
-	
-	    </div>
-	                    </div>
-	                </div>
-			
-			
-				<!-- 돌봄지역 선택 모달 -->
-				
-				 <div class="modal3 hidden">
-		                    <div class="bg3"></div>
-		                    <div class="modalBox3">
-		                      <div style="margin-top: 62px;">
-								    <select id="sido" class="area">
-								      <option value="">'시/도'를 선택해주세요</option>
-								    </select>
-								    <select id="sigugun" class="area">
-								      <option value="">'시/군/구'를 선택해주세요</option>
-								    </select>
-								    <select id="dong" class="area">
-								      <option value="">'동'을 선택해주세요</option>
-								    </select>
-								 
-								  </div>
-		                      
-		                    </div>
-		                </div>
+
+	   				 </div>
+                    </div>
+                </div>
+		
+		
+		<!-- 돌봄지역 선택 모달 -->
+		
+		
+		 <div class="modal3 hidden">
+                    <div class="bg3"></div>
+                    <div class="modalBox3">
+                    	<div class="location_title">
+                      		<h2 style="color: white; line-height: 3; font-size: 29px;">&nbsp;돌봄지역 선택</h2>
+          				</div>
+                      <div class="region_select">
+						    <select id="sido" name="sido" class="area" style="background-color: white; cursor:pointer;">
+						      <option value="" >'시/도'를 선택해주세요</option>
+						    </select>
+						    <select id="sigugun" name="sigugun" class="area" style="background-color: white; cursor:pointer;">
+						      <option value="" >'시/군/구'를 선택해주세요</option>
+						    </select>
+						    <select id="dong" name="dong" class="area" style="background-color: white; cursor:pointer;">
+						      <option value="">'동'을 선택해주세요</option>
+						    </select>
+						     <div>
+					               <input class="region_btn" type="button" id="areaButton" value="확인" style="    color: #ffb61a !important;
+										    outline: 0 !important;
+										    border: none !important;
+										    padding: 0 !important;
+										    line-height: 0;
+										    box-shadow: none;">
+					            </div>
+						 </div>
+                   </div>
+               </div>
+		
+		
 				
 					
 										<!-- 페이징 처리 -->

@@ -88,6 +88,10 @@ public class AdminFrontController extends HttpServlet
 			af = new AdminNoticeInsert().execute(req, resp);
 			System.out.println("adNoInsert FC");
 			
+		}else if(command.equals("/admin/AdminNoticeInsertOk.ad")) {
+			af = new AdminNoticeInsertOk().execute(req, resp);
+			System.out.println("adNoInsertOk FC");
+			
 		}else if(command.equals("/admin/AdminNoticeListOk.ad")) {
 			af = new AdminNoticeListOk().execute(req, resp);
 			System.out.println("adNoListOk FC");
@@ -99,13 +103,18 @@ public class AdminFrontController extends HttpServlet
 		}else if(command.equals("/admin/AdminAuthListOk.ad")) {
 			af = new AdminAuthListOk().execute(req, resp);
 			System.out.println("adAuthListOk FC");
-			
-		}else if(command.equals("/admin/AdminCheckOk.ad")) {
-			System.out.println("와버렸나?");
-			af = new AdminCheckOk().execute(req, resp);
-			System.out.println("가버렸나?");
-
-		}
+		}else if(command.equals("/admin/AdminAuthChange.ad")) {
+			af = new ActionForward();
+			af.setRedirect(false);
+			af.setPath("/app/admin/adminAuth_Detail.jsp");
+			//체크 승인데이터 보내기
+		}else if(command.equals("/admin/AdminAuthChangeOk.ad")) {
+			af = new adminAuth_DetailOk().execute(req, resp);
+		}	
+		
+		
+		
+		
 		
 		//전송안할지
 		if(af != null) {

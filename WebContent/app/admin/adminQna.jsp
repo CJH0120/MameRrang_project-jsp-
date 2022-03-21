@@ -73,10 +73,10 @@
 					<section id="three" class="feature">
 						<div class="row row-total main-total" style="display: flex; justify-content: center; margin-right: 0em;">
 								<div class="side-header">
-               <a href="${pageContext.request.contextPath}/app/admin/admin.jsp" style="border-bottom:2px solid #ffb61a;"><p id="total" class="s-title text bYellow">통계 </p></a>
+               <a href="${pageContext.request.contextPath}/admin/AdminMainOk.ad"  style="border-bottom:2px solid #ffb61a;"><p id="total" class="s-title text bYellow">통계 </p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminQnaListOk.ad"><p id="qna" class="s-title text bGray" >문의</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminReportListOk.ad"><p id="report" class="s-title bGray" >신고</p></a>
-               <a href="${pageContext.request.contextPath}/app/admin/adminAuth.jsp"><p id="auth" class="s-title bGray">인증</p></a>
+               <a href="${pageContext.request.contextPath}/admin/AdminAuthListOk.ad"><p id="auth" class="s-title bGray">인증</p></a>
                <a href="${pageContext.request.contextPath}/app/admin/adminMList.jsp"><p id="memberList" class="s-title bGray" >회원목록</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminNoticeListOk.ad"><p id="inform" class="s-title bGray" >공지</p></a>
 			</div>
@@ -95,8 +95,6 @@
                   			<c:choose>
 								<c:when test="${qnaList != null and fn:length(qnaList) > 0}">
 									<c:forEach var="qna" items="${qnaList}">
-                  						<c:choose>
-											<c:when test="${qna.getCategoryNum() eq 1}">
                   								<tr>
                   									<c:choose>
                      									<c:when test="${qna.getAskStatus() eq 0}"><td class="qa-result" style="color:red;">대기중</td></c:when>
@@ -115,10 +113,6 @@
                      								</c:choose>
                      								<td>${qna.getAskDate()}</td>
                   								</tr>
-                  							</c:when>
-                  							<c:otherwise>
-                  							</c:otherwise>	
-                  						</c:choose>
                   					</c:forEach>
                   				</c:when>
                   				<c:otherwise>

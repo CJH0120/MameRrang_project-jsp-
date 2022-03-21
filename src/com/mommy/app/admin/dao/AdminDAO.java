@@ -25,11 +25,6 @@ public class AdminDAO
 		    sqlSession = sqlSessionFactory.openSession(true);
 	  }
 //----------문의 신고 페이지-------------------------------------------------------	
-
-		//게시글 전체(문의+신고) 목록
-		public List<AdminQnaDTO> selectAll(Map<String, Integer> qnareMap) {
-			return sqlSession.selectList("Admin.selectAll", qnareMap);
-		}
 		
 		//게시글 정보 조회
 		public AdminQnaVO selectDetail(int askNum) {
@@ -47,6 +42,11 @@ public class AdminDAO
 		}
 		
 //----------------문의--------------------------------------------------	
+		//문의 게시글 전체 목록
+		public List<AdminQnaDTO> qnaSelectAll(Map<String, Integer> qnaMap) {
+			return sqlSession.selectList("Admin.qnaSelectAll", qnaMap);
+		}
+		
 		//문의글 전체 개수
 		public int getQnaTotal() {
 			return sqlSession.selectOne("Admin.getQnaTotal");
@@ -61,12 +61,14 @@ public class AdminDAO
 		public int getQnaTotal1() {
 			return sqlSession.selectOne("Admin.getReportTotal1");
 		}
-		
-		
-		
 //----------------------------------------------------------------------
 		
 //----------------신고---------------------------------------------------
+		//문의 게시글 전체 목록
+		public List<AdminQnaDTO> reportSelectAll(Map<String, Integer> reportMap) {
+			return sqlSession.selectList("Admin.reportSelectAll", reportMap);
+		}
+		
 		//신고글 전체 개수
 		public int getReportTotal() {
 			return sqlSession.selectOne("Admin.getReportTotal");
@@ -117,4 +119,17 @@ public class AdminDAO
 	public int authGetTotal() {
 		return sqlSession.selectOne("Admin.authGetTotal");
 	}	
+	
+//---------------------------------------------------------------------------
+	//체크 박스 업데이트
+	public int CheckBox_Update( AdminAuthDTO profileNum ) {
+		return sqlSession.selectOne("Admin.update_Certification",profileNum);
+	}
+	
+	
 }
+
+
+
+
+

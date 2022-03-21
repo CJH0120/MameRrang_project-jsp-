@@ -25,15 +25,8 @@ public class AdminNoticeInsert implements Action{
 		resp.setCharacterEncoding("UTF-8");
 		
 		
-				
-		vo.setNoticeTitle(req.getParameter("noticeTitle"));
-		vo.setNoticeContent(req.getParameter("noticeContent"));
-		vo.setNoticeDate(req.getParameter("noticeDate"));
-		
-		dao.insert(vo);
-		
-		af.setRedirect(true);
-		af.setPath(req.getContextPath() + "/admin/AdminNoticeListOk.ad");
+		af.setRedirect(false);
+		af.setPath("/app/admin/adminNoticeInsert.jsp");
 		
 		return af;
 		

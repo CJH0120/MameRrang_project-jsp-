@@ -23,7 +23,9 @@
 		<c:set var="admin" value="${admin}"/>
    		<c:set var="files" value="${files}"/>
    		<c:set var="page" value="${page}"/>
-
+		<c:set var="total" value="${total}"/>
+			<c:set var="total0" value="${total0}"/>
+			<c:set var="total1" value="${total1}"/>
 
       <!-- Main -->
          <div id="main" class="container">
@@ -32,7 +34,7 @@
          	<a href="${pageContext.request.contextPath}/admin.jsp"><img src="${pageContext.request.contextPath}/images/로고1.png" style="width: 9%; position: absolute; margin: -50px 0px 0 26px;"></a>
             <h3 class="caption" style="position: absolute; margin: -46px 0px -1px 207px; padding-left: 20px;">관리자 페이지</h3>
             <ul class="actions small">
-               <li><span id="memberList" class="s-title text bGray" style="padding: 0em 0 0 10em;" >신고<span class="auth-num" style="color:red;">4</span></span></li>
+               <li><span id="memberList" class="s-title text bGray" style="padding: 0em 0 0 10em;" >신고<span class="auth-num" style="color:red;">${total0}</span></span></li>
 
             </ul>
          </div>
@@ -40,10 +42,10 @@
 					<section id="three" class="feature">
 						<div class="row row-total main-total" style="display: flex; justify-content: center; margin-right: 0em;">
 								<div class="side-header">
-               <a href="${pageContext.request.contextPath}app/admin/admin.jsp" style="border-bottom:2px solid #ffb61a;"><p id="total" class="s-title text bYellow">통계 </p></a>
+               <a href="${pageContext.request.contextPath}/admin/AdminMainOk.ad"  style="border-bottom:2px solid #ffb61a;"><p id="total" class="s-title text bYellow">통계 </p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminQnaListOk.ad"><p id="qna" class="s-title text bGray" >문의</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminReportListOk.ad"><p id="report" class="s-title bGray" >신고</p></a>
-               <a href="${pageContext.request.contextPath}app/admin/adminAuth.jsp"><p id="auth" class="s-title bGray">인증</p></a>
+               <a href="${pageContext.request.contextPath}/admin/AdminAuthListOk.ad"><p id="auth" class="s-title bGray">인증</p></a>
                <a href="${pageContext.request.contextPath}app/admin/adminMList.jsp"><p id="memberList" class="s-title bGray" >회원목록</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminNoticeListOk.ad"><p id="inform" class="s-title bGray" >공지</p></a>
 			</div>

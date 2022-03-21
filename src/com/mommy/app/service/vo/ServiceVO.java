@@ -2,7 +2,7 @@ package com.mommy.app.service.vo;
 
 public class ServiceVO {
 	
-	
+	private int profileNum;
 	private int userNum;
 	private String profileDate;
 	private String profilePicture;
@@ -42,6 +42,7 @@ public class ServiceVO {
 	private int checkTeacher;
 	private int checkCitizen;
 	private int checkUniversity;
+	private int careEmergency;
 	
 	public ServiceVO() {;	}
 
@@ -357,6 +358,30 @@ public class ServiceVO {
 
 	public void setCheckUniversity(int checkUniversity) {
 		this.checkUniversity = checkUniversity;
+	}
+
+
+
+	public int getProfileNum() {
+		return profileNum;
+	}
+
+
+
+	public void setProfileNum(int profileNum) {
+		this.profileNum = profileNum;
+	}
+
+
+
+	public int getCareEmergency() {
+		return careEmergency;
+	}
+
+
+
+	public void setCareEmergency(int careEmergency) {
+		this.careEmergency = careEmergency;
 	}
 	
 	

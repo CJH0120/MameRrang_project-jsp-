@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>     
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +20,8 @@
 </head>
 
 <body>
-
+	<c:set var="user" value="${user}"/>
+	<c:set var="userAge" value="${userAge}"/>
 
 <!-- Aside -->
    <div class="wrapper">
@@ -92,9 +95,14 @@
                     <img src="${pageContext.request.contextPath}/images/후기1.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">
                     </label>
                     <div style = "position:absolute; top: 20px; left: 136px;">
-                          <h3 style="margin-bottom: 3px; font-size: 18px;">김아무개
+                          <h3 style="margin-bottom: 3px; font-size: 18px;">${user.getUserName()}
                           <img src="${pageContext.request.contextPath}/images/heart.png" class="heart" id="heart"></h3>
-                          <span style = "margin-top: 20px; font-size:16px;">29세, 여</span>
+                          <span style = "margin-top: 20px; font-size:16px;">${userAge}세,                                    
+                           <c:choose>
+                                    	<c:when test="${user.getUserGender() == 1}">남</c:when>
+                                    	<c:when test="${user.getUserGender() == 0}">여</c:when>
+                                    	<c:otherwise>정보없음</c:otherwise>
+                                    </c:choose> </span>
                      </div>
                   
                 </div>
@@ -208,7 +216,7 @@
 			   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/additional.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/lookMomProfile2.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0fdbbaa54afec5bb9f05d991a900280f&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6316b3fde93fb6bb4a1526abb1494b47&libraries=services"></script>
 <script>
 //맵 api
 

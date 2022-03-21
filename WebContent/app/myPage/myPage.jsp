@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> 
 <!DOCTYPE HTML>
 <!--
@@ -83,7 +83,7 @@
                         <div class = "innerContent">
                             <img src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg" style="float:right;margin-top: 5px;">
                             <button class = "boldButtonYel">프로필 등록</button>
-                            <a href = "${pageContext.request.contextPath}/service/lookSitterProfile2.ser"><p class ="innerTitle">내 구인/구직 글</p></a>
+                            <a href = "${pageContext.request.contextPath}/service/Jobhunting.ser"><p class ="innerTitle">내 구인/구직 글</p></a>
                         </div>
                        
 

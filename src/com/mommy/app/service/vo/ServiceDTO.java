@@ -1,6 +1,7 @@
 package com.mommy.app.service.vo;
                   
 public class ServiceDTO {
+	private int profileNum;
 	private int userStatus;
 	private int userNum;
 	private String profileDate;
@@ -43,6 +44,8 @@ public class ServiceDTO {
 	private int checkUniversity;
 	
 	public ServiceDTO() {;}
+	
+	
 
 	public int getUserStatus() {
 		return userStatus;
@@ -362,6 +365,18 @@ public class ServiceDTO {
 
 	public void setCheckUniversity(int checkUniversity) {
 		this.checkUniversity = checkUniversity;
+	}
+
+
+
+	public int getProfileNum() {
+		return profileNum;
+	}
+
+
+
+	public void setProfileNum(int profileNum) {
+		this.profileNum = profileNum;
 	}
 	
 	

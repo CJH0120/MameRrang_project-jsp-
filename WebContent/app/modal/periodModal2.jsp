@@ -12,7 +12,7 @@
 </head>
 
 <body>
-
+<!--  시터가 보게 되는 모달창 -->
     <div class="main">
         <hr>
       <div style="text-align: center;
@@ -28,7 +28,7 @@
       <h4 style="display: inline-block; width: 150px;">활동 시작일</h4>
         
        <div class="input_date_box" style="display: inline-block;">
-        <input type="date" placeholder="날짜를 입력해주세요">
+        <input name="startDate" id="startDate" type="date" placeholder="날짜를 입력해주세요">
      
       </div>
   
@@ -107,7 +107,7 @@
 				<label>6개월 이상</label>
 			</div>
 			
-        <button style="background-color: #ffb61a; color: white; font-weight: bold; font-size: 20px;
+        <button id="iframeBtn" style="background-color: #ffb61a; color: white; font-weight: bold; font-size: 20px;
             width: 300px; height: 50px; border: none; margin-top: 35px; border-radius: 25px;
             cursor: pointer;
         ">완료</button>

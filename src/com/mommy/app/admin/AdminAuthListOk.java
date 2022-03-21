@@ -25,7 +25,7 @@ public class AdminAuthListOk {
 		String temp = req.getParameter("page");
 		//사용자가 선택한 페이지가 없으면 1페이지로가고 선택한 페이지가 있으면 해당 페이지로 이동
 		int page = temp == null ? 1: Integer.parseInt(temp);
-		int rowCount = 10;
+		int rowCount = 6;
 		int pageSize = 5;
 		
 		int startRow = (page - 1)*rowCount;
@@ -42,20 +42,14 @@ public class AdminAuthListOk {
 		authMap.put("rowCount", rowCount);
 		
 //		String userId = uDao.getInfo((Integer)session.getAttribute("userNum")).getUserId();
-//		System.out.println(userId);
 //		String userName = uDao.getInfo((Integer)session.getAttribute("userNum")).getUserName();
-//		System.out.println(userName);
 //		int userStatus = uDao.getInfo((Integer)session.getAttribute("userStatus")).getUserStatus();
-//		System.out.println(userStatus);
+//		
 //		req.setAttribute("userId", userId);
 //		req.setAttribute("userName", userName);
 //		req.setAttribute("userStatus", userStatus);
 		
 		req.setAttribute("authList", dao.authSelectAll(authMap));
-		
-		
-		
-		
 		req.setAttribute("page", page);
 		req.setAttribute("startPage", startPage);
 		req.setAttribute("endPage", endPage);

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>     
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +20,11 @@
 </head>
 
 <body>
+
+	<c:set var="sitter" value="${sitterInfo}"/>
+	<c:set var="userNum2" value="${userNum2}"/>
+	<!--  userNum2 = 프로필을 쓴 사람의 유저넘 -->
+	
     <!-- Aside -->
    <div class="wrapper">
 	<div class="inner">
@@ -68,11 +76,19 @@
       
       <div id="main" class="container medium">
          <!-- profile header -->
-                  <p style="font-size: 15px; width: 57%; margin-top: -46px; display: inline-block;">작성시간[2022-03-07]</p>
+                  <p style="font-size: 15px; width: 57%; margin-top: -46px; display: inline-block;">작성시간[${sitter.getProfileDate()}]</p>
                      <div style="display:inline; position: relative;" class="media_correct">
+                     
+                     
+                     <!-- 미구현 ================================================================= -->
+                     <c:if test="${sitter.getUserNum() eq userNum2}">
+                     
                      <a class="a" style="font-size:17px;">수정</a> &nbsp;&nbsp;&nbsp;
                     
-                      <a class="a" style="font-size:17px;">삭제</a>  
+                      <a class="a" style="font-size:17px;" onclick="location.href='${pageContext.request.contextPath}/service/SitterProfileDeleteOk.ser?userNum=${userNum}'">삭제</a>  
+                      </c:if>
+                      
+                      
                      </div>
                   <br>
          
@@ -83,8 +99,11 @@
                     <img src="${pageContext.request.contextPath}/images/img1.jpg" style="width: 100px; border-radius: 150px; cursor: pointer; ">
                     </label>
                     <div style = "position:absolute; top: 20px; left: 136px;">
-                     <h3 style="margin-bottom: 3px; font-size: 18px;">김아무개
-                          <img src="${pageContext.request.contextPath}/images/heart.png" class="heart" id="heart"></h3><span style = "margin-top: 20px; font-size:16px;">29세, 여</span>
+                    <!-- 유저 이름===============================================     -->
+                     <h3 style="margin-bottom: 3px; font-size: 18px;">${sitter.getUserName()}
+                          <img src="https://cdn.discordapp.com/attachments/954273372760571914/955209503157145660/emptyHeart.png" class="heart" id="heart"></h3>
+                          <span style = "margin-top: 20px; font-size:16px;"><c:out value="${'2022'- sitter.getUserBirthYear()}"/>살, ${sitter.getUserGender()}</span>
+
                      </div>
                      <div  style = "position:absolute; top: 30px; left: 640px;" class="media_star">
                         <!-- <img src="images/star.png" style="width: 30px; font-size: 12px;"> -->
@@ -97,17 +116,126 @@
                 
                 <div style = "float:left; margin-right:30px; margin-top: 20px;">
                     <p style="margin: 0;  font-size: 15px; color:#797d7e;
-                       
-                    ">안녕하세요:) 잘부탁드립니다.</p>
+                    ">${sitter.getProfileDescription()}</p>
                    
                 </div>
 
 
                 </div>
+			<!-- 인증완료 여부========================================= -->			
+			<c:choose>
+			<c:when test="${sitter.getCheckMedi()==1}">
+				<c:set var="medi" value="건강인증" />
+			</c:when>
+			</c:choose>
+				<c:choose>
+			<c:when test="${sitter.getCheckMom()==1}">
+				<c:set var="mom" value="부모인증" />
+			</c:when>
+			</c:choose>
+				<c:choose>
+			<c:when test="${sitter.getCheckTeacher()==1}">
+				<c:set var="teacher" value="교사인증" />
+			</c:when>
+			</c:choose>
+				<c:choose>
+			<c:when test="${sitter.getCheckCitizen()==1}">
+				<c:set var="self" value="본인인증" />
+			</c:when>
+			</c:choose>
+			<c:choose>
+			<c:when test="${sitter.getCheckUniversity()==1}">
+				<c:set var="univer" value="학력인증" />
+			</c:when>
+			</c:choose>
+										
+			<!-- 가능한 활동================================== -->							
+			<c:choose>
+			<c:when test="${sitter.getCareIndoor()==1}">
+				<c:set var="careIndoor" value="실내활동" />
+			</c:when>
+			</c:choose><c:choose>
+			<c:when test="${sitter.getCareCommit()==1}">
+				<c:set var="careCommit" value="등하원" />
+			</c:when>
+			</c:choose><c:choose>
+			<c:when test="${sitter.getCareFood()==1}">
+				<c:set var="CareFood" value="밥챙겨주기" />
+			</c:when>
+			</c:choose><c:choose>
+			<c:when test="${sitter.getCareClean()==1}">
+				<c:set var="CareClean" value="청소" />
+			</c:when>
+			</c:choose><c:choose>
+			<c:when test="${sitter.getCareStudy()==1}">
+				<c:set var="CareStudy" value="학습지도" />
+			</c:when>
+			</c:choose>		
+			
+			<!--돌봄가능 연령 ===============================  -->
+			<c:choose>
+			<c:when test="${sitter.getBabyNewborn()==1}">
+				<c:set var="BabyNewborn" value="신생아" />
+			</c:when>
+			</c:choose>		
+			<c:choose>
+			<c:when test="${sitter.getBabyChild()==1}">
+				<c:set var="BabyChild" value="영아" />
+			</c:when>
+			</c:choose>		
+			<c:choose>
+			<c:when test="${sitter.getBabyKinder()==1}">
+				<c:set var="BabyKinder" value="유치원생" />
+			</c:when>
+			</c:choose>		
+			<c:choose>
+			<c:when test="${sitter.getBabyElementary()==1}">
+				<c:set var="BabyElementary" value="초등학생" />
+			</c:when>
+			</c:choose>		
+		
+		<!-- 돌봄가능기간 ===================================== -->
+				<c:choose>
+			<c:when test="${sitter.getP_week()==1}">
+				<c:set var="week" value="1주일 이상" />
+			</c:when>
+			</c:choose>
+				<c:choose>
+			<c:when test="${sitter.getP_month()==1}">
+				<c:set var="month" value="1개월 이상" />
+			</c:when>
+			</c:choose>
+				<c:choose>
+			<c:when test="${sitter.getP_quarter()==1}">
+				<c:set var="quarter" value="3개월 이상" />
+			</c:when>
+			</c:choose>
+				<c:choose>
+			<c:when test="${sitter.getP_semiAnnual()==1}">
+				<c:set var="semiAnnual" value="6개월" />
+			</c:when>
+			</c:choose>
+		
+		<!-- 활동가능시간=========================== -->
+			<c:choose>
+			<c:when test="${sitter.getP_morning()==1}">
+				<c:set var="morning" value="09:00~12:00" />
+			</c:when>
+			</c:choose>
+			<c:choose>
+			<c:when test="${sitter.getP_lunch()==1}">
+				<c:set var="lunch" value="12:00~15:00" />
+			</c:when>
+			</c:choose>
+			<c:choose>
+			<c:when test="${sitter.getP_noon()==1}">
+				<c:set var="noon" value="15:00~18:00" />
+			</c:when>
+			</c:choose>
 
-
-
-
+			
+			
+			
 
                 <hr class = "split">
                     <div class = "innerContent2" style="float: left;">
@@ -115,19 +243,19 @@
 
                         <ul style="list-style: none; margin-left: -28px; width: 423px; margin-bottom: 0; ">
                             <li class="liCss" id="li1"> <img src="${pageContext.request.contextPath}/images/인증완료.png" class="imgIcon">
-                            <a  class="a" onMouseOver="this.innerHTML='코로나인증, 등초본인증'" onMouseOut="this.innerHTML='인증완료 여부'"> 인증완료 여부</a> </li>
+                            <a  class="a" onMouseOver="this.innerHTML='${medi}  ${mom}  ${teacher}  ${self}  ${univer} ' " onMouseOut="this.innerHTML='인증완료 여부'"> 인증완료 여부</a> </li>
                             
                             <br><li class="liCss" id="li2"><img src="${pageContext.request.contextPath}/images/활동아이콘.png" class="imgIcon">
-                            <a class="a" onMouseOver="this.innerHTML='실내놀이, 등하원'" onMouseOut="this.innerHTML='가능한 활동'">가능한 활동</a> </li>
+                            <a class="a" onMouseOver="this.innerHTML='${careIndoor}  ${careCommit}  ${CareFood}  ${CareClean}  ${CareStudy}'" onMouseOut="this.innerHTML='가능한 활동'">가능한 활동</a> </li>
                             
                             <br><li class="liCss" id="li3"><img src="${pageContext.request.contextPath}/images/돌봄가능연령아이콘.png" class="imgIcon">
-                              <a class="a" onMouseOver="this.innerHTML='유아, 초등학생'" onMouseOut="this.innerHTML='돌봄가능 연령'">돌봄가능 연령</a></li>
+                              <a class="a" onMouseOver="this.innerHTML='${BabyNewborn}  ${BabyChild}  ${BabyKinder}  ${BabyElementary}'" onMouseOut="this.innerHTML='돌봄가능 연령'">돌봄가능 연령</a></li>
                             
                             <br><li class="liCss" id="li4"><img src="${pageContext.request.contextPath}/images/돌봄가능기간.png" class="imgIcon">
-                              <a class="a" onMouseOver="this.innerHTML='시작날짜[2022-03-07] / 3개월 이상'" onMouseOut="this.innerHTML='활동가능 기간'">활동가능 기간</a></li>
+                              <a class="a" onMouseOver="this.innerHTML='시작날짜 [${sitter.getP_periodStartDate()}] /${week} ${month} ${quarter} ${semiAnnual}'" onMouseOut="this.innerHTML='활동가능 기간'">활동가능 기간</a></li>
                             
                             <br><li class="liCss" id="li5"><img src="${pageContext.request.contextPath}/images/활동가능시간.png" class="imgIcon">
-                              <a class="a" onMouseOver="this.innerHTML='오후3시~오후6시'" onMouseOut="this.innerHTML='활동가능 시간'">활동가능 시간</a></li>
+                              <a class="a" onMouseOver="this.innerHTML='${morning} ${lunch} ${noon}'" onMouseOut="this.innerHTML='활동가능 시간'">활동가능 시간</a></li>
                            
 
                         </ul>
@@ -137,7 +265,7 @@
                     </div>
                     <div class = "innerContent moAd1" style="float: left;  margin-left: 32%;">
                         <p class ="innerTitle" style="margin: 0;"><img src="${pageContext.request.contextPath}/images/지역.png" style="width: 25px; margin-right: 10px; ">활동가능 지역</p>
-                        <p style="margin:0px; font-size: 14px;">(경기도 용인시 수지구 상현동)</p>
+                        <p style="margin:0px; font-size: 14px;">(${sitter.getLocationSido()}  ${sitter.getLocationSigun()}  ${sitter.getLocationDong()})</p>
                         <div >
 
                         <div id="map" style="width:350px;height:220px;"class="map" ></div>
@@ -163,156 +291,10 @@
                     position: relative;
                     top: -12px;
                     left: 7px;
-                    margin-bottom: -25px;"><h3>10,000원</h3></div>
+                    margin-bottom: -25px;"><h3>${sitter.getProfileSalary()}원</h3></div>
                      
                 </div>
-                <hr class="split" >
-                <div class = "innerContent" style = "position:relative;">
-                    <p class ="innerTitle">후기</p>
-
-                        <div style="display: flex;">
-                        <div style="font-size: 52px; display: inline-block;">4.7</div>
-                            <div style="
-                            display: flex;
-                            align-content: flex-start;
-                            flex-direction: column;
-                            line-height: 1;
-                            margin-left: 5px;
-                            ">
-                           <div style="display: inline-block; height: 21px;"> 
-                            <img src="${pageContext.request.contextPath}/images/star.png" width="17px" >
-                            <img src="${pageContext.request.contextPath}/images/star.png" width="17px" >
-                            <img src="${pageContext.request.contextPath}/images/star.png" width="17px" >
-                            <img src="${pageContext.request.contextPath}/images/star.png" width="17px" >
-                            <img src="${pageContext.request.contextPath}/images/star.png" width="17px" >
-                            </div>
-                            <div style="display: inline-block;"><span style="font-size: 15px;">5개 리뷰</span></div>
-                            </div>
-                        </div>
-                        <div class="selectBox2 ">
-                            <button class="label" style="    
-                            color: #989898;
-                            font-size: 15px;
-                            font-weight: bold;">최신순</button>
-                            <ul class="optionList">
-                              <li class="optionItem">최신순</li>
-                              <li class="optionItem">별점 높은순</li>
-                              <li class="optionItem">별점 낮은순</li>
-                            </ul>
-                          </div>
-                      
-                    </div>
-
-                    <!-- 후기목록란---------------------------------------------- -->
-                    <hr class="split">
-                    <div class = "innerContent">
-                        <div style="display: flex;">
-                            <div style="width: 70px;"><img src="${pageContext.request.contextPath}/images/후기1.png" style="width: 100%; "></div>
-                            <div style="display: flex;
-                            align-content: center;
-                            flex-wrap: nowrap;
-                            flex-direction: column;">
-                            <div class="ment">"<span>오늘안에 잠들수 있을까</span>"</div>
-                            <div><span class="reviewText">작성자</span>
-                                    <span class="reviewTextDetail">예오닝</span>
-                                <span class="reviewText">작성일</span>
-                                <span class="reviewTextDetail">2022-03-07</span>
-                                <span class="reviewText">평가</span>
-                                <span class="reviewTextDetail">⭐⭐⭐⭐⭐</span></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr style="margin-top: 19px;
-                    margin-bottom: -3px;">
-
-                    <div class = "innerContent">
-                        <div style="display: flex;">
-                            <div style="width: 70px;"><img src="${pageContext.request.contextPath}/images/후기2.png" style="width: 100%; "></div>
-                            <div style="display: flex;
-                            align-content: center;
-                            flex-wrap: nowrap;
-                            flex-direction: column;">
-                            <div class="ment">"<span>오늘안에 잠들수 있을까</span>"</div>
-                            <div><span class="reviewText">작성자</span>
-                                    <span class="reviewTextDetail">예오닝</span>
-                                <span class="reviewText">작성일</span>
-                                <span class="reviewTextDetail">2022-03-07</span>
-                                <span class="reviewText">평가</span>
-                                <span class="reviewTextDetail">⭐⭐⭐⭐⭐</span></div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <hr class="split">
-
-                    <div class = "innerContent">
-                        <div style="display: flex;">
-                            <div style="width: 70px;"><img src="${pageContext.request.contextPath}/images/후기3.png" style="width: 100%; "></div>
-                            <div style="display: flex;
-                            align-content: center;
-                            flex-wrap: nowrap;
-                            flex-direction: column;">
-                            <div class="ment">"<span>오늘안에 잠들수 있을까</span>"</div>
-                            <div><span class="reviewText">작성자</span>
-                                    <span class="reviewTextDetail">예오닝</span>
-                                <span class="reviewText">작성일</span>
-                                <span class="reviewTextDetail">2022-03-07</span>
-                                <span class="reviewText">평가</span>
-                                <span class="reviewTextDetail">⭐⭐⭐⭐⭐</span></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                    <hr class="split">
-
-                    <div class = "innerContent">
-                        <div style="display: flex;">
-                            <div style="width: 70px;"><img src="${pageContext.request.contextPath}/images/후기2.png" style="width: 100%; "></div>
-                            <div style="display: flex;
-                            align-content: center;
-                            flex-wrap: nowrap;
-                            flex-direction: column;">
-                            <div class="ment">"<span>오늘안에 잠들수 있을까</span>"</div>
-                            <div><span class="reviewText">작성자</span>
-                                    <span class="reviewTextDetail">예오닝</span>
-                                <span class="reviewText">작성일</span>
-                                <span class="reviewTextDetail">2022-03-07</span>
-                                <span class="reviewText">평가</span>
-                                <span class="reviewTextDetail">⭐⭐⭐⭐⭐</span></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                    <hr class="split">
-
-                    <div class = "innerContent">
-                        <div style="display: flex;">
-                            <div style="width: 70px;"><img src="${pageContext.request.contextPath}/images/후기1.png" style="width: 100%; "></div>
-                            <div style="display: flex;
-                            align-content: center;
-                            flex-wrap: nowrap;
-                            flex-direction: column;">
-                            <div class="ment">"<span>오늘안에 잠들수 있을까</span>"</div>
-                            <div><span class="reviewText">작성자</span>
-                                    <span class="reviewTextDetail">예오닝</span>
-                                <span class="reviewText">작성일</span>
-                                <span class="reviewTextDetail">2022-03-07</span>
-                                <span class="reviewText">평가</span>
-                                <span class="reviewTextDetail">⭐⭐⭐⭐⭐</span></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr class="split">
-
-                    <div style="text-align: center; margin-top: 30px;">
-                    <img src="${pageContext.request.contextPath}/images/v3.png" style="width: 35px;">
-                  </div>
+          
 
                   </div>
                   </div>
@@ -329,6 +311,7 @@
       
 </body>
 
+
 <script>var contextPath = "${pageContext.request.contextPath }";</script>
          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    		<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
@@ -339,8 +322,22 @@
          <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/additional.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/lookSitterProfile2.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0fdbbaa54afec5bb9f05d991a900280f&libraries=services"></script>
+			<script>
+				var userNum = "${userNum}";
+				var userNum2 = "${sitter.getUserNum()}";
+			</script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6316b3fde93fb6bb4a1526abb1494b47&libraries=services"></script>
+
+
 <script>
+
+
+
+var address="${sitter.getLocationSido()}";
+var address2 ="${sitter.getLocationSigun()}";
+var address3="${sitter.getLocationDong()}";
+
+
 //맵 api
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -356,7 +353,7 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 var geocoder = new kakao.maps.services.Geocoder();
 
 // 주소로 좌표를 검색합니다
-geocoder.addressSearch('경기도 용인시 수지구 상현동', function(result, status) {
+geocoder.addressSearch(address+address2+address3, function(result, status) {
 
     // 정상적으로 검색이 완료됐으면 
      if (status === kakao.maps.services.Status.OK) {

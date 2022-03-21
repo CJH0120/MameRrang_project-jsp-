@@ -61,12 +61,12 @@
                   
                   <!-- 카테고리 선택 / 글쓰기 버튼  -->
                   <div class="inner media4">
-                     <div style="display:flex; justify-content:space-between; margin-top: 50px; margin-bottom: -50px;" class="media5">
-                        <select id ="select" name="" style = "width: 12%;" class="media3">
+                     <div style="display:flex; justify-content: flex-end; margin-top: 50px; margin-bottom: -50px;" class="media5">
+                       <!--  <select id ="select" name="" style = "width: 12%;" class="media3">
                            <option>전체</option>
                            <option>부모님</option>
                            <option>시터</option>
-                        </select>
+                        </select> -->
                         <div style="margin-right:0px" class="media6">
                          
                         <input  class="media7" type="button" style = "height: 45px; line-height: 1.2em; color:#ffb61a !important; box-shadow: inset 0 0 0 1px #ffb61a !important;" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/communtiy/CommunityInsert.com'"><br>
@@ -133,109 +133,7 @@
 							 </div>
 						</c:otherwise>
 					</c:choose>
-                     <!-- 
-                        <article class="style1">
-                           <span class="image">
-                              <img src="${pageContext.request.contextPath}/images/pic01.jpg" alt="" />
-                           </span>
-                           <a href="${pageContext.request.contextPath}/app/community/communityDetails.jsp">
-                              <h2 class = "myh2">저희 아기 귀엽죠</h2>	  
-                              <div class="content">
-                                 <p>본문입니다 본문입니다 본문입니다 본문입니다 본문입니다 본문입니다</p><p>작성일: 2022.03.09</p>
-                                 
-                              </div>
-                           </a>
-                        </article>
-                        <article class="style3">
-                           <span class="image">
-                              <img src="${pageContext.request.contextPath}/images/pic05.jpg" alt="" />
-                           </span>
-                           <a href="${pageContext.request.contextPath}/app/community/communityDetails.jsp">
-                              <h2 class = "myh2">오늘이 첫 돌이었어요</h2>
-                              <div class="content">
-                                 <p>본문입니다 본문입니다 본문입니다 본문입니다 본문입니다 본문입니다</p><p>작성일: 2022.03.09</p>
-                              </div>
-                           </a>
-                        </article>
-                        <article class="style2">
-                           <span class="image">
-                              <img src="${pageContext.request.contextPath}/images/picEmpty.jpg" alt="" />
-                           </span>
-                           <a href="${pageContext.request.contextPath}/app/community/communityDetails.jsp">
-                              <h2 class = "myh2">수원 산부인과<br>추천해주세요</h2>
-                              <div class="content">
-                                 <p>본문입니다 본문입니다 본문입니다 본문입니다 본문입니다 본문입니다</p><p>작성일: 2022.03.09</p>
-                              </div>
-                           </a>
-                        </article>
-                        <article class="style2">
-                           <span class="image">
-                              <img src="${pageContext.request.contextPath}/images/pic02.png" alt="" />
-                           </span>
-                           <a href="${pageContext.request.contextPath}/app/community/communityDetails.jsp">
-                              <h2 class = "myh2">100일 기념 사진<br>찍었습니다ㅎㅎ</h2>
-                              <div class="content">
-                                 <p>본문입니다 본문입니다 본문입니다 본문입니다 본문입니다 본문입니다</p><p>작성일: 2022.03.09</p>
-                              </div>
-                           </a>
-                        </article>
-                        <article class="style2">
-                           <span class="image">
-                              <img src="${pageContext.request.contextPath}/images/pic03.jpg" alt="" />
-                           </span>
-                           <a href="${pageContext.request.contextPath}/app/community/communityDetails.jsp">
-                              <h2 class = "myh2">웃는게 이쁜 아들램</h2>
-                              <div class="content">
-                                 <p>본문입니다 본문입니다 본문입니다 본문입니다 본문입니다 본문입니다</p><p>작성일: 2022.03.09</p>
-                              </div>
-                           </a>
-                        </article>
-                        <article class="style3">
-                           <span class="image">
-                              <img src="${pageContext.request.contextPath}/images/pic07.png" alt="" />
-                           </span>
-                           <a href="${pageContext.request.contextPath}/app/community/communityDetails.jsp">
-                              <h2 class = "myh2">이벤트 공유합니다 </h2>
-                              <div class="content">
-                                 <p>본문입니다 본문입니다 본문입니다 본문입니다 본문입니다 본문입니다</p><p>작성일: 2022.03.09</p>
-                              </div>
-                           </a>
-                        </article>
-                        <article class="style1">
-                           <span class="image">
-                              <img src="${pageContext.request.contextPath}/images/pic06.png" alt="" />
-                           </span>
-                           <a href="${pageContext.request.contextPath}/app/community/communityDetails.jsp">
-                              <h2 class = "myh2">아이와 바다</h2>
-                              <div class="content">
-                                 <p>본문입니다 본문입니다 본문입니다 본문입니다 본문입니다 본문입니다</p><p>작성일: 2022.03.09</p>
-                              </div>
-                           </a>
-                        </article>
-                        <article class="style3">
-                           <span class="image">
-                              <img src="${pageContext.request.contextPath}/images/picEmpty.jpg" alt="" />
-                           </span>
-                           <a href="${pageContext.request.contextPath}/app/community/communityDetails.jsp">
-                              <h2 class = "myh2">화나는 일 있었어요ㅠㅠ</h2>
-                              <div class="content">
-                                 <p>본문입니다 본문입니다 본문입니다 본문입니다 본문입니다 본문입니다</p><p>작성일: 2022.03.09</p>
-                              </div>
-                           </a>
-                        </article>
-                        <article class="style1">
-                           <span class="image">
-                              <img src="${pageContext.request.contextPath}/images/pic04.jpg" alt="" />
-                           </span>
-                          <a href="${pageContext.request.contextPath}/app/community/communityDetails.jsp">
-                              <h2 class = "myh2">울집 장난꾸러기</h2>
-                              <div class="content">
-                                 <p>본문입니다 본문입니다 본문입니다 본문입니다 본문입니다 본문입니다</p><p>작성일: 2022.03.09</p>
-                              </div>
-                           </a>
-                        </article>
-                        
-                         -->
+                   
                         
                      <br>
                      <br>
@@ -252,7 +150,7 @@
                   </table>
                   -->
                   
-                  <table style="font-size:1.3rem; margin-top:50px;">
+                  <table style="font-size:1.3rem; margin-top:50px;margin-bottom: 81px; margin-left: 50px;">
 											<tr align="center" valign="middle">
 												<td class="mobile-view">
 													<c:if test="${page > 1}">
@@ -291,7 +189,7 @@
             </div>
                   
             <!-- 게시글 검색 -->
-                     <form name="#" action="#">
+                    <!--  <form name="#" action="#">
                         <p>
                            <div id="a">
                               <div id="b">
@@ -310,7 +208,7 @@
                               <br>
                            </div>
                         </p>
-                     </form>
+                     </form> -->
                   
             </div>
          </div>

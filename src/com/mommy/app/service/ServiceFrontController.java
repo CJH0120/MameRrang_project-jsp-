@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mommy.action.ActionForward;
+import com.mommy.app.community.CommunityCommentWriteOk;
 
 public class ServiceFrontController extends HttpServlet{
 	@Override
@@ -26,21 +27,58 @@ public class ServiceFrontController extends HttpServlet{
 		String contextPath = req.getContextPath();
 		String command = requestURI.substring(contextPath.length());
 		ActionForward af = new ActionForward();
+		
+	System.out.println("찜하기 확인 FC 들어옴");
+	System.out.println(command);
+		
 		if(command.equals("/service/SearchJobOk.ser")) {
 			af=new SearchJobOk().execute(req, resp);
-			
 		}else if(command.equals("/service/SearchMomOk.ser")) {
 			af=new SearchMomOk().execute(req, resp);
-		}else if(command.equals("/service/WriteMom.ser")) {
+		}
+		else if(command.equals("/service/FavoriteInsertOk.ser")) {
+			new FavoriteInsertOk().execute(req, resp);
+			
+		}else if(command.equals("/service/FavoriteDeleteOk.ser")) {
+			new FavoriteDeleteOk().execute(req, resp);
+
+		}
+		else if(command.equals("/service/WriteMom.ser")) {
 			af = new WriteMom().execute(req, resp);
 		}else if(command.equals("/service/WriteMomOk.ser")) {
 			af = new WriteMomOk().execute(req, resp);
 		}else if(command.equals("/service/MomDetailModalOk.ser")) {
 			af = new MomDetailModalOk().execute(req, resp);
+		}else if(command.equals("/service/Jobhunting.ser")) {
+			af = new Jobhunting().execute(req, resp);
+		}else if(command.equals("/service/LookMomProfile2.ser")) {
+			af = new LookMomProfile2().execute(req, resp);
 		}else if(command.equals("/service/lookSitterProfile2.ser")) {
 			af = new LookSitterProfile2().execute(req, resp);
+		}else if(command.equals("/service/LookSitterProfileOk.ser")) {
+			af = new LookSitterProfileOk().execute(req, resp);
 		}
-	
+		
+		
+		else if(command.equals("/service/WriteSitter.ser")) {
+			af = new WriteSitter().execute(req, resp);
+		}else if(command.equals("/service/WriteSitterOk.ser")) {
+			af = new WriteSitterOk().execute(req, resp);
+		}else if(command.equals("/service/SitterProfileDeleteOk.ser")) {
+			af = new SitterProfileDeleteOk().execute(req, resp);
+		}
+		
+		
+		
+		
+		/*
+		 * else if(command.equals("/service/FavoriteListOk.ser")) {
+			af = new FavoriteListOk().execute(req, resp);
+		}
+		*/
+		
+		
+		
 		
 		
 		/*else if(command.equals("/service/WriteSitter.ser")) {

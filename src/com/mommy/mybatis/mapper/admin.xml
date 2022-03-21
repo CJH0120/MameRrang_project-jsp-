@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http//mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Admin">
-	<!--문의 +신고 게시글 목록 -->
-	<select id="selectAll" parameterType="map" resultType="AdminQnaDTO">
+	<!--문의 게시글 목록 -->
+	<select id="qnaSelectAll" parameterType="map" resultType="AdminQnaDTO">
 		select askNum, a.userNum, categoryNum, askTitle, askContent,
 		askDate, askStatus, askAnswer, askAttach, u.userId, u.userName, u.userStatus
 		from tbl_ask a join tbl_user u
+		where a.userNum = u.userNum and categoryNum= '1'
+		order by 1 desc limit #{startRow}, #{rowCount}
+	</select>
+	
+		<!--신고 게시글 목록 -->
+	<select id="reportSelectAll" parameterType="map" resultType="AdminQnaDTO">
+		select askNum, a.userNum, categoryNum, askTitle, askContent,
+		askDate, askStatus, askAnswer, askAttach, u.userId, u.userName, u.userStatus
+		from tbl_ask a join tbl_user u
+		where a.userNum = u.userNum and categoryNum= '2'
 		order by 1 desc limit #{startRow}, #{rowCount}
 	</select>
 
@@ -102,5 +112,12 @@
 	<select id="authGetTotal" resultType="_int">
 		select count(profileNum) from tbl_profile
 	</select>
+	<!-- 인증 업데이트 -->
+	<update id="update_Certification" parameterType="AdminAuthDTO">
+		update tbl_profile
+		  set checkMedi = #{checkMedi} , checkMom = #{checkMom}, checkTeacher = #{checkTeacher} 
+		  ,checkCitizen = #{checkCitizen}, checkUniversity = #{checkUniversity}
+		   where profileNum= #{profileNum}
+	</update>
 	
 	</mapper>

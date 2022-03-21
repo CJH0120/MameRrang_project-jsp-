@@ -56,12 +56,14 @@
 	
 	
 	
-	<c:if test="${not empty param.code}">
+	
+<%-- 	<c:if test="${not empty param.code}">
          <script>
             alert("아이디 또는 비밀번호를 다시 확인해주세요.");
          </script>
     </c:if>
-
+ --%>
+ 
 		<!-- Header -->
           <div class="wrapper">
             <div class="inner">
@@ -81,7 +83,7 @@
             <div class="col-3">
                <div class="col-1">
                   <div class="col-6 col-12-xsmall">
-                     <input type="text" name="userId" id="userId" placeholder="이메일 또는 아이디" value="<%=memberId%>"/>
+                     <input type="text" name="userId" id="userId" placeholder="이메일 또는 아이디"  value="<%=memberId%>"/>
                   </div>
                   <div class="col-6 col-12-xsmall">
                      <input type="password" name="userPw" id="userPw" placeholder="비밀번호" name="memberPw" value="<%=memberPw%>"/>
@@ -93,7 +95,7 @@
                          <label class ="label-position" for="contactChoice2">자동 로그인</label>
                     </div>
                   <div>
-                     <button class="button-size01"onclick="send()">로그인</button>
+                     <button class="button-size01" onclick="send()">로그인</button>
                   </div>   
                   <div style="display: flex; justify-content: space-evenly;">
                      <a href="${pageContext.request.contextPath}/app/user/findIdPw.jsp" class="button small">아이디 혹은 비밀번호를 잊으셨나요 ?</a>
@@ -108,18 +110,17 @@
                <jsp:include page="/app/fix/footer.jsp"/>
             </div>
           </div> 
-
-      <!-- Scripts -->
-         <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
-         <script src="${pageContext.request.contextPath}/assets/js/jquery.scrolly.min.js"></script>
-         <script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
-         <script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
-         <script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
-         <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
-         <script src="${pageContext.request.contextPath}/assets/js/login.js"></script>
-	<script>
-
-	
-	</script>
-   </body>
+<script>
+</script>
+<!-- Scripts -->
+<script>var contextPath = "${pageContext.request.contextPath }"</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/jquery.scrolly.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/login.js"></script>
+</body>
 </html>
