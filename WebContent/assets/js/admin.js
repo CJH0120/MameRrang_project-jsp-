@@ -63,17 +63,77 @@
              $($aw[index]).toggle();
          })
      });           
-  		
-         $('.btn').click(function() {
-			alert($(this).find(profile).val());
-		})
+   
+         
+         
+         
+       
+         
+         
+         $('.checkMedi').on('change', function(){
+        	 $('.checkMedi').val(this.checked ? 1 : 0);
+         });
+         
+         $('.checkMom').on('change', function(){
+        	 $('.checkMom').val(this.checked ? 1 : 0);
+         });
+         $('.checkTeacher').on('change', function(){
+        	 $('.checkTeacher').val(this.checked ? 1 : 0);
+         });
+         $('.checkCitizen').on('change', function(){
+        	 $('.checkCitizen').val(this.checked ? 1 : 0);
+         });
+         $('.checkUniversity').on('change', function(){
+        	 $('.checkUniversity').val(this.checked ? 1 : 0);
+         });
+         
+         
+         
+         
+         
+         
+  		 function prooo(profileNum) {
+			 
 
-
-        
-  		  
+    
+  			 
+  			 alert(profileNum);
+  			 
+  			 
+		      $.ajax({
+		            url: context + "/admin/AdminAuthChangeOk.ad",      
+		            dataType: "json",         
+		            type:"post"   ,
+		            data:  {
+		            	"checkMedi":$('.checkMedi').val(),
+			    			"checkMom":$('.checkMom').val(),
+			    			"checkTeacher":$('.checkTeacher').val(),
+			    			"checkCitizen":$('.checkCitizen').val(),
+			    			"checkUniversity":$('.checkUniversity').val(),
+			    			"profileNum": profileNum},
+		            success:function(e){
+		            	alert('수정하였습니다');
+		            },
+		            error:function(){
+		            	alert('수정하였습니다');
+		            }
+		            
+		            });
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+		}
 		 
+ 
          
-         
+        
          	
 //         $('.btn').click(function() {
 //        	/* window.open(context+'/admin/AdminAuthChangeOk.ad=?ProfileNum=${auth.getProfileNum()}');*/

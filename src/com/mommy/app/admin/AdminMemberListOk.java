@@ -14,18 +14,18 @@ public class AdminMemberListOk implements Action{
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		UserDAO dao = new UserDAO();
 		ActionForward af = new ActionForward();
-		
+
 		//회원 전체 정보 조회
 		req.setAttribute("members", dao.selectAll());
 		
 		//회원 전체 수
-		req.setAttribute("members", dao.selectCount());
+		req.setAttribute("membersTotal", dao.selectCount());
 		
 		//맘 회원 수
-		req.setAttribute("members", dao.MomCount());
+		req.setAttribute("membersMom", dao.MomCount());
 		
 		//시터 회원 수
-		req.setAttribute("members", dao.SitterCount());
+		req.setAttribute("membersSiter", dao.SitterCount());
 		
 		af.setRedirect(false);
 		af.setPath("/app/admin/adminMList.jsp");

@@ -22,25 +22,28 @@ public class WriteSitterOk implements Action{
 		ServiceVO serviceVo = new ServiceVO();
 		ServiceDAO serviceDao = new ServiceDAO();
 		ProfileFilesDAO pfDao= new ProfileFilesDAO();
+		ActionForward af = new ActionForward();
+		
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
 		int userNum = (int) session.getAttribute("userNum");
 		serviceVo.setUserNum(userNum);
 		/*${pageContext.request.contextPath}/images/로고1.png "*/
 		String realPath =req.getSession().getServletContext().getRealPath("/") + "upload";
+		// 절대경로	/*String uploadFolder = "E:\\Avery\\aigb_0900_avery\\jsp\\workspace\\boardMVC\\WebContent\\upload";*/
 		//  E:\Avery\aigb_0900_avery\jspTeamProject\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\mommy_workspace\WebContent\images
 		String uploadFolder = realPath;
 //		System.out.println("새로 찾은 절대경로"+req.getSession().getServletContext().getRealPath("upload"));
 		System.out.println(realPath);
 		/*String uploadFolder = req.getContextPath()+"/WebContent/images/upload";*/
 //							mommy_workspace\WebContent\images
-	// 절대경로	/*String uploadFolder = "E:\\Avery\\aigb_0900_avery\\jsp\\workspace\\boardMVC\\WebContent\\upload";*/
+
 		int fileSize = 1024 * 1024 * 5;//5M
 
 		System.out.println(uploadFolder);
 		//요청객체, 업로드폴더 경로, 파일의 크기, 인코딩 방식, 이름변경정책
 		MultipartRequest multi = new MultipartRequest(req, uploadFolder, fileSize, "UTF-8", new DefaultFileRenamePolicy());
-		
+/*		
 		System.out.println("WriteSitterOk 시터 프로필 작성");
 		
 		
@@ -87,7 +90,7 @@ public class WriteSitterOk implements Action{
 		System.out.println(multi.getFile("attachQ"));
 		
 		System.out.println(multi.getFilesystemName("profilePicture"));
-		System.out.println(multi.getFilesystemName("attachQ"));
+		System.out.println(multi.getFilesystemName("attachQ"));*/
 		
 
 		
@@ -149,38 +152,13 @@ public class WriteSitterOk implements Action{
 		System.out.println(req.getParameter("attachQ"));
 		System.out.println(req.getContextPath());*/
 
-
-		
-
-		
-//		//파일 추가
-//	fDao.insert(multi, bDao.getSeq());
-
+		af.setRedirect(false);
+		af.setPath("/service/LookSitterProfileOk.ser");
 		
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		return null;
+		return af;
 	}
 	
 	public int transDay(String data) {

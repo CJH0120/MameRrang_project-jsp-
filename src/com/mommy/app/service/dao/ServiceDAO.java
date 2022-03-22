@@ -101,6 +101,10 @@ public class ServiceDAO {
 		return sqlSession.selectOne("Service.lookSitterProfile", userNum);
 	}
 	
+	//맘프로필 상세보기
+	public LookProfileDTO lookMomProfile(int userNum) {
+		return sqlSession.selectOne("Service.lookMomProfile", userNum);
+	}
 	// 최근 게시글 번호 
 	public int getSeq() {
 		return sqlSession.selectOne("Service.getSeq");

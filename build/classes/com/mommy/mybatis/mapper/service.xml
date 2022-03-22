@@ -304,7 +304,22 @@
 	from tbl_profile p join tbl_user u on p.userNum = u.userNum
 	where u.userStatus=2 and  p.userNum=#{userNum}
 </select>
-	
+
+	<!-- 맘프로필 상세보기 -->	
+	<select id="lookMomProfile" parameterType="_int" resultType="LookProfileDTO">
+	select u.userName, u.userGender, u.userBirthYear, profileNum, u.userNum, profileDate, profilePicture,
+	profileDescription, profileSalary, profileAttach, 
+	profileProcess, locationSido, locationSigun, locationDong, 
+	P_periodStartDate, P_mon, P_tue, P_wed, P_thu, P_fri, P_sat,
+	P_sun, P_morning, P_lunch, P_noon, P_week, P_month, P_quarter,
+	P_semiAnnual, careIndoor, careCommit, careFood, careClean,
+	careStudy, babyNewborn, babyChild, babyKinder, babyElementary, 
+	checkMedi, checkMom, checkTeacher, checkCitizen, checkUniversity,
+	careEmergency 
+	from tbl_profile p join tbl_user u on p.userNum = u.userNum
+	where u.userStatus=1 and  p.userNum=#{userNum}
+</select>
+
 	<!-- 프로필 작성 	-->
 	<insert id="insertProfile" parameterType="ServiceVO">
 	

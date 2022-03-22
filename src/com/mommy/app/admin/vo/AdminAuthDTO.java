@@ -115,6 +115,7 @@ public class AdminAuthDTO {
 
 	public void setCheckUniversity(int checkUniversity) {
 		this.checkUniversity = checkUniversity;
+								
 	}
 	
 	

@@ -32,7 +32,7 @@
 		<c:set var="realEndPage" value="${realEndPage}"/>
 		<c:set var="total" value="${total}"/>
 
-
+		<form action="">
       <!-- Main -->
          <div id="main" class="container">
                <!-- 배너 -->
@@ -76,10 +76,6 @@
 									
 															
 									
-									
-										 <script> 
-    									var ProfileNum ='<c:out value="${auth.getProfileNum()}"/>'
-										</script>	
 								
 								
 								
@@ -103,11 +99,11 @@
 											<div style = "float:left;">
 											<c:choose>
 												<c:when test="${auth.getCheckMedi() eq 0}">
-											<input type="checkbox" id="copy1${auth.getProfileNum()}" name="copy1" class="copy1">
+											<input type="checkbox" id="copy1${auth.getProfileNum()}" name="checkMedi" class="checkMedi" value="0">
 											<label for="copy1${auth.getProfileNum()}" class="text">건강인증</label>
 												</c:when>
 												<c:when test="${auth.getCheckMedi() eq 1}">
-													<input type="checkbox" id="copy1${auth.getProfileNum()}" name="copy1" class="copy1" checked>
+													<input type="checkbox" id="copy1${auth.getProfileNum()}" name="checkMedi" class="checkMedi" checked>
 													<label for="copy1${auth.getProfileNum()}" class="text">건강인증</label>
 												</c:when> 
 											</c:choose>
@@ -115,11 +111,11 @@
 											<div style = "float:left;">
 												<c:choose>
 													<c:when test="${auth.getCheckMom() eq 0}">
-														<input type="checkbox" id="copy2${auth.getProfileNum()}" name="copy2" >
+														<input type="checkbox" id="copy2${auth.getProfileNum()}" name="checkMom" class="checkMom" value="0" >
 														<label for="copy2${auth.getProfileNum()}" class="text">부모님인증</label>
 													</c:when>
 													<c:when test="${auth.getCheckMom() eq 1}">
-														<input type="checkbox" id="copy2${auth.getProfileNum()}" name="copy2" checked>
+														<input type="checkbox" id="copy2${auth.getProfileNum()}" name="checkMom" class="checkMom"  checked>
 														<label for="copy2${auth.getProfileNum()}" class="text">부모님인증</label>
 													</c:when>
 												</c:choose>
@@ -128,11 +124,11 @@
 											<div style = "float:left;">
 												<c:choose>
 													<c:when test="${auth.getCheckTeacher() eq 0}">
-														<input type="checkbox" id="copy3${auth.getProfileNum()}" name="copy3" >
+														<input type="checkbox" id="copy3${auth.getProfileNum()}" name="checkTeacher" class="checkTeacher"  value="0" >
 														<label for="copy3${auth.getProfileNum()}" class="text">교사인증</label> 
 													</c:when>
 													<c:when test="${auth.getCheckTeacher() eq 1}">
-														<input type="checkbox" id="copy3${auth.getProfileNum()}" name="copy3" checked>
+														<input type="checkbox" id="copy3${auth.getProfileNum()}" name="checkTeacher" class="checkTeacher"  checked value="1">
 														<label for="copy3${auth.getProfileNum()}" class="text">교사인증</label> 
 													</c:when>
 												</c:choose>
@@ -141,11 +137,11 @@
 											<div style = "float:left;">
 												<c:choose>
 													<c:when test="${auth.getCheckCitizen() eq 0}">
-														<input type="checkbox" id="copy4${auth.getProfileNum()}" name="copy4" >
+														<input type="checkbox" id="copy4${auth.getProfileNum()}" name="checkCitizen" class="checkCitizen"  value="0">
 														<label for="copy4${auth.getProfileNum()}" class="text">본인인증</label>
 													</c:when>
 													<c:when test="${auth.getCheckCitizen() eq 1}">
-														<input type="checkbox" id="copy4${auth.getProfileNum()}" name="copy4" checked>
+														<input type="checkbox" id="copy4${auth.getProfileNum()}" name="checkCitizen" class="checkCitizen" checked>
 														<label for="copy4${auth.getProfileNum()}" class="text">본인인증</label>
 													</c:when>
 												</c:choose>
@@ -154,13 +150,13 @@
 											<div style = "float:left;">
 												<c:choose>
 													<c:when test="${auth.getCheckUniversity() eq 0}">
-														<input type="checkbox" id="copy5${auth.getProfileNum()}" name="copy5" >
+														<input type="checkbox" id="copy5${auth.getProfileNum()}" name="checkUniversity" class="checkUniversity" value="0" >
 														<label for="copy5${auth.getProfileNum()}" class="text">학력인증</label>
 													</c:when>
 												</c:choose>
 												<c:choose>
 													<c:when test="${auth.getCheckUniversity() eq 1}">
-														<input type="checkbox" id="copy5${auth.getProfileNum()}" name="copy5" checked>
+														<input type="checkbox" id="copy5${auth.getProfileNum()}" name="checkUniversity" class="checkUniversity" checked>
 														<label for="copy5${auth.getProfileNum()}" class="text">학력인증</label>
 													</c:when>
 												</c:choose>
@@ -176,11 +172,13 @@
 											<div>	
 											
 											
-												<input type="hidden" value=" ${auth.getProfileNum()}"  id="hidninput" >																
-												<button type="button" class="btn" > 수정하기 </button>
+												<input type="hidden"  name ="${auth.getProfileNum()}"  value="${auth.getProfileNum()}"  id="hidninput" >	
+																											
+												<button type="button" class="btn" onclick="prooo(${auth.getProfileNum()});" > 수정하기 </button>
+												
 											</div>
 											
-						
+			</form>			
 									</td>
 								</tr>
 								</c:forEach>
@@ -235,6 +233,9 @@
 
       <!-- Scripts -->
       <script>
+      
+      
+      	num ='${status.count}';				
       		profile='${auth.getProfileNum()}';
       
       </script>

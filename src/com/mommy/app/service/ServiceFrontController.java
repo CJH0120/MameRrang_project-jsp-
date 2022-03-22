@@ -53,7 +53,11 @@ public class ServiceFrontController extends HttpServlet{
 			af = new Jobhunting().execute(req, resp);
 		}else if(command.equals("/service/LookMomProfile2.ser")) {
 			af = new LookMomProfile2().execute(req, resp);
-		}else if(command.equals("/service/lookSitterProfile2.ser")) {
+		}
+		
+		
+		
+		else if(command.equals("/service/lookSitterProfile2.ser")) {
 			af = new LookSitterProfile2().execute(req, resp);
 		}else if(command.equals("/service/LookSitterProfileOk.ser")) {
 			af = new LookSitterProfileOk().execute(req, resp);
@@ -66,6 +70,8 @@ public class ServiceFrontController extends HttpServlet{
 			af = new WriteSitterOk().execute(req, resp);
 		}else if(command.equals("/service/SitterProfileDeleteOk.ser")) {
 			af = new SitterProfileDeleteOk().execute(req, resp);
+		}else if(command.equals("/service/LookMomProfileOk.ser")) {
+			af = new LookMomProfileOk().execute(req, resp);
 		}
 		
 		

@@ -122,8 +122,24 @@ public class AdminDAO
 	
 //---------------------------------------------------------------------------
 	//체크 박스 업데이트
+
 	public void CheckBox_Update( AdminAuthDTO DTO ) {
+		System.out.println(DTO.getCheckCitizen());
+		System.out.println(DTO.getCheckMedi());
+		System.out.println(DTO.getCheckMom());
+		System.out.println(DTO.getCheckTeacher());
+		System.out.println(DTO.getCheckUniversity());
+		System.out.println(DTO.getProfileNum());
+		
+		
+		
+		
+		
+		
 		 sqlSession.update("Admin.update_Certification",DTO);
+
+	
+
 	}
 	
 	

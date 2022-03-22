@@ -11,25 +11,27 @@ import com.mommy.action.ActionForward;
 import com.mommy.app.service.dao.ServiceDAO;
 import com.mommy.app.service.vo.LookProfileDTO;
 
-public class LookSitterProfileOk implements Action  {
+public class LookMomProfileOk implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		ActionForward af = new ActionForward();
 		ServiceDAO dao = new ServiceDAO();
 		LookProfileDTO dto = new LookProfileDTO();
+		
+		String uploadFolder = "D:\\aigb_0900_sjm\\jsp\\workspace\\boardMVC\\WebContent\\upload";
+		int fileSize = 1024 * 1024 * 5;//5M
+		
 		HttpSession session= req.getSession();
-
-		dto=dao.lookSitterProfile((int) session.getAttribute("userNum"));
+		dto=dao.lookMomProfile(Integer.parseInt(req.getParameter("userNum")));
 		
-		
-		req.setAttribute("sitterInfo", dto);
+		req.setAttribute("momInfo", dto);
 		System.out.println(session.getAttribute("userNum"));
 		req.setAttribute("userNum2", session.getAttribute("userNum"));
 		
 		af.setRedirect(false);
-		af.setPath("/app/serviceProfile/lookSitterProfile2.jsp");
+		af.setPath("/app/serviceProfile/lookMomProfile2.jsp");
 		return af;
 	}
-
+	
 }

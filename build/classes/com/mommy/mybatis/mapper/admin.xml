@@ -10,6 +10,10 @@
 		order by 1 desc limit #{startRow}, #{rowCount}
 	</select>
 	
+	
+		
+	
+	
 		<!--신고 게시글 목록 -->
 	<select id="reportSelectAll" parameterType="map" resultType="AdminQnaDTO">
 		select askNum, a.userNum, categoryNum, askTitle, askContent,
@@ -105,7 +109,7 @@
 		checkCitizen, checkUniversity 
 		from tbl_profile p join tbl_user u 
 		where p.userNum=u.userNum
-		order by 1 desc limit #{startRow}, #{rowCount}
+		order by 1 asc limit #{startRow}, #{rowCount}
 	</select>
 	
 	<!-- 인증 게시글 총 갯수 -->
@@ -116,7 +120,7 @@
 	<update id="update_Certification" parameterType="AdminAuthDTO">
 		update tbl_profile
 		  set checkMedi = #{checkMedi} , checkMom = #{checkMom}, checkTeacher = #{checkTeacher} 
-		  ,checkCitizen = #{checkCitizen}, checkUniversity = #{checkUniversity}
+		  ,checkCitizen = #{checkCitizen}, checkUniversity = #{checkUniversity}, profileProcess= 1
 		   where profileNum= #{profileNum}
 	</update>
 	
