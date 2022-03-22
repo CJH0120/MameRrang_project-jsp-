@@ -463,7 +463,11 @@
 		
 	}	
 	
-	
+p.fail_phrases{
+	margin: 0 !important;
+    text-align: center !important;
+    color: red !important;
+}	
 	
 	
          

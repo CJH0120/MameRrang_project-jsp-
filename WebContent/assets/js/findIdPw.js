@@ -3,7 +3,7 @@
  */
 var	 userName= $('#userName').val();
 var userEmail=$('#userEmail').val();
-	var param = {"userName": $('#userName').val(), "userEmail":$('#userEmail').val()}
+var param = {"userName": $('#userName').val(), "userEmail":$('#userEmail').val()}
 
 
 	

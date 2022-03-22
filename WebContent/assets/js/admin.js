@@ -63,7 +63,17 @@
              $($aw[index]).toggle();
          })
      });           
+  		
+         $('.btn').click(function() {
+			alert($(this).find(profile).val());
+		})
 
+
+        
+  		  
+		 
+         
+         
          	
 //         $('.btn').click(function() {
 //        	/* window.open(context+'/admin/AdminAuthChangeOk.ad=?ProfileNum=${auth.getProfileNum()}');*/

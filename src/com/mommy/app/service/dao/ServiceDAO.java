@@ -61,27 +61,27 @@ public class ServiceDAO {
 	}
 	
 	//돌봄유형 주5일등하원
-	public List<ServiceDTO> careTypeSchool(){
-		return sqlSession.selectList("Service.careTypeSchool");
+	public List<ServiceDTO> careTypeSchool(int userStatus){
+		return sqlSession.selectList("Service.careTypeSchool",userStatus);
 	}
 	//돌봄유형 놀이/학습시터
-	public  List<ServiceDTO> teach(){
-		return sqlSession.selectList("Service.teach");
+	public  List<ServiceDTO> teach(int userStatus){
+		return sqlSession.selectList("Service.teach",userStatus);
 	}
 	
 	//돌봄유형 풀타임
-	public List<ServiceDTO> fullTime(){
-		return sqlSession.selectList("Service.fullTime");
+	public List<ServiceDTO> fullTime(int userStatus){
+		return sqlSession.selectList("Service.fullTime",userStatus);
 	}
 	
 	//돌봄유형 짧은시간
-	public List<ServiceDTO> shortTime(){
-		return sqlSession.selectList("Service.shortTime");
+	public List<ServiceDTO> shortTime(int userStatus){
+		return sqlSession.selectList("Service.shortTime",userStatus);
 	}
 	
 	//돌봄유형 긴급
-	public List<ServiceDTO> careEmergency(){
-		return sqlSession.selectList("Service.careEmergency");
+	public List<ServiceDTO> careEmergency(int userStatus){
+		return sqlSession.selectList("Service.careEmergency",userStatus);
 	}
 	
 	//돌봄지역 
@@ -89,38 +89,7 @@ public class ServiceDAO {
 		return sqlSession.selectList("Service.searchArea", areaMap);
 	}
 //	userStatus=1일때 -----------------------------------------------------------------------------
-	//상세검색 필터링
-	public List<ServiceDTO> searchDetail2(Map<String, Integer> modalInput) {
-		return sqlSession.selectList("Service.searchDetail2", modalInput);  
-	}
-	//상세검색 게시글 총 갯수
-	public int searchDetailGetTotal2(Map<String, Integer> modalInput) {
-		return sqlSession.selectOne("Service.searchDetailGetTotal2", modalInput);  
-	}
-	
-	//돌봄유형 주5일등하원
-	public List<ServiceDTO> careTypeSchool2(){
-		return sqlSession.selectList("Service.careTypeSchool2");
-	}
-	//돌봄유형 놀이/학습시터
-	public  List<ServiceDTO> teach2(){
-		return sqlSession.selectList("Service.teach2");
-	}
-	
-	//돌봄유형 풀타임
-	public List<ServiceDTO> fullTime2(){
-		return sqlSession.selectList("Service.fullTime2");
-	}
-	
-	//돌봄유형 짧은시간
-	public List<ServiceDTO> shortTime2(){
-		return sqlSession.selectList("Service.shortTime2");
-	}
-	
-	//돌봄유형 긴급
-	public List<ServiceDTO> careEmergency2(){
-		return sqlSession.selectList("Service.careEmergency2");
-	}
+
 	
 	//돌봄지역 
 	public List<ServiceDTO> searchArea2(Map<String, String> areaMap){
@@ -132,7 +101,10 @@ public class ServiceDAO {
 		return sqlSession.selectOne("Service.lookSitterProfile", userNum);
 	}
 	
-	 
+	// 최근 게시글 번호 
+	public int getSeq() {
+		return sqlSession.selectOne("Service.getSeq");
+	}
 	//프로필 삭제
 	public void delete(int userNum) {
 		sqlSession.delete("Service.delete", userNum);

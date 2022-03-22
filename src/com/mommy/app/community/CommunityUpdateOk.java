@@ -28,7 +28,7 @@ public class CommunityUpdateOk implements Action{
 		FilesDAO fDao = new FilesDAO();
 		ActionForward af = new ActionForward();
 		
-		String uploadFolder = req.getSession().getServletContext().getRealPath("/") + "upload";
+		String uploadFolder = req.getSession().getServletContext().getRealPath("/") + "upload"; // 경로 확인 
 		int fileSize = 1024 * 1024 * 5;//5M
 		int communityNum = 0, page = 0;
 		

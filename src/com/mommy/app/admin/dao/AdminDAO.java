@@ -122,8 +122,8 @@ public class AdminDAO
 	
 //---------------------------------------------------------------------------
 	//체크 박스 업데이트
-	public int CheckBox_Update( AdminAuthDTO profileNum ) {
-		return sqlSession.selectOne("Admin.update_Certification",profileNum);
+	public void CheckBox_Update( AdminAuthDTO DTO ) {
+		 sqlSession.update("Admin.update_Certification",DTO);
 	}
 	
 	

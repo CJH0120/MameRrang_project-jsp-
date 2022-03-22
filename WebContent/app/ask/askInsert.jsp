@@ -33,7 +33,7 @@
       
             <!-- title -->
             <div style = "position: relative;">
-               <img src = "${pageContext.request.contextPath}/images/문의.jpg" style = "width:100%; opacity: 0.6;">
+               <img src = "https://cdn.discordapp.com/attachments/954273372760571914/955483195921563648/09443220dff9ac88.jpg" style = "width:100%; opacity: 0.6;">
                <div>
                   <h2 class = "textOnImg">1:1 문의하기</h2>
                </div>

@@ -40,15 +40,15 @@
                     <div id = "profile" style = "position: relative; margin-left:20px;">
                         <label><input type="file" style="display:none;">
  <!-- =====================================프로파일 테이블 정리 및 기능 구현이 될 후의 처리 ==============================  -->
-                        <img src="${pageContext.request.contextPath}/images/프로필.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">
+                        <img src="https://cdn.discordapp.com/attachments/954273372760571914/955479398054772796/unknown.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">
                         </label>
                         <div style = "position:absolute; top: 0px; left: 120px;">
                             <span style = "font-size: 14px; font-weight: 500;">
                              <c:choose>
-                                    	<c:when test="${user.getUserGender() == 0}">
+                                    	<c:when test="${user.getUserStatus() == 0}">
                                     		<button class = "boldButtonGray">시터</button>
                                     	</c:when>
-                                    	<c:when test="${user.getUserGender() == 1}">
+                                    	<c:when test="${user.getUserStatus() == 1}">
                                     		<button class = "boldButtonGray">부모님</button>
                                     	</c:when>
                                     	<c:otherwise>정보없음</c:otherwise>

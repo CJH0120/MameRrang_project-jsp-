@@ -365,15 +365,16 @@ const $heart = $('.heart');
       hiddenField = document.createElement("input");
       hiddenField.setAttribute("type", "hidden");
       hiddenField.setAttribute("name", "babyKinder");
-      hiddenField.setAttribute("value", baby);
+      hiddenField.setAttribute("value", kinder);
       form.appendChild(hiddenField);
       
       
       hiddenField = document.createElement("input");
       hiddenField.setAttribute("type", "hidden");
       hiddenField.setAttribute("name", "babyChild");
-      hiddenField.setAttribute("value", kinder);
+      hiddenField.setAttribute("value", baby);
       form.appendChild(hiddenField);
+      
       
       hiddenField = document.createElement("input");
       hiddenField.setAttribute("type", "hidden");

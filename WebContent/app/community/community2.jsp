@@ -51,7 +51,7 @@
       
             <!-- title -->
             <div style = "position: relative;" class="media1">
-               <img src = "${pageContext.request.contextPath}/images/커뮤니티.jpg" style = "width:100%;">
+               <img src = "https://cdn.discordapp.com/attachments/954273372760571914/955483620322193449/c7c7797c2962c5a2.jpg" style = "width:100%;">
                <div class="media2">
                   <h2 class = "textOnImg">마미랑 커뮤니티</h2>
                </div>
@@ -83,7 +83,7 @@
 							 <c:choose>
 							<c:when test="${community.getCommunityCategory() eq 1}"> <article class="style1" style = "cursor:pointer;">
 							<span class="image">
-                              		<img src="${pageContext.request.contextPath}/images/pic01.jpg" alt=""/>
+                              		<img src="https://cdn.discordapp.com/attachments/954273372760571914/955484517429284884/pic01.jpg" alt=""/>
                            		</span>
                            			<a onclick="location.href ='${pageContext.request.contextPath}/community/CommunityDetailOk.com?communityNum=${community.getCommunityNum()}&page=${page}'">
                               		<h2 class = "myh2">${community.getCommunityTitle()}</h2>	  
@@ -96,7 +96,7 @@
                         </article></c:when>
 							<c:when test="${community.getCommunityCategory() eq 2}"> <article class="style2" style = "cursor:pointer;">
 							<span class="image">
-                              		<img src="${pageContext.request.contextPath}/images/pic01.jpg" alt="" />
+                              		<img src="https://cdn.discordapp.com/attachments/954273372760571914/955484517429284884/pic01.jpg" alt="" />
                            		</span>
                            			<a onclick="location.href ='${pageContext.request.contextPath}/community/CommunityDetailOk.com?communityNum=${community.getCommunityNum()}&page=${page}'">
                               		<h2 class = "myh2">${community.getCommunityTitle()}</h2>	  
@@ -108,7 +108,7 @@
                         </article></c:when>
 							<c:when test="${community.getCommunityCategory() eq 3}"> <article class="style3" style = "cursor:pointer;">
 							<span class="image">
-                              		<img src="${pageContext.request.contextPath}/images/pic01.jpg" alt="" />
+                              		<img src="https://cdn.discordapp.com/attachments/954273372760571914/955484517429284884/pic01.jpg" alt="" />
                            		</span>
                            			<a onclick="location.href ='${pageContext.request.contextPath}/community/CommunityDetailOk.com?communityNum=${community.getCommunityNum()}&page=${page}'">
                               		<h2 class = "myh2">${community.getCommunityTitle()}</h2>	  

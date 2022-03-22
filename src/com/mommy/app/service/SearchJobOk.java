@@ -15,19 +15,18 @@ public class SearchJobOk  implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HashMap<String, Integer> searchDetailMap = new HashMap<>();
-		HashMap<String, Integer> searchDetailMap2 = new HashMap<>();
 		HashMap<String, String> areaMap = new HashMap<>();
 		ActionForward af = new ActionForward();
 		ServiceDAO dao = new ServiceDAO();
-	
+		int userStatus=1;
 
 
 		//시터가 쓴 전체 게시글 개수
-		int total = dao.searchDetailGetTotal2(searchDetailMap2);
+	/*	int total = dao.searchDetailGetTotal2(searchDetailMap2);*/
 		
 
 		//사용자가 요청한 페이지
-		String temp = req.getParameter("page");
+/*		String temp = req.getParameter("page");
 		//사용자가 요청한 페이지가 null이면 1페이지를,
 		//null이 아니면 요청한 페이지를 page에 담아준다.
 		int page = temp == null ? 1 : Integer.parseInt(temp);
@@ -49,14 +48,16 @@ public class SearchJobOk  implements Action{
 		//끝 페이지(10, 20, 30, ...)
 		int endPage = startPage + pageSize - 1;
 		//실제 마지막 게시글이 출력되는 마지막 페이지 번호
-		int realEndPage = (int)Math.ceil(total / (double)rowCount);
+		int realEndPage = (int)Math.ceil(total / (double)rowCount);*/
 	
 		//만약 화면에서의 마지막 페이지가 실제 마지막 페이지보다 크다면,
 		//실제 마지막 페이지를 endPage에 담아준다.
 		//endPage는 항상 10단위로 끝나기 때문에, 14페이지가 마지막 페이지일 경우
 		//14페이지를 endPage에 담아준다. 
-		endPage = endPage > realEndPage ? realEndPage : endPage;
+//		endPage = endPage > realEndPage ? realEndPage : endPage;
 		
+		searchDetailMap.put("userStatus", userStatus);
+
 		
 		if( req.getParameter("check")!=null) {
 	
@@ -79,9 +80,10 @@ public class SearchJobOk  implements Action{
 			searchDetailMap.put("careFood", Integer.parseInt(req.getParameter("careFood")));
 			searchDetailMap.put("careClean", Integer.parseInt(req.getParameter("careClean")));
 			searchDetailMap.put("careStudy", Integer.parseInt(req.getParameter("careStudy")));
+			searchDetailMap.put("userStatus", userStatus);
 		  
 //		--------상세검색 게시글 총 개수 ------------------
-			searchDetailMap.put("babyNewborn", Integer.parseInt(req.getParameter("babyNewborn")));
+			/*searchDetailMap.put("babyNewborn", Integer.parseInt(req.getParameter("babyNewborn")));
 			searchDetailMap.put("babyKinder", Integer.parseInt(req.getParameter("babyKinder")));
 			searchDetailMap.put("babyChild", Integer.parseInt(req.getParameter("babyChild")));
 			searchDetailMap.put("babyElementary", Integer.parseInt(req.getParameter("babyElementary")));
@@ -99,7 +101,7 @@ public class SearchJobOk  implements Action{
 			searchDetailMap.put("careCommit", Integer.parseInt(req.getParameter("careCommit")));
 			searchDetailMap.put("careFood", Integer.parseInt(req.getParameter("careFood")));
 			searchDetailMap.put("careClean", Integer.parseInt(req.getParameter("careClean")));
-			searchDetailMap.put("careStudy", Integer.parseInt(req.getParameter("careStudy")));
+			searchDetailMap.put("careStudy", Integer.parseInt(req.getParameter("careStudy")));*/
 		
 		} 
 		
@@ -107,17 +109,17 @@ public class SearchJobOk  implements Action{
 		if(req.getParameter("careType")!=null) {
 			switch (req.getParameter("careType")) {
 			
-			case "1": req.setAttribute("jobList", dao.careTypeSchool2());
+			case "1": req.setAttribute("jobList", dao.careTypeSchool(userStatus));
 				break;
-			case "2": req.setAttribute("jobList", dao.teach2());
+			case "2": req.setAttribute("jobList", dao.teach(userStatus));
 				break;
-			case "3": req.setAttribute("jobList", dao.fullTime2());
+			case "3": req.setAttribute("jobList", dao.fullTime(userStatus));
 				break;
-			case "4": req.setAttribute("jobList", dao.shortTime2());
+			case "4": req.setAttribute("jobList", dao.shortTime(userStatus));
 				break;
-			case "5":req.setAttribute("jobList", dao.careEmergency2());
+			case "5":req.setAttribute("jobList", dao.careEmergency(userStatus));
 				break;
-			case "6":req.setAttribute("jobList",  dao.searchDetail2(searchDetailMap));
+			case "6":req.setAttribute("jobList",  dao.searchDetail(searchDetailMap));
 				break;
 			}
 //		돌봄지역모달-------------------------------
@@ -128,14 +130,14 @@ public class SearchJobOk  implements Action{
 			 req.setAttribute("jobList", dao.searchArea2(areaMap)); 
 //		상세검색모달-------------------------------
 		 }else {
-			req.setAttribute("jobList", dao.searchDetail2(searchDetailMap)); 
+			req.setAttribute("jobList", dao.searchDetail(searchDetailMap)); 
 		}
-	
+/*	
 				req.setAttribute("page", page);
 				req.setAttribute("startPage", startPage);
 				req.setAttribute("endPage", endPage);
 				req.setAttribute("realEndPage", realEndPage);
-				req.setAttribute("total", total);
+				req.setAttribute("total", total);*/
 				
 				af.setRedirect(false);
 				af.setPath("/app/serviceSearch/searchJob.jsp");

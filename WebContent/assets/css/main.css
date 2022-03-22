@@ -2573,7 +2573,7 @@ input, select, textarea {
 		.button:hover,
 		.button:active {
 			box-shadow: inset 0 0 0 1px #ffb61a;
-			color: #ffb61a !important;
+			color: #ffb61a;
 		}
 
 		input[type="submit"]:active,
@@ -2786,7 +2786,7 @@ input, select, textarea {
 
 	#banner {
 		background-attachment: fixed,							fixed;
-		background-image: url("images/overlay.png"), url("../../images/banner.jpg");
+		background-image: url("images/overlay.png"), url("https://cdn.discordapp.com/attachments/954273372760571914/955284373937225728/banner.jpg");
 		background-position: top left,						center center;
 		background-repeat: repeat,							no-repeat;
 		background-size: auto,							cover;
@@ -3773,4 +3773,3 @@ input, select, textarea {
 				margin: 0 0 1em 0;
 			}
 
-	}

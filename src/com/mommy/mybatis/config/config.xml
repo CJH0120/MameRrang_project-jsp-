@@ -31,7 +31,9 @@
        <typeAlias type="com.mommy.app.admin.vo.AdminNoticeVO" alias="AdminNoticeVO"/>
        <typeAlias type="com.mommy.app.admin.vo.AdminAuthVO" alias="AdminAuthVO"/>
        <typeAlias type="com.mommy.app.admin.vo.AdminAuthDTO" alias="AdminAuthDTO"/>
-
+      
+       <typeAlias type="com.mommy.app.service.vo.ProfileFilesVO" alias="ProfileFilesVO"/>
+	
    </typeAliases>
 
    <environments default="development">
@@ -60,6 +62,7 @@
       
       <mapper resource="com/mommy/mybatis/mapper/admin.xml"/>
       <mapper resource="com/mommy/mybatis/mapper/adminFiles.xml"/>
+      <mapper resource="com/mommy/mybatis/mapper/profileFiles.xml"/>
    </mappers>
    
 </configuration>

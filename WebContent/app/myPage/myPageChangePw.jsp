@@ -36,6 +36,7 @@
                                     <p class="p-font-color">새로운 비밀번호 </p>
                                     <input type="password" name="newPw" id="newPw" class="input-font" style="width: 95%;" placeholder="새 비밀번호를 입력해주세요.">
                                 </div>
+                                <div id="result2">테스트</div>
                                     <br>
                                  <div id="newPwCkWrap">
                                         <p class="p-font-color">새로운 비밀번호 확인</p>
@@ -49,7 +50,8 @@
                                     </div>
                                     
                     </div>
-                </div> <!-- 비번 변경 끝 -->
+                </div>
+                <!-- 비번 변경 끝 -->
 
 
  
@@ -59,13 +61,13 @@
 
 	</body>
 			<!-- Scripts -->
-			<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+			<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<script>
 			 var context = '${pageContext.request.contextPath}'; 
 			 var userNum = '${userNum}';
 			var newPw = document.getElementById('newPw').value;
 			var newPwCK = document.getElementById('newPwCK').value;
-			
+
 			
 			 function sendPwch() {
 					//	비밀번호 검사후 아래 ajax로 창이동   
@@ -107,6 +109,8 @@
 			 }
 				 
 			}
+			 
+			 
 		</script>
 			<script src="${pageContext.request.contextPath}assets/js/jquery.min.js"></script>
 			<script src="${pageContext.request.contextPath}assets/js/jquery.scrolly.min.js"></script>

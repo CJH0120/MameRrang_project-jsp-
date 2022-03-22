@@ -31,17 +31,17 @@
                     <!-- 유저정보 -->
                     <div class="inline-block userInfoDiv" >
                      <img src="${pageContext.request.contextPath}/images/img1.jpeg" style="width: 160px; ">
-                     <img src="${pageContext.request.contextPath}/images/핱.png" style="width: 30px;
+                     <img src="https://cdn.discordapp.com/attachments/954273372760571914/955479972280143972/447a140a0a8dd1b3.png" style="width: 30px;
                      position: absolute;
                      left: 125px;
                      top: 115px;" class="media_heart" >
                      <P class="userInfo">사토미<span>(29세, 여)</span></P>
                      <p style="margin: 0px; margin-top:-13px;">
-                     <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                     <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                     <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                     <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                     <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
+                     <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                     <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                     <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                     <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                     <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
                       </p>
                     </div>
                     
@@ -49,148 +49,146 @@
                      <!-- 유저정보 -->
                      <div class="inline-block userInfoDiv" >
                          <img src="${pageContext.request.contextPath}/images/img1.jpeg" style="width: 160px; ">
-                         <img src="${pageContext.request.contextPath}/images/핱.png" style="width: 30px;
+                         <img src="https://cdn.discordapp.com/attachments/954273372760571914/955479972280143972/447a140a0a8dd1b3.png" style="width: 30px;
                          position: absolute;
                          left: 125px;
                          top: 115px;" 
                          class="media_heart">
                          <P class="userInfo">사토미<span>(29세, 여)</span></P>
                          <p style="margin: 0px; margin-top:-13px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
+                         <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                         <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                         <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                         <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                         <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
                          </p>
                      </div>
         
         <!-- 유저정보 -->
                      <div class="inline-block userInfoDiv" >
                          <img src="${pageContext.request.contextPath}/images/img1.jpeg" style="width: 160px; ">
-                         <img src="${pageContext.request.contextPath}/images/핱.png" style="width: 30px;
+                         <img src="https://cdn.discordapp.com/attachments/954273372760571914/955479972280143972/447a140a0a8dd1b3.png" style="width: 30px;
                          position: absolute;
                          left: 125px;
                          top: 115px;" 
                          class="media_heart">
                          <P class="userInfo">사토미<span>(29세, 여)</span></P>
                          <p style="margin: 0px; margin-top:-13px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
+                         <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
                          </p>
                      </div><!-- 유저정보 -->
                      <div class="inline-block userInfoDiv" >
                          <img src="${pageContext.request.contextPath}/images/img1.jpeg" style="width: 160px; ">
-                         <img src="${pageContext.request.contextPath}/images/핱.png" style="width: 30px;
+                         <img src="https://cdn.discordapp.com/attachments/954273372760571914/955479972280143972/447a140a0a8dd1b3.png" style="width: 30px;
                          position: absolute;
                          left: 125px;
                          top: 115px;" 
                          class="media_heart">
                          <P class="userInfo">사토미<span>(29세, 여)</span></P>
                          <p style="margin: 0px; margin-top:-13px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
                          </p>
                      </div><!-- 유저정보 -->
                      <div class="inline-block userInfoDiv" >
                          <img src="${pageContext.request.contextPath}/images/img1.jpeg" style="width: 160px; ">
-                         <img src="${pageContext.request.contextPath}/images/핱.png" style="width: 30px;
+                         <img src="https://cdn.discordapp.com/attachments/954273372760571914/955479972280143972/447a140a0a8dd1b3.png" style="width: 30px;
                          position: absolute;
                          left: 125px;
                          top: 115px;" 
                          class="media_heart">
                          <P class="userInfo">사토미<span>(29세, 여)</span></P>
                          <p style="margin: 0px; margin-top:-13px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
                          </p>
                      </div><!-- 유저정보 -->
                      <div class="inline-block userInfoDiv" >
                          <img src="${pageContext.request.contextPath}/images/img1.jpeg" style="width: 160px; ">
-                         <img src="${pageContext.request.contextPath}/images/핱.png" style="width: 30px;
+                         <img src="https://cdn.discordapp.com/attachments/954273372760571914/955479972280143972/447a140a0a8dd1b3.png${pageContext.request.contextPath}/images/핱.png" style="width: 30px;
                          position: absolute;
                          left: 125px;
                          top: 115px;" 
                          class="media_heart">
                          <P class="userInfo">사토미<span>(29세, 여)</span></P>
                          <p style="margin: 0px; margin-top:-13px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
                          </p>
                      </div><!-- 유저정보 -->
                      <div class="inline-block userInfoDiv" >
                          <img src="${pageContext.request.contextPath}/images/img1.jpeg" style="width: 160px; ">
-                         <img src="${pageContext.request.contextPath}/images/핱.png" style="width: 30px;
+                         <img src="https://cdn.discordapp.com/attachments/954273372760571914/955479972280143972/447a140a0a8dd1b3.png" style="width: 30px;
                          position: absolute;
                          left: 125px;
                          top: 115px;" 
                          class="media_heart">
                          <P class="userInfo">사토미<span>(29세, 여)</span></P>
                          <p style="margin: 0px; margin-top:-13px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
                          </p>
                      </div><!-- 유저정보 -->
                      <div class="inline-block userInfoDiv" >
                          <img src="${pageContext.request.contextPath}/images/img1.jpeg" style="width: 160px; ">
-                         <img src="${pageContext.request.contextPath}/images/핱.png" style="width: 30px;
+                         <img src="https://cdn.discordapp.com/attachments/954273372760571914/955479972280143972/447a140a0a8dd1b3.png" style="width: 30px;
                          position: absolute;
                          left: 125px;
                          top: 115px;" 
                          class="media_heart">
                          <P class="userInfo">사토미<span>(29세, 여)</span></P>
                          <p style="margin: 0px; margin-top:-13px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
                          </p>
                      </div><!-- 유저정보 -->
                      <div class="inline-block userInfoDiv" >
                          <img src="${pageContext.request.contextPath}/images/img1.jpeg" style="width: 160px; ">
-                         <img src="${pageContext.request.contextPath}/images/핱.png" style="width: 30px;
+                         <img src="https://cdn.discordapp.com/attachments/954273372760571914/955479972280143972/447a140a0a8dd1b3.png" style="width: 30px;
                          position: absolute;
                          left: 125px;
                          top: 115px;" 
                          class="media_heart">
                          <P class="userInfo">사토미<span>(29세, 여)</span></P>
                          <p style="margin: 0px; margin-top:-13px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
                          </p>
                      </div><!-- 유저정보 -->
                      <div class="inline-block userInfoDiv" >
                          <img src="${pageContext.request.contextPath}/images/img1.jpeg" style="width: 160px; ">
-                         <img src="${pageContext.request.contextPath}/images/핱.png" style="width: 30px;
+                         <img src="https://cdn.discordapp.com/attachments/954273372760571914/955479972280143972/447a140a0a8dd1b3.png" style="width: 30px;
                          position: absolute;
                          left: 125px;
                          top: 115px;" 
                          class="media_heart">
                          <P class="userInfo">사토미<span>(29세, 여)</span></P>
                          <p style="margin: 0px; margin-top:-13px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
-                         <img src="${pageContext.request.contextPath}/images/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
+                       	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955480110650232842/star.png" style="width: 17px;">
                          </p>
                      </div>
                  

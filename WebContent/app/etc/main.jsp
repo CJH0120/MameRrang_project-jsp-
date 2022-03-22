@@ -44,21 +44,22 @@
 
 				<!-- One 간단 문구 -->
 					<section id="one" class="feature major ">
-						<img id = "logo" src = "${pageContext.request.contextPath}/images/로고1.png" ><br><br>
+						<img id = "logo" src = "https://cdn.discordapp.com/attachments/954273372760571914/955478975797403648/1.png" ><br><br>
 						<p><strong>육아</strong>에 <strong>도움</strong>이 필요한 <strong>부모님</strong>들을 위해 <br><strong>언제 어디서나</strong> 마미랑이 함께 하겠습니다. </p>
 					</section>
             </div>
             <!-- 마미랑은 어떤 서비스? -->
+           
             <div style = "position: relative;" >
-               <div > <img src="${pageContext.request.contextPath}/images/background.png"; style ="width: 100%;"></img></div>
-               <img src="${pageContext.request.contextPath}/images/connect.png"; style ="width: 30%; top:12%; right: 15%; position: absolute;" class="media10">
+               <div > <img src="https://cdn.discordapp.com/attachments/954273372760571914/955286049339375616/background.png"; style ="width: 100%;"></img></div>
+               <img src="https://cdn.discordapp.com/attachments/954273372760571914/955286607622176788/connect.png"; style ="width: 30%; top:12%; right: 15%; position: absolute;" class="media10">
                 <h2 class = "textOnImg media11">마미랑은 어떤 서비스인가요?</h2>
                <h4 class = "textOnImg media12" style="top:27%; font-family: 'GmarketSansLight'!important;"> 
                 마미랑은 맞벌이로 인해 바쁜 부모님들을 대신해<br>
                 내 아이를 믿고 맡길 수 있는 베이비시터를 <br>
                 간편하게 찾아주는 
                 <strong style = "font-family: GmarketSansMedium !important; color:white">베이비시터 매칭 서비스</strong> 입니다.</h4>
-                <img src="${pageContext.request.contextPath}/images/물결.png"; class = "wave media13">
+                <img src="https://cdn.discordapp.com/attachments/954273372760571914/955478303895064626/26a07ccca466715a.png${pageContext.request.contextPath}/images/물결.png"; class = "wave media13">
                 <p class = "textOnImg media22" style="top: 53%; font-size: 14px; line-height: 21px; color: black;">
                     원하는 시간대에 내 아이에게 필요한 돌봄유형을 선택하여<br>
                     다양하고 까다로운 부모님의 니즈를 충족할<br>
@@ -149,7 +150,7 @@
 
 				<!-- Three 커뮤니티 --> 
                 </div>
-                <img src = "${pageContext.request.contextPath}/images/crop.jpg" style = "width: 100%;">
+                <img src = "https://cdn.discordapp.com/attachments/954273372760571914/955286970291068968/crop.jpg" style = "width: 100%;">
                 <div id="main" class="container">
 					<section id="three" class="feature">
                         <div style = "padding-left:10%; position: relative">
@@ -170,7 +171,7 @@
 				<!-- 마지막 섹션  -->
 				<div style = "position:relative; text-align: center;">
 					<section id="four" class="feature major">
-						<img src = "${pageContext.request.contextPath}/images/lastBackground.png" style ="width: 100%; margin-bottom: -7px !important;" class="media7">
+						<img src = "https://cdn.discordapp.com/attachments/954273372760571914/955478633571549224/lastBackground.png" style ="width: 100%; margin-bottom: -7px !important;" class="media7">
 						<!-- position:absolute 중앙 정렬 -->
 						<div style = "position:absolute; top:50%; left:50%; transform:translate(-50%, -45%);">
 							<h2 class = "slideText media8" style = "color:#ff7065; font-size: 2.4em;">아이와 엄마가 행복해지는 마미랑</h2>

@@ -2,27 +2,25 @@ package com.mommy.app.service;
 
 import java.io.IOException; 
 import java.util.HashMap;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import com.mommy.action.Action;
 import com.mommy.action.ActionForward;
 import com.mommy.app.service.dao.ServiceDAO;
-import com.mommy.app.service.vo.ServiceDTO;
 
 public class SearchMomOk  implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HashMap<String, Integer> searchDetailMap = new HashMap<>();
-		HashMap<String, Integer> searchDetailMap2 = new HashMap<>();
 		HashMap<String, String> areaMap = new HashMap<>();
 		ActionForward af = new ActionForward();
 		ServiceDAO dao = new ServiceDAO();
-	
-
+		int userStatus=2;
+		
 
 		//시터가 쓴 전체 게시글 개수
 //		int total = dao.searchDetailGetTotal(searchDetailMap2);
@@ -34,7 +32,7 @@ public class SearchMomOk  implements Action{
 		//null이 아니면 요청한 페이지를 page에 담아준다.
 		int page = temp == null ? 1 : Integer.parseInt(temp);
 		//한 페이지에 출력되는 게시글의 개수
-		int rowCount = 10;
+		int rowCount = 5;
 		//한 화면에 나오는 페이지 번호 수
 		int pageSize = 10;
 		
@@ -42,8 +40,8 @@ public class SearchMomOk  implements Action{
 		int startRow = (page - 1) * rowCount;
 		
 
-		/*searchDetailMap.put("startRow", startRow);
-		searchDetailMap.put("rowCount", rowCount);*/
+		searchDetailMap.put("startRow", startRow);
+		searchDetailMap.put("rowCount", rowCount);
 		
 		//화면에 출력되는 페이지 번호 중
 		//시작 페이지(1, 11, 21, ....)
@@ -59,7 +57,7 @@ public class SearchMomOk  implements Action{
 		//14페이지를 endPage에 담아준다. 
 		/*endPage = endPage > realEndPage ? realEndPage : endPage;*/
 		
-		
+		searchDetailMap.put("userStatus", userStatus);
 		if( req.getParameter("check")!=null) {
 	
 		searchDetailMap.put("babyNewborn", Integer.parseInt(req.getParameter("babyNewborn")));
@@ -81,9 +79,10 @@ public class SearchMomOk  implements Action{
 		searchDetailMap.put("careFood", Integer.parseInt(req.getParameter("careFood")));
 		searchDetailMap.put("careClean", Integer.parseInt(req.getParameter("careClean")));
 		searchDetailMap.put("careStudy", Integer.parseInt(req.getParameter("careStudy")));
-		  
+		searchDetailMap.put("userStatus", userStatus);
+		
 //		--------상세검색 게시글 총 개수 ------------------
-		searchDetailMap.put("babyNewborn", Integer.parseInt(req.getParameter("babyNewborn")));
+		/*searchDetailMap.put("babyNewborn", Integer.parseInt(req.getParameter("babyNewborn")));
 		searchDetailMap.put("babyKinder", Integer.parseInt(req.getParameter("babyKinder")));
 		searchDetailMap.put("babyChild", Integer.parseInt(req.getParameter("babyChild")));
 		searchDetailMap.put("babyElementary", Integer.parseInt(req.getParameter("babyElementary")));
@@ -101,28 +100,29 @@ public class SearchMomOk  implements Action{
 		searchDetailMap.put("careCommit", Integer.parseInt(req.getParameter("careCommit")));
 		searchDetailMap.put("careFood", Integer.parseInt(req.getParameter("careFood")));
 		searchDetailMap.put("careClean", Integer.parseInt(req.getParameter("careClean")));
-		searchDetailMap.put("careStudy", Integer.parseInt(req.getParameter("careStudy")));
+		searchDetailMap.put("careStudy", Integer.parseInt(req.getParameter("careStudy")));*/
 		
 		} 
+		
 		
 //		돌봄유형 모달 ----------------------------
 		if(req.getParameter("careType")!=null) {
 			switch (req.getParameter("careType")) {
 			
-			case "1": req.setAttribute("momList", dao.careTypeSchool());
+			case "1": req.setAttribute("momList", dao.careTypeSchool(userStatus));
 				break;
-			case "2": req.setAttribute("momList", dao.teach());
+			case "2": req.setAttribute("momList", dao.teach(userStatus));
 				break;
-			case "3": req.setAttribute("momList", dao.fullTime());
+			case "3": req.setAttribute("momList", dao.fullTime(userStatus));
 				break;
-			case "4": req.setAttribute("momList", dao.shortTime());
+			case "4": req.setAttribute("momList", dao.shortTime(userStatus));
 				break;
-			case "5":req.setAttribute("momList", dao.careEmergency());
+			case "5":req.setAttribute("momList", dao.careEmergency(userStatus));
 				break;
 			case "6":req.setAttribute("momList",  dao.searchDetail(searchDetailMap));
 				break;
 			}
-//		돌봄지역모달-------------------------------
+//		돌봄지역모달------------------------------- 
 		}else if(req.getParameter("sido")!=null) {
 			 areaMap.put("sido", req.getParameter("sido"));
 			 areaMap.put("sigugun", req.getParameter("sigugun"));
@@ -132,8 +132,8 @@ public class SearchMomOk  implements Action{
 		 }else {
 			req.setAttribute("momList", dao.searchDetail(searchDetailMap)); 
 		 }
-/*				req.setAttribute("page", page);
-				req.setAttribute("startPage", startPage);
+				req.setAttribute("page", page);
+/*				req.setAttribute("startPage", startPage);
 				req.setAttribute("endPage", endPage);
 				req.setAttribute("realEndPage", realEndPage);*/
 //				req.setAttribute("total", total);

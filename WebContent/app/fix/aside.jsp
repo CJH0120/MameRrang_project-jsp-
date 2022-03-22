@@ -6,7 +6,7 @@
 						top: 88% !important;
 						cursor:pointer;
                position: fixed;">
-                  <a href="#" style = "border-bottom: hidden;"><img src="${pageContext.request.contextPath}/images/asideUp.png" style="width: 200%;"></a>
+                  <a href="#" style = "border-bottom: hidden;"><img src="https://cdn.discordapp.com/attachments/954273372760571914/955486537854910544/asideUp.png" style="width: 200%;"></a>
 </aside>
 
 <aside class="aside" id = "chatAside" style="width: 150px;
@@ -15,7 +15,7 @@
 						top: 79% !important;
 						cursor:pointer;
                position: fixed;">
-                 <img src="${pageContext.request.contextPath}/images/asideChat.png" style="width: 210%;" id="button">
+                 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955486676921249802/asideChat.png" style="width: 210%;" id="button">
                   
                    
         <div id="divToggle" style="display: none; "><iframe src = "${pageContext.request.contextPath}/app/chat/chatLog.jsp" width= "400px !important" height="600px !important" 

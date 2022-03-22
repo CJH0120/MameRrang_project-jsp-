@@ -354,14 +354,14 @@
         hiddenField = document.createElement("input");
         hiddenField.setAttribute("type", "hidden");
         hiddenField.setAttribute("name", "babyKinder");
-        hiddenField.setAttribute("value", baby);
+        hiddenField.setAttribute("value", kinder);
         form.appendChild(hiddenField);
         
         
         hiddenField = document.createElement("input");
         hiddenField.setAttribute("type", "hidden");
         hiddenField.setAttribute("name", "babyChild");
-        hiddenField.setAttribute("value", kinder);
+        hiddenField.setAttribute("value", baby);
         form.appendChild(hiddenField);
         
         hiddenField = document.createElement("input");
@@ -567,32 +567,83 @@
 	
 //	무한스크롤---------------------------------------------------------------------------------------
 
-	const contents = document.querySelector(".userAll") // tbody 태그
-/*	let paraIndex = 1;
-	async function fetchLorem() {
-	    const response = await fetch("https://baconipsum.com/api/?type=meat-and-filler&paras=18");
-	    const data = await response.json();
+	/*$(document).ready(function(){
+		$(".userAll").ready(function(){
+			var scrollT = $(this).scrollTop(); //스크롤바의 상단위치
+	        var scrollH = $(this).height(); //스크롤바를 갖는 div의 높이
+	        var contentH = $('.userPf').height(); //문서 전체 내용을 갖는 div의 높이
+	        if(scrollT + scrollH +1 >= contentH) { // 스크롤바가 아래 쪽에 위치할 때
+	           for (var i = 0; i < 1; i++) {
+				
+	        	   $('.userPf').append(userProfile);
+	           	}
+	        	
+	        }
+
+		});
+	});*/
+		
+    
+	
+	console.log(momListSize);
+	
+	const contents = document.querySelector(".userPf") // tbody 태그
+	let count = 1;
+	function fetchLorem() {
 	    
 	    for(let i = 0; i < 6; i++) {
-	        const $tr = document.createElement("tr");
-	        $tr.innerHTML = `<td width='50' align='center'>${paraIndex++}</td>
-	                            <td>${data[(i * 3)]}<br>${data[(i * 3) + 1]}<br>${data[(i * 3) + 2]}</td>`
-	        contents.appendChild($tr);
+	    		console.log("showList 들어왔다~");
+	    	    var text = "";
+	    	    if(momListSize != 0){
+	    	   
+	    	        $.each(function(){
+	    	        	var userProfile="<div class='userImg'>";
+	    	        	userProfile+="<img src='${pageContext.request.contextPath}/images/img1.jpeg'class='userImgDetail'>";
+	    	        	userProfile+="<div>";
+	    	        	userProfile+="<div class='certify'>";
+	    	        	userProfile+="<p class='p'>확인된 인증 <span class='span' style='color: rgb(247, 87, 87); font-weight: bold;'>2</span>개</p>";
+	    	        	userProfile+="<input type='button' value='보험가입' class='certifyList' style='color:white !important' >";
+	    	        	userProfile+="<input type='button' value='코로나 검사' class='certifyList'  style='color:white !important'>";
+	    	        	userProfile+="</div>";
+	    	        	userProfile+="</div>";
+	    	        	userProfile+="</div>";
+	    	        	userProfile+="<div class='userName'>";
+	    	        	userProfile+="<h4 style='margin-bottom: 0;'><a href='${pageContext.request.contextPath}/service/LookSitterProfileOk.ser?userNum=${mom.getUserNum()}'  style='border:none;'>";                                                  
+	    	        	userProfile+=ProfileDescription[0]+"</a></h4>";
+	    	        	userProfile+="<div class='infoDetail'>${mom.getLocationSido()}  ${mom.getLocationSigun()}</div>&nbsp;";
+	    	        	userProfile+="<div class='infoDetail'>${year-mom.getUserBirthYear()}세</div>";
+	    	        	userProfile+="&nbsp;&nbsp;<div class='infoDetail'>희망시급 ${mom.getProfileSalary()}원</div>";
+	    	        	
+	    	        	userProfile+="<div class='day' style='margin-top:10px;'>";
+	    	        	userProfile+="<div class='days'>";					
+	    	        	userProfile+="<c:when test='${mom.getP_mon()==1}'>";
+	    	        	userProfile+="<img src='${pageContext.request.contextPath}/images/월1.png' style='width: 30px;' >";
+
+	    	        });
+	    	    }else{
+	    	        //댓글 없음
+	    	    	text += " <div class='rep'>"
+	    	        text += "<p>댓글이 없습니다.</p>"
+	    	    	text += "</div>"
+	    	    		text += "<hr class = 'splitComment'>"
+	    	    }
+	    	    
+	    	   $("#comments").html(text);
+	        contents.appendChild(userProfile);
 	    }
 	    
-	}*/
-	
-	
+	}
 	function debounce(callback, limit = 100) {
 	    let timeout
-	    return function(...args) {  
+	    return function(...args) {
 	        clearTimeout(timeout)
 	        timeout = setTimeout(() => {
 	            callback.apply(this, args)
 	        }, limit)
-	    } 
+	    }
 	}
-	   
+	fetchLorem()
+	// ===== 무한 스크롤 (스크롤 이벤트) =====
 	document.addEventListener("scroll", debounce(e => {
 	    
 	    // clientHeight : 웹 브라우저 창의 높이
@@ -602,20 +653,115 @@
 	    
 	    const { clientHeight, scrollTop, scrollHeight } = e.target.scrollingElement
 	    if(clientHeight + scrollTop >= scrollHeight) {
-	    	contents
+	        fetchLorem()
 	    }
 	}, 200))
 	
-	       
 	
 	
+    
+	var userProfile="<div class='userImg'>";
+	userProfile+="<img src='${pageContext.request.contextPath}/images/img1.jpeg'class='userImgDetail'>";
+	userProfile+="<div>";
+	userProfile+="<div class='certify'>";
+	userProfile+="<p class='p'>확인된 인증 <span class='span' style='color: rgb(247, 87, 87); font-weight: bold;'>2</span>개</p>";
+	userProfile+="<input type='button' value='보험가입' class='certifyList' style='color:white !important' >";
+	userProfile+="<input type='button' value='코로나 검사' class='certifyList'  style='color:white !important'>";
+	userProfile+="</div>";
+	userProfile+="</div>";
+	userProfile+="</div>";
+	userProfile+="<div class='userName'>";
+	userProfile+="<h4 style='margin-bottom: 0;'><a href='${pageContext.request.contextPath}/service/LookSitterProfileOk.ser?userNum=${mom.getUserNum()}'  style='border:none;'>";                                                  
+	userProfile+=ProfileDescription[0]+"</a></h4>";
+	userProfile+="<div class='infoDetail'>${mom.getLocationSido()}  ${mom.getLocationSigun()}</div>&nbsp;";
+	userProfile+="<div class='infoDetail'>${year-mom.getUserBirthYear()}세</div>";
+	userProfile+="&nbsp;&nbsp;<div class='infoDetail'>희망시급 ${mom.getProfileSalary()}원</div>";
 	
+	userProfile+="<div class='day' style='margin-top:10px;'>";
+	userProfile+="<div class='days'>";					
+	userProfile+="<c:when test='${mom.getP_mon()==1}'>";
+	userProfile+="<img src='${pageContext.request.contextPath}/images/월1.png' style='width: 30px;' >";
+						/*</c:when>
+						<c:otherwise >
+							<img src="${pageContext.request.contextPath}/images/월.png" style="width: 30px;" >
+						</c:otherwise>
+						</c:choose>
+						
+						<c:choose>
+						<c:when test="${mom.getP_tue()==1}">
+							<img src="${pageContext.request.contextPath}/images/화1.png" style="width: 30px;" >
+						</c:when>
+						<c:otherwise >
+							<img src="${pageContext.request.contextPath}/images/화.png" style="width: 30px;" >
+						</c:otherwise>
+						</c:choose>
+						
+						<c:choose>
+						<c:when test="${mom.getP_wed()==1}">
+							<img src="${pageContext.request.contextPath}/images/수1.png" style="width: 30px;" >
+						</c:when>
+						<c:otherwise >
+							<img src="${pageContext.request.contextPath}/images/수.png" style="width: 30px;" >
+						</c:otherwise>
+						</c:choose>
+						
+						<c:choose>
+						<c:when test="${mom.getP_thu()==1}">
+							<img src="${pageContext.request.contextPath}/images/목1.png" style="width: 30px;" >
+						</c:when>
+						<c:otherwise >
+							<img src="${pageContext.request.contextPath}/images/목.png" style="width: 30px;" >
+						</c:otherwise>
+						</c:choose>
+						
+						<c:choose>
+						<c:when test="${mom.getP_fri()==1}">
+							<img src="${pageContext.request.contextPath}/images/금1.png" style="width: 30px;" >
+						</c:when>
+						<c:otherwise >
+							<img src="${pageContext.request.contextPath}/images/금.png" style="width: 30px;" >
+						</c:otherwise>
+						</c:choose>
+						
+						<c:choose>
+						<c:when test="${mom.getP_sat()==1}">
+							<img src="${pageContext.request.contextPath}/images/토1.png" style="width: 30px;" >
+						</c:when>
+						<c:otherwise >
+							<img src="${pageContext.request.contextPath}/images/토.png" style="width: 30px;" >
+						</c:otherwise>
+						</c:choose>
+						
+						<c:choose>
+						<c:when test="${mom.getP_sun()==1}">
+							<img src="${pageContext.request.contextPath}/images/일1.png" style="width: 30px;" >
+						</c:when>
+						<c:otherwise >
+							<img src="${pageContext.request.contextPath}/images/일.png" style="width: 30px;" >
+						</c:otherwise>
+						</c:choose>
+				
+						</div>
+					</div>
+			<%-- <div class="star">
+			<img src="${pageContext.request.contextPath}/images/star.png" style="width: 100%;">
+			<img src="${pageContext.request.contextPath}/images/star.png" style="width: 100%;">
+			<img src="${pageContext.request.contextPath}/images/star.png" style="width: 100%;">
+			<img src="${pageContext.request.contextPath}/images/star.png" style="width: 100%;">
+			<img src="${pageContext.request.contextPath}/images/star.png" style="width: 100%;">
+			</div>
+			--%>
+			<%-- <div class=chatIcon>
+			<img src="${pageContext.request.contextPath}/images/chatIcon.png" style="width: 100%;margin-top: 5px; float: left;">
+			</div>
+			<span class="span" style="line-height: 2;">&nbsp;"${mom.getProfileDescription()}"</span> --%>
+			</div>
+				
+				
+				
+				*/
 	
-	
-	
-	
-	
-	
+
 	
 	
 	

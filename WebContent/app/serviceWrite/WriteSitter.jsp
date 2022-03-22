@@ -48,11 +48,12 @@
 			
 		<!-- Main -->
 		<div id="main" class="container medium" style = "display:flex;">
-			 <form id="sitterForm" action="${pageContext.request.contextPath}/service/WriteSitterOk.ser" method="post"> -
+			 <form id="sitterForm" action="${pageContext.request.contextPath}/service/WriteSitterOk.ser" method="post" enctype="multipart/form-data"> - 
+			 <%-- <form id="sitterForm" action="${pageContext.request.contextPath}/service/WriteSitterOk.ser" method="post"> --%> -
 			<!-- profile header -->
             <div style = "width: 100%; background: white; position:relative;" class="mediaMain" >
                 <div style="text-align: left; display:inline-block; margin-left:15px;">
-                    <label><input type="file" style="display:none;">
+                    <label><input type="file" name ="profilePicture"style="display:none;">
                     <img src="${pageContext.request.contextPath}/images/유저.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">
                     </label>
                     <div style = "position:absolute; top: 19px; left: 136px;">

@@ -37,7 +37,7 @@
          <div id="main" class="container">
                <!-- 배너 -->
          <div class="mainBox" style="padding-top: 3.5em;">
-            <a href="${pageContext.request.contextPath}/app/admin/admin.jsp"><img src="${pageContext.request.contextPath}/images/로고1.png" style="width: 9%; position: absolute; margin: -50px 0px 0 26px;"></a>
+            <a href="${pageContext.request.contextPath}/app/admin/admin.jsp"><img src="https://cdn.discordapp.com/attachments/954273372760571914/955478975797403648/1.png" style="width: 9%; position: absolute; margin: -50px 0px 0 26px;"></a>
             <h3 class="caption" style="position: absolute; margin: -46px 0px -1px 207px; padding-left: 20px;">관리자 페이지</h3>
             <ul class="actions small">
                <li><span id="memberList" class="s-title text bGray" style="padding: 0em 0 0 10em;" >인증 <span class="auth-num" style="color:red;">4</span></span></li>
@@ -72,13 +72,23 @@
 								<tbody class="tr_wrap">
 								<c:choose>
 								<c:when test="${authList != null}">
-									<c:forEach var="auth" items="${authList}">
+									<c:forEach var="auth" items="${authList}"  varStatus="status">
+									
+															
+									
+									
+										 <script> 
+    									var ProfileNum ='<c:out value="${auth.getProfileNum()}"/>'
+										</script>	
+								
+								
+								
 								
 								<tr class="wrap">
 									<td class="test"><img id="qwe"
-										src="${pageContext.request.contextPath}/images/v2.png "
+										src="https://cdn.discordapp.com/attachments/954273372760571914/955482467148656700/v2.png"
 										style="width: 15px"></td>
-									<td>${auth.getProfileNum()}</td>
+									<td id="abcd">${auth.getProfileNum()}</td>
 									<td>${auth.getUserName()}</td>
 									<td>${auth.getUserId()}</td>
 									<td><a
@@ -154,15 +164,22 @@
 														<label for="copy5${auth.getProfileNum()}" class="text">학력인증</label>
 													</c:when>
 												</c:choose>
+									     
+											
+											
+										
 											</div>
 										</div>
-										
-									      <c:set var="ProfileNum" value="${auth.getProfileNum()}"/>
-									      <c:set var="name" value="${auth.getUserName()}"/>
-									      <c:set var="id" value="${auth.getUserId()}"/>
-											<div>																										
-												<button onclick="window.open(context+'/admin/AdminAuthChange.ad?ProfileNum=${auth.getProfileNum()}&id=${auth.getUserId()}&name=${auth.getUserName()}','인증 수정페이지','left=400px,top=200px,width=900,height=400,status=no, menubar=no, toolbar=no, resizable=no,scrollbars =no')"	 class="btn" >수정하기</button>
+												<c:set var="profile" value="${auth.getProfileNum()}"/> 
+										      <c:set var="name" value="${auth.getUserName()}"/>
+									     		 <c:set var="id" value="${auth.getUserId()}"/>
+											<div>	
+											
+											
+												<input type="hidden" value=" ${auth.getProfileNum()}"  id="hidninput" >																
+												<button type="button" class="btn" > 수정하기 </button>
 											</div>
+											
 						
 									</td>
 								</tr>
@@ -196,7 +213,7 @@
                               <hr>
                               <hr>
       
-                           <div class="sBox" style="border-bottom: 1px solid #d8dadb; border-top: 1px solid #d8dadb; display: flex; padding-top: 1em; padding-bottom: 1em;">
+                           <div class="sBox" style="border-bottom: 1px sol id #d8dadb; border-top: 1px solid #d8dadb; display: flex; padding-top: 1em; padding-bottom: 1em;">
                               <div style="width: 100%;">
                                  <span class="s-title link-title" >인증된 회원수</span>
                                  <hr>
@@ -217,7 +234,12 @@
                            
 
       <!-- Scripts -->
-     
+      <script>
+      		profile='${auth.getProfileNum()}';
+      
+      </script>
+    			
+    		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
          <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
          <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
          <script> var context = '${pageContext.request.contextPath}'</script>

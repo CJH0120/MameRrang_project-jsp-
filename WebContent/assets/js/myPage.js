@@ -312,6 +312,5 @@ var flag = false;
     document.querySelector(".quit").addEventListener("click", close);
     document.querySelector(".bg").addEventListener("click", close);
   
-   
     
     

@@ -5,7 +5,7 @@
 				<div class="container">
 					<div class="row">
 						<section class="col-4 col-12-medium about" style = "width: 45%; padding-left:156px;">
-							<img src = "${pageContext.request.contextPath}/images/로고2.png" style = "width:100px;" class = "footerLogo">
+							<img src = "https://cdn.discordapp.com/attachments/954273372760571914/955487224336625684/2.png" style = "width:100px;" class = "footerLogo">
 								
 							<p id = "footerText" style ="font-size:0.8em;"><br>육아에 도움이 필요한 부모님들을 위해 <br>언제 어디서나 마미랑이 함께 하겠습니다.</p>
 						<ul class="labeled-icons">

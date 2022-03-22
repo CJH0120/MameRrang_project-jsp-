@@ -47,7 +47,7 @@
 		
 				<!-- title -->
 				<div style = "position: relative;" class="media1">
-					<img src = "${pageContext.request.contextPath}/images/커뮤니티.jpg" style = "width:100%;">
+					<img src = "https://cdn.discordapp.com/attachments/954273372760571914/955483620322193449/c7c7797c2962c5a2.jpg" style = "width:100%;">
 					<div>
 						<h2 class = "textOnImg media8">마미랑 커뮤니티</h2>
 					</div>
@@ -57,7 +57,7 @@
                         
                         <div id="main" class="container media3" style = "background-color: white; width:60%;">
                             <div class = "close" style="margin-right: 35px; margin-top:-80px; margin-bottom: 60px;">
-                                <a onclick="location.href = '${pageContext.request.contextPath}/community/CommunityListOk.com'" style = "border-bottom: hidden;"><img src = "${pageContext.request.contextPath}/images/closeButton.png" class="close"></a>
+                                <a onclick="location.href = '${pageContext.request.contextPath}/community/CommunityListOk.com'" style = "border-bottom: hidden;"><img src = "https://cdn.discordapp.com/attachments/954273372760571914/955485841952747620/closeButton.png" class="close"></a>
                            </div>
 
 
@@ -78,7 +78,7 @@
                                
                                 <!--작성자, 시간, 수정 삭제-->
                                 <div style ="padding-top:15px; " class="media5">
-                                    <img class="profile" src="${pageContext.request.contextPath}/images/프로필아이콘.jpg" style = "float:left;">
+                                    <img class="profile" src="https://cdn.discordapp.com/attachments/954273372760571914/955485997880209468/d3a7d5b9f5ad22d2.jpg" style = "float:left;">
                                     <!-- 프로필 이미지 아직 연결 안됐습니다. -->
                                         <p>&nbsp;<span id = "nickname" class="media6">${community.getUserId()}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class ="gray">${community.getBoardDate()}</span>
                                                    <c:if test="${userNum eq community.getUserNum()}">
@@ -114,7 +114,7 @@
                                        
                                     </div>
 				<div id="replyBackground" style = "margin: 80px 0 30px 0 !important;"> 
-                     <img src = "${pageContext.request.contextPath}/images/comment.png" class = "commentImg">
+                     <img src = "https://cdn.discordapp.com/attachments/954273372760571914/955486181406154772/comment.png" class = "commentImg">
                                 
                            
                             <span id="toc-toggle" onclick="openCloseToc()">댓글 보기</span>

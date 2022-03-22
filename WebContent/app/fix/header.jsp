@@ -7,7 +7,7 @@
          <c:set var="userStatus" value="${sessionScope.userStatus}"/>
          <c:set var="userName" value="${sessionScope.userName}"/>
        
-            <a href = "${pageContext.request.contextPath}/user/UserMainOk.user" style="border-bottom: none;"><img class = "mommyLogo"  style = "width:112px; margin-top:15px; margin-left:20px" src="${pageContext.request.contextPath}/images/로고1.png"></a></h1>
+            <a href = "${pageContext.request.contextPath}/user/UserMainOk.user" style="border-bottom: none;"><img class = "mommyLogo"  style = "width:112px; margin-top:15px; margin-left:20px" src="https://cdn.discordapp.com/attachments/954273372760571914/955478975797403648/1.png"></a></h1>
             <nav id="nav">
                <ul>
                

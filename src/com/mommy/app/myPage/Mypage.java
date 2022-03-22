@@ -34,7 +34,7 @@ public class Mypage implements Action {
 		int age = nowYear -  birthYear;
 		req.setAttribute("user", userVo);
 		req.setAttribute("userAge", age);
-		
+		System.out.println(userVo.getUserGender());
 		af.setRedirect(false);
 		af.setPath("/app/myPage/myPage.jsp");
 		
