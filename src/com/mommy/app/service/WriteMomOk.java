@@ -57,6 +57,7 @@ public class WriteMomOk implements Action{
 	      System.out.println(multi.getParameter("elememtary"));
 	      System.out.println(multi.getParameter("message")); // ?? 
 	      System.out.println(multi.getParameter("startDate"));
+	      System.out.println("요일 시작");
 	      System.out.println(multi.getParameter("P_mon"));
 	      System.out.println(multi.getParameter("P_tue"));
 	      System.out.println(multi.getParameter("P_wed"));
@@ -116,13 +117,13 @@ public class WriteMomOk implements Action{
 		System.out.println("startDate : "+serviceVo.getProfileDate());
 		
 		// careEmergency (긴급돌봄) 
-		serviceVo.setP_mon(transDay(multi.getParameter("P_mon")));
-		serviceVo.setP_tue(transDay(multi.getParameter("P_tue")));
-		serviceVo.setP_wed(transDay(multi.getParameter("P_wed")));
-		serviceVo.setP_thu(transDay(multi.getParameter("P_thu")));
-		serviceVo.setP_fri(transDay(multi.getParameter("P_fri")));
-		serviceVo.setP_sat(transDay(multi.getParameter("P_sat")));
-		serviceVo.setP_sun(transDay(multi.getParameter("P_sun")));
+		serviceVo.setP_mon(Integer.parseInt(multi.getParameter("P_mon")));
+		serviceVo.setP_tue(Integer.parseInt(multi.getParameter("P_tue")));
+		serviceVo.setP_wed(Integer.parseInt(multi.getParameter("P_wed")));
+		serviceVo.setP_thu(Integer.parseInt(multi.getParameter("P_thu")));
+		serviceVo.setP_fri(Integer.parseInt(multi.getParameter("P_fri")));
+		serviceVo.setP_sat(Integer.parseInt(multi.getParameter("P_sat")));
+		serviceVo.setP_sun(Integer.parseInt(multi.getParameter("P_sun")));
 		
 		System.out.println(req.getParameter("profileSalary"));
 		serviceVo.setProfileSalary(Integer.parseInt(multi.getParameter("profileSalary")));
@@ -169,13 +170,13 @@ public class WriteMomOk implements Action{
 		return af;
 	}
 	
-	public int transDay(String data) {
+/*	public int transDay(String data) {
 		if(data == null) {
 			return 0;
 		}
 		
 		return 1;
-	}
+	}*/
 	
 	public int transInt (String data) {
 		if(data == null) {

@@ -43,7 +43,7 @@ public class WriteSitterOk implements Action{
 		System.out.println(uploadFolder);
 		//요청객체, 업로드폴더 경로, 파일의 크기, 인코딩 방식, 이름변경정책
 		MultipartRequest multi = new MultipartRequest(req, uploadFolder, fileSize, "UTF-8", new DefaultFileRenamePolicy());
-/*		
+	
 		System.out.println("WriteSitterOk 시터 프로필 작성");
 		
 		
@@ -90,8 +90,7 @@ public class WriteSitterOk implements Action{
 		System.out.println(multi.getFile("attachQ"));
 		
 		System.out.println(multi.getFilesystemName("profilePicture"));
-		System.out.println(multi.getFilesystemName("attachQ"));*/
-		
+		System.out.println(multi.getFilesystemName("attachQ"));
 
 		
 		
@@ -113,13 +112,13 @@ public class WriteSitterOk implements Action{
 		System.out.println("startDate : "+serviceVo.getProfileDate());
 		
 		// careEmergency (긴급돌봄) 
-		serviceVo.setP_mon(transDay(multi.getParameter("P_mon")));
-		serviceVo.setP_tue(transDay(multi.getParameter("P_tue")));
-		serviceVo.setP_wed(transDay(multi.getParameter("P_wed")));
-		serviceVo.setP_thu(transDay(multi.getParameter("P_thu")));
-		serviceVo.setP_fri(transDay(multi.getParameter("P_fri")));
-		serviceVo.setP_sat(transDay(multi.getParameter("P_sat")));
-		serviceVo.setP_sun(transDay(multi.getParameter("P_sun")));
+		serviceVo.setP_mon(Integer.parseInt(multi.getParameter("P_mon")));
+		serviceVo.setP_tue(Integer.parseInt(multi.getParameter("P_tue")));
+		serviceVo.setP_wed(Integer.parseInt(multi.getParameter("P_wed")));
+		serviceVo.setP_thu(Integer.parseInt(multi.getParameter("P_thu")));
+		serviceVo.setP_fri(Integer.parseInt(multi.getParameter("P_fri")));
+		serviceVo.setP_sat(Integer.parseInt(multi.getParameter("P_sat")));
+		serviceVo.setP_sun(Integer.parseInt(multi.getParameter("P_sun")));
 		
 		System.out.println(req.getParameter("profileSalary"));
 		serviceVo.setProfileSalary(Integer.parseInt(multi.getParameter("profileSalary")));

@@ -28,20 +28,19 @@ public class ServiceFrontController extends HttpServlet{
 		String command = requestURI.substring(contextPath.length());
 		ActionForward af = new ActionForward();
 		
-	System.out.println("찜하기 확인 FC 들어옴");
-	System.out.println(command);
-		
 		if(command.equals("/service/SearchJobOk.ser")) {
 			af=new SearchJobOk().execute(req, resp);
 		}else if(command.equals("/service/SearchMomOk.ser")) {
 			af=new SearchMomOk().execute(req, resp);
+		}else if(command.equals("/service/SearchMomOk2.ser")) {
+			new SearchMomOk2().execute(req, resp);
+		}else if(command.equals("/service/SearchJobOk2.ser")) {
+			new SearchJobOk2().execute(req, resp);
 		}
 		else if(command.equals("/service/FavoriteInsertOk.ser")) {
 			new FavoriteInsertOk().execute(req, resp);
-			
 		}else if(command.equals("/service/FavoriteDeleteOk.ser")) {
 			new FavoriteDeleteOk().execute(req, resp);
-
 		}
 		else if(command.equals("/service/WriteMom.ser")) {
 			af = new WriteMom().execute(req, resp);
@@ -51,13 +50,7 @@ public class ServiceFrontController extends HttpServlet{
 			af = new MomDetailModalOk().execute(req, resp);
 		}else if(command.equals("/service/Jobhunting.ser")) {
 			af = new Jobhunting().execute(req, resp);
-		}else if(command.equals("/service/LookMomProfile2.ser")) {
-			af = new LookMomProfile2().execute(req, resp);
-		}
-		
-		
-		
-		else if(command.equals("/service/lookSitterProfile2.ser")) {
+		}else if(command.equals("/service/lookSitterProfile2.ser")) {
 			af = new LookSitterProfile2().execute(req, resp);
 		}else if(command.equals("/service/LookSitterProfileOk.ser")) {
 			af = new LookSitterProfileOk().execute(req, resp);
@@ -69,6 +62,7 @@ public class ServiceFrontController extends HttpServlet{
 		}else if(command.equals("/service/WriteSitterOk.ser")) {
 			af = new WriteSitterOk().execute(req, resp);
 		}else if(command.equals("/service/SitterProfileDeleteOk.ser")) {
+			System.out.println("들어옴 컨트롤");
 			af = new SitterProfileDeleteOk().execute(req, resp);
 		}else if(command.equals("/service/LookMomProfileOk.ser")) {
 			af = new LookMomProfileOk().execute(req, resp);

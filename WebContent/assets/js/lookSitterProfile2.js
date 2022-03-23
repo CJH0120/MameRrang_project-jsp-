@@ -59,12 +59,7 @@ $heart.on("click", function(){
 		        type: "post",
 		        data: {"userNum": userNum, "profileNum": userNum2},
 		        
-		        success: function(){
-		            console.log("찜하기 완료");
-		        },
-		        error: function(){
-		            console.log("찜하기 오류");
-		        }
+		      
 		    });
 	}else{
 		/*찜하기 삭제*/
@@ -74,13 +69,7 @@ $heart.on("click", function(){
 		        type: "post",
 		        data: {"userNum": userNum, "profileNum": userNum2},
 		        
-		        success: function(){
-		        	$(this).attr("src", '../images/heart.png');
-		            console.log("찜하기 삭제");
-		        },
-		        error: function(){
-		            console.log("찜하기 오류");
-		        }
+		     
 		    });
 	
 	}

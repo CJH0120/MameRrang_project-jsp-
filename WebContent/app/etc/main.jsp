@@ -59,7 +59,7 @@
                 내 아이를 믿고 맡길 수 있는 베이비시터를 <br>
                 간편하게 찾아주는 
                 <strong style = "font-family: GmarketSansMedium !important; color:white">베이비시터 매칭 서비스</strong> 입니다.</h4>
-                <img src="https://cdn.discordapp.com/attachments/954273372760571914/955478303895064626/26a07ccca466715a.png${pageContext.request.contextPath}/images/물결.png"; class = "wave media13">
+                <img src="https://cdn.discordapp.com/attachments/954273372760571914/955903608019386368/16a69a30123d3158.png"; class = "wave media13">
                 <p class = "textOnImg media22" style="top: 53%; font-size: 14px; line-height: 21px; color: black;">
                     원하는 시간대에 내 아이에게 필요한 돌봄유형을 선택하여<br>
                     다양하고 까다로운 부모님의 니즈를 충족할<br>

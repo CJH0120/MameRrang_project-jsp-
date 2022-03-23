@@ -15,6 +15,7 @@ public class SearchJobOk  implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HashMap<String, Integer> searchDetailMap = new HashMap<>();
+		HashMap<String, Integer> modalInput = new HashMap<>();
 		HashMap<String, String> areaMap = new HashMap<>();
 		ActionForward af = new ActionForward();
 		ServiceDAO dao = new ServiceDAO();
@@ -26,7 +27,7 @@ public class SearchJobOk  implements Action{
 		
 
 		//사용자가 요청한 페이지
-/*		String temp = req.getParameter("page");
+		String temp = req.getParameter("page");
 		//사용자가 요청한 페이지가 null이면 1페이지를,
 		//null이 아니면 요청한 페이지를 page에 담아준다.
 		int page = temp == null ? 1 : Integer.parseInt(temp);
@@ -41,10 +42,13 @@ public class SearchJobOk  implements Action{
 
 		searchDetailMap.put("startRow", startRow);
 		searchDetailMap.put("rowCount", rowCount);
+		modalInput.put("startRow", startRow);
+		modalInput.put("rowCount", rowCount);
+		modalInput.put("userStatus", userStatus);
 		
 		//화면에 출력되는 페이지 번호 중
 		//시작 페이지(1, 11, 21, ....)
-		int startPage = ((page - 1) / pageSize) * pageSize + 1;
+	/*	int startPage = ((page - 1) / pageSize) * pageSize + 1;
 		//끝 페이지(10, 20, 30, ...)
 		int endPage = startPage + pageSize - 1;
 		//실제 마지막 게시글이 출력되는 마지막 페이지 번호
@@ -57,8 +61,6 @@ public class SearchJobOk  implements Action{
 //		endPage = endPage > realEndPage ? realEndPage : endPage;
 		
 		searchDetailMap.put("userStatus", userStatus);
-
-		
 		if( req.getParameter("check")!=null) {
 	
 			searchDetailMap.put("babyNewborn", Integer.parseInt(req.getParameter("babyNewborn")));
@@ -82,42 +84,21 @@ public class SearchJobOk  implements Action{
 			searchDetailMap.put("careStudy", Integer.parseInt(req.getParameter("careStudy")));
 			searchDetailMap.put("userStatus", userStatus);
 		  
-//		--------상세검색 게시글 총 개수 ------------------
-			/*searchDetailMap.put("babyNewborn", Integer.parseInt(req.getParameter("babyNewborn")));
-			searchDetailMap.put("babyKinder", Integer.parseInt(req.getParameter("babyKinder")));
-			searchDetailMap.put("babyChild", Integer.parseInt(req.getParameter("babyChild")));
-			searchDetailMap.put("babyElementary", Integer.parseInt(req.getParameter("babyElementary")));
-			searchDetailMap.put("P_mon", Integer.parseInt(req.getParameter("P_mon")));
-			searchDetailMap.put("P_tue", Integer.parseInt(req.getParameter("P_tue")));
-			searchDetailMap.put("P_wed", Integer.parseInt(req.getParameter("P_wed")));
-			searchDetailMap.put("P_thu", Integer.parseInt(req.getParameter("P_thu")));
-			searchDetailMap.put("P_fri", Integer.parseInt(req.getParameter("P_fri")));
-			searchDetailMap.put("P_sat", Integer.parseInt(req.getParameter("P_sat")));
-			searchDetailMap.put("P_sun", Integer.parseInt(req.getParameter("P_sun")));
-			searchDetailMap.put("P_morning", Integer.parseInt(req.getParameter("P_morning")));
-			searchDetailMap.put("P_lunch", Integer.parseInt(req.getParameter("P_lunch")));
-			searchDetailMap.put("P_noon", Integer.parseInt(req.getParameter("P_noon")));
-			searchDetailMap.put("careIndoor", Integer.parseInt(req.getParameter("careIndoor")));
-			searchDetailMap.put("careCommit", Integer.parseInt(req.getParameter("careCommit")));
-			searchDetailMap.put("careFood", Integer.parseInt(req.getParameter("careFood")));
-			searchDetailMap.put("careClean", Integer.parseInt(req.getParameter("careClean")));
-			searchDetailMap.put("careStudy", Integer.parseInt(req.getParameter("careStudy")));*/
-		
 		} 
 		
 //		돌봄유형 모달 ----------------------------
 		if(req.getParameter("careType")!=null) {
 			switch (req.getParameter("careType")) {
 			
-			case "1": req.setAttribute("jobList", dao.careTypeSchool(userStatus));
+			case "1": req.setAttribute("jobList", dao.careTypeSchool(modalInput));
 				break;
-			case "2": req.setAttribute("jobList", dao.teach(userStatus));
+			case "2": req.setAttribute("jobList", dao.teach(modalInput));
 				break;
-			case "3": req.setAttribute("jobList", dao.fullTime(userStatus));
+			case "3": req.setAttribute("jobList", dao.fullTime(modalInput));
 				break;
-			case "4": req.setAttribute("jobList", dao.shortTime(userStatus));
+			case "4": req.setAttribute("jobList", dao.shortTime(modalInput));
 				break;
-			case "5":req.setAttribute("jobList", dao.careEmergency(userStatus));
+			case "5":req.setAttribute("jobList", dao.careEmergency(modalInput));
 				break;
 			case "6":req.setAttribute("jobList",  dao.searchDetail(searchDetailMap));
 				break;

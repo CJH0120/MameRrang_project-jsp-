@@ -122,78 +122,14 @@
 		and p.careStudy = #{careStudy}
 		</if>
 
-		order by p.profileNum desc
+		order by p.profileNum desc limit #{startRow}, #{rowCount}
 	</select>  
 
-	<!-- 상세검색 게시글갯수 -->
-	<!-- <select id="searchDetailGetTotal" parameterType="map"  resultType="_int">
-		select count(p.profileNum)
-		from tbl_profile p join tbl_user u on p.userNum = u.userNum
-		where u.userStatus =2
-			
-		<if test = 'babyNewborn != null and babyNewborn == "1"'>
-		and p.babyNewborn = #{babyNewborn}
-		</if>
-		<if test = 'babyKinder != null and babyKinder == "1"'>
-		and p.babyKinder = #{babyKinder}
-		</if>
-		<if test = 'babyChild != null and babyChild == "1"'>
-		and p.babyChild = #{babyChild}
-		</if>
-		<if test = 'babyElementary != null  and babyElementary == "1"'>
-		and p.babyElementary = #{babyElementary}
-		</if>
-		<if test = 'P_mon != null  and P_mon == "1"'>
-		and p.P_mon = #{P_mon}
-		</if>
-		<if test = 'P_tue != null  and P_tue == "1"'>
-		and p.P_tue = #{P_tue}
-		</if>
-		<if test = 'P_wed != null  and P_wed == "1"'>
-		and p.P_wed = #{P_wed}
-		</if>
-		<if test = 'P_thu != null  and P_thu == "1"'>
-		and p.P_thu = #{P_thu}
-		</if>
-		<if test = 'P_fri != null and P_fri == "1"'>
-		and p.P_fri = #{P_fri}
-		</if>
-		<if test = 'P_sat != null and P_sat == "1"'>
-		and p.P_sat = #{P_sat}
-		</if>
-		<if test = 'P_sun != null and P_sun == "1"'>
-		and p.P_sun = #{P_sun}
-		</if>
-		<if test = 'P_lunch != null and P_lunch == "1"'>
-		and p.P_lunch = #{P_lunch}
-		</if>
-		<if test = 'P_morning != null and P_morning == "1"'>
-		and p.P_morning = #{P_morning}
-		</if>
-		<if test = 'P_noon != null and P_noon == "1"'>
-		and p.P_noon = #{P_noon}
-		</if>
-		<if test = 'careIndoor != null and careIndoor == "1"'>
-		and p.careIndoor = #{careIndoor}
-		</if>
-		<if test = 'careFood != null and careFood == "1"'>
-		and p.careFood = #{careFood}
-		</if>
-		<if test = 'careClean != null and careClean == "1"'>
-		and p.careClean = #{careClean}
-		</if>
-		<if test = 'careCommit != null and careCommit == "1"'>
-		and p.careCommit = #{careCommit}
-		</if>
-		<if test = 'careStudy != null and careStudy == "1"'>
-		and p.careStudy = #{careStudy}
-		</if>
 
-	</select>   -->
 
 
 	<!-- 돌봄유형 주5일등하원 -->
-	 <select id="careTypeSchool" parameterType="_int" resultType="ServiceDTO">
+	 <select id="careTypeSchool" parameterType="map" resultType="ServiceDTO">
 		select u.userBirthYear,p.profileNum, p.userNum, p.profileDate, p.profilePicture, p.profileDescription, 
 		p.profileSalary, p.profileAttach, p.profileProcess, p.locationSido, p.locationSigun, 
 		p.locationDong, p.P_periodStartDate, p.P_mon, p.P_tue, p.P_wed, p.P_thu, p.P_fri, 
@@ -204,11 +140,11 @@
 		from tbl_profile p join tbl_user u on p.userNum = u.userNum
 		where u.userStatus =#{userStatus} and P_mon=1 and P_tue=1 and P_wed=1 and P_thu=1 and P_fri=1
 		and careCommit=1
-		order by p.profileNum desc;
+		order by p.profileNum desc  limit #{startRow}, #{rowCount}
 	</select>  
 
 	<!-- 놀이 학습시터 -->
- 	<select id="teach" parameterType="_int" resultType="ServiceDTO">
+ 	<select id="teach" parameterType="map" resultType="ServiceDTO">
 		select u.userBirthYear,p.profileNum, p.userNum, p.profileDate, p.profilePicture, p.profileDescription, 
 		p.profileSalary, p.profileAttach, p.profileProcess, p.locationSido, p.locationSigun, 
 		p.locationDong, p.P_periodStartDate, p.P_mon, p.P_tue, p.P_wed, p.P_thu, p.P_fri, 
@@ -218,12 +154,13 @@
 		p.checkMom, p.checkTeacher, p.checkCitizen, p.checkUniversity, u.userStatus ,
 		( P_mon + P_tue + P_wed + P_thu + P_fri + P_sat + P_sun) AS test
 		from tbl_profile p join tbl_user u on p.userNum = u.userNum
-		where u.userStatus =#{userStatus} 
-		having  5 > test;
+		where u.userStatus =#{userStatus}
+		having  5 > test
+		order by p.profileNum desc  limit #{startRow}, #{rowCount};
 	</select>
 
 	<!-- 돌봄유형 풀타임 -->
-	 <select id="fullTime" parameterType="_int" resultType="ServiceDTO">
+	 <select id="fullTime" parameterType="map" resultType="ServiceDTO">
 		select  u.userBirthYear,p.profileNum, p.userNum, p.profileDate, p.profilePicture, p.profileDescription, 
 		p.profileSalary, p.profileAttach, p.profileProcess, p.locationSido, p.locationSigun, 
 		p.locationDong, p.P_periodStartDate, p.P_mon, p.P_tue, p.P_wed, p.P_thu, p.P_fri, 
@@ -232,11 +169,12 @@
 		p.babyNewborn, p.babyChild, p.babyKinder, p.babyElementary, p.checkMedi, 
 		p.checkMom, p.checkTeacher, p.checkCitizen, p.checkUniversity, u.userStatus
 		from tbl_profile p join tbl_user u on p.userNum = u.userNum
-		where u.userStatus =#{userStatus} and P_morning=1 and P_lunch=1 and P_noon=1 and P_morning=1;
-	</select> 
-
+		where u.userStatus =#{userStatus} and P_morning=1 and P_lunch=1 and P_noon=1 and P_morning=1
+		order by p.profileNum desc  limit #{startRow}, #{rowCount};
+	</select>  
+	
 	 <!-- 돌봄유형 짧은시간 -->
-	  <select id="shortTime" parameterType="_int" resultType="ServiceDTO">
+	  <select id="shortTime" parameterType="map" resultType="ServiceDTO">
 	 	select  u.userBirthYear,p.profileNum, p.userNum, p.profileDate, p.profilePicture, p.profileDescription, 
 		p.profileSalary, p.profileAttach, p.profileProcess, p.locationSido, p.locationSigun, 
 		p.locationDong, p.P_periodStartDate, p.P_mon, p.P_tue, p.P_wed, p.P_thu, p.P_fri, 
@@ -245,11 +183,12 @@
 		p.babyNewborn, p.babyChild, p.babyKinder, p.babyElementary, p.checkMedi, 
 		p.checkMom, p.checkTeacher, p.checkCitizen, p.checkUniversity, u.userStatus
 		from tbl_profile p join tbl_user u on p.userNum = u.userNum
-		where u.userStatus =#{userStatus} and P_morning=1 or P_lunch=1 or P_noon=1;
+		where u.userStatus =#{userStatus} and P_morning=1 or P_lunch=1 or P_noon=1
+		order by p.profileNum desc  limit #{startRow}, #{rowCount};
 	 </select> 
 
 	<!-- 돌봄유형 긴급  -->
-	<select id="careEmergency" parameterType="_int" resultType="ServiceDTO">
+	<select id="careEmergency" parameterType="map" resultType="ServiceDTO">
 		select u.userBirthYear,p.profileNum, p.userNum, p.profileDate, p.profilePicture, p.profileDescription, 
 		p.profileSalary, p.profileAttach, p.profileProcess, p.locationSido, p.locationSigun, 
 		p.locationDong, p.P_periodStartDate, p.P_mon, p.P_tue, p.P_wed, p.P_thu, p.P_fri, 
@@ -258,7 +197,8 @@
 		p.babyNewborn, p.babyChild, p.babyKinder, p.babyElementary, p.checkMedi, p.careEmergency,
 		p.checkMom, p.checkTeacher, p.checkCitizen, p.checkUniversity, u.userStatus 
 		from tbl_profile p join tbl_user u on p.userNum = u.userNum
-		where u.userStatus =#{userStatus} and p.careEmergency=1;
+		where u.userStatus =#{userStatus} and p.careEmergency=1
+		order by p.profileNum desc  limit #{startRow}, #{rowCount};
 	</select>
 	
 	<!-- 주소 시군동 모달창 -->

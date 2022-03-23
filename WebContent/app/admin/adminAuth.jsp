@@ -48,11 +48,11 @@
                <section id="three" class="feature">
                   <div class="row row-total main-total" style="display: flex; justify-content: center; margin-right: 0em;">
                         <div class="side-header">
-               <a href="${pageContext.request.contextPath}/admin/AdminMainOk.ad"  style="border-bottom:2px solid #ffb61a;"><p id="total" class="s-title text bYellow">통계 </p></a>
+               <a href="${pageContext.request.contextPath}/admin/AdminMainOk.ad"  style="border-bottom:2px solid #ffb61a;"><p id="total" class="s-title text bYellow">메인</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminQnaListOk.ad"><p id="qna" class="s-title text bGray" >문의</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminReportListOk.ad"><p id="report" class="s-title bGray" >신고</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminAuthListOk.ad"><p id="auth" class="s-title bGray">인증</p></a>
-               <a href="${pageContext.request.contextPath}/app/admin/adminMList.jsp"><p id="memberList" class="s-title bGray" >회원목록</p></a>
+               <a href="${pageContext.request.contextPath}/admin/AdminMemberListOk.ad"><p id="memberList" class="s-title bGray" >회원목록</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminNoticeListOk.ad"><p id="inform" class="s-title bGray" >공지</p></a>
          </div>
                         <div class="twoBox">
@@ -128,7 +128,7 @@
 														<label for="copy3${auth.getProfileNum()}" class="text">교사인증</label> 
 													</c:when>
 													<c:when test="${auth.getCheckTeacher() eq 1}">
-														<input type="checkbox" id="copy3${auth.getProfileNum()}" name="checkTeacher" class="checkTeacher"  checked value="1">
+														<input type="checkbox" id="copy3${auth.getProfileNum()}" name="checkTeacher" class="checkTeacher"  checked >
 														<label for="copy3${auth.getProfileNum()}" class="text">교사인증</label> 
 													</c:when>
 												</c:choose>
@@ -169,15 +169,20 @@
 												<c:set var="profile" value="${auth.getProfileNum()}"/> 
 										      <c:set var="name" value="${auth.getUserName()}"/>
 									     		 <c:set var="id" value="${auth.getUserId()}"/>
-											<div>	
 											
-											
-												<input type="hidden"  name ="${auth.getProfileNum()}"  value="${auth.getProfileNum()}"  id="hidninput" >	
-																											
-												<button type="button" class="btn" onclick="prooo(${auth.getProfileNum()});" > 수정하기 </button>
-												
-											</div>
-											
+											<c:choose>
+												<c:when test="${auth.getProfileProcess() eq 0}">
+													<div>	
+														<input type="hidden"  name ="${auth.getProfileNum()}"  value="${auth.getProfileNum()}"  id="hidninput" >														
+														<button type="button" class="btn" onclick="prooo(${auth.getProfileNum()});" >수정하기 </button>
+													</div>
+												</c:when>
+												<c:when test="${auth.getProfileProcess() eq 1}">
+													<div>
+													<button type="button" class="btn" onclick="prooo(${auth.getProfileNum()});" >수정완료</button>
+													</div>
+												</c:when>
+											</c:choose>
 			</form>			
 									</td>
 								</tr>

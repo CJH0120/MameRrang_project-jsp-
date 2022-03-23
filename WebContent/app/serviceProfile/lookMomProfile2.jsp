@@ -20,6 +20,8 @@
 </head>
 
 <body>
+	<c:set var="mom" value="${momInfo}"/>
+	<c:set var="userNum2" value="${userNum2}"/>
 	<c:set var="user" value="${user}"/>
 	<c:set var="userAge" value="${userAge}"/>
 
@@ -79,7 +81,6 @@
      
 
 
-
       <div id="main" class="container medium" style="margin-top: -100px;">
          <!-- profile header -->
         <p style="font-size: 15px; width: 57%; margin-top: -46px; display: inline-block;">작성시간[2022-03-07]</p>
@@ -127,7 +128,7 @@
                 <div style = "float:left; margin-right:30px; margin-top: 20px;">
                     <p style="margin: 0;  font-size: 15px; color:#797d7e;
                        
-                    ">정기적으로 일해주실 분만 구합니다.</p>
+                    ">${mom.getProfileDescription()}</p>
                    
                 </div>
 
@@ -139,27 +140,136 @@
 				<span>10,000원</span>
 				</div>
 
-
+				
+				<!-- 인증완료 여부========================================= -->			
+			<c:choose>
+			<c:when test="${mom.getCheckMedi()==1}">
+				<c:set var="medi" value="건강인증" />
+			</c:when>
+			</c:choose>
+				<c:choose>
+			<c:when test="${mom.getCheckMom()==1}">
+				<c:set var="mom" value="부모인증" />
+			</c:when>
+			</c:choose>
+				<c:choose>
+			<c:when test="${mom.getCheckTeacher()==1}">
+				<c:set var="teacher" value="교사인증" />
+			</c:when>
+			</c:choose>
+				<c:choose>
+			<c:when test="${mom.getCheckCitizen()==1}">
+				<c:set var="self" value="본인인증" />
+			</c:when>
+			</c:choose>
+			<c:choose>
+			<c:when test="${mom.getCheckUniversity()==1}">
+				<c:set var="univer" value="학력인증" />
+			</c:when>
+			</c:choose>
+										
+			<!-- 가능한 활동================================== -->							
+			<c:choose>
+			<c:when test="${mom.getCareIndoor()==1}">
+				<c:set var="careIndoor" value="실내활동" />
+			</c:when>
+			</c:choose><c:choose>
+			<c:when test="${mom.getCareCommit()==1}">
+				<c:set var="careCommit" value="등하원" />
+			</c:when>
+			</c:choose><c:choose>
+			<c:when test="${mom.getCareFood()==1}">
+				<c:set var="CareFood" value="밥챙겨주기" />
+			</c:when>
+			</c:choose><c:choose>
+			<c:when test="${mom.getCareClean()==1}">
+				<c:set var="CareClean" value="청소" />
+			</c:when>
+			</c:choose><c:choose>
+			<c:when test="${mom.getCareStudy()==1}">
+				<c:set var="CareStudy" value="학습지도" />
+			</c:when>
+			</c:choose>		
+			
+			<!--돌봄가능 연령 ===============================  -->
+			<c:choose>
+			<c:when test="${mom.getBabyNewborn()==1}">
+				<c:set var="BabyNewborn" value="신생아" />
+			</c:when>
+			</c:choose>		
+			<c:choose>
+			<c:when test="${mom.getBabyChild()==1}">
+				<c:set var="BabyChild" value="영아" />
+			</c:when>
+			</c:choose>		
+			<c:choose>
+			<c:when test="${mom.getBabyKinder()==1}">
+				<c:set var="BabyKinder" value="유치원생" />
+			</c:when>
+			</c:choose>		
+			<c:choose>
+			<c:when test="${mom.getBabyElementary()==1}">
+				<c:set var="BabyElementary" value="초등학생" />
+			</c:when>
+			</c:choose>		
+		
+		<!-- 돌봄가능기간 ===================================== -->
+				<c:choose>
+			<c:when test="${mom.getP_week()==1}">
+				<c:set var="week" value="1주일 이상" />
+			</c:when>
+			</c:choose>
+				<c:choose>
+			<c:when test="${mom.getP_month()==1}">
+				<c:set var="month" value="1개월 이상" />
+			</c:when>
+			</c:choose>
+				<c:choose>
+			<c:when test="${mom.getP_quarter()==1}">
+				<c:set var="quarter" value="3개월 이상" />
+			</c:when>
+			</c:choose>
+				<c:choose>
+			<c:when test="${mom.getP_semiAnnual()==1}">
+				<c:set var="semiAnnual" value="6개월" />
+			</c:when>
+			</c:choose>
+		
+		<!-- 활동가능시간=========================== -->
+			<c:choose>
+			<c:when test="${mom.getP_morning()==1}">
+				<c:set var="morning" value="09:00~12:00" />
+			</c:when>
+			</c:choose>
+			<c:choose>
+			<c:when test="${mom.getP_lunch()==1}">
+				<c:set var="lunch" value="12:00~15:00" />
+			</c:when>
+			</c:choose>
+			<c:choose>
+			<c:when test="${mom.getP_noon()==1}">
+				<c:set var="noon" value="15:00~18:00" />
+			</c:when>
+			</c:choose>
+				
 
                 <hr class = "split">
                     <div class = "innerContent2" style="float: left;">
                         <p class ="innerTitle" style="margin-bottom: 29px;">기본정보</p>
 
                         <ul style="list-style: none; margin-left: -28px; width: 423px; margin-bottom: 0; ">
-                            <li class="liCss" id="li1"> <img src="${pageContext.request.contextPath}/images/시터 나이.png" class="imgIcon">
-                            <a onMouseOver="this.innerHTML='20대~40대'" onMouseOut="this.innerHTML='원하는 시터나이'"> 원하는 시터나이</a> </li>
                             
                             <br><li class="liCss" id="li2"><img src="${pageContext.request.contextPath}/images/활동아이콘.png" class="imgIcon">
-                            <a onMouseOver="this.innerHTML='실내놀이, 등하원, 밥해주기'" onMouseOut="this.innerHTML='원하는 활동'">원하는 활동</a> </li>
+                            <a onMouseOver="this.innerHTML='${careIndoor} ${careCommit} ${CareFood} ${CareClean} ${CareStudy}'" onMouseOut="this.innerHTML='원하는 활동'">원하는 활동</a> </li>
                             
                             <br><li class="liCss" id="li3"><img src="${pageContext.request.contextPath}/images/돌봄가능연령아이콘.png" class="imgIcon">
-                              <a onMouseOver="this.innerHTML='초등학생'" onMouseOut="this.innerHTML='아이 정보'">아이 정보</a></li>
+                              <a onMouseOver="this.innerHTML='${BabyNewborn} ${BabyChild} ${BabyKinder} ${BabyElementary}'" onMouseOut="this.innerHTML='아이 정보'">아이 정보</a></li>
                             
                             <br><li class="liCss" id="li4"><img src="${pageContext.request.contextPath}/images/돌봄가능기간.png" class="imgIcon">
-                              <a onMouseOver="this.innerHTML='시작날짜[2022-03-07] / 3개월 이상'" onMouseOut="this.innerHTML='원하는 돌봄 기간'">원하는 돌봄 기간</a></li>
+                              <a onMouseOver="this.innerHTML='${week} ${month} ${quarter} ${semiAnnual}'" onMouseOut="this.innerHTML='원하는 돌봄 기간'">원하는 돌봄 기간</a></li>
                             
                             <br><li class="liCss" id="li5"><img src="${pageContext.request.contextPath}/images/활동가능시간.png" class="imgIcon">
-                              <a onMouseOver="this.innerHTML='오후3시~오후6시'" onMouseOut="this.innerHTML='원하는 돌봄 시간'">원하는 돌봄 시간</a></li>
+                              <a onMouseOver="this.innerHTML='${morning} ${lunch} ${noon}'" onMouseOut="this.innerHTML='원하는 돌봄 시간'">원하는 돌봄 시간</a></li>
                            
 
                         </ul>
@@ -169,7 +279,7 @@
                     </div>
                     <div class = "innerContent add" style="float: left;  margin-left: 32%;">
                         <p class ="innerTitle" style="margin: 0;"><img src="${pageContext.request.contextPath}/images/지역.png" style="width: 25px; margin-right: 10px; ">활동가능 지역</p>
-                        <p style="margin:0px; font-size: 14px;">(경기도 용인시 수지구 상현동)</p>
+                        <p style="margin:0px; font-size: 14px;">(${mom.getLocationSido()}  ${mom.getLocationSigun()}  ${mom.getLocationDong()})</p>
                         <div >
 
 								<div id="map" style="width:350px;height:220px;"class="map" ></div>
@@ -218,6 +328,14 @@
 <script src="${pageContext.request.contextPath}/assets/js/lookMomProfile2.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6316b3fde93fb6bb4a1526abb1494b47&libraries=services"></script>
 <script>
+	var userNum = "${userNum}";
+	var userNum2 = "${mom.getUserNum()}";
+</script>
+<script>
+
+var address="${mom.getLocationSido()}";
+var address2 ="${mom.getLocationSigun()}";
+var address3="${mom.getLocationDong()}";
 //맵 api
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -233,7 +351,7 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 var geocoder = new kakao.maps.services.Geocoder();
 
 // 주소로 좌표를 검색합니다
-geocoder.addressSearch('경기도 용인시 수지구 상현동', function(result, status) {
+geocoder.addressSearch(address+address2+address3, function(result, status) {
 
     // 정상적으로 검색이 완료됐으면 
      if (status === kakao.maps.services.Status.OK) {

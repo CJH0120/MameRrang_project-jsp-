@@ -1,31 +1,39 @@
 package com.mommy.app.service;
 
-import java.io.IOException; 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import com.mommy.action.Action;
 import com.mommy.action.ActionForward;
 import com.mommy.app.service.dao.ServiceDAO;
+import com.mommy.app.service.vo.ServiceDTO;
 
-public class SearchMomOk  implements Action{
+public class SearchMomOk2 implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		req.setCharacterEncoding("UTF-8");
+		resp.setCharacterEncoding("UTF-8");
 		HashMap<String, Integer> searchDetailMap = new HashMap<>();
 		HashMap<String, Integer> modalInput = new HashMap<>();
 		HashMap<String, String> areaMap = new HashMap<>();
-		ActionForward af = new ActionForward();
 		ServiceDAO dao = new ServiceDAO();
 		int userStatus=2;
-		
 
-		//시터가 쓴 전체 게시글 개수
-//		int total = dao.searchDetailGetTotal(searchDetailMap2);
+		List<ServiceDTO> momList = new ArrayList<ServiceDTO>();
 		
+		LocalDate now = LocalDate.now();
+		int year = now.getYear();
 
 		//사용자가 요청한 페이지
 		String temp = req.getParameter("page");
@@ -86,27 +94,25 @@ public class SearchMomOk  implements Action{
 		searchDetailMap.put("careClean", Integer.parseInt(req.getParameter("careClean")));
 		searchDetailMap.put("careStudy", Integer.parseInt(req.getParameter("careStudy")));
 		searchDetailMap.put("userStatus", userStatus);
-	
-		
-	
 		} 
-		
-		
+
 //		돌봄유형 모달 ----------------------------
 		if(req.getParameter("careType")!=null) {
 			switch (req.getParameter("careType")) {
 			
-			case "1": req.setAttribute("momList", dao.careTypeSchool(modalInput));
+			case "1": momList = dao.careTypeSchool(modalInput);
+			System.out.println("맘리스트"+momList);
+			System.out.println("1번들어옴!");
 				break;
-			case "2": req.setAttribute("momList", dao.teach(modalInput));
+			case "2": momList = dao.teach(modalInput);
 				break;
-			case "3": req.setAttribute("momList", dao.fullTime(modalInput));
+			case "3": momList = dao.fullTime(modalInput);
 				break;
-			case "4": req.setAttribute("momList", dao.shortTime(modalInput));
+			case "4": momList = dao.shortTime(modalInput);
 				break;
-			case "5":req.setAttribute("momList", dao.careEmergency(modalInput));
+			case "5": momList = dao.careEmergency(modalInput);
 				break;
-			case "6":req.setAttribute("momList",  dao.searchDetail(searchDetailMap));
+			case "6": momList = dao.searchDetail(searchDetailMap);
 				break;
 			}
 //		돌봄지역모달------------------------------- 
@@ -114,20 +120,39 @@ public class SearchMomOk  implements Action{
 			 areaMap.put("sido", req.getParameter("sido"));
 			 areaMap.put("sigugun", req.getParameter("sigugun"));
 			 areaMap.put("dong", req.getParameter("dong"));
-			 req.setAttribute("momList", dao.searchArea(areaMap)); 
+			 momList = dao.searchArea(areaMap);
 //		상세검색모달-------------------------------
 		 }else {
-			req.setAttribute("momList", dao.searchDetail(searchDetailMap)); 
+			 momList = dao.searchDetail(searchDetailMap);
 		 }
-				req.setAttribute("page", page);
-/*				req.setAttribute("startPage", startPage);
-				req.setAttribute("endPage", endPage);
-				req.setAttribute("realEndPage", realEndPage);*/
-//				req.setAttribute("total", total);
 				
-				af.setRedirect(false);
-				af.setPath("/app/serviceSearch/searchMom.jsp");
-				return af;
-	} 
+		JSONArray moms = new JSONArray();
+		System.out.println("나와따");
+		for(ServiceDTO s : momList) {
+			JSONObject mom = new JSONObject();
+			mom.put("userNum", s.getUserNum());
+			mom.put("ProfileDescription", s.getProfileDescription());
+			mom.put("LocationSido", s.getLocationSido());
+			mom.put("LocationSigun", s.getLocationSigun());
+			mom.put("age", year - s.getUserBirthYear());
+			mom.put("getProfileSalary",s.getProfileSalary());
+			mom.put("mon", s.getP_mon());
+			mom.put("tue", s.getP_tue());
+			mom.put("wed", s.getP_wed());
+			mom.put("thu", s.getP_thu());
+			mom.put("fri", s.getP_fri());
+			mom.put("sat", s.getP_sat());
+			mom.put("sun", s.getP_sun());
+			
+			moms.add(mom);
+		}
+		
+		PrintWriter out = resp.getWriter();
+		
+		out.print(moms.toJSONString());
+		out.close();
+		
+		return null;
+	}
 
 }

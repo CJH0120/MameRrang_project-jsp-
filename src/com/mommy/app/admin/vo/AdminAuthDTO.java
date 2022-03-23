@@ -13,7 +13,10 @@ public class AdminAuthDTO {
 	private int checkTeacher;
 	private int checkCitizen;
 	private int checkUniversity;
+	private int profileProcess;
 	
+	
+
 	public AdminAuthDTO() {;}
 	
 	public AdminAuthDTO(AdminAuthVO AdminAuthVO) {
@@ -27,6 +30,8 @@ public class AdminAuthDTO {
 		this.checkTeacher = AdminAuthVO.getCheckTeacher();
 		this.checkCitizen = AdminAuthVO.getCheckCitizen();
 		this.checkUniversity = AdminAuthVO.getCheckUniversity();
+		this.profileProcess = AdminAuthVO.getProfileProcess();
+		
 	}
 
 	public int getProfileNum() {
@@ -118,6 +123,12 @@ public class AdminAuthDTO {
 								
 	}
 	
-	
+	public int getProfileProcess() {
+		return profileProcess;
+	}
+
+	public void setProfileProcess(int profileProcess) {
+		this.profileProcess = profileProcess;
+	}
 	
 }

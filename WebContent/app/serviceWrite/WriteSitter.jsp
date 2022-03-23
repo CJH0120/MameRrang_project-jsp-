@@ -48,14 +48,16 @@
 			
 		<!-- Main -->
 		<div id="main" class="container medium" style = "display:flex;">
-			 <form id="sitterForm" action="${pageContext.request.contextPath}/service/WriteSitterOk.ser" method="post" enctype="multipart/form-data"> - 
+			 <form id="writeProfileForm" action="${pageContext.request.contextPath}/service/WriteSitterOk.ser" method="post" enctype="multipart/form-data"> - 
 			 <%-- <form id="sitterForm" action="${pageContext.request.contextPath}/service/WriteSitterOk.ser" method="post"> --%> -
 			<!-- profile header -->
             <div style = "width: 100%; background: white; position:relative;" class="mediaMain" >
                 <div style="text-align: left; display:inline-block; margin-left:15px;">
+                	<div class="profile">
                     <label><input type="file" name ="profilePicture"style="display:none;">
-                    <img src="${pageContext.request.contextPath}/images/유저.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">
+                    <img class="profileImg"src="${pageContext.request.contextPath}/images/유저.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">
                     </label>
+                    </div>
                     <div style = "position:absolute; top: 19px; left: 136px;">
                           <h3 style="margin-bottom: 3px; font-size: 18px;">${userVO.getUserName()}</h3><span style = "margin-top: 20px; font-size:16px;">${userAge}세,                                    
 	                           <c:choose>
@@ -66,7 +68,7 @@
                            </span>
                      </div>
                      <div  style = "position:absolute; top: 30px; left: 76%;">
-                            <button type="button" class = "button" onclick="sitterFormSend()">글 저장하기</button>
+                            <button type="button" class = "button" onclick="writeProfileFormSend()">글 저장하기</button>
                      </div>
                 </div>
                 
@@ -199,9 +201,8 @@
                 
                       
             </div>
+				<!-- 모달 데이터를 받기위해 생성되는 히든 인풋영역 -->				
 				<div id="formDataFromIf">
-				
-				
 				</div>
 <!--             	<input type="hidden" name="startDate" id="startDate" value="">
             
@@ -270,8 +271,8 @@
 			<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
-			  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-          <script src="${pageContext.request.contextPath}/assets/js/WriteSitter.js"></script>
+			<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="${pageContext.request.contextPath}/assets/js/WriteProfile.js"></script>
           
 </body>
 

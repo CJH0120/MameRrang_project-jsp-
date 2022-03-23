@@ -44,7 +44,7 @@
          
          <!-- 모달창 -->
 		   <div id="my_modal">
-	<iframe src="${pageContext.request.contextPath}/app/modal/periodModal2.jsp" style="
+	<iframe id="modalIframe"  src="${pageContext.request.contextPath}/app/modal/periodModal2.jsp" style="
       position: absolute;
     width: 106%;
     margin-left: -69px;
@@ -57,14 +57,15 @@
 		<!-- Main -->
 		<div id="main" class="container medium" style = "display:flex;">
 			<!-- profile header -->
-			<form action="${pageContext.request.contextPath}/service/WriteMomOk.ser" name="writeForm" method="post" enctype="multipart/form-data">
+			<form action="${pageContext.request.contextPath}/service/WriteMomOk.ser" name="writeProfileForm" method="post" enctype="multipart/form-data">
             <div style = "width: 100%; background: white; position:relative;" class="mediaMain">
            
                 <div style="text-align: left; display:inline-block; margin-left:15px;">
-                    <label><input type="file" style="display:none;">
-                    <!--  유저테이블 정보 뿌려야함 -->
-                    <img src="${pageContext.request.contextPath}/images/유저.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">
+                	<div class="profile">
+                    <label><input type="file" name ="profilePicture"style="display:none;">
+                    <img class="profileImg"src="${pageContext.request.contextPath}/images/유저.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">
                     </label>
+                    </div>                    
                     <div style = "position:absolute; top: 19px; left: 136px;">
                           <h3 style="margin-bottom: 3px; font-size: 18px;">${userVO.getUserName()}</h3><span style = "margin-top: 20px; font-size:16px;">${userAge}세,                                    
 	                           <c:choose>
@@ -80,7 +81,7 @@
                     <!--  인풋 시작 -->
                   
                      <div  style = "position:absolute; top: 30px; left: 76%;">
-                            <button class = "button" onclick = "send();">글 저장하기</button></a>
+                            <button class = "button" onclick = "writeProfileFormSend()">글 저장하기</button>
                      </div>
                 </div>
                 
@@ -154,7 +155,7 @@
                     <p class ="innerTitle">희망 시급</p>             
                      
                      	 <div style = "font-size:16px;">
-	                          <input type = "number" min="9160" step="20" id = "wage" value = "9160">
+	                          <input type = "number" min="9160" step="20" id = "wage" value = "9160" name="profileSalary">
 	                          <span>원</span>
                           </div>
                     
@@ -184,6 +185,10 @@
                      </div>
                 </div>
             </div>
+            				<!-- 모달 데이터를 받기위해 생성되는 히든 인풋영역 -->				
+				<div id="formDataFromIf">
+				</div>
+            
              </form>
           
             <!-- aside part -->
@@ -242,10 +247,10 @@
 			<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 			  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-          <script src="${pageContext.request.contextPath}/assets/js/WriteSitter.js"></script>
+          <script src="${pageContext.request.contextPath}/assets/js/WriteProfile.js"></script>
           <script>
-          function send(){
-        	  /*
+/*           function send(){
+        	
 				if(!writeForm.title){
 					alert("제목을 작성해주세요");
 					return;
@@ -254,10 +259,11 @@
 					alert("내용을 작성해주세요");
 					return;
 				}
-				*/
+				
 				writeForm.submit();
 			}	
-          </script>
+*/
+          </script> 
 </body>
 
 

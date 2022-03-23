@@ -81,12 +81,7 @@
 				<c:when test="${jobList != null and fn:length(jobList) > 0}">
 					<c:forEach var="job" items="${jobList}">
 				
-            <script>
-                var job= "${job.getUserStatus()}";
-                console.log(job);
-
-            </script>
-			
+            
 			
 			
 						<c:if test="${job.getUserStatus() == 1}">
@@ -101,7 +96,7 @@
 								</div>
 								<div class="userName">
 									<!-- 게시글 제목 -->
-									<h4 style="margin-bottom: 0;"><a href="${pageContext.request.contextPath}/app/serviceProfile/lookMomProfile2.jsp" style="border:none;">
+									<h4 style="margin-bottom: 0;"><a href="${pageContext.request.contextPath}/service/LookMomProfileOk.ser?userNum=${job.getUserNum()}" style="border:none;">
 									${job.getProfileDescription()}</a></h4>
 									<div class="mobileAd">
 										<!-- 주소 -->
@@ -518,6 +513,7 @@
 	</body>
          
 		<!-- Scripts -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/jquery.scrolly.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
@@ -525,6 +521,10 @@
 			<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/searchJob.js"></script>
+	<script type="text/javascript" >
+var contextPath = "${pageContext.request.contextPath}";
+
+</script>
 	
 	
 </html>

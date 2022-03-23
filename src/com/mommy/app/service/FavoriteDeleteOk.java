@@ -13,12 +13,17 @@ import com.mommy.app.service.vo.FavoriteVO;
 public class FavoriteDeleteOk implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		req.setCharacterEncoding("UTF-8");
+		resp.setCharacterEncoding("UTF-8");
+	
+		System.out.println("찜 삭제~");
 		
 		FavoriteVO favorite = new FavoriteVO();
 		FavoriteDAO dao = new FavoriteDAO();
 	
-		favorite.setUserNum((Integer)req.getSession().getAttribute("userNum"));
-		favorite.setProfileNum((Integer)req.getSession().getAttribute("profileNum"));
+		favorite.setUserNum(Integer.parseInt(req.getParameter("userNum")));
+		favorite.setProfileUserNum(Integer.parseInt(req.getParameter("profileNum")));
+		
 		dao.delete(favorite);
 		
 		return null;

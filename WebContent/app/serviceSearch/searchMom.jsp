@@ -85,16 +85,16 @@
 		<div class="userAll" name="userAll">
 		
 		
-		
-		<%-- <c:choose>
+		<div ></div>
+		 <c:choose>
 			<c:when test="${momList != null and fn:length(momList) > 0}">
 				<c:forEach var="mom" items="${momList}">
 					<c:if test="${mom.getUserStatus() == 2}">
-						<input type="hidden" value="${mom.getProfileNum()}"> --%>
+						<input type="hidden" value="${mom.getProfileNum()}"> 
 						
 							<!-- 유저정보 -->
 							<div class="userPf">
-							<%-- 	<img src="${pageContext.request.contextPath}/images/heart.png" class="heart" id="heart">
+							 	<img src="${pageContext.request.contextPath}/images/heart.png" class="heart" id="heart">
 							<div class="userImg">
 								<img src="${pageContext.request.contextPath}/images/img1.jpeg"class="userImgDetail">
 							<div>
@@ -106,7 +106,7 @@
 							</div>
 							</div>
 								<div class="userName">
-								<h4 style="margin-bottom: 0;"><a href="${pageContext.request.contextPath}/service/LookSitterProfileOk.ser?userNum=${mom.getUserNum()}"  style="border:none;">                                                  
+								<h4 style="margin-bottom: 0;"><a href="${pageContext.request.contextPath}/service/LookSitterProfileOk.ser?userNum=${mom.getUserNum()}&profile=${mom.getProfileNum()}"  style="border:none;">                                                  
 								${mom.getProfileDescription()}</a></h4>
 								<div class="infoDetail">${mom.getLocationSido()}  ${mom.getLocationSigun()}</div>&nbsp;
 								<div class="infoDetail">${year-mom.getUserBirthYear()}세</div>
@@ -181,26 +181,19 @@
 								
 										</div>
 									</div>
-							<div class="star">
-							<img src="${pageContext.request.contextPath}/images/star.png" style="width: 100%;">
-							<img src="${pageContext.request.contextPath}/images/star.png" style="width: 100%;">
-							<img src="${pageContext.request.contextPath}/images/star.png" style="width: 100%;">
-							<img src="${pageContext.request.contextPath}/images/star.png" style="width: 100%;">
-							<img src="${pageContext.request.contextPath}/images/star.png" style="width: 100%;">
-							</div>
 						
 							<div class=chatIcon>
 							<img src="${pageContext.request.contextPath}/images/chatIcon.png" style="width: 100%;margin-top: 5px; float: left;">
 							</div>
 							<span class="span" style="line-height: 2;">&nbsp;"${mom.getProfileDescription()}"</span>
-							</div>	--%>
+							</div>	
 							</div>
 	 
 	
-			<%-- 			</c:if>				
+							</c:if>				
 					</c:forEach>
 				</c:when>
-			</c:choose> --%>
+			</c:choose> 
 		</div>
 		
 		
@@ -281,25 +274,7 @@
        
 					        <hr>
 					
-				<%-- 	        <div class="content media17">
-					            <h3 style="text-align: left;" class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;원하는 시터 나이대</h3>
-					            
-					            <div class="time">
-					                <img src="${pageContext.request.contextPath}/images/20대1.jpg"  class="age media19"
-					                id="twenty"> 
-					                <img src="${pageContext.request.contextPath}/images/30대1.jpg" class="age media19"
-					                id="thirty"> 
-					                <img src="${pageContext.request.contextPath}/images/40대1.jpg" class="age media19"
-					                id="fourty"> 
-					                <img src="${pageContext.request.contextPath}/images/50대1.jpg" class="age media19"
-					                id="fifty">
-					                <img src="${pageContext.request.contextPath}/images/60대1.jpg"  class="age media19"
-					                id="sixty">
-					                
-					            </div>
-					        </div>
-					        
-					        <hr> --%>
+				
 
 						        <div class="content media20">
 						            <h3 style="text-align: left;" class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;원하는 활동</h3>
@@ -457,7 +432,7 @@
 		
 	
 				<!-- 페이징 처리 -->
-				<table style="font-size:1.3rem">
+		<%-- 		<table style="font-size:1.3rem">
 					<tr align="center" valign="middle">
 						
 						<td class="web-view">
@@ -482,7 +457,11 @@
 						</td>
 					</tr>
 				</table>
+	</div> --%>
+	<br>
+	<br>
 	</div>
+	
 <!-- footer -->
         <jsp:include page="../fix/footer.jsp" flush="true"/>
 
@@ -497,40 +476,10 @@
 			<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/searchMom.js"></script>
-<script type="text/javascript" ></script>
-<script>
 
-	const userNum =[];
-	const ProfileDescription =[];
-	const LocationSido =[];
-	const LocationSigun =[];
-	const age =[];
-	const ProfileSalary =[];
-	const mon =[];
-	const tue =[];
-	const wed =[];
-	const thu =[];
-	const  fri=[];
-	const  sat=[];
-	const  sun=[];
-	<c:forEach var="mom" items="${momList}" >
-	userNum.push("${mom.getUserNum()}");
-	ProfileDescription.push("${mom.getProfileDescription()}");
-	LocationSido.push("${mom.getLocationSido()}");
-	LocationSigun.push("${mom.getLocationSigun()}");
-	age.push("${year-mom.getUserBirthYear()}");
-	ProfileSalary.push("${mom.getProfileSalary()}");
-	mon.push("${mom.getP_mon()}");
-	tue.push("${mom.getP_tue()}");
-	wed.push("${mom.getP_wed()}");
-	thu.push("${mom.getP_thu()}");
-	fri.push("${mom.getP_fri()}");
-	sat.push("${mom.getP_sat()}");
-	sun.push("${mom.getP_sun()}");
-	</c:forEach>
-	
-	var momListSize="${fn:length(momList)}";
-	console.log(momListSize);
+<script type="text/javascript" >
+var contextPath = "${pageContext.request.contextPath}";
+
 </script>
 
 

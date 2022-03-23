@@ -23,6 +23,7 @@
 
 	<c:set var="sitter" value="${sitterInfo}"/>
 	<c:set var="userNum2" value="${userNum2}"/>
+	<c:set var="profileNum" value="${profileNum}"/>
 	<!--  userNum2 = 프로필을 쓴 사람의 유저넘 -->
 	
     <!-- Aside -->
@@ -65,7 +66,7 @@
             <div>
                 <h5 style = "font-weight:500">시터 찾기 바로가기</h5>
                 <p style = "font-size:16px;">다른 시터들의 프로필을 확인해보세요! 마미랑만의 인증 시스템을 거친 믿음직한 시터들을 지금 바로 만나보세요.</p>
-                <a href = "${pageContext.request.contextPath}/app/serviceSearch/searchMom.jsp;"><button class = "buttonAside">시터 찾기</button></a>
+                <a onclick="location.href='${pageContext.request.contextPath}/service/SearchMomOk.ser'"><button class = "buttonAside">시터 찾기</button></a>
             </div>
         </div>
   
@@ -76,23 +77,28 @@
       
       <div id="main" class="container medium">
          <!-- profile header -->
+            		
                   <p style="font-size: 15px; width: 57%; margin-top: -46px; display: inline-block;">작성시간[${sitter.getProfileDate()}]</p>
                      <div style="display:inline; position: relative;" class="media_correct">
-                     
-                     
-                     <!-- 미구현 ================================================================= -->
-                     <c:if test="${sitter.getUserNum() eq userNum2}">
-                     
-                     <a class="a" style="font-size:17px;">수정</a> &nbsp;&nbsp;&nbsp;
-                    
-                      <a class="a" style="font-size:17px;" onclick="location.href='${pageContext.request.contextPath}/service/SitterProfileDeleteOk.ser?userNum=${userNum}'">삭제</a>  
-                      </c:if>
-                      
-                      
-                     </div>
                   <br>
          
             <div  class="moMain" style = "width: 70%; background: white; position:relative;">
+            
+            	<!--삭제 버튼 -->
+                     <!-- 미구현 ================================================================= -->
+                     <c:if test="${sitter.getUserNum() eq userNum2}">
+                     
+                    <div class="top_wrap">
+                      <a class="a" style="font-size:17px;" onclick="location.href='${pageContext.request.contextPath}/service/SitterProfileDeleteOk.ser?userNum=${mom.getUserNum()}&profileNum=${mom.getProfileNum()}'">
+                      <img class="can" style="max-width: 20px !important; display: inline-block; float: right;" src="https://cdn.discordapp.com/attachments/953473528030715988/955867805826297876/06f4ee6cc21129a5.png">
+                      	삭제</a>  
+                      <script>$('.a').click(function () {
+                    	  console.log("들어옴");
+                    	  })</script>
+                     
+                   </div>
+                    
+                      </c:if>
             
                 <div style="text-align: left; display:inline-block; margin-left:15px;">
                     <label><input type="file" style="display:none;">
@@ -100,8 +106,16 @@
                     </label>
                     <div style = "position:absolute; top: 20px; left: 136px;">
                     <!-- 유저 이름===============================================     -->
-                     <h3 style="margin-bottom: 3px; font-size: 18px;">${sitter.getUserName()}
-                          <img src="https://cdn.discordapp.com/attachments/954273372760571914/955209503157145660/emptyHeart.png" class="heart" id="heart"></h3>
+                       <h3 style="margin-bottom: 3px; font-size: 18px;">${sitter.getUserName()}
+                     <c:choose>
+                     	<c:when test="${check eq 1}">
+                     	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955209502918082700/heart.png" class="heart" id="heart">
+                     	</c:when>
+                     	<c:otherwise>
+                     	 <img src="https://cdn.discordapp.com/attachments/954273372760571914/955209503157145660/emptyHeart.png" class="heart" id="heart">
+                     	</c:otherwise>
+                     </c:choose>
+                         </h3>
                           <span style = "margin-top: 20px; font-size:16px;"><c:out value="${'2022'- sitter.getUserBirthYear()}"/>살, ${sitter.getUserGender()}</span>
 
                      </div>
@@ -110,6 +124,7 @@
                       
                      </div>
                 </div>
+                
                 <hr class="split">
                 <div class = "innerContent">
                 <p class ="innerTitle" >한 줄 소개</p>
@@ -323,6 +338,7 @@
 			<script src="${pageContext.request.contextPath}/assets/js/additional.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/lookSitterProfile2.js"></script>
 			<script>
+			var profileNum = "${profileNum}";
 				var userNum = "${userNum}";
 				var userNum2 = "${sitter.getUserNum()}";
 			</script>
@@ -331,13 +347,9 @@
 
 <script>
 
-
-
 var address="${sitter.getLocationSido()}";
 var address2 ="${sitter.getLocationSigun()}";
 var address3="${sitter.getLocationDong()}";
-
-
 //맵 api
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 

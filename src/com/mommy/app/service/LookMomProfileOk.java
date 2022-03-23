@@ -1,6 +1,7 @@
 package com.mommy.app.service;
 
 import java.io.IOException;
+import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,6 +11,8 @@ import com.mommy.action.Action;
 import com.mommy.action.ActionForward;
 import com.mommy.app.service.dao.ServiceDAO;
 import com.mommy.app.service.vo.LookProfileDTO;
+import com.mommy.app.user.dao.UserDAO;
+import com.mommy.app.user.vo.UserVO;
 
 public class LookMomProfileOk implements Action{
 
@@ -18,16 +21,30 @@ public class LookMomProfileOk implements Action{
 		ActionForward af = new ActionForward();
 		ServiceDAO dao = new ServiceDAO();
 		LookProfileDTO dto = new LookProfileDTO();
-		
-		String uploadFolder = "D:\\aigb_0900_sjm\\jsp\\workspace\\boardMVC\\WebContent\\upload";
-		int fileSize = 1024 * 1024 * 5;//5M
+		UserVO userVO = new UserVO();
+		UserDAO userDao = new UserDAO();
 		
 		HttpSession session= req.getSession();
-		dto=dao.lookMomProfile(Integer.parseInt(req.getParameter("userNum")));
+		
+		String uploadFolder = "\\workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\mommy_workspace\\upload\r\n" + 
+				"String realPath =req.getSession().getServletContext().getRealPath(\"/\") + \"upload\"";
+		
+		int userNum = (Integer)session.getAttribute("userNum");
+		System.out.println("유저번호 가져옴");
+		/*String userId = dao.getInfo((Integer)session.getAttribute("userNum")).getUserId();*/
+		userVO = userDao.getInfo(userNum);
+		System.out.println("getinfo()실행");
+		int birthYear = userVO.getUserBirthYear();
+		int nowYear = Calendar.getInstance().get(Calendar.YEAR);
+		int age = nowYear -  birthYear;
+		
+		dto=dao.lookMomProfile(userNum);
 		
 		req.setAttribute("momInfo", dto);
 		System.out.println(session.getAttribute("userNum"));
 		req.setAttribute("userNum2", session.getAttribute("userNum"));
+		req.setAttribute("user", userVO);
+		req.setAttribute("userAge", age);
 		
 		af.setRedirect(false);
 		af.setPath("/app/serviceProfile/lookMomProfile2.jsp");
@@ -35,3 +52,4 @@ public class LookMomProfileOk implements Action{
 	}
 	
 }
+		

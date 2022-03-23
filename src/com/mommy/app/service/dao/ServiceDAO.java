@@ -61,27 +61,27 @@ public class ServiceDAO {
 	}
 	
 	//돌봄유형 주5일등하원
-	public List<ServiceDTO> careTypeSchool(int userStatus){
-		return sqlSession.selectList("Service.careTypeSchool",userStatus);
+	public List<ServiceDTO> careTypeSchool(Map<String,Integer> modalInput){
+		return sqlSession.selectList("Service.careTypeSchool",modalInput);
 	}
 	//돌봄유형 놀이/학습시터
-	public  List<ServiceDTO> teach(int userStatus){
-		return sqlSession.selectList("Service.teach",userStatus);
+	public  List<ServiceDTO> teach(Map<String,Integer> modalInput){
+		return sqlSession.selectList("Service.teach",modalInput);
 	}
 	
 	//돌봄유형 풀타임
-	public List<ServiceDTO> fullTime(int userStatus){
-		return sqlSession.selectList("Service.fullTime",userStatus);
+	public List<ServiceDTO> fullTime(Map<String,Integer> modalInput){
+		return sqlSession.selectList("Service.fullTime",modalInput);
 	}
 	
 	//돌봄유형 짧은시간
-	public List<ServiceDTO> shortTime(int userStatus){
-		return sqlSession.selectList("Service.shortTime",userStatus);
+	public List<ServiceDTO> shortTime(Map<String,Integer> modalInput){
+		return sqlSession.selectList("Service.shortTime",modalInput);
 	}
 	
 	//돌봄유형 긴급
-	public List<ServiceDTO> careEmergency(int userStatus){
-		return sqlSession.selectList("Service.careEmergency",userStatus);
+	public List<ServiceDTO> careEmergency(Map<String,Integer> modalInput){
+		return sqlSession.selectList("Service.careEmergency",modalInput);
 	}
 	
 	//돌봄지역 
