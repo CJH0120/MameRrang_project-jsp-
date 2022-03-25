@@ -25,7 +25,7 @@ public class AdminMemberListOk implements Action{
 		req.setAttribute("membersMom", dao.MomCount());
 		
 		//시터 회원 수
-		req.setAttribute("membersSiter", dao.SitterCount());
+		req.setAttribute("membersSitter", dao.SitterCount());
 		
 		af.setRedirect(false);
 		af.setPath("/app/admin/adminMList.jsp");

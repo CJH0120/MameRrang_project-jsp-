@@ -16,6 +16,7 @@ import org.json.simple.JSONObject;
 import com.mommy.action.Action;
 import com.mommy.action.ActionForward;
 import com.mommy.app.service.dao.ServiceDAO;
+import com.mommy.app.service.vo.ParameterDTO;
 import com.mommy.app.service.vo.ServiceDTO;
 
 public class SearchJobOk2 implements Action{
@@ -27,7 +28,7 @@ public class SearchJobOk2 implements Action{
 		resp.setCharacterEncoding("UTF-8");
 		HashMap<String, Integer> searchDetailMap = new HashMap<>();
 		HashMap<String, Integer> modalInput = new HashMap<>();
-		HashMap<String, String> areaMap = new HashMap<>();
+		ParameterDTO param = new ParameterDTO();
 		ServiceDAO dao = new ServiceDAO();
 		int userStatus=1;
 
@@ -35,7 +36,10 @@ public class SearchJobOk2 implements Action{
 		
 		LocalDate now = LocalDate.now();
 		int year = now.getYear();
-
+		
+		
+			System.out.println("서치잡 들왔다");
+		
 		//사용자가 요청한 페이지
 		String temp = req.getParameter("page");
 		//사용자가 요청한 페이지가 null이면 1페이지를,
@@ -49,14 +53,20 @@ public class SearchJobOk2 implements Action{
 		//페이지에서 출력되는 게시글 중 첫번째 게시글의 인덱스
 		int startRow = (page - 1) * rowCount;
 		
-		System.out.println("page : "  + page);
-		System.out.println("startRow : " + startRow);
+		System.out.println("page 서치잡 : "  + page);
+		System.out.println("startRow 서치잡: " + startRow);
+		System.out.println("서치잡 들어왔다");
 		
 		searchDetailMap.put("startRow", startRow);
 		searchDetailMap.put("rowCount", rowCount);
+		searchDetailMap.put("userStatus", userStatus);
+		searchDetailMap.put("profileProcess", 1);
 		modalInput.put("startRow", startRow);
 		modalInput.put("rowCount", rowCount);
 		modalInput.put("userStatus", userStatus);
+		modalInput.put("profileProcess", 1);
+		param.setStartRow(startRow);
+		param.setRowCount(rowCount);
 		
 		//화면에 출력되는 페이지 번호 중
 		//시작 페이지(1, 11, 21, ....)
@@ -72,7 +82,7 @@ public class SearchJobOk2 implements Action{
 		//14페이지를 endPage에 담아준다. 
 		/*endPage = endPage > realEndPage ? realEndPage : endPage;*/
 		
-		searchDetailMap.put("userStatus", userStatus);
+		
 		if( req.getParameter("check")!=null) {
 	
 		searchDetailMap.put("babyNewborn", Integer.parseInt(req.getParameter("babyNewborn")));
@@ -99,10 +109,11 @@ public class SearchJobOk2 implements Action{
 
 //		돌봄유형 모달 ----------------------------
 		if(req.getParameter("careType")!=null) {
+			System.out.println("돌봄유형모달들어왔다");
 			switch (req.getParameter("careType")) {
 			
 			case "1": jobList = dao.careTypeSchool(modalInput);
-			System.out.println("맘리스트"+jobList);
+			System.out.println("잡리스트"+jobList);
 			System.out.println("1번들어옴!");
 				break;
 			case "2": jobList = dao.teach(modalInput);
@@ -117,40 +128,76 @@ public class SearchJobOk2 implements Action{
 				break;
 			}
 //		돌봄지역모달------------------------------- 
-		}else if(req.getParameter("sido")!=null) {
-			 areaMap.put("sido", req.getParameter("sido"));
-			 areaMap.put("sigugun", req.getParameter("sigugun"));
-			 areaMap.put("dong", req.getParameter("dong"));
-			 jobList = dao.searchArea2(areaMap);
+		}else if(req.getParameter("locationSido")!=null) {
+			System.out.println("지역모달들어왔다");
+			if(req.getParameter("locationSido").contains("선택")) {
+				param.setLocationSido(null);
+			}else {
+				param.setLocationSido(req.getParameter("locationSido"));
+			}
+			
+			if(req.getParameter("locationSigun").contains("선택")) {
+//				System.out.println("시군 선택시 들어와따");
+				param.setLocationSigun(null);
+			}else {
+				param.setLocationSigun( req.getParameter("locationSigun"));
+			}
+			if(req.getParameter("locationDong").contains("선택")) {
+//				System.out.println("동 선택들어와따");
+				param.setLocationDong(null);
+			}else {
+				param.setLocationDong( req.getParameter("locationDong"));
+			}
+			param.setUserStatus(userStatus);
+			jobList = dao.searchArea(param); 
+			 System.out.println("리스트사이즈" +jobList.size());
 //		상세검색모달-------------------------------
 		 }else {
 			 jobList = dao.searchDetail(searchDetailMap);
 		 }
 				
-		JSONArray sitters = new JSONArray();
-		System.out.println("나와따");
+		JSONArray jobs = new JSONArray();
+		System.out.println("서치잡오케2");
 		for(ServiceDTO s : jobList) {
-			JSONObject sitter = new JSONObject();
-			sitter.put("userNum", s.getUserNum());
-			sitter.put("ProfileDescription", s.getProfileDescription());
-			sitter.put("LocationSido", s.getLocationSido());
-			sitter.put("LocationSigun", s.getLocationSigun());
-			sitter.put("age", year - s.getUserBirthYear());
-			sitter.put("getProfileSalary",s.getProfileSalary());
-			sitter.put("mon", s.getP_mon());
-			sitter.put("tue", s.getP_tue());
-			sitter.put("wed", s.getP_wed());
-			sitter.put("thu", s.getP_thu());
-			sitter.put("fri", s.getP_fri());
-			sitter.put("sat", s.getP_sat());
-			sitter.put("sun", s.getP_sun());
+			JSONObject job = new JSONObject();
+			job.put("userNum", s.getUserNum());
+			job.put("ProfileDescription", s.getProfileDescription());
+			job.put("LocationSido", s.getLocationSido());
+			job.put("LocationSigun", s.getLocationSigun());
+			job.put("age", year - s.getUserBirthYear());
+			job.put("getProfileSalary",s.getProfileSalary());
+			job.put("mon", s.getP_mon());
+			job.put("tue", s.getP_tue());
+			job.put("wed", s.getP_wed());
+			job.put("thu", s.getP_thu());
+			job.put("fri", s.getP_fri());
+			job.put("sat", s.getP_sat());
+			job.put("sun", s.getP_sun());
+			job.put("BabyNewborn", s.getBabyNewborn());
+			job.put("BabyChild", s.getBabyChild());
+			job.put("BabyKinder", s.getBabyKinder());
+			job.put("BabyElementary", s.getBabyElementary());
+			job.put("morning", s.getP_morning());
+			job.put("lunch", s.getP_lunch());
+			job.put("noon", s.getP_noon());
+			job.put("CareIndoor", s.getCareIndoor());
+			job.put("CareCommit", s.getCareCommit());
+			job.put("CareFood", s.getCareFood());
+			job.put("CareStudy", s.getCareStudy());
+			job.put("CareClean", s.getCareClean());
+			job.put("CheckMedi", s.getCheckMedi());
+			job.put("CheckCitizen", s.getCheckCitizen());
+			job.put("CheckMom", s.getCheckMom());
+			job.put("CheckTeacher", s.getCheckTeacher());
+			job.put("CheckUniversity", s.getCheckUniversity());
+			job.put("periodStartDate", s.getP_periodStartDate());
 			
-			sitters.add(sitter); 
+			jobs.add(job); 
 		}
 		
 		PrintWriter out = resp.getWriter();
 		
-		out.print(sitters.toJSONString());
+		out.print(jobs.toJSONString());
 		out.close();
 		
 		return null;

@@ -25,12 +25,16 @@
    </head>
    <body class="is-preload" style="display:block; padding-top: 0; overflow-y: hidden">
 		<c:set var="authList" value="${authList}"/>
+		<c:set var="pfFiles" value="${pfFiles}"/>
+		
 
 		<c:set var="page" value="${page}"/>
 		<c:set var="startPage" value="${startPage}"/>
 		<c:set var="endPage" value="${endPage}"/>
 		<c:set var="realEndPage" value="${realEndPage}"/>
 		<c:set var="total" value="${total}"/>
+		<c:set var="total0" value="${total0}"/>
+		<c:set var="total1" value="${total1}"/>
 
 		<form action="">
       <!-- Main -->
@@ -40,7 +44,7 @@
             <a href="${pageContext.request.contextPath}/app/admin/admin.jsp"><img src="https://cdn.discordapp.com/attachments/954273372760571914/955478975797403648/1.png" style="width: 9%; position: absolute; margin: -50px 0px 0 26px;"></a>
             <h3 class="caption" style="position: absolute; margin: -46px 0px -1px 207px; padding-left: 20px;">관리자 페이지</h3>
             <ul class="actions small">
-               <li><span id="memberList" class="s-title text bGray" style="padding: 0em 0 0 10em;" >인증 <span class="auth-num" style="color:red;">4</span></span></li>
+               <li><span id="memberList" class="s-title text bGray" style="padding: 0em 0 0 10em;" >인증</span></li>
 
             </ul>
          </div>
@@ -87,12 +91,13 @@
 									<td id="abcd">${auth.getProfileNum()}</td>
 									<td>${auth.getUserName()}</td>
 									<td>${auth.getUserId()}</td>
-									<td><a
-										href="${pageContext.request.contextPath}/images/학력증명서.png"
-										download="학력증명서">학력증명서.pdf</a></td>
-									<td>${auth.getProfileDate()}</td>
-								</tr>
-
+									<!-- 첨부파일 목록 -->
+	                           		<td>
+		                           		<a href="${pageContext.request.contextPath}">
+		                           			<c:out value="${auth.getProfileAttach()}"/>
+		                           		</a>
+		                           	</td>
+		                           	<td>${auth.getProfileDate()}</td>
 								<tr class="td1">
 									<td colspan="7">
 										<div class="certification_wrap">
@@ -103,7 +108,7 @@
 											<label for="copy1${auth.getProfileNum()}" class="text">건강인증</label>
 												</c:when>
 												<c:when test="${auth.getCheckMedi() eq 1}">
-													<input type="checkbox" id="copy1${auth.getProfileNum()}" name="checkMedi" class="checkMedi" checked>
+													<input type="checkbox" id="copy1${auth.getProfileNum()}" name="checkMedi" class="checkMedi" value="1" checked>
 													<label for="copy1${auth.getProfileNum()}" class="text">건강인증</label>
 												</c:when> 
 											</c:choose>
@@ -115,7 +120,7 @@
 														<label for="copy2${auth.getProfileNum()}" class="text">부모님인증</label>
 													</c:when>
 													<c:when test="${auth.getCheckMom() eq 1}">
-														<input type="checkbox" id="copy2${auth.getProfileNum()}" name="checkMom" class="checkMom"  checked>
+														<input type="checkbox" id="copy2${auth.getProfileNum()}" name="checkMom" class="checkMom" value="1"  checked>
 														<label for="copy2${auth.getProfileNum()}" class="text">부모님인증</label>
 													</c:when>
 												</c:choose>
@@ -128,7 +133,7 @@
 														<label for="copy3${auth.getProfileNum()}" class="text">교사인증</label> 
 													</c:when>
 													<c:when test="${auth.getCheckTeacher() eq 1}">
-														<input type="checkbox" id="copy3${auth.getProfileNum()}" name="checkTeacher" class="checkTeacher"  checked >
+														<input type="checkbox" id="copy3${auth.getProfileNum()}" name="checkTeacher" class="checkTeacher" value="1"  checked >
 														<label for="copy3${auth.getProfileNum()}" class="text">교사인증</label> 
 													</c:when>
 												</c:choose>
@@ -141,7 +146,7 @@
 														<label for="copy4${auth.getProfileNum()}" class="text">본인인증</label>
 													</c:when>
 													<c:when test="${auth.getCheckCitizen() eq 1}">
-														<input type="checkbox" id="copy4${auth.getProfileNum()}" name="checkCitizen" class="checkCitizen" checked>
+														<input type="checkbox" id="copy4${auth.getProfileNum()}" name="checkCitizen" class="checkCitizen" value="1" checked>
 														<label for="copy4${auth.getProfileNum()}" class="text">본인인증</label>
 													</c:when>
 												</c:choose>
@@ -156,7 +161,7 @@
 												</c:choose>
 												<c:choose>
 													<c:when test="${auth.getCheckUniversity() eq 1}">
-														<input type="checkbox" id="copy5${auth.getProfileNum()}" name="checkUniversity" class="checkUniversity" checked>
+														<input type="checkbox" id="copy5${auth.getProfileNum()}" name="checkUniversity" class="checkUniversity" value="1" checked>
 														<label for="copy5${auth.getProfileNum()}" class="text">학력인증</label>
 													</c:when>
 												</c:choose>
@@ -220,16 +225,17 @@
                               <div style="width: 100%;">
                                  <span class="s-title link-title" >인증된 회원수</span>
                                  <hr>
-                                 <p>700 명</p>
+                                 <p>${total1} 명</p>
                               </div>
                            </div><div class="sBox" style="display: flex; padding-top: 1em;">
                               <div style="width: 100%;">
                                  <span class="s-title link-title" >대기중</span>
-                                 <p>${total} 명</p>
+                                 <p>${total0} 명</p>
                               </div>
                            </div>
                            
                         </div>
+                     </div>
                      </div>
                   </section>
                </div>

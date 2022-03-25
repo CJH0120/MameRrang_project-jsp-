@@ -28,21 +28,21 @@ public class CommunityInsertOk implements Action{
 		
 		MultipartRequest multi = new MultipartRequest(req, uploadFolder, fileSize, "UTF-8", new DefaultFileRenamePolicy());
 		
-		
 //		System.out.println(Integer.parseInt(multi.getParameter("category")));
 		
 		community.setCommunityTitle(multi.getParameter("title"));
-		community.setCommunityContent(multi.getParameter("content"));
+		community.setCommunityContent(multi.getParameter("editordata"));
 		community.setUserNum((Integer)req.getSession().getAttribute("userNum"));
 		community.setCommunityCategory(Integer.parseInt(multi.getParameter("select")));
 	//	community.setCommunityCategory(Integer.parseInt(req.getParameter("category")));
 		
 	
+	
 		//게시글 추가
 		cDao.insert(community);
 		
 		//파일 추가
-		fDao.insert(multi, cDao.getSeq());
+		//fDao.insert(multi, cDao.getSeq());
 				
 		af.setRedirect(true);
 		af.setPath(req.getContextPath() + "/community/CommunityListOk.com");

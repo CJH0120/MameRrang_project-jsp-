@@ -52,6 +52,9 @@
 			 <%-- <form id="sitterForm" action="${pageContext.request.contextPath}/service/WriteSitterOk.ser" method="post"> --%> -
 			<!-- profile header -->
             <div style = "width: 100%; background: white; position:relative;" class="mediaMain" >
+            <span class="caution" style="float: right;font-size: 12px;color: #93999A; "><img style="max-width: 15px;" src="https://cdn.discordapp.com/attachments/954273372760571914/956558128898519090/aed53ff36d53bb73.jpg">
+                	글 저장후 프로필 수정은 불가능하오니 주의하시기 바랍니다.
+                </span>
                 <div style="text-align: left; display:inline-block; margin-left:15px;">
                 	<div class="profile">
                     <label><input type="file" name ="profilePicture"style="display:none;">
@@ -189,7 +192,7 @@
                 
         
                     </div>
-                     <p style = "font-size: 16px; color:#d4cfcf !important;">- 첨부파일은 10MB를 초과할 수 없으며, 최대 1개까지 가능합니다.</p>
+                    <p style = "font-size: 16px; color:#d4cfcf !important;">인증서 업로드는 zip파일만 가능하며, 최대 1개까지 가능합니다.</p>
                 </div>
 
    

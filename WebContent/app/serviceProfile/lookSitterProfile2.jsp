@@ -24,6 +24,7 @@
 	<c:set var="sitter" value="${sitterInfo}"/>
 	<c:set var="userNum2" value="${userNum2}"/>
 	<c:set var="profileNum" value="${profileNum}"/>
+	<c:set var="profile" value="${profile}"/>
 	<!--  userNum2 = 프로필을 쓴 사람의 유저넘 -->
 	
     <!-- Aside -->
@@ -62,6 +63,28 @@
         background-color: white;
         ">
         
+       
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
             <div>
                 <h5 style = "font-weight:500">시터 찾기 바로가기</h5>
@@ -74,6 +97,25 @@
          
          
      <!-- Main -->
+     
+       
+        
+        
+         <!--  서영 수정 부분  
+        
+          <div class="modal hidden">
+                    <div class="bg"></div>
+                    <div class="modalBox">
+                        <h3 class = "modalText">정말 마미랑을 떠나실 건가요?</h3>
+                        <p class = "modalSubText">계정 탈퇴 시 모든 개인정보가 삭제되며,<br>삭제된 계정은 다시 복구되지 않습니다. </p>
+                        <div>
+		                    <div style = "margin: 0 auto; text-align: center;">
+		                        <button class="submitBtn" href="${pageContext.request.contextPath}/user/ChatInsertOk.user">전송</button>
+		                    </div>
+	                    </div>
+                    </div>
+                </div>
+        -->
       
       <div id="main" class="container medium">
          <!-- profile header -->
@@ -89,15 +131,10 @@
                      <c:if test="${sitter.getUserNum() eq userNum2}">
                      
                     <div class="top_wrap">
-                      <a class="a" style="font-size:17px;" onclick="location.href='${pageContext.request.contextPath}/service/SitterProfileDeleteOk.ser?userNum=${mom.getUserNum()}&profileNum=${mom.getProfileNum()}'">
+                      <a class="a" style="font-size:17px;" onclick="location.href='${pageContext.request.contextPath}/service/SitterProfileDeleteOk.ser?profile=${profile}&userNum2=${userNum2}'">
                       <img class="can" style="max-width: 20px !important; display: inline-block; float: right;" src="https://cdn.discordapp.com/attachments/953473528030715988/955867805826297876/06f4ee6cc21129a5.png">
-                      	삭제</a>  
-                      <script>$('.a').click(function () {
-                    	  console.log("들어옴");
-                    	  })</script>
-                     
+                      </a>  
                    </div>
-                    
                       </c:if>
             
                 <div style="text-align: left; display:inline-block; margin-left:15px;">
@@ -338,7 +375,7 @@
 			<script src="${pageContext.request.contextPath}/assets/js/additional.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/lookSitterProfile2.js"></script>
 			<script>
-			var profileNum = "${profileNum}";
+				var profileNum = "${profileNum}";
 				var userNum = "${userNum}";
 				var userNum2 = "${sitter.getUserNum()}";
 			</script>

@@ -32,7 +32,7 @@ public class SearchJobOk  implements Action{
 		//null이 아니면 요청한 페이지를 page에 담아준다.
 		int page = temp == null ? 1 : Integer.parseInt(temp);
 		//한 페이지에 출력되는 게시글의 개수
-		int rowCount = 10;
+		int rowCount = 5;
 		//한 화면에 나오는 페이지 번호 수
 		int pageSize = 10;
 		
@@ -42,9 +42,11 @@ public class SearchJobOk  implements Action{
 
 		searchDetailMap.put("startRow", startRow);
 		searchDetailMap.put("rowCount", rowCount);
+		searchDetailMap.put("profileProcess", 0);
 		modalInput.put("startRow", startRow);
 		modalInput.put("rowCount", rowCount);
 		modalInput.put("userStatus", userStatus);
+		modalInput.put("profileProcess", 0);
 		
 		//화면에 출력되는 페이지 번호 중
 		//시작 페이지(1, 11, 21, ....)
@@ -105,10 +107,10 @@ public class SearchJobOk  implements Action{
 			}
 //		돌봄지역모달-------------------------------
 		}else if(req.getParameter("sido")!=null) {
-			 areaMap.put("sido", req.getParameter("sido"));
+	/*		 areaMap.put("sido", req.getParameter("sido"));
 			 areaMap.put("sigugun", req.getParameter("sigugun"));
 			 areaMap.put("dong", req.getParameter("dong"));
-			 req.setAttribute("jobList", dao.searchArea2(areaMap)); 
+			 req.setAttribute("jobList", dao.searchArea2(areaMap)); */
 //		상세검색모달-------------------------------
 		 }else {
 			req.setAttribute("jobList", dao.searchDetail(searchDetailMap)); 

@@ -25,18 +25,19 @@ public class LookSitterProfileOk implements Action  {
 		
 		LookProfileDTO dto = new LookProfileDTO();
 		HttpSession session= req.getSession();
-
-		dto=dao.lookSitterProfile(Integer.parseInt(req.getParameter("userNum")));
+		int userNum = (int) session.getAttribute("userNum");
+		
+		dto=dao.lookSitterProfile(userNum);
 		System.out.println("들어옴1");
 	// 여기 추가
 		
 		//(Integer)session.getAttribute("userNum"))
 		//Integer.parseInt(req.getParameter("userNum"))
 		
-		favorite.setUserNum((Integer)session.getAttribute("userNum"));
+		favorite.setUserNum(userNum);
 		System.out.println(favorite.getUserNum() + ": 이거 글 쓴 유저넘이다");
 		
-		favorite.setProfileUserNum(Integer.parseInt(req.getParameter("userNum")));
+		favorite.setProfileUserNum(userNum);
 		System.out.println(favorite.getProfileUserNum() + ": 로그인한 사람 유저넘");
 		
 		check = fdao.check(favorite);
@@ -44,7 +45,9 @@ public class LookSitterProfileOk implements Action  {
 		req.setAttribute("sitterInfo", dto);
 		req.setAttribute("userNum2", session.getAttribute("userNum"));
 		req.setAttribute("check", check);
+		req.setAttribute("profile", req.getParameter("profile"));
 		
+		System.out.println(req.getParameter("profile"));
 		af.setRedirect(false);
 		af.setPath("/app/serviceProfile/lookSitterProfile2.jsp");
 		return af;

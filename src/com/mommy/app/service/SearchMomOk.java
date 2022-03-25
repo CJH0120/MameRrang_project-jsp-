@@ -45,9 +45,11 @@ public class SearchMomOk  implements Action{
 		
 		searchDetailMap.put("startRow", startRow);
 		searchDetailMap.put("rowCount", rowCount);
+		searchDetailMap.put("profileProcess", 1);
 		modalInput.put("startRow", startRow);
 		modalInput.put("rowCount", rowCount);
 		modalInput.put("userStatus", userStatus);
+		modalInput.put("profileProcess", 1);
 		
 		//화면에 출력되는 페이지 번호 중
 		//시작 페이지(1, 11, 21, ....)
@@ -111,10 +113,10 @@ public class SearchMomOk  implements Action{
 			}
 //		돌봄지역모달------------------------------- 
 		}else if(req.getParameter("sido")!=null) {
-			 areaMap.put("sido", req.getParameter("sido"));
+		/*	 areaMap.put("sido", req.getParameter("sido"));
 			 areaMap.put("sigugun", req.getParameter("sigugun"));
 			 areaMap.put("dong", req.getParameter("dong"));
-			 req.setAttribute("momList", dao.searchArea(areaMap)); 
+			 req.setAttribute("momList", dao.searchArea(param)); */
 //		상세검색모달-------------------------------
 		 }else {
 			req.setAttribute("momList", dao.searchDetail(searchDetailMap)); 

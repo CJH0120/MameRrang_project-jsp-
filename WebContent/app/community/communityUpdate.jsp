@@ -19,6 +19,7 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/summernote/summernote-lite.css"/>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/communityInsert.css" />
+		<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 		
 		
 		
@@ -89,11 +90,8 @@
 						
 						<div>
 							<br>
-							<textarea id="summernote" name="content">
-${community.getCommunityContent()}
-
-							</textarea>
-							
+							<textarea id="summernote" name="editordata" required>${community.getCommunityContent()}</textarea>
+			
 						</div>
 					</div>
 				</div>
@@ -123,19 +121,61 @@ ${community.getCommunityContent()}
   			<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   			<script src="${pageContext.request.contextPath}/assets/js/summernote/summernote-lite.js"></script>
   			<script src="${pageContext.request.contextPath}/assets/js/summernote/lang/summernote-ko-KR/js"></script>
+  				<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+			<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+  			
   			<script>
   				
 				function send(){
-  					if(!updateForm.title){
-  						alert("제목을 작성해주세요");
-  						return;
-  					}
-  					if(!updateForm.content){
-  						alert("내용을 작성해주세요");
-  						return;
-  					}
+  					
   					updateForm.submit();
   				}	
+				
+
+	  			  $(document).ready(function() {
+	  			       $('#summernote').summernote({
+	  			              tabsize: 2,
+	  			              height: 500,
+	  			              toolbar: [
+	  			            	  ['fontname', ['fontname']],
+	  						    ['fontsize', ['fontsize']],
+	  						    ['style', ['bold', 'italic', 'underline', 'clear']],
+	  						    ['color', ['forecolor','color']],
+	  						    ['para', ['ul', 'ol', 'paragraph']],
+	  						    ['height', ['height']],
+	  						    ['insert',['picture','link']]
+	  						  ],
+	  						  
+	  							
+	  						fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
+	  						fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
+	  			           
+	  			                callbacks: {
+	  			                 onImageUpload: function(files, editor, welEditable) {
+	  			                    sendFile(files[0], this, welEditable);
+	  			                  }
+	  			                }
+	  			            });
+	  			   });
+	  			   
+	  			   function sendFile(file, editor, welEditable){
+	  			      data = new FormData();
+	  			      data.append("file", file);
+	  			      $.ajax({
+	  			         data: data,
+	  			         type: "post",
+	  			         url: "${pageContext.request.contextPath}/fileUpload",
+	  			         cache: false,
+	  			         contentType: false,
+	  			         processData: false,
+	  			         dataType: "json",
+	  			         success: function(url){
+	  			            console.log(url.url);
+	  			            $(editor).summernote("editor.insertImage", url.url);
+	  			         }
+	  			      });
+	  			   }
+
   			</script>
   			
 			<script>
@@ -176,7 +216,7 @@ ${community.getCommunityContent()}
 			$('#summernote').summernote('redo');
 			//썸머노트 툴바 변경 
 			
-			*/
+			
 			$('#summernote').summernote({
 				  toolbar: [
 					    // [groupName, [list of button]]
@@ -201,9 +241,9 @@ ${community.getCommunityContent()}
 				            }
 				        }
 					}
-			*/
 			
-			  });
+			
+			  }); */
 			
 			/* 
 			
@@ -223,7 +263,7 @@ ${community.getCommunityContent()}
 						$(editor).summernote("insertImage",data.url);
 					}
 				});
-			} */
+			} 
 			
 			
 			function sendFile(file, el) {
@@ -242,6 +282,8 @@ ${community.getCommunityContent()}
 		        	}
 		      	});
 		    }
+			
+			*/
 		/*
 		
 		강사님 파일에 있던 것

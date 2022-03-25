@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.mommy.app.service.vo.FavoriteDTO;
 import com.mommy.app.service.vo.FavoriteVO;
 import com.mommy.mybatis.config.MyBatisConfig;
 
@@ -32,9 +33,14 @@ public class FavoriteDAO {
 	 		}
 	   
 	 // 전체 목록 
-	 /*		public List<FavoriteDTO> selectAll(int userNum){
+	 	public List<FavoriteDTO> selectAll(int userNum){
 	 			return sqlSession.selectList("Favorite.selectAll", userNum);
-	 		}*/
+	 		}
+	 	
+	 	// 유저넘으로 해당 유저의 찜목록 전체 삭제 
+	 	public void deleteUserAll(int userNum) {
+	 		 sqlSession.delete("Favorite.deleteUserAll",userNum);
+	 	}
 	 		
 	   
 }

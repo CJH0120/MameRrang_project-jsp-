@@ -354,29 +354,14 @@
 		const $emergency=$('#emergency');
 		const $fullType=$('#fullType');
 		var careType=false;
+		var careNum=0;
 		
 		$goToSchool.on("click",function(){
 			careType=true;
+			careNum=1;
 			
-			 $.ajax({
-				 type: "GET",
-				 url: "/mommy_workspace/service/SearchJobOk2.ser",
-				 data: {"careType":1},
-		         contentType: "application/json;charset=utf-8",
-				 dataType: "json", // 받는 타입
-				 success: function(result) { 
-					 console.log(result);
-					 if (result.length > 0) { 
-						 addList(result); 
-						 
-					 } else {
-						 isLast = true;
-					 }
-				 },
-				 error: function(err) {
-					 console.log("error : ", err);
-				 }
-			 })
+			getList1();
+			
 				// 리스트 초기화
 		    	$(".userAll").empty();
 		    	
@@ -385,31 +370,15 @@
 		    	isLast = false;
 
 		    	// 모달 팝업 닫기
-		    	close();
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
 			 
 		})
+		
 		$teach.on("click",function(){
 			careType=true;
-			
-			 $.ajax({
-				 type: "GET",
-				 url: "/mommy_workspace/service/SearchJobOk2.ser",
-				 data: {"careType":2},
-		         contentType: "application/json;charset=utf-8",
-				 dataType: "json", // 받는 타입
-				 success: function(result) { 
-					 console.log(result);
-					 if (result.length > 0) { 
-						 addList(result); 
-						 
-					 } else {
-						 isLast = true;
-					 }
-				 },
-				 error: function(err) {
-					 console.log("error : ", err);
-				 }
-			 })
+			careNum=2;
+	
 				// 리스트 초기화
 		    	$(".userAll").empty();
 		    	
@@ -417,31 +386,17 @@
 		    	page = 1;
 		    	isLast = false;
 
+		    	getList2();
 		    	// 모달 팝업 닫기
-		    	close();
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
 		})
+		
 		$fullTime.on("click",function(){
 			careType=true;
+			careNum=3;
 			
-			 $.ajax({
-				 type: "GET",
-				 url: "/mommy_workspace/service/SearchJobOk2.ser",
-				 data: {"careType":3},
-		         contentType: "application/json;charset=utf-8",
-				 dataType: "json", // 받는 타입
-				 success: function(result) { 
-					 console.log(result);
-					 if (result.length > 0) { 
-						 addList(result); 
-						 
-					 } else {
-						 isLast = true;
-					 }
-				 },
-				 error: function(err) {
-					 console.log("error : ", err);
-				 }
-			 })
+			
 				// 리스트 초기화
 		    	$(".userAll").empty();
 		    	
@@ -449,31 +404,15 @@
 		    	page = 1;
 		    	isLast = false;
 
+		    	getList3();
 		    	// 모달 팝업 닫기
-		    	close();
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
 		})
+		
 		$assistance.on("click",function(){
 			careType=true;
-			
-			 $.ajax({
-				 type: "GET",
-				 url: "/mommy_workspace/service/SearchJobOk2.ser",
-				 data: {"careType":4},
-		         contentType: "application/json;charset=utf-8",
-				 dataType: "json", // 받는 타입
-				 success: function(result) { 
-					 console.log(result);
-					 if (result.length > 0) { 
-						 addList(result); 
-						 
-					 } else {
-						 isLast = true;
-					 }
-				 },
-				 error: function(err) {
-					 console.log("error : ", err);
-				 }
-			 })
+			careNum=4;
 				// 리스트 초기화
 		    	$(".userAll").empty();
 		    	
@@ -481,31 +420,15 @@
 		    	page = 1;
 		    	isLast = false;
 
+		    	getList4();
 		    	// 모달 팝업 닫기
-		    	close();
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
 		})
+		
 		$emergency.on("click",function(){
 			careType=true;
-			
-			 $.ajax({
-				 type: "GET",
-				 url: "/mommy_workspace/service/SearchJobOk2.ser",
-				 data: {"careType":5},
-		         contentType: "application/json;charset=utf-8",
-				 dataType: "json", // 받는 타입
-				 success: function(result) { 
-					 console.log(result);
-					 if (result.length > 0) { 
-						 addList(result); 
-						 
-					 } else {
-						 isLast = true;
-					 }
-				 },
-				 error: function(err) {
-					 console.log("error : ", err);
-				 }
-			 })
+			careNum=5;
 				// 리스트 초기화
 		    	$(".userAll").empty();
 		    	
@@ -513,31 +436,16 @@
 		    	page = 1;
 		    	isLast = false;
 
+		    	getList5();
 		    	// 모달 팝업 닫기
-		    	close();
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
 		})
+		
 		$fullType.on("click",function(){
 			careType=true;
-			
-			 $.ajax({
-				 type: "GET",
-				 url: "/mommy_workspace/service/SearchJobOk2.ser",
-				 data: {"careType":6},
-		         contentType: "application/json;charset=utf-8",
-				 dataType: "json", // 받는 타입
-				 success: function(result) { 
-					 console.log(result);
-					 if (result.length > 0) { 
-						 addList(result); 
-						 
-					 } else {
-						 isLast = true;
-					 }
-				 },
-				 error: function(err) {
-					 console.log("error : ", err);
-				 }
-			 })
+			careNum=6;
+		
 				// 리스트 초기화
 		    	$(".userAll").empty();
 		    	
@@ -545,40 +453,20 @@
 		    	page = 1;
 		    	isLast = false;
 
+		    	getList6();
 		    	// 모달 팝업 닫기
-		    	close();
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
 		})
 		
 // 돌봄지역 모달창-------------------------------------------------------------------------
-
+		var areaModal=false;
 		$('#areaButton').on("click",function(){
-			var sido=$("#sido option:selected").text();
-			var sigugun=$("#sigugun option:selected").text();
-			var dong=$("#dong option:selected").text();
-				if(dong=="선택"){
-					dong="";
-				}
+			areaModal=true;
 			careType=true;
-			
-			 $.ajax({
-				 type: "GET",
-				 url: "/mommy_workspace/service/SearchJobOk2.ser",
-				 data: {"sido":sido, "sigugun":sigugun, "dong":dong},
-		         contentType: "application/json;charset=utf-8",
-				 dataType: "json", // 받는 타입
-				 success: function(result) { 
-					 console.log(result);
-					 if (result.length > 0) { 
-						 addList(result); 
-						 
-					 } else {
-						 isLast = true;
-					 }
-				 },
-				 error: function(err) {
-					 console.log("error : ", err);
-				 }
-			 })
+//			careNum=7;
+		
+		
 				// 리스트 초기화
 		    	$(".userAll").empty();
 		    	
@@ -586,9 +474,10 @@
 		    	page = 1;
 		    	isLast = false;
 		    	
-		    	document.querySelector(".modal3").classList.remove("hidden");
+		    	getList7();
+		    	document.querySelector(".modal3").classList.add("hidden");
 		    	// 모달 팝업 닫기
-		    	close();
+//		    	close();
 		})
 
 	
@@ -674,10 +563,16 @@
 //			console.log("스크롤끝에 닿았다");
 //			$(".userAll").append(userProfile);
 			if (!isLast) { // 마지막 페이지가 아닐 경우 리스트 조회
-				++page; // 페이지 번호 1증가
 				 if(!careType){
+					 ++page; // 페이지 번호 1증가
 				getList();	// 리스트 조회
-				 }
+				 }else if(careNum==1){++page; getList1();}
+				 else if(careNum==2){++page; getList2();}
+				 else if(careNum==3){++page; getList3();}
+				 else if(careNum==4){++page; getList4();}
+				 else if(careNum==5){++page; getList5();}
+				 else if(careNum==6){++page; getList6();}
+				 else if(areaModal){++page; getList7();}
 			} else { // 마지막 페이지일 경우
 			}
 		} else {
@@ -735,210 +630,284 @@
 	 }
 	
 	 // 페이지 리스트 추가
-/*	function addList(result) {*/
-		// result 개수만큼 반복
-		/*for (var i = 0; i < result.length; i++) {
-			var userProfile="<div class="userPf">";
-			userProfile+="	<img src="${pageContext.request.contextPath}/images/heart.png" class="heart"> 
-			userProfile+="
-			userProfile+="<div class="userImg">
-			userProfile+="	<!-- 유저 사진 -->
-			userProfile+="	<img src="${pageContext.request.contextPath}/images/아이.png"class="userImgDetail">
-			userProfile+="
-			userProfile+="</div>
-			userProfile+="<div class="userName">
-			userProfile+="	<!-- 게시글 제목 -->
-			userProfile+="	<h4 style="margin-bottom: 0;"><a href="${pageContext.request.contextPath}/service/LookMomProfileOk.ser?userNum=${job.getUserNum()}" style="border:none;">
-			userProfile+="	${job.getProfileDescription()}</a></h4>
-			userProfile+="	<div class="mobileAd">
-			userProfile+="		<!-- 주소 -->
-			userProfile+="		<span class="span">${job.getLocationSido()}  ${job.getLocationSigun()} </span>&nbsp;
-			userProfile+="		<div class="line"></div>&nbsp;&nbsp;
-			userProfile+="		<!-- 아이정보 -->	
-			userProfile+="		<c:choose>
-			userProfile+="		<c:when test="${job.getBabyNewborn()==1}">
-			userProfile+="			<span class="span">신생아</span>&nbsp;
-			userProfile+="		</c:when>
-			userProfile+="		<c:when test="${job.getBabyChild()==1}">
-			userProfile+="			<span class="span">유아</span>&nbsp;
-			userProfile+="		</c:when>
-			userProfile+="		<c:when test="${job.getBabyKinder()==1}">
-			userProfile+="			<span class="span">유치원생</span>&nbsp;
-			userProfile+="		</c:when>
-			userProfile+="		<c:when test="${job.getBabyElementary()==1}">
-			userProfile+="			<span class="span">초등학생</span>&nbsp;
-			userProfile+="		</c:when>
-			userProfile+="		<c:otherwise >
-			userProfile+="			<span class="span">정보 없음</span>&nbsp;
-			userProfile+="		</c:otherwise>
-			userProfile+="		</c:choose>
-			userProfile+="		<div class="line"></div>
-			userProfile+="		<!-- 시작날짜 -->
-			userProfile+="		<span class="span">&nbsp;&nbsp;&nbsp;${job.getP_periodStartDate()}시작</span>
-			userProfile+="		&nbsp;&nbsp;
-			userProfile+="</div>
-			userProfile+="	<div class="fontSize">
-			userProfile+="		<div class="money">
-			userProfile+="			
-			userProfile+="		<img src="${pageContext.request.contextPath}/images/money.png" style="width:100%;">
-			userProfile+="		
-			userProfile+="	
-			userProfile+="		</div>
-			userProfile+="		<!-- 희망시급, 협의가능여부 -->
-			userProfile+="		희망시급 ${job.getProfileSalary()}원</div>
-			userProfile+="		<hr style="margin: 7px 0px;width: 100%;">
-			userProfile+="	
-			userProfile+="		<!-- 돌봄가능날짜 -->
-			userProfile+="		<div class="day">
-			userProfile+="		<div class="days">
-			userProfile+="		<c:choose>
-			userProfile+="		<c:when test="${job.getP_mon()==1}">
-			userProfile+="			<img src="${pageContext.request.contextPath}/images/월1.png" style="width: 30px;" >
-			userProfile+="		</c:when>
-			userProfile+="		<c:otherwise >
-			userProfile+="			<img src="${pageContext.request.contextPath}/images/월.png" style="width: 30px;" >
-			userProfile+="		</c:otherwise>
-			userProfile+="		</c:choose>
-			userProfile+="		
-			userProfile+="		<c:choose>
-			userProfile+="		<c:when test="${job.getP_tue()==1}">
-			userProfile+="			<img src="${pageContext.request.contextPath}/images/화1.png" style="width: 30px;" >
-			userProfile+="		</c:when>
-			userProfile+="		<c:otherwise >
-			userProfile+="			<img src="${pageContext.request.contextPath}/images/화.png" style="width: 30px;" >
-			userProfile+="		</c:otherwise>
-			userProfile+="		</c:choose>
-			userProfile+="		
-			userProfile+="		<c:choose>
-			userProfile+="		<c:when test="${job.getP_wed()==1}">
-			userProfile+="			<img src="${pageContext.request.contextPath}/images/수1.png" style="width: 30px;" >
-			userProfile+="		</c:when>
-			userProfile+="		<c:otherwise >
-			userProfile+="			<img src="${pageContext.request.contextPath}/images/수.png" style="width: 30px;" >
-			userProfile+="		</c:otherwise>
-			userProfile+="		</c:choose>
-			userProfile+="		
-			userProfile+="		<c:choose>
-			userProfile+="		<c:when test="${job.getP_thu()==1}">
-			userProfile+="			<img src="${pageContext.request.contextPath}/images/목1.png" style="width: 30px;" >
-			userProfile+="		</c:when>
-			userProfile+="		<c:otherwise >
-			userProfile+="			<img src="${pageContext.request.contextPath}/images/목.png" style="width: 30px;" >
-			userProfile+="		</c:otherwise>
-			userProfile+="		</c:choose>
-			userProfile+="		
-			userProfile+="		<c:choose>
-			userProfile+="		<c:when test="${job.getP_fri()==1}">
-			userProfile+="			<img src="${pageContext.request.contextPath}/images/금1.png" style="width: 30px;" >
-			userProfile+="		</c:when>
-			userProfile+="		<c:otherwise >
-			userProfile+="			<img src="${pageContext.request.contextPath}/images/금.png" style="width: 30px;" >
-			userProfile+="		</c:otherwise>
-			userProfile+="		</c:choose>
-			userProfile+="		
-			userProfile+="		<c:choose>
-			userProfile+="		<c:when test="${job.getP_sat()==1}">
-			userProfile+="			<img src="${pageContext.request.contextPath}/images/토1.png" style="width: 30px;" >
-			userProfile+="		</c:when>
-			userProfile+="		<c:otherwise >
-			userProfile+="			<img src="${pageContext.request.contextPath}/images/토.png" style="width: 30px;" >
-			userProfile+="		</c:otherwise>
-			userProfile+="		</c:choose>
-			userProfile+="		
-			userProfile+="		<c:choose>
-			userProfile+="		<c:when test="${job.getP_sun()==1}">
-			userProfile+="			<img src="${pageContext.request.contextPath}/images/일1.png" style="width: 30px;" >
-			userProfile+="		</c:when>
-			userProfile+="		<c:otherwise >
-			userProfile+="			<img src="${pageContext.request.contextPath}/images/일.png" style="width: 30px;" >
-			userProfile+="		</c:otherwise>
-			userProfile+="		</c:choose>
-			userProfile+="
-			userProfile+="		</div>
-			userProfile+="	</div>
-			userProfile+="</div>	
-		</div>
-			
-			
-			
-			
-			
-			userProfile+=" 	<img src='../images/heart.png' class='heart' id='heart'>";
-			userProfile+="<div class='userImg'>";
-			userProfile+="<img src='../images/img1.jpeg'class='userImgDetail'>";
-			userProfile+="<div>";
-			userProfile+="<div class='certify'>";
-			userProfile+="<p class='p'>확인된 인증 <span class='span' style='color: rgb(247, 87, 87); font-weight: bold;'>2</span>개</p>";
-			userProfile+="<input type='button' value='보험가입' class='certifyList' style='color:white !important' >";
-			userProfile+="<input type='button' value='코로나 검사' class='certifyList'  style='color:white !important'>";
-			userProfile+="</div>";
-			userProfile+="</div>";
-			userProfile+="</div>";
-			userProfile+="<div class='userName'>";
-			userProfile+="<h4 style='margin-bottom: 0;'><a href='/service/LookSitterProfileOk.ser?userNum="+result[i].userNum+"' style='border:none;'>";                                                  
-			userProfile+="</a></h4>";
-			userProfile+="<div class='infoDetail'>"+result[i].LocationSido+" "+result[i].LocationSigun+"</div>&nbsp;";
-			userProfile+="<div class='infoDetail'>"+result[i].age+"세</div>";
-			userProfile+="&nbsp;&nbsp;<div class='infoDetail'>희망시급 "+result[i].getProfileSalary+"원</div>";
-			
-			userProfile+="<div class='day' style='margin-top:10px;'>";
-			userProfile+="<div class='days'>";				
-				if(result[i].mon==1){
-					userProfile+="<img src='../images/월1.png' style='width: 30px;' >";
+		function addList(result) {
+			console.log("addList실행");
+			// result 개수만큼 반복
+			for (var i = 0; i < result.length; i++) {
+				var userProfile="<div class='userPf'>";
+				userProfile+="<div class='userImg'>";
+				userProfile+="	<!-- 유저 사진 -->";
+				if(result[i].ProfilePicture==""){
+					console.log("픽쳐 널일때 들어옴")
+					userProfile+="<img src='../images/img1.jpeg'class='userImgDetail'>";
 				}else{
-					userProfile+="	<img src='../images/월.png' style='width: 30px;'>";
+					console.log("픽쳐 널아님")
+					userProfile+="<img src='/profileData/"+result[i].ProfilePicture+"'class='userImgDetail'>";
 				}
-				if(result[i].tue==1){
-					userProfile+="<img src='../images/화1.png' style='width: 30px;'>";
-				}else{
-					userProfile+="	<img src='../images/화.png' style='width: 30px;' >";
-				}
-				if(result[i].wed==1){
-					userProfile+="<img src='../images/수1.png' style='width: 30px;' >";
-				}else{
-					userProfile+="	<img src='../images/수.png' style='width: 30px;'>";
-				}
-				if(result[i].thu==1){
-					userProfile+="<img src='../images/목1.png' style='width: 30px;' >";
-				}else{
-					userProfile+="	<img src='../images/목.png' style='width: 30px;'>";
-				}
-				if(result[i].fri==1){
-					userProfile+="<img src='../images/금1.png' style='width: 30px;' >";
-				}else{
-					userProfile+="	<img src='../images/금.png' style='width: 30px;'>";
-				}
-				if(result[i].sat==1){
-					userProfile+="<img src='../images/토1.png' style='width: 30px;' >";
-				}else{
-					userProfile+="	<img src='../images/토.png' style='width: 30px;'>";
-				}
-				if(result[i].sun==1){
-					userProfile+="<img src='../images/일1.png' style='width: 30px;' >";
-				}else{
-					userProfile+="	<img src='../images/일.png' style='width: 30px;'>";
-				}
+				userProfile+="</div>";
+				userProfile+="<div class='userName'>";
+				userProfile+="	<!-- 게시글 제목 -->";
+				userProfile+="	<h4 style='margin-bottom: 0;'><a href='/service/LookMomProfileOk.ser?userNum=${job.getUserNum()}' style='border:none;'>";
+				userProfile+=""+result[i].ProfileDescription+"</a></h4>";
+				userProfile+="	<div class='mobileAd'>";
+				userProfile+="		<!-- 주소 -->";
+				userProfile+="		<span class='span'>"+result[i].LocationSido+result[i].LocationSigun+" </span>&nbsp;";
+				userProfile+="		<div class='line'></div>&nbsp;&nbsp;";
+				userProfile+="		<!-- 아이정보 -->";
+					if(result[i].BabyNewborn==1){
+						userProfile+="<span class='span'>신생아</span>&nbsp;";
+					}
+					else if(result[i].BabyChild==1){
+						userProfile+="<span class='span'>유아</span>&nbsp;";
+					}
+					else if(result[i].BabyKinder==1){
+						userProfile+="<span class='span'>유치원생</span>&nbsp;";
+					}
+					else if(result[i].BabyElementary==1){
+						userProfile+="<span class='span'>초등학생</span>&nbsp;";
+					}else{
+						userProfile+="<span class='span'>정보 없음</span>&nbsp;";
+						
+					}
+		
+				userProfile+="		<div class='line'></div>";
+				userProfile+="		<!-- 시작날짜 -->";
+				userProfile+="		<span class='span'>&nbsp;&nbsp;&nbsp;"+result[i].periodStartDate+"시작</span>";
+				userProfile+="		&nbsp;&nbsp;";
+				userProfile+="</div>";
+				userProfile+="	<div class='fontSize'>";
+				userProfile+="		<div class='money'>";
+				userProfile+="		<img src='../images/money.png' style='width:100%;'>";
+				userProfile+="		</div>";
+				userProfile+="		<!-- 희망시급, 협의가능여부 -->";
+				userProfile+="		희망시급 "+result[i].getProfileSalary+"원</div>";
+				userProfile+="		<hr style='margin: 7px 0px;width: 100%;'>";
+				userProfile+="		<!-- 돌봄가능날짜 -->";
+				userProfile+="		<div class='day'>";
+				userProfile+="		<div class='days'>";
+					if(result[i].mon==1){
+						userProfile+="<img src='../images/월1.png' style='width: 30px;' >";
+					}else{
+						userProfile+="	<img src='../images/월.png' style='width: 30px;'>";
+					}
+					if(result[i].tue==1){
+						userProfile+="<img src='../images/화1.png' style='width: 30px;'>";
+					}else{
+						userProfile+="	<img src='../images/화.png' style='width: 30px;' >";
+					}
+					if(result[i].wed==1){
+						userProfile+="<img src='../images/수1.png' style='width: 30px;' >";
+					}else{
+						userProfile+="	<img src='../images/수.png' style='width: 30px;'>";
+					}
+					if(result[i].thu==1){
+						userProfile+="<img src='../images/목1.png' style='width: 30px;' >";
+					}else{
+						userProfile+="	<img src='../images/목.png' style='width: 30px;'>";
+					}
+					if(result[i].fri==1){
+						userProfile+="<img src='../images/금1.png' style='width: 30px;' >";
+					}else{
+						userProfile+="	<img src='../images/금.png' style='width: 30px;'>";
+					}
+					if(result[i].sat==1){
+						userProfile+="<img src='../images/토1.png' style='width: 30px;' >";
+					}else{
+						userProfile+="	<img src='../images/토.png' style='width: 30px;'>";
+					}
+					if(result[i].sun==1){
+						userProfile+="<img src='../images/일1.png' style='width: 30px;' >";
+					}else{
+						userProfile+="	<img src='../images/일.png' style='width: 30px;'>";
+					}
 
-			userProfile+="</div>";
-			userProfile+="</div>";
-			userProfile+="<div class=chatIcon>";
-			userProfile+="<img src='../images/chatIcon.png' style='width: 100%;margin-top: 5px; float: left;'>";
-			userProfile+="</div>";
-			userProfile+="<span class='span' style='line-height: 2;'>&nbsp; '"+result[i].ProfileDescription+"'</span>";
-			userProfile+="</div>";
-			userProfile+="</div>";
-
-			$(".userAll").append(userProfile); // userAll에 div 추가
+				userProfile+="		</div>";
+				userProfile+="	</div>";
+				userProfile+="</div>";	
+				userProfile+="</div>";	
+				
+				$(".userAll").append(userProfile); 
 		}
+		}
+	    
+
+					
+
+
+				
+				
+	function getList1(){
+		$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchJobOk2.ser",
+		 data: {"careType":1, "page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result);
+			 if (result.length > 0) { 
+				 addList(result); 
+				 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+}
+
+
+
+function getList2(){
+	$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchJobOk2.ser",
+		 data: {"careType":2, "page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result);
+			 if (result.length > 0) { 
+				 addList(result); 
+				 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+	 }
+
+
+
+
+function getList3(){
+	$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchJobOk2.ser",
+		 data: {"careType":3,"page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result);
+			 if (result.length > 0) { 
+				 addList(result); 
+				 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+	}
+
+
+function getList4(){
+	$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchJobOk2.ser",
+		 data: {"careType":4,"page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result);
+			 if (result.length > 0) { 
+				 addList(result); 
+				 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+	}
+
+
+function getList5(){
+	$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchJobOk2.ser",
+		 data: {"careType":5,"page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result.length);
+			 
+			 if (result.length > 0) { 
+				 addList(result); 
+				 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+	}
+
+
+function getList6(){ 
+	$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchJobOk2.ser",
+		 data: {"careType":6,"page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result);
+			 if (result.length > 0) { 
+				 addList(result); 
+				 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
 	}
 	
-    
 
-				
-				*/
-				
+function getList7(){ 
+	var locationSido=$("#sido option:selected").text();
+	var locationSigun=$("#sigugun option:selected").text();
+	var locationDong=$("#dong option:selected").text();
+
+	$.ajax({
+	 type: "GET",
+	 url: "/mommy_workspace/service/SearchJobOk2.ser",
+	 data: {"locationSido":locationSido, "locationSigun":locationSigun, "locationDong":locationDong,"page":page},
+     contentType: "application/json;charset=utf-8",
+	 dataType: "json", // 받는 타입
+	 success: function(result) { 
+		 console.log(result);
+		 if (result.length > 0) { 
+			 addList(result); 
+			 
+		 } else {
+			 isLast = true;
+		 }
+	 },
+	 error: function(err) {
+		 console.log("error : ", err);
+	 }
+ })
+}
 	
-
+	
+	
+	
+	
 	
 	
 	

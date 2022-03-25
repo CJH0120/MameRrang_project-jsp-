@@ -26,7 +26,18 @@ var flag = false;
 		}
 		
 	});
+ 
    
+  
+  $(function (){ $("#chat").click(function (){
+		$("#divToggle").toggle();
+		
+	}); });
+
+  $(function (){ $("#chatGray").click(function (){
+		$("#divToggle").toggle();
+		
+	}); });
 
   
 	
@@ -117,7 +128,7 @@ var flag = false;
 	$bookMark.on("click",function(){
 	
 		contents=$.ajax({
-			url:  contextPath + "/myPage/MyPageHeart.my", 		// 통신할url
+			url:  contextPath + "/service/FavoriteListOk.ser", 		// 통신할url
 			dataType: "html",			//전송받은 데이터를 변환시킬 컨텐츠 타입
 			type:"get"	,
 			success:function(e){
@@ -312,5 +323,32 @@ var flag = false;
     document.querySelector(".quit").addEventListener("click", close);
     document.querySelector(".bg").addEventListener("click", close);
   
+    
+    
+    
+    
+		function favoriteDelete(profileUserNum,userNum ) {
+			console.log(userNum);
+			console.log(profileUserNum);
+			 $.ajax({
+			        url: contextPath + "/service/FavoriteDeleteOk.ser",
+			        type: "post",
+			        data: {"userNum": userNum, "profileUserNum": profileUserNum, "fromList": 1},
+					success:function(e){
+					/* 	location.href = contextPath + "/service/FavoriteListOk.ser"; */
+						console.log(e);
+						$('div#informatiom').html(e);
+					} 
+			     
+			    });
+			
+			
+		}
+    
+    
+    
+    
+    
+    
     
     

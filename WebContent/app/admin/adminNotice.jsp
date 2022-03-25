@@ -90,7 +90,7 @@
 								<div class="col-6 col-12-small v-total" style="width: 30%; display:table; height: 400px; border: 1px solid #bbb; border-radius: 3px; padding-top: 1em;">
 									<div class="oneBox" style="margin-bottom: 3%; width: 35%; display: contents;">
 										<a class="title" href="#">
-											<span class="s-title link-title" >메인</span>
+											<span class="s-title link-title" >공지</span>
 										</a>
 										<hr>
 										<hr>

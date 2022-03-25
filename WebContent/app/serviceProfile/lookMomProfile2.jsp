@@ -21,10 +21,11 @@
 
 <body>
 	<c:set var="mom" value="${momInfo}"/>
-	<c:set var="userNum2" value="${userNum2}"/>
 	<c:set var="user" value="${user}"/>
 	<c:set var="userAge" value="${userAge}"/>
-
+	<c:set var="userNum2" value="${userNum2}"/>
+	<c:set var="profileNum" value="${profileNum}"/>
+	<c:set var="profile" value="${profile}"/>
 <!-- Aside -->
    <div class="wrapper">
 	<div class="inner">
@@ -81,16 +82,16 @@
      
 
 
-      <div id="main" class="container medium" style="margin-top: -100px;">
+      <div id="main" class="container medium" style=";">
          <!-- profile header -->
         <p style="font-size: 15px; width: 57%; margin-top: -46px; display: inline-block;">작성시간[2022-03-07]</p>
-              <div style="display:inline; position: relative;" class="media_correct">
-	                  <a class="a" style="font-size:17px; cursor: pointer;">수정</a> &nbsp;&nbsp;&nbsp;
-	                  
-	                	<a class="a" style="font-size:17px; cursor: pointer;">삭제</a>  
-	                  </div>
          <br>
             <div style = "width: 70%; background: white; position:relative; display: inline-block;" class="mobileDiv">
+              <div style="" class="media_correct">
+	                	<a class="a" style="font-size:17px; cursor: pointer;"   onclick="location.href='${pageContext.request.contextPath}/service/SitterProfileDeleteOk.ser?profile=${profile}&userNum2=${userNum2}'">
+	                	<img class="can" style="max-width: 20px !important; display: inline-block; float: right;" src="https://cdn.discordapp.com/attachments/953473528030715988/955867805826297876/06f4ee6cc21129a5.png">
+	                	삭제</a>  
+	                  </div>
                 <div style="text-align: left; display:inline-block; margin-left:15px;">
                     <label><input type="file" style="display:none;">
                     <img src="${pageContext.request.contextPath}/images/후기1.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">

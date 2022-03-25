@@ -2,50 +2,8 @@
 
 
 
-
 const $heart = $('#heart');
 
-
-/*
- * $heart.on("click", function(){
-	if($(this).attr('src')=='../images/emptyHeart.png'){
-		
-		
-		console.log("찜하기");
-		  $.ajax({
-		        url: contextPath + "/service/FavoriteInsertOk.com",
-		        type: "post",
-		        data: {"userNum": userNum, "profileNum": profileNum},
-		        
-		        success: function(){
-		        	$(this).attr('src', '../images/heart.png');
-		            console.log("찜하기 완료");
-		        },
-		        error: function(){
-		            console.log("찜하기 오류");
-		        }
-		    });
-	}else{
-		
-		
-		 $.ajax({
-		        url: contextPath + "/service/FavoriteDeleteOk.com",
-		        type: "post",
-		        data: {"userNum": userNum, "profileNum": profileNum},
-		        
-		        success: function(){
-		        	$(this).attr("src", '../images/heart.png');
-		            console.log("찜하기 완료");
-		        },
-		        error: function(){
-		            console.log("찜하기 오류");
-		        }
-		    });
-		$(this).attr('src', '../images/emptyHeart.png');
-	}
-	
-});
- * */
 
 $heart.on("click", function(){
 	console.log("userNum: " + userNum);
@@ -67,7 +25,7 @@ $heart.on("click", function(){
 		 $.ajax({
 		        url: contextPath + "/service/FavoriteDeleteOk.ser",
 		        type: "post",
-		        data: {"userNum": userNum, "profileNum": userNum2},
+		        data: {"userNum": userNum, "profileUserNum": userNum2},
 		        
 		     
 		    });
@@ -77,44 +35,45 @@ $heart.on("click", function(){
 });
 
 
-/*
+const open = () => {
+    document.querySelector(".modal").classList.remove("hidden");
+    console.log("check");
+  }
 
-$(function(){
-	
-	$("#heart").on("click", function(){
-			console.log("들어모");
+  const close = () => {
+    document.querySelector(".modal").classList.add("hidden");
+  }
 
-		   if($(this).attr("src") == "${pageContext.request.contextPath}/images/heart.png"){
+  
+  document.querySelector(".openBtn").addEventListener("click", open);
+  document.querySelector(".submitBtn").addEventListener("click", close);
+  document.querySelector(".quit").addEventListener("click", close);
+  document.querySelector(".bg").addEventListener("click", close);
+  
+  
 
-		      $(this).attr("src", "${pageContext.request.contextPath}/images/emptyHeart.png");
-		   }else{
+const $chat = $('#chatbutton');
 
-		      $(this).attr("src", "${pageContext.request.contextPath}/images/heart.png");
-		   }
-
-		   
-		});
-	
-})
-*/
-
-
-/*
- * const $heart = $("#heart");
-
-$heart.on("click", function(){
-
-   if($heart.attr("src")=='images/heart.png'){
-
-      $heart.attr("src", "images/emptyHeart.png");
-   }else{
-
-      $heart.attr("src", "images/heart.png");
-   }
-
-   
+// api 
+$chat.on("click", function(){
+	console.log("요청");
+	$.ajax({
+	       url: "https://api-56CB17D6-60D6-4370-8D10-9836673EC992.sendbird.com/v3",
+	       type: "get",
+	       dataType: "json",
+	       data: {
+	    	 
+	    	   "Api-Token": 'd7c0bcf001c941b0971f5aeb0e6f9151e797de79',
+	    	
+	       },
+	   	success:function(data){
+			console.log(data);
+		},
+		error:function(){
+			console.log("실패");
+		}
+	   });
 });
- * */
 
 
 

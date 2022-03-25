@@ -29,7 +29,7 @@ public class WriteSitterOk implements Action{
 		int userNum = (int) session.getAttribute("userNum");
 		serviceVo.setUserNum(userNum);
 		/*${pageContext.request.contextPath}/images/로고1.png "*/
-		String realPath =req.getSession().getServletContext().getRealPath("/") + "upload";
+		String realPath =req.getSession().getServletContext().getRealPath("/") + "profileData";
 		// 절대경로	/*String uploadFolder = "E:\\Avery\\aigb_0900_avery\\jsp\\workspace\\boardMVC\\WebContent\\upload";*/
 		//  E:\Avery\aigb_0900_avery\jspTeamProject\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\mommy_workspace\WebContent\images
 		String uploadFolder = realPath;

@@ -23,7 +23,7 @@
      <c:set var="members" value="${members}" />
      <c:set var="membersTotal" value="${membersTotal}" />
      <c:set var="membersMom" value="${membersMom}" />
-     <c:set var="membersSiter" value="${membersSitter}" />
+     <c:set var="membersSitter" value="${membersSitter}" />
      <!-- Main -->
          <div id="main" class="container">
                <!-- 배너 -->
@@ -124,7 +124,7 @@
 										</div>
 										<div style="width: 50%; padding-left:1em">
 											<span class="s-title link-title" >시터</span>
-											<p><c:set var="sitterCount" value="${membersSitter}" /></p>
+											<p>${membersSitter}</p>
 										</div>
 									</div>
 									

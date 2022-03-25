@@ -45,6 +45,7 @@ public class LookMomProfileOk implements Action{
 		req.setAttribute("userNum2", session.getAttribute("userNum"));
 		req.setAttribute("user", userVO);
 		req.setAttribute("userAge", age);
+		req.setAttribute("profile", req.getParameter("profile"));
 		
 		af.setRedirect(false);
 		af.setPath("/app/serviceProfile/lookMomProfile2.jsp");

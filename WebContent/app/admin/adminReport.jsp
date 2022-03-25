@@ -169,7 +169,7 @@
 		
 									<div class="sBox" style="border-bottom: 1px solid #d8dadb; border-top: 1px solid #d8dadb; display: flex; padding-top: 1em; padding-bottom: 1em;">
 										<div style="width: 50%;">
-											<span class="s-title link-title" >문의글 개수</span>
+											<span class="s-title link-title" >신고글 개수</span>
 											<hr>
 											<p>${total} 개</p>
 										</div>

@@ -1,12 +1,13 @@
 package com.mommy.app.service.dao;
 
-import java.util.List; 
+import java.util.List;  
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.mommy.app.service.vo.LookProfileDTO;
+import com.mommy.app.service.vo.ParameterDTO;
 import com.mommy.app.service.vo.SearchDetailDTO;
 
 import com.mommy.app.service.vo.ServiceDTO;
@@ -46,7 +47,6 @@ public class ServiceDAO {
 	
 
 	
-//	userStatus=2일때 -----------------------------------------------------------------------------
 	//상세검색 필터링
 	public List<ServiceDTO> searchDetail(Map<String, Integer> modalInput) {
 		return sqlSession.selectList("Service.searchDetail", modalInput);  
@@ -85,16 +85,11 @@ public class ServiceDAO {
 	}
 	
 	//돌봄지역 
-	public List<ServiceDTO> searchArea(Map<String, String> areaMap){
-		return sqlSession.selectList("Service.searchArea", areaMap);
+	public List<ServiceDTO> searchArea(ParameterDTO param){
+		return sqlSession.selectList("Service.searchArea", param);
 	}
-//	userStatus=1일때 -----------------------------------------------------------------------------
 
-	
-	//돌봄지역 
-	public List<ServiceDTO> searchArea2(Map<String, String> areaMap){
-		return sqlSession.selectList("Service.searchArea2", areaMap);
-	}
+
 	
 	//시터프로필 상세보기
 	public LookProfileDTO lookSitterProfile(int userNum) {
@@ -114,5 +109,8 @@ public class ServiceDAO {
 		sqlSession.delete("Service.delete", userNum);
 	}	
 	
-	
+	// 프로필 번호 가져오기 
+	public int selectProfileNum(int userNum) {
+		return sqlSession.selectOne("Service.selectProfileNum",userNum);
+	}
 }

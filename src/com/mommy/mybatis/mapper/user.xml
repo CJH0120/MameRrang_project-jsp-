@@ -65,29 +65,38 @@
 
 	<!-- 회원 전체 정보 조회 -->
    <select id="selectAll" resultType="UserVO">
-      select userNum, userName, userId, userPw, userPhone, userEmail, userBirthYear, userBirthMonth, userBirthDate, userStatus from tbl_user 
+      select userNum, userName, userId, userPw, userPhone, userEmail, userBirthYear, userBirthMonth, userBirthDate, userStatus 
+      from tbl_user
+      where userStatus = 1 or userStatus = 2 
    </select>
    
    <!-- 회원 전체 수 -->
-   <select id="selectCount" parameterType="string" resultType="_int">
-      select count(userNum) from tbl_user 
+   <select id="selectCount" resultType="_int">
+      select count(userNum) from tbl_user
+      where userStatus = 1 or userStatus = 2 
    </select>
    
    <!-- 맘 회원수 -->
-   <select id="MomCount" parameterType="string" resultType="_int">
+   <select id="MomCount" resultType="_int">
       select count(userStatus) from tbl_user where userStatus = 1;
    </select>
    
    <!-- 시터 회원수 -->
-   <select id="SitterCount" parameterType="string" resultType="_int">
+   <select id="SitterCount" resultType="_int">
       select count(userStatus) from tbl_user where userStatus = 2;
    </select>  
+   
 	<!-- 유저가 작성한 프로필이 있는지 중복검사 하는 쿼리  -->
 	  <select id="myPageProfileCk" parameterType="_int" resultType="_int">
 	 select count(profileNum) from tbl_profile p
 	 join tbl_user u on  p.userNum = u.userNum 
 	 where u.userNum = #{userNum};
 	</select> 
+	
+	<!-- profileProcess -->
+   <select id="profileProcess" parameterType="_int" resultType="_int">
+      select count(*) profileProcess from tbl_profile where userNum=#{userNum}
+   </select>
 	
 	
 		<!-- 비밀번호 변경 -->

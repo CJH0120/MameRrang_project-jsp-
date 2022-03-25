@@ -27,6 +27,8 @@
 		<c:set var="endPage" value="${endPage}"/>
 		<c:set var="realEndPage" value="${realEndPage}"/>
 		<c:set var="total" value="${total}"/>
+		<c:set var="year" value="<%=new java.util.Date()%>" />
+		<c:set var="year"><fmt:formatDate value="${year}" pattern="yyyy" /></c:set> 
 	
 
 		
@@ -44,47 +46,67 @@
 				<div class="main">
 				
 				<br><br>
-			<h3 style="font-family: 'GmarketSansLight';"> 일자리 찾기</h3>
+			<h3 style="font-family: 'GmarketSansLight'; font-size: 31px;"> 일자리 찾기</h3>
 
 				<!--돌봄지역-->
-				<div class="locationFilter">
+		
+					<div class="locationFilter_1">
 					<div class="locationImg">
-						<img src="${pageContext.request.contextPath}/images/location2.png" style="width: 100%;" >
+						<img src="${pageContext.request.contextPath}/images/location2.png" style="width: 100%; " class="media_img">
 					</div>
-					<span class="locationInput span openBtn3" style="margin-left: 20px;
-					 font-size: 13px; cursor: pointer;  color:#626c6e;"  
-					 id="searchArea">
+					<span class="locationInput span openBtn3" id="searchArea">
 						돌봄지역을 선택해주세요.</span>
-				</div>
+					</div>
+				<div class="locationFilter_wrap">	
 					<!-- 돌봄유형 -->
-					<div class="locationFilter">
+				 	<div class="locationFilter_2">
 						<div class="locationImg baby">
-							<img src="${pageContext.request.contextPath}/images/baby2.png" style="width: 100%;" >
+							<img src="${pageContext.request.contextPath}/images/baby2.png" style="width: 100%; " class="media_img">
 						</div>
-						<span class="locationInput span openBtn2" style="margin-left: 20px; font-size: 13px; cursor: pointer; color:#626c6e; "" id="careType">
-							돌봄유형 선택하기.</span>
+						<span class="locationInput span openBtn2" id="careType">돌봄유형 선택하기.</span>
 					</div>
 	
+	
+	
 				<!-- 상세검색 -->
-				<div class="detailSearch" style="position:relative; ">
-					<img src="${pageContext.request.contextPath}/images/filter.png" class="filter">
-					<button class="openBtn" id="searchDetail" style="cursor: pointer;"
-					> &nbsp;&nbsp;&nbsp;&nbsp;상세검색</button>
-				</div>
+				<div class="detailSearch" >
+					<button class="openBtn" id="searchDetail" style="cursor: pointer;">
+					<img src="${pageContext.request.contextPath}/images/filter.png" class="filter" style=" margin-top: 4px;" >
+					
+					<span>상세검색</span></button>
+				</div> 
+
+		</div>
 
 
-	<button onclick="location.href='${pageContext.request.contextPath}/service/WriteMom.ser'">글쓰기</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%-- 	<button onclick="location.href='${pageContext.request.contextPath}/service/WriteMom.ser'">글쓰기</button> --%>
 	
 
 		<section class="userInfo">
+		<div class="userAll">
 			<c:choose>
 				<c:when test="${jobList != null and fn:length(jobList) > 0}">
 					<c:forEach var="job" items="${jobList}">
 				
-            
-			
-			
-						<c:if test="${job.getUserStatus() == 1}">
+						
 								<!-- 유저정보 -->
 								<div class="userPf">
 								<%-- <img src="${pageContext.request.contextPath}/images/heart.png" class="heart"> --%>
@@ -206,11 +228,10 @@
 									</div>
 								</div>	
 							</div>
-						</c:if>
 					</c:forEach>
 				</c:when>
 			</c:choose>
-			
+			</div>
 			
 			
 			   <!-- 상세검색 모달 --> 
@@ -463,7 +484,7 @@
 		
 				
 					
-										<!-- 페이징 처리 -->
+								<%-- 		<!-- 페이징 처리 -->
 							
 											
 										<table style="font-size:1.3rem">
@@ -493,7 +514,7 @@
 										</table>
 				
 				
-		
+		 --%>
 	
 	</section>	
 	

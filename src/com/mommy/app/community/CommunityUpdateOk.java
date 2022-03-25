@@ -40,7 +40,7 @@ public class CommunityUpdateOk implements Action{
 		page = Integer.parseInt(multi.getParameter("page"));
 		communityNum = Integer.parseInt(multi.getParameter("communityNum"));
 		community.setCommunityTitle(multi.getParameter("title"));
-		community.setCommunityContent(multi.getParameter("content"));
+		community.setCommunityContent(multi.getParameter("editordata"));
 		
 		community.setCommunityCategory(Integer.parseInt(multi.getParameter("select")));
 		community.setCommunityNum(communityNum);

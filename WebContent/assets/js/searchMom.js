@@ -354,29 +354,11 @@
 		const $emergency=$('#emergency');
 		const $fullType=$('#fullType');
 		var careType=false;
+		var careNum=0;
 		
 		$goToSchool.on("click",function(){
 			careType=true;
-			
-			 $.ajax({
-				 type: "GET",
-				 url: "/mommy_workspace/service/SearchMomOk2.ser",
-				 data: {"careType":1},
-		         contentType: "application/json;charset=utf-8",
-				 dataType: "json", // 받는 타입
-				 success: function(result) { 
-					 console.log(result);
-					 if (result.length > 0) { 
-						 addList(result); 
-						 
-					 } else {
-						 isLast = true;
-					 }
-				 },
-				 error: function(err) {
-					 console.log("error : ", err);
-				 }
-			 })
+			careNum=1;
 				// 리스트 초기화
 		    	$(".userAll").empty();
 		    	
@@ -384,32 +366,17 @@
 		    	page = 1;
 		    	isLast = false;
 
+		    	getList1();
 		    	// 모달 팝업 닫기
-		    	close();
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
 			 
 		})
+		
 		$teach.on("click",function(){
 			careType=true;
-			
-			 $.ajax({
-				 type: "GET",
-				 url: "/mommy_workspace/service/SearchMomOk2.ser",
-				 data: {"careType":2},
-		         contentType: "application/json;charset=utf-8",
-				 dataType: "json", // 받는 타입
-				 success: function(result) { 
-					 console.log(result);
-					 if (result.length > 0) { 
-						 addList(result); 
-						 
-					 } else {
-						 isLast = true;
-					 }
-				 },
-				 error: function(err) {
-					 console.log("error : ", err);
-				 }
-			 })
+			careNum=2;
+
 				// 리스트 초기화
 		    	$(".userAll").empty();
 		    	
@@ -417,31 +384,18 @@
 		    	page = 1;
 		    	isLast = false;
 
+		    	getList2();
 		    	// 모달 팝업 닫기
-		    	close();
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
 		})
+		
 		$fullTime.on("click",function(){
 			careType=true;
+			careNum=3;
 			
-			 $.ajax({
-				 type: "GET",
-				 url: "/mommy_workspace/service/SearchMomOk2.ser",
-				 data: {"careType":3},
-		         contentType: "application/json;charset=utf-8",
-				 dataType: "json", // 받는 타입
-				 success: function(result) { 
-					 console.log(result);
-					 if (result.length > 0) { 
-						 addList(result); 
-						 
-					 } else {
-						 isLast = true;
-					 }
-				 },
-				 error: function(err) {
-					 console.log("error : ", err);
-				 }
-			 })
+			
+			
 				// 리스트 초기화
 		    	$(".userAll").empty();
 		    	
@@ -449,31 +403,16 @@
 		    	page = 1;
 		    	isLast = false;
 
+		    	getList3();
 		    	// 모달 팝업 닫기
-		    	close();
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
 		})
+		
 		$assistance.on("click",function(){
 			careType=true;
-			
-			 $.ajax({
-				 type: "GET",
-				 url: "/mommy_workspace/service/SearchMomOk2.ser",
-				 data: {"careType":4},
-		         contentType: "application/json;charset=utf-8",
-				 dataType: "json", // 받는 타입
-				 success: function(result) { 
-					 console.log(result);
-					 if (result.length > 0) { 
-						 addList(result); 
-						 
-					 } else {
-						 isLast = true;
-					 }
-				 },
-				 error: function(err) {
-					 console.log("error : ", err);
-				 }
-			 })
+			careNum=4;
+	
 				// 리스트 초기화
 		    	$(".userAll").empty();
 		    	
@@ -481,31 +420,16 @@
 		    	page = 1;
 		    	isLast = false;
 
+				getList4();
 		    	// 모달 팝업 닫기
-		    	close();
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
 		})
+		
 		$emergency.on("click",function(){
 			careType=true;
-			
-			 $.ajax({
-				 type: "GET",
-				 url: "/mommy_workspace/service/SearchMomOk2.ser",
-				 data: {"careType":5},
-		         contentType: "application/json;charset=utf-8",
-				 dataType: "json", // 받는 타입
-				 success: function(result) { 
-					 console.log(result);
-					 if (result.length > 0) { 
-						 addList(result); 
-						 
-					 } else {
-						 isLast = true;
-					 }
-				 },
-				 error: function(err) {
-					 console.log("error : ", err);
-				 }
-			 })
+			careNum=5;
+
 				// 리스트 초기화
 		    	$(".userAll").empty();
 		    	
@@ -513,72 +437,35 @@
 		    	page = 1;
 		    	isLast = false;
 
+				getList5();
 		    	// 모달 팝업 닫기
-		    	close();
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
 		})
+		
 		$fullType.on("click",function(){
 			careType=true;
-			
-			 $.ajax({
-				 type: "GET",
-				 url: "/mommy_workspace/service/SearchMomOk2.ser",
-				 data: {"careType":6},
-		         contentType: "application/json;charset=utf-8",
-				 dataType: "json", // 받는 타입
-				 success: function(result) { 
-					 console.log(result);
-					 if (result.length > 0) { 
-						 addList(result); 
-						 
-					 } else {
-						 isLast = true;
-					 }
-				 },
-				 error: function(err) {
-					 console.log("error : ", err);
-				 }
-			 })
+			careNum=6;
+		
+
 				// 리스트 초기화
 		    	$(".userAll").empty();
 		    	
 		    	// 필터 초기화
 		    	page = 1;
 		    	isLast = false;
-
+				getList6();
 		    	// 모달 팝업 닫기
-		    	close();
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
 		})
 		
 // 돌봄지역 모달창-------------------------------------------------------------------------
-
+		var areaModal=false;
 		$('#areaButton').on("click",function(){
-			var sido=$("#sido option:selected").text();
-			var sigugun=$("#sigugun option:selected").text();
-			var dong=$("#dong option:selected").text();
-				if(dong=="선택"){
-					dong="";
-				}
+			areaModal=true;
 			careType=true;
-			
-			 $.ajax({
-				 type: "GET",
-				 url: "/mommy_workspace/service/SearchMomOk2.ser",
-				 data: {"sido":sido, "sigugun":sigugun, "dong":dong},
-		         contentType: "application/json;charset=utf-8",
-				 dataType: "json", // 받는 타입
-				 success: function(result) { 
-					 console.log(result);
-					 if (result.length > 0) { 
-						 addList(result); 
-						 
-					 } else {
-						 isLast = true;
-					 }
-				 },
-				 error: function(err) {
-					 console.log("error : ", err);
-				 }
-			 })
+		
 				// 리스트 초기화
 		    	$(".userAll").empty();
 		    	
@@ -586,9 +473,10 @@
 		    	page = 1;
 		    	isLast = false;
 		    	
-		    	document.querySelector(".modal3").classList.remove("hidden");
+		    	getList7();
 		    	// 모달 팝업 닫기
-		    	close();
+		    	document.querySelector(".modal3").classList.add("hidden");
+//		    	close();
 		})
 
 	
@@ -674,10 +562,16 @@
 //			console.log("스크롤끝에 닿았다");
 //			$(".userAll").append(userProfile);
 			if (!isLast) { // 마지막 페이지가 아닐 경우 리스트 조회
-				++page; // 페이지 번호 1증가
 				 if(!careType){
+					 ++page; // 페이지 번호 1증가
 				getList();	// 리스트 조회
-				 }
+				 }else if(careNum==1){++page; getList1();}
+				 else if(careNum==2){++page; getList2();}
+				 else if(careNum==3){++page; getList3();}
+				 else if(careNum==4){++page; getList4();}
+				 else if(careNum==5){++page; getList5();}
+				 else if(careNum==6){++page; getList6();}
+				 else if(areaModal){++page; getList7();}
 			} else { // 마지막 페이지일 경우
 			}
 		} else {
@@ -737,70 +631,95 @@
 	 // 페이지 리스트 추가
 	function addList(result) {
 		// result 개수만큼 반복
+		
 		for (var i = 0; i < result.length; i++) {
+			var num=0;
 			var userProfile="<div class='userPf'>";
-			userProfile+=" 	<img src='../images/heart.png' class='heart' id='heart'>";
+		
 			userProfile+="<div class='userImg'>";
-			userProfile+="<img src='../images/img1.jpeg'class='userImgDetail'>";
+			if(result[i].ProfilePicture==""){
+				console.log("픽쳐 널일때 들어옴")
+				userProfile+="<img src='../images/img1.jpeg'class='userImgDetail'>";
+			}else{
+				console.log("픽쳐 널아님")
+				userProfile+="<img src='/profileData/"+result[i].ProfilePicture+"'class='userImgDetail'>";
+			}
 			userProfile+="<div>";
 			userProfile+="<div class='certify'>";
-			userProfile+="<p class='p'>확인된 인증 <span class='span' style='color: rgb(247, 87, 87); font-weight: bold;'>2</span>개</p>";
-			userProfile+="<input type='button' value='보험가입' class='certifyList' style='color:white !important' >";
-			userProfile+="<input type='button' value='코로나 검사' class='certifyList'  style='color:white !important'>";
+			userProfile+="<p class='p'>확인된 인증 <span class='span' style='color: rgb(247, 87, 87); font-weight: bold;'>";
+
+			userProfile+=result[i].CheckMedi+result[i].CheckCitizen+result[i].CheckMom+result[i].CheckTeacher+result[i].CheckUniversity+"</span>개</p>";
+			if(result[i].CheckMedi==1){
+				
+				userProfile+="<input type='button' value='건강인증' class='certifyList' style='color:white !important' >";
+			}
+			if(result[i].CheckCitizen==1){
+			
+				userProfile+="<input type='button' value='본인인증' class='certifyList' style='color:white !important' >";
+			}
+			if(result[i].CheckMom==1){
+				
+				userProfile+="<input type='button' value='부모님인증' class='certifyList' style='color:white !important' >";
+			}
+			if(result[i].CheckTeacher==1){
+				
+				userProfile+="<input type='button' value='선생님인증' class='certifyList' style='color:white !important' >";
+			}
+			if(result[i].CheckUniversity==1){
+			
+				userProfile+="<input type='button' value='학력인증' class='certifyList' style='color:white !important' >";
+			}
+
 			userProfile+="</div>";
 			userProfile+="</div>";
 			userProfile+="</div>";
 			userProfile+="<div class='userName'>";
-			userProfile+="<h4 style='margin-bottom: 0;'><a href='/service/LookSitterProfileOk.ser?userNum="+result[i].userNum+"' style='border:none;'>";                                                  
-			userProfile+="</a></h4>";
+			userProfile+="<h4 style='margin-bottom: 4px;'><a href='/service/LookSitterProfileOk.ser?userNum="+result[i].userNum+"' style='border:none;'>";                                                  
+			userProfile+=result[i].ProfileDescription+"</a></h4>";
 			userProfile+="<div class='infoDetail'>"+result[i].LocationSido+" "+result[i].LocationSigun+"</div>&nbsp;";
 			userProfile+="<div class='infoDetail'>"+result[i].age+"세</div>";
 			userProfile+="&nbsp;&nbsp;<div class='infoDetail'>희망시급 "+result[i].getProfileSalary+"원</div>";
 			
-			userProfile+="<div class='day' style='margin-top:10px;'>";
-			userProfile+="<div class='days'>";				
+			userProfile+="<div class='day' style='margin-top: 7px; margin-left: -1px;'>";
+			userProfile+="<div class='days' style='margin-left: -3.5px;'>";				
 				if(result[i].mon==1){
-					userProfile+="<img src='../images/월1.png' style='width: 30px;' >";
+					userProfile+="<img src='../images/월1.png' style='width: 35px;' >";
 				}else{
-					userProfile+="	<img src='../images/월.png' style='width: 30px;'>";
+					userProfile+="	<img src='../images/월.png' style='width: 35px;'>";
 				}
 				if(result[i].tue==1){
-					userProfile+="<img src='../images/화1.png' style='width: 30px;'>";
+					userProfile+="<img src='../images/화1.png' style='width: 35px;'>";
 				}else{
-					userProfile+="	<img src='../images/화.png' style='width: 30px;' >";
+					userProfile+="	<img src='../images/화.png' style='width: 35px;' >";
 				}
 				if(result[i].wed==1){
-					userProfile+="<img src='../images/수1.png' style='width: 30px;' >";
+					userProfile+="<img src='../images/수1.png' style='width: 35px;' >";
 				}else{
-					userProfile+="	<img src='../images/수.png' style='width: 30px;'>";
+					userProfile+="	<img src='../images/수.png' style='width: 35px;'>";
 				}
 				if(result[i].thu==1){
-					userProfile+="<img src='../images/목1.png' style='width: 30px;' >";
+					userProfile+="<img src='../images/목1.png' style='width: 35px;' >";
 				}else{
-					userProfile+="	<img src='../images/목.png' style='width: 30px;'>";
+					userProfile+="	<img src='../images/목.png' style='width: 35px;'>";
 				}
 				if(result[i].fri==1){
-					userProfile+="<img src='../images/금1.png' style='width: 30px;' >";
+					userProfile+="<img src='../images/금1.png' style='width: 35px;' >";
 				}else{
-					userProfile+="	<img src='../images/금.png' style='width: 30px;'>";
+					userProfile+="	<img src='../images/금.png' style='width: 35px;'>";
 				}
 				if(result[i].sat==1){
-					userProfile+="<img src='../images/토1.png' style='width: 30px;' >";
+					userProfile+="<img src='../images/토1.png' style='width: 35px;' >";
 				}else{
-					userProfile+="	<img src='../images/토.png' style='width: 30px;'>";
+					userProfile+="	<img src='../images/토.png' style='width: 35px;'>";
 				}
 				if(result[i].sun==1){
-					userProfile+="<img src='../images/일1.png' style='width: 30px;' >";
+					userProfile+="<img src='../images/일1.png' style='width: 35px;' >";
 				}else{
-					userProfile+="	<img src='../images/일.png' style='width: 30px;'>";
+					userProfile+="	<img src='../images/일.png' style='width: 35px;'>";
 				}
 
 			userProfile+="</div>";
 			userProfile+="</div>";
-			userProfile+="<div class=chatIcon>";
-			userProfile+="<img src='../images/chatIcon.png' style='width: 100%;margin-top: 5px; float: left;'>";
-			userProfile+="</div>";
-			userProfile+="<span class='span' style='line-height: 2;'>&nbsp; '"+result[i].ProfileDescription+"'</span>";
 			userProfile+="</div>";
 			userProfile+="</div>";
 
@@ -812,10 +731,173 @@
 
 				
 				
-				
+	function getList1(){
+		$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchMomOk2.ser",
+		 data: {"careType":1, "page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result);
+			 if (result.length > 0) { 
+				 addList(result); 
+				 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+}
+
+
+
+function getList2(){
+	$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchMomOk2.ser",
+		 data: {"careType":2, "page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result);
+			 if (result.length > 0) { 
+				 addList(result); 
+				 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+	 }
+
+
+
+
+function getList3(){
+	$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchMomOk2.ser",
+		 data: {"careType":3,"page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result);
+			 if (result.length > 0) { 
+				 addList(result); 
+				 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+	}
+
+
+function getList4(){
+	$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchMomOk2.ser",
+		 data: {"careType":4,"page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result);
+			 if (result.length > 0) { 
+				 addList(result); 
+				 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+	}
+
+
+function getList5(){
+	$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchMomOk2.ser",
+		 data: {"careType":5,"page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result.length);
+			 
+			 if (result.length > 0) { 
+				 addList(result); 
+				 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+	}
+
+
+function getList6(){ 
+	$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchMomOk2.ser",
+		 data: {"careType":6,"page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result);
+			 if (result.length > 0) { 
+				 addList(result); 
+				 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+	}
 	
 
-	
+function getList7(){ 
+	var locationSido=$("#sido option:selected").text();
+	var locationSigun=$("#sigugun option:selected").text();
+	var locationDong=$("#dong option:selected").text();
+
+	$.ajax({
+	 type: "GET",
+	 url: "/mommy_workspace/service/SearchMomOk2.ser",
+	 data: {"locationSido":locationSido, "locationSigun":locationSigun, "locationDong":locationDong,"page":page},
+     contentType: "application/json;charset=utf-8",
+	 dataType: "json", // 받는 타입
+	 success: function(result) { 
+		 console.log(result);
+		 if (result.length > 0) { 
+			 addList(result); 
+			 
+		 } else {
+			 isLast = true;
+		 }
+	 },
+	 error: function(err) {
+		 console.log("error : ", err);
+	 }
+ })
+}
 	
 	
 	

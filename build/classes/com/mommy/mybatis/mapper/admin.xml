@@ -109,12 +109,25 @@
 		checkCitizen, checkUniversity 
 		from tbl_profile p join tbl_user u 
 		where p.userNum=u.userNum
-		order by 1 asc limit #{startRow}, #{rowCount}
+		order by 1 desc limit #{startRow}, #{rowCount}
 	</select>
 	
 	<!-- 인증 게시글 총 갯수 -->
 	<select id="authGetTotal" resultType="_int">
 		select count(profileNum) from tbl_profile
+	
+	</select>
+	
+	<!-- 인증 대기 총 갯수 -->
+	<select id="authGetTotal0" resultType="_int">
+		select count(profileProcess= 0) from tbl_profile
+	
+	</select>
+	
+		<!-- 인증 완료 총 갯수 -->
+	<select id="authGetTotal1" resultType="_int">
+		select count(profileProcess= 1) from tbl_profile
+	
 	</select>
 	<!-- 인증 업데이트 -->
 	<update id="update_Certification" parameterType="AdminAuthDTO">

@@ -46,16 +46,20 @@
         
         
 			<br><br>
-			<h3 style="font-family: 'GmarketSansLight';"> 베이비 시터 찾기</h3>
+			<h3 style="font-family: 'GmarketSansLight'; font-size: 28px;     margin-bottom: 100px;"> 베이비 시터 찾기</h3>
 			 
 				<!--돌봄지역-->
 				<div class="locationFilter">
 					<div class="locationImg">
 						<img src="${pageContext.request.contextPath}/images/location2.png" style="width: 100%;" >
 					</div>
-					<span class="locationInput span openBtn3" style="margin-left: 20px;
-					 font-size: 13px; cursor: pointer;  color:#626c6e;"  
-					 id="searchArea">
+					<span class="locationInput span openBtn3" style="margin-left: 25px;
+					    font-size: 14px;
+					    cursor: pointer;
+					    color: #626c6e;
+					    position: absolute;
+					    top: 9px;"  
+						id="searchArea">
 						돌봄지역을 선택해주세요.</span>
 				</div>
 					<!-- 돌봄유형 -->
@@ -63,7 +67,12 @@
 						<div class="locationImg baby">
 							<img src="${pageContext.request.contextPath}/images/baby2.png" style="width: 100%;" >
 						</div>
-						<span class="locationInput span openBtn2" style="margin-left: 20px; font-size: 13px; cursor: pointer; color:#626c6e; "" id="careType">
+						<span class="locationInput span openBtn2" style="margin-left: 25px;
+						    font-size: 14px;
+						    cursor: pointer;
+						    color: #626c6e;
+						    position: absolute;
+						    top: 9px; "" id="careType">
 							돌봄유형 선택하기.</span>
 					</div>
 	
@@ -89,24 +98,54 @@
 		 <c:choose>
 			<c:when test="${momList != null and fn:length(momList) > 0}">
 				<c:forEach var="mom" items="${momList}">
-					<c:if test="${mom.getUserStatus() == 2}">
+					<c:if test="${mom.getProfileProcess() == 1}">
 						<input type="hidden" value="${mom.getProfileNum()}"> 
 						
 							<!-- 유저정보 -->
 							<div class="userPf">
-							 	<img src="${pageContext.request.contextPath}/images/heart.png" class="heart" id="heart">
+						<%-- 	 	<img src="${pageContext.request.contextPath}/images/heart.png" class="heart" id="heart"> --%>
 							<div class="userImg">
 								<img src="${pageContext.request.contextPath}/images/img1.jpeg"class="userImgDetail">
 							<div>
 									<div class="certify">
-									<p class="p">확인된 인증 <span class="span" style="color: rgb(247, 87, 87); font-weight: bold;">2</span>개</p>
-									<input type="button" value="보험가입" class="certifyList" style="color:white !important" >
-									<input type="button" value="코로나 검사" class="certifyList"  style="color:white !important">
+									<c:set var="count" value="${mom.getCheckMedi()+mom.getCheckUniversity()+mom.getCheckMom()+mom.getCheckTeacher()+mom.getCheckCitizen() }"/>
+									<p class="p">확인된 인증 <span class="span" style="color: rgb(247, 87, 87); font-weight: bold;">${count}</span>개</p>
+									<c:choose>
+										<c:when test="${mom.getCheckMedi() ==1 }">
+											<input type="button" value="건강인증" class="certifyList" style="color:white !important" >
+										</c:when>
+									</c:choose>
+									<c:choose>
+										<c:when test="${mom.getCheckUniversity() ==1 }">
+											<input type="button" value="학력인증" class="certifyList" style="color:white !important" >
+										</c:when>
+									</c:choose>
+									<c:choose>
+										<c:when test="${mom.getCheckMom() ==1 }">
+											<input type="button" value="부모님인증" class="certifyList" style="color:white !important" >
+										</c:when>
+									</c:choose>
+									<c:choose>
+										<c:when test="${mom.getCheckTeacher() ==1 }">
+											<input type="button" value="선생님인증" class="certifyList" style="color:white !important" >
+										</c:when>
+									</c:choose>
+									<c:choose>
+										<c:when test="${mom.getCheckCitizen() ==1 }">
+											<input type="button" value="본인인증" class="certifyList" style="color:white !important" >
+										</c:when>
+									</c:choose>
+									
+
 									</div>
 							</div>
 							</div>
 								<div class="userName">
+
+							<%-- 	<h4 style="margin-bottom: 4px;"><a href="${pageContext.request.contextPath}/service/LookSitterProfileOk.ser?userNum=${mom.getUserNum()}"  style="border:none;">             --%>                                      
+
 								<h4 style="margin-bottom: 0;"><a href="${pageContext.request.contextPath}/service/LookSitterProfileOk.ser?userNum=${mom.getUserNum()}&profile=${mom.getProfileNum()}"  style="border:none;">                                                  
+
 								${mom.getProfileDescription()}</a></h4>
 								<div class="infoDetail">${mom.getLocationSido()}  ${mom.getLocationSigun()}</div>&nbsp;
 								<div class="infoDetail">${year-mom.getUserBirthYear()}세</div>
@@ -114,84 +153,89 @@
 							
 							
 							<!-- 돌봄가능날짜 -->
-										<div class="day" style="margin-top:10px;">
-										<div class="days">
+										<div class="day" style="    margin-top: 7px;  margin-left: -1px;">
+										
+										<div class="days" style="margin-left: -3.5px;"> 
 										<c:choose>
-										<c:when test="${mom.getP_mon()==1}">
-											<img src="${pageContext.request.contextPath}/images/월1.png" style="width: 30px;" >
+										<c:when test="${mom.getP_mon()==1}"> 
+											<img src="${pageContext.request.contextPath}/images/월1.png" style="width: 35px;" >
 										</c:when>
 										<c:otherwise >
-											<img src="${pageContext.request.contextPath}/images/월.png" style="width: 30px;" >
+											<img src="${pageContext.request.contextPath}/images/월.png" style="width: 35px;" >
 										</c:otherwise>
 										</c:choose>
 										
 										<c:choose>
 										<c:when test="${mom.getP_tue()==1}">
-											<img src="${pageContext.request.contextPath}/images/화1.png" style="width: 30px;" >
+											<img src="${pageContext.request.contextPath}/images/화1.png" style="width: 35px;" >
 										</c:when>
 										<c:otherwise >
-											<img src="${pageContext.request.contextPath}/images/화.png" style="width: 30px;" >
+											<img src="${pageContext.request.contextPath}/images/화.png" style="width: 35px;" >
 										</c:otherwise>
 										</c:choose>
 										
 										<c:choose>
 										<c:when test="${mom.getP_wed()==1}">
-											<img src="${pageContext.request.contextPath}/images/수1.png" style="width: 30px;" >
+											<img src="${pageContext.request.contextPath}/images/수1.png" style="width: 35px;" >
 										</c:when>
 										<c:otherwise >
-											<img src="${pageContext.request.contextPath}/images/수.png" style="width: 30px;" >
+											<img src="${pageContext.request.contextPath}/images/수.png" style="width: 35px;" >
 										</c:otherwise>
 										</c:choose>
 										
 										<c:choose>
 										<c:when test="${mom.getP_thu()==1}">
-											<img src="${pageContext.request.contextPath}/images/목1.png" style="width: 30px;" >
+											<img src="${pageContext.request.contextPath}/images/목1.png" style="width: 35px;" >
 										</c:when>
 										<c:otherwise >
-											<img src="${pageContext.request.contextPath}/images/목.png" style="width: 30px;" >
+											<img src="${pageContext.request.contextPath}/images/목.png" style="width: 35px;" >
 										</c:otherwise>
 										</c:choose>
 										
 										<c:choose>
 										<c:when test="${mom.getP_fri()==1}">
-											<img src="${pageContext.request.contextPath}/images/금1.png" style="width: 30px;" >
+											<img src="${pageContext.request.contextPath}/images/금1.png" style="width: 35px;" >
 										</c:when>
 										<c:otherwise >
-											<img src="${pageContext.request.contextPath}/images/금.png" style="width: 30px;" >
+											<img src="${pageContext.request.contextPath}/images/금.png" style="width: 35px;" >
 										</c:otherwise>
 										</c:choose>
 										
 										<c:choose>
 										<c:when test="${mom.getP_sat()==1}">
-											<img src="${pageContext.request.contextPath}/images/토1.png" style="width: 30px;" >
+											<img src="${pageContext.request.contextPath}/images/토1.png" style="width: 35px;" >
 										</c:when>
 										<c:otherwise >
-											<img src="${pageContext.request.contextPath}/images/토.png" style="width: 30px;" >
+											<img src="${pageContext.request.contextPath}/images/토.png" style="width: 35px;" >
 										</c:otherwise>
 										</c:choose>
 										
 										<c:choose>
 										<c:when test="${mom.getP_sun()==1}">
-											<img src="${pageContext.request.contextPath}/images/일1.png" style="width: 30px;" >
+											<img src="${pageContext.request.contextPath}/images/일1.png" style="width: 35px;" >
 										</c:when>
 										<c:otherwise >
-											<img src="${pageContext.request.contextPath}/images/일.png" style="width: 30px;" >
+											<img src="${pageContext.request.contextPath}/images/일.png" style="width: 35px;" >
 										</c:otherwise>
 										</c:choose>
 								
 										</div>
 									</div>
-						
+						<%-- 
 							<div class=chatIcon>
 							<img src="${pageContext.request.contextPath}/images/chatIcon.png" style="width: 100%;margin-top: 5px; float: left;">
 							</div>
-							<span class="span" style="line-height: 2;">&nbsp;"${mom.getProfileDescription()}"</span>
+							<span class="span" style="line-height: 2;">&nbsp;"${mom.getProfileDescription()}"</span> --%>
 							</div>	
 							</div>
 	 
 	
-							</c:if>				
+							</c:if>
 					</c:forEach>
+					<%-- 	<c:if test="${mom.getProfileProcess() != 1}">		
+						<div style="font-size: 42px; padding: 237px;text-align: center;border: 1px solid #d6d6d6;border-radius: 15px;margin-top: 27px !important;">
+						현재 작성된 게시글이 없습니다.</div>
+						</c:if> --%>
 				</c:when>
 			</c:choose> 
 		</div>
@@ -201,74 +245,74 @@
 
                 <div class="modal hidden">
                  <div class="bg"></div>
-                    <div class="modalBox"> 
+                    <div class="modalBox media1"> 
 							<!-- main -->
    
-						<div class="main2">
+						<div class="main2 media2">
 				        <div class="header">
 				        <div	style="
 				           	background-color: #ffb61a9e;
 					    	width: 551px;
 					      	height: 83px;
-					   		line-height: 5;">
-					    <h3 style="color:white; margin-left: -30px; font-size:23px;padding-top: 25px; " class="media2">상세 검색</h3></div>
+					   		line-height: 5;" class="media3">
+					    <h3 style="color:white; margin-left: -30px; font-size:23px;padding-top: 25px; " class="media4">상세 검색</h3></div>
 				      <%--  onclick="location.href='${pageContext.request.contextPath}/service/MomDetailModalOk.ser'" --%>
-				        <input type="button" value="적용" class="apply" style="cursor: pointer; color: #ffb61a !important;" id="close" >
+				        <input type="button" value="적용" class="apply media5" style="cursor: pointer; color: #ffb61a !important;" id="close" >
 				        </div>
   
          
-				        <div class="content media4">
+				        <div class="content media6">
 				        
-				            <h3 style="text-align: left;" class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;아이 나이</h3>
+				            <h3 style="text-align: left;" class="font-size media7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;아이 나이</h3>
 				            
-				            <span class="grade"><img src="${pageContext.request.contextPath}/images/신생아no.png" class="gradeImgSize media6"  id="newbornBaby"></span>
-				            <span class="grade"><img src="${pageContext.request.contextPath}/images/영아no.png"  class="gradeImgSize media6"  id="baby"></span>
-				            <span class="grade"><img src="${pageContext.request.contextPath}/images/유치원no.png" class="gradeImgSize media6"  id="kinder"></span>
-				            <span class="grade"><img src="${pageContext.request.contextPath}/images/초등학생no.png" class="gradeImgSize media6"   id="elementary"></span>
+				            <span class="grade"><img src="${pageContext.request.contextPath}/images/신생아no.png" class="gradeImgSize media8"  id="newbornBaby"></span>
+				            <span class="grade"><img src="${pageContext.request.contextPath}/images/영아no.png"  class="gradeImgSize media8"  id="baby"></span>
+				            <span class="grade"><img src="${pageContext.request.contextPath}/images/유치원no.png" class="gradeImgSize media8"  id="kinder"></span>
+				            <span class="grade"><img src="${pageContext.request.contextPath}/images/초등학생no.png" class="gradeImgSize media8"   id="elementary"></span>
 				    		<div style="margin-top: -11px;">
-				            <span class="grade2  media7">&nbsp;&nbsp;&nbsp;신생아</span>
-				            <span class="grade2 media7">&nbsp;&nbsp;영아</span>
-				            <span class="grade2" >&nbsp;&nbsp;유치원</span>
-				            <span class="grade2 media7">초등학생</span>
+				            <span class="grade2  media9">&nbsp;&nbsp;&nbsp;신생아</span>
+				            <span class="grade2 media9">&nbsp;&nbsp;영아</span>
+				            <span class="grade2 media9" >&nbsp;&nbsp;유치원</span>
+				            <span class="grade2 media9">초등학생</span>
 				            </div>
 				        </div>
         
 				        <hr>
-				        <div class="content media8">
-				            <h3 style="text-align: left;" class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;돌봄 요일</h3>
+				        <div class="content media10">
+				            <h3 style="text-align: left;" class="font-size media11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;돌봄 요일</h3>
 				            <div style="     margin-bottom: 4px; margin-top: -14px;" class="media10">
-				                <img src="${pageContext.request.contextPath}/images/월.png"  class="days2 media11" 
+				                <img src="${pageContext.request.contextPath}/images/월.png"  class="days2 media12" 
 				                 id="monday">
-				                <img src="${pageContext.request.contextPath}/images/화.png" class="days2 media11" 
+				                <img src="${pageContext.request.contextPath}/images/화.png" class="days2 media12" 
 				                 id="tuesday" >
-				                <img src="${pageContext.request.contextPath}/images/수.png" class="days2 media11" 
+				                <img src="${pageContext.request.contextPath}/images/수.png" class="days2 media12" 
 				                id="wednesday">
-				                <img src="${pageContext.request.contextPath}/images/목.png" class="days2 media11" 
+				                <img src="${pageContext.request.contextPath}/images/목.png" class="days2 media12" 
 				                id="thursday">
-				                <img src="${pageContext.request.contextPath}/images/금.png" class="days2 media11" 
+				                <img src="${pageContext.request.contextPath}/images/금.png" class="days2 media12" 
 				                id="friday">
-				                <img src="${pageContext.request.contextPath}/images/토.png" class="days2 media11"  
+				                <img src="${pageContext.request.contextPath}/images/토.png" class="days2 media12"  
 				                id="saturday">
-				                <img src="${pageContext.request.contextPath}/images/일.png" class="days2 media11"  
+				                <img src="${pageContext.request.contextPath}/images/일.png" class="days2 media12"  
 				                id="sunday">
 				            </div>
 				        </div>
 				        
 				        <hr>
 					
-					        <div class="content media12">
-					            <h3 style="text-align: left;" class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;돌봄 시간대</h3>
+					        <div class="content media13">
+					            <h3 style="text-align: left;" class="font-size media14">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;돌봄 시간대</h3>
 					       
-					            <span class="timeIcon"><img src="${pageContext.request.contextPath}/images/아침1.png"  class="timeIcon media14" 
+					            <span class="timeIcon"><img src="${pageContext.request.contextPath}/images/아침1.png"  class="timeIcon media15" 
 					                id="morning"></span>
-					            <span class="timeIcon"><img src="${pageContext.request.contextPath}/images/오후1.png" class="timeIcon media14"
+					            <span class="timeIcon"><img src="${pageContext.request.contextPath}/images/오후1.png" class="timeIcon media15"
 					                id="lunch"></span>
-					            <span class="timeIcon"><img src="${pageContext.request.contextPath}/images/저녁1.png" class="timeIcon media14"
+					            <span class="timeIcon"><img src="${pageContext.request.contextPath}/images/저녁1.png" class="timeIcon media15"
 					               id="dinner"></span>
 					                <div style="margin-bottom: 13px;    margin-top: -17px;" class="media16">
-									<span class="time media15">오전9시~오후12시</span>
-									<span class="time media15">오후12시~오후3시</span>
-									<span class="time media15">오후3시~오후6시</span>
+									<span class="time media17">오전9시~오후12시</span>
+									<span class="time media17">오후12시~오후3시</span>
+									<span class="time media17">오후3시~오후6시</span>
 									</div>												
 					        </div>
        
@@ -276,27 +320,27 @@
 					
 				
 
-						        <div class="content media20">
-						            <h3 style="text-align: left;" class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;원하는 활동</h3>
+						        <div class="content media18">
+						            <h3 style="text-align: left;" class="font-size media19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;원하는 활동</h3>
 						            
-						            <div class="time media22" style="margin-top: 15px height: 175px; ">
+						            <div class="time media20" style="margin-top: 15px height: 175px; ">
 						                <div style="margin-top: -16px !important;" >
-						                <img src="${pageContext.request.contextPath}/images/no실내놀이.png" class="activity media23"
+						                <img src="${pageContext.request.contextPath}/images/no실내놀이.png" class="activity media21"
 						                id="play">
-						                <img src="${pageContext.request.contextPath}/images/no등하원.png" class="activity media23"
+						                <img src="${pageContext.request.contextPath}/images/no등하원.png" class="activity media21"
 						                id="goingSchool" >
-						                <img src="${pageContext.request.contextPath}/images/no밥챙겨주기.png"class="activity media23"
+						                <img src="${pageContext.request.contextPath}/images/no밥챙겨주기.png"class="activity media21"
 						                id="makeEat">
-						                <img src="${pageContext.request.contextPath}/images/no청소.png" class="activity media23" 
+						                <img src="${pageContext.request.contextPath}/images/no청소.png" class="activity media21" 
 						                id="cleaning">
-						                <img src="${pageContext.request.contextPath}/images/no학습지도.png" class="activity media23"
+						                <img src="${pageContext.request.contextPath}/images/no학습지도.png" class="activity media21"
 						                id="study">
-						                <div class="media25">
-						                    <span style="margin:37.3px;" class="media24">실내놀이</span>
-						                    <span style="margin: 9px;"class="media24">등하원</span>
-						                    <span style="margin: 33px;"class="media24">밥 챙겨주기</span>
-						                    <span style="margin: 16px;"class="media24">청소</span>
-						                    <span style="margin: 34px;"class="media24">학습 지도</span>
+						                <div class="media22">
+						                    <span style="margin:37.3px;" class="media23">실내놀이</span>
+						                    <span style="margin: 9px;"class="media23">등하원</span>
+						                    <span style="margin: 33px;"class="media23">밥 챙겨주기</span>
+						                    <span style="margin: 16px;"class="media23">청소</span>
+						                    <span style="margin: 34px;"class="media23">학습 지도</span>
 						
 						                </div>
 						                </div>
@@ -424,40 +468,7 @@
                    </div>
                </div>
 		
-		
-		
-		
-		
-
-		
 	
-				<!-- 페이징 처리 -->
-		<%-- 		<table style="font-size:1.3rem">
-					<tr align="center" valign="middle">
-						
-						<td class="web-view">
-							<c:if test="${startPage > 1}">
-								<a href="${pageContext.request.contextPath}/service/SearchMomOk.ser?page=${startPage - 1}">&lt;</a>
-							</c:if>
-						
-							<c:forEach var="i" begin="${startPage}" end="${endPage}">
-								<c:choose>
-									<c:when test="${i eq page}">
-										<c:out value="${i}"/>&nbsp;&nbsp;
-									</c:when>
-									<c:otherwise>
-										<a href="${pageContext.request.contextPath}/service/SearchMomOk.ser?page=${i}"><c:out value="${i}"/></a>&nbsp;&nbsp;
-									</c:otherwise>
-								</c:choose>
-							</c:forEach>
-							
-							<c:if test="${endPage < realEndPage}">
-								<a href="${pageContext.request.contextPath}/service/SearchMomOk.ser?page=${endPage + 1}">&gt;</a>
-							</c:if>
-						</td>
-					</tr>
-				</table>
-	</div> --%>
 	<br>
 	<br>
 	</div>

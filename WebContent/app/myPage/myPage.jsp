@@ -22,6 +22,10 @@
 	<body class="is-preload">
 	<c:set var="user" value="${user}"/>
 	<c:set var="userAge" value="${userAge}"/>
+	<c:set var="fileName" value="${fileName}"/>
+	<c:set var="profileList" value="profileList"/>
+	<c:set var="checkChat" value="${checkChat}"/>
+	<c:set var="profileStatus" value="${profileStatus}"/>
 	
 <!-- Header -->
   <jsp:include page="/app/fix/header.jsp" flush="true"/>
@@ -29,8 +33,16 @@
 		
 		<!-- Main -->
 		<div id="main" class="container medium">
-				<header class="major" style = "margin: 0 !important;">
-					<h2 class = "notice" style = "font-size: 1.35em; line-height: 1.5em;">마이페이지</h2>
+				<header class="major" style = "margin: 0 !important; display:flex;">
+					<h2 class = "notice" style = "font-size: 1.35em; line-height: 1.5em; display:flex">마이페이지</h2>
+						<c:choose>
+							<c:when test="${checkChat eq 0}">
+								<img id = "chatGray" src = "https://cdn.discordapp.com/attachments/954273372760571914/956603481786056774/d336679aaf436c35.png">                            
+							</c:when>
+							<c:otherwise>
+								<img id = "chat" src = "https://cdn.discordapp.com/attachments/954273372760571914/956603481786056774/d336679aaf436c35.png">  
+							</c:otherwise>
+						</c:choose>
 				</header>
                 <hr style = "margin: 10px 0 0 0 !important; border-bottom: solid 1.7px #b7b7b7;">
 	<!-- Content -->
@@ -40,7 +52,14 @@
                     <div id = "profile" style = "position: relative; margin-left:20px;">
                         <label><input type="file" style="display:none;">
  <!-- =====================================프로파일 테이블 정리 및 기능 구현이 될 후의 처리 ==============================  -->
+ 				 <c:choose>
+                    	<c:when test="${empty fileName}">
                         <img src="https://cdn.discordapp.com/attachments/954273372760571914/955479398054772796/unknown.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">
+                    	</c:when>
+                    	<c:otherwise>
+                        <img src="/profileData/${fileName}" style="width: 100px; border-radius: 150px; cursor: pointer; ">
+                    	</c:otherwise>
+                    </c:choose>
                         </label>
                         <div style = "position:absolute; top: 0px; left: 120px;">
                             <span style = "font-size: 14px; font-weight: 500;">
@@ -82,7 +101,14 @@
                  
                         <div class = "innerContent">
                             <img src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg" style="float:right;margin-top: 5px;">
-                            <button class = "boldButtonYel">프로필 등록</button>
+                            <c:choose>
+                            	<c:when test="${profileStatus eq 0}">
+                            		 <button class = "boldButtonYel">프로필 등록</button>
+                            	</c:when>
+                            	<c:when test="${profileStatus eq 2}">
+                            		 <button class = "boldButtonYel">인증 대기중</button>
+                            	</c:when>
+                            </c:choose>
                             <a href = "${pageContext.request.contextPath}/service/Jobhunting.ser"><p class ="innerTitle">내 구인/구직 글</p></a>
                         </div>
                        
@@ -135,13 +161,18 @@
                 </div>
                         
 
+	<!-- 받은 요청 보기 아이프레임 -->
+
+   			<div id="divToggle" style = "display:none;">
+	   			<iframe src = "${pageContext.request.contextPath}/chat/ChatListOk.chat" width= "417px !important" height="600px !important" 
+	        	style = "position:absolute; left:200px; top: 206px; border-radius:10px; box-shadow: 4px 4px 20px rgb(51 51 51 / 15%); z-index:20; overflow-x:hidden;"></iframe>
+        	</div>
+
                 <!-- -------------------------------------------------------------- -->
 				<div id = "informatiom" class = "mainBox">
 				
 				
-
-
-
+			
                       
                
  
@@ -167,11 +198,13 @@
 				
 
                
+               
 		
 		
 		<!-- Aside -->
        
 		  <jsp:include page="../fix/aside.jsp" flush="true"/>
+		  
 		<!-- footer -->
 		  <jsp:include page="../fix/footer.jsp" flush="true"/>
          

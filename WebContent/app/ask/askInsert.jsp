@@ -54,7 +54,7 @@
 					 <form action="${pageContext.request.contextPath}/ask/AskInsertOk.ask" name="insertForm" method="post" enctype="multipart/form-data">
 							<div class= "label">
 								<label for = "username" class = "innerLabel">아이디</label>
-								<input type = "text" id ="username" class = "input" value ="${userId}" style = "background:white; border: none;" readonly>
+								<input type = "text" id ="username" class = "input" value ="${userId}" style = "background:white; width: 200px !important;" readonly>
 							</div>
 							<div class= "label">  
 								<label for = "category"  class = "innerLabel">카테고리 선택<span style = "color:red; font-weight:bold"> *</span></label>
