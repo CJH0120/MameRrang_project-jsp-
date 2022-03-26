@@ -38,6 +38,7 @@ div#main {
             border: hidden;
             font-weight: bold;
             font-size:16px;
+            cursor: pointer;
         }
 
         .buttonAside:hover,
@@ -590,4 +591,82 @@ display:none;
 
 
 
+
+
+
+
 }
+
+
+
+/*모달*/
+ .modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow:hidden;
+        }
+
+        .modal .bg {
+          width: 100%;
+          height: 100%;
+        }
+
+        .modalBox {
+          position: absolute;
+          background-color: #fff3f0;
+          width: 400px;
+          height: 350px;
+          padding: 15px;
+          border-radius: 6px;
+          text-align: center;
+          top: 249px;
+         right: 160px;
+         box-shadow: 4px 4px 20px rgb(51 51 51 / 15%);
+        }
+
+        .modalBox button {
+          display: block;
+          width: 80px;
+          margin: 0 auto;
+        }
+
+        .hidden {
+          display: none;
+        }
+        
+        .modalText{
+            margin: 18px 0;
+            font-family: 'GmarketSansMedium';
+            color:black;
+
+        }
+
+        .modalSubText{
+            font-size:14px;
+            line-height: initial;
+            margin: -10px 0 2em 0 !important; 
+            
+        }
+
+        button.submitBtn {
+          background-color: #ff7065 ;
+          padding: 5px 10px;
+          border-radius: 4px;
+          border:hidden;
+          cursor: pointer;font-family: 'GmarketSansMedium';
+            width:50%;
+            height:50px;
+            color:white;
+        }
+
+        .quit{
+            font-size: 14px;
+            color: #d4cfcf;
+
+        

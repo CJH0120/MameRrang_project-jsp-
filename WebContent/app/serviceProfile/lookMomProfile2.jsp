@@ -90,7 +90,7 @@
               <div style="" class="media_correct">
 	                	<a class="a" style="font-size:17px; cursor: pointer;"   onclick="location.href='${pageContext.request.contextPath}/service/SitterProfileDeleteOk.ser?profile=${profile}&userNum2=${userNum2}'">
 	                	<img class="can" style="max-width: 20px !important; display: inline-block; float: right;" src="https://cdn.discordapp.com/attachments/953473528030715988/955867805826297876/06f4ee6cc21129a5.png">
-	                	삭제</a>  
+	                	</a>  
 	                  </div>
                 <div style="text-align: left; display:inline-block; margin-left:15px;">
                     <label><input type="file" style="display:none;">
@@ -190,7 +190,11 @@
 			<c:when test="${mom.getCareStudy()==1}">
 				<c:set var="CareStudy" value="학습지도" />
 			</c:when>
-			</c:choose>		
+			</c:choose><c:choose>
+			<c:when test="${mom.getCareEmergency()==1}">
+				<c:set var="CareEmergency" value="긴급돌봄" />
+			</c:when>
+			</c:choose>				
 			
 			<!--돌봄가능 연령 ===============================  -->
 			<c:choose>
@@ -261,16 +265,24 @@
                         <ul style="list-style: none; margin-left: -28px; width: 423px; margin-bottom: 0; ">
                             
                             <br><li class="liCss" id="li2"><img src="${pageContext.request.contextPath}/images/활동아이콘.png" class="imgIcon">
-                            <a onMouseOver="this.innerHTML='${careIndoor} ${careCommit} ${CareFood} ${CareClean} ${CareStudy}'" onMouseOut="this.innerHTML='원하는 활동'">원하는 활동</a> </li>
+                            <a>원하는 활동 : </a> 
+                            <span>${careIndoor} ${careCommit} ${CareFood} ${CareClean} ${CareStudy} ${CareEmergency}</span>
+                            </li>
                             
                             <br><li class="liCss" id="li3"><img src="${pageContext.request.contextPath}/images/돌봄가능연령아이콘.png" class="imgIcon">
-                              <a onMouseOver="this.innerHTML='${BabyNewborn} ${BabyChild} ${BabyKinder} ${BabyElementary}'" onMouseOut="this.innerHTML='아이 정보'">아이 정보</a></li>
+                              <a>아이 정보 :</a>
+                              <span>${BabyNewborn} ${BabyChild} ${BabyKinder} ${BabyElementary}</span>
+                              </li>
                             
                             <br><li class="liCss" id="li4"><img src="${pageContext.request.contextPath}/images/돌봄가능기간.png" class="imgIcon">
-                              <a onMouseOver="this.innerHTML='${week} ${month} ${quarter} ${semiAnnual}'" onMouseOut="this.innerHTML='원하는 돌봄 기간'">원하는 돌봄 기간</a></li>
+                              <a>원하는 돌봄 기간 : </a>
+                              <span>'${week} ${month} ${quarter} ${semiAnnual}</span>
+                              </li>
                             
                             <br><li class="liCss" id="li5"><img src="${pageContext.request.contextPath}/images/활동가능시간.png" class="imgIcon">
-                              <a onMouseOver="this.innerHTML='${morning} ${lunch} ${noon}'" onMouseOut="this.innerHTML='원하는 돌봄 시간'">원하는 돌봄 시간</a></li>
+                              <a>원하는 돌봄 시간 : </a>
+                              <span>${morning} ${lunch} ${noon} </span>
+                              </li>
                            
 
                         </ul>
@@ -331,6 +343,7 @@
 <script>
 	var userNum = "${userNum}";
 	var userNum2 = "${mom.getUserNum()}";
+	var profileNum = "${mom.getProfileNum()}";
 </script>
 <script>
 

@@ -637,7 +637,7 @@
 			var userProfile="<div class='userPf'>";
 		
 			userProfile+="<div class='userImg'>";
-			if(result[i].ProfilePicture==""){
+			if(result[i].ProfilePicture=="" || result[i].ProfilePicture==null ){
 				console.log("픽쳐 널일때 들어옴")
 				userProfile+="<img src='../images/img1.jpeg'class='userImgDetail'>";
 			}else{
@@ -645,16 +645,17 @@
 				userProfile+="<img src='/profileData/"+result[i].ProfilePicture+"'class='userImgDetail'>";
 			}
 			userProfile+="<div>";
+			userProfile+="</div>";
 			userProfile+="<div class='certify'>";
 			userProfile+="<p class='p'>확인된 인증 <span class='span' style='color: rgb(247, 87, 87); font-weight: bold;'>";
-
+			
 			userProfile+=result[i].CheckMedi+result[i].CheckCitizen+result[i].CheckMom+result[i].CheckTeacher+result[i].CheckUniversity+"</span>개</p>";
 			if(result[i].CheckMedi==1){
 				
 				userProfile+="<input type='button' value='건강인증' class='certifyList' style='color:white !important' >";
 			}
 			if(result[i].CheckCitizen==1){
-			
+				
 				userProfile+="<input type='button' value='본인인증' class='certifyList' style='color:white !important' >";
 			}
 			if(result[i].CheckMom==1){
@@ -666,15 +667,14 @@
 				userProfile+="<input type='button' value='선생님인증' class='certifyList' style='color:white !important' >";
 			}
 			if(result[i].CheckUniversity==1){
-			
+				
 				userProfile+="<input type='button' value='학력인증' class='certifyList' style='color:white !important' >";
 			}
-
-			userProfile+="</div>";
+			
 			userProfile+="</div>";
 			userProfile+="</div>";
 			userProfile+="<div class='userName'>";
-			userProfile+="<h4 style='margin-bottom: 4px;'><a href='/service/LookSitterProfileOk.ser?userNum="+result[i].userNum+"' style='border:none;'>";                                                  
+			userProfile+="<h4 style='margin-bottom: 4px;'><a href='/service/LookSitterProfileOk.ser?userNum="+result[i].userNum+"&profile="+result[i].profileNum+"' style='border:none;'>";                                                  
 			userProfile+=result[i].ProfileDescription+"</a></h4>";
 			userProfile+="<div class='infoDetail'>"+result[i].LocationSido+" "+result[i].LocationSigun+"</div>&nbsp;";
 			userProfile+="<div class='infoDetail'>"+result[i].age+"세</div>";

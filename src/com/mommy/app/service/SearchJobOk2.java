@@ -23,7 +23,7 @@ public class SearchJobOk2 implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		
+		System.out.println("서치잡 오케이2들어옴");
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
 		HashMap<String, Integer> searchDetailMap = new HashMap<>();
@@ -104,6 +104,7 @@ public class SearchJobOk2 implements Action{
 		searchDetailMap.put("careFood", Integer.parseInt(req.getParameter("careFood")));
 		searchDetailMap.put("careClean", Integer.parseInt(req.getParameter("careClean")));
 		searchDetailMap.put("careStudy", Integer.parseInt(req.getParameter("careStudy")));
+		
 		searchDetailMap.put("userStatus", userStatus);
 		} 
 
@@ -191,7 +192,8 @@ public class SearchJobOk2 implements Action{
 			job.put("CheckTeacher", s.getCheckTeacher());
 			job.put("CheckUniversity", s.getCheckUniversity());
 			job.put("periodStartDate", s.getP_periodStartDate());
-			
+			job.put("ProfilePicture", s.getProfilePicture());
+			job.put("profileNum", s.getProfileNum());
 			jobs.add(job); 
 		}
 		

@@ -48,12 +48,13 @@
     margin-bottom: 15px;
 		
 		}
-		.userImg{
-width: 9%;
+.userImg {
+    width: 10%;
     float: left;
     margin-top: 33px;
     margin-left: 40px;
-		}
+    height: 61%;
+}
 		.userImgDetail{
 			width:100%;
 			border-radius: 20px;
@@ -143,6 +144,7 @@ width: 9%;
 		}
 		.fontSize{
 			font-size: 15px;
+			
 
 		}
 		.money{
@@ -331,6 +333,7 @@ margin-top:9px;
     }
 .font-size{
    font-size:15px;
+   text-align: left;
 }
         
             
@@ -615,12 +618,59 @@ margin-top:9px;
 		    margin-left:0px;
 		    
 	}
+	.modalBox3{
+		width: 95%
+	}
+	#close{
+		margin: -54px 100px;
+		width: 70px !important; 
+	}
+	.media2{
+		padding-top: 29px !important;
+	}
+	.grade{
+	    margin: 0px 25px;
+	}
+	.grade2{
+	 margin: 0px 24px;
+	}
+	.days2{
+	margin: 0px;
+	margin-top: 0px;
+	width: 45px;
+	
+	
+	}
+	
+	.font-size{
+	text-align: center;
+	}
+	.activity {
+		width: 36px;
+		
+	}
+	.media25 span{
+		margin: 18px !important;
+	}
+	.child{display: none;}
+	}
+	.f_wrap{
+	margin-top: 35px;
+	}
+	.s_wrap{
+	margin-top: 35px;
+	}
+	.media15{
+	margin-top: 35px;
 	}
 
-
-
-
-
+.userImg {
+    width: 10%;
+    float: left;
+    margin-top: 33px;
+    margin-left: 40px;
+    height: 61%;
+}
 
 
 

@@ -53,8 +53,8 @@
                         <ul>
                         <li><a href="${pageContext.request.contextPath}/user/UserLogin.user">로그인</a></li>
                            <%-- <li><a href="${pageContext.request.contextPath}/myPage/Mypage.my">마이페이지</a></li> --%>
-                            <li><a onclick="location.href='${pageContext.request.contextPath}/service/SearchJob.ser'">일자리 찾기</a></li>
-                             <li><a onclick="location.href='${pageContext.request.contextPath}/service/SearchMom.ser'">시터 찾기</a></li>
+                            <li><a onclick="location.href='${pageContext.request.contextPath}/service/SearchJobOk.ser'">일자리 찾기</a></li>
+                             <li><a onclick="location.href='${pageContext.request.contextPath}/service/SearchMomOk.ser'">시터 찾기</a></li>
                               <li><a onclick="location.href='${pageContext.request.contextPath}/community/CommunityListOk.com'">커뮤니티</a></li>
                            <li>
                               <span>고객센터</span>
@@ -74,8 +74,8 @@
                         <ul>
                         <li><a href="${pageContext.request.contextPath}/user/UserJoin.user">로그아웃</a></li>
                            <li><a href="${pageContext.request.contextPath}/myPage/Mypage.my">마이페이지</a></li>
-                            <li><a onclick="location.href='${pageContext.request.contextPath}/service/SearchJob.ser'">일자리 찾기</a></li>
-                             <li><a onclick="location.href='${pageContext.request.contextPath}/service/SearchMom.ser'">시터 찾기</a></li>
+                            <li><a onclick="location.href='${pageContext.request.contextPath}/service/SearchJobOk.ser'">일자리 찾기</a></li>
+                             <li><a onclick="location.href='${pageContext.request.contextPath}/service/SearchMomOk.ser'">시터 찾기</a></li>
                               <li><a onclick="location.href='${pageContext.request.contextPath}/community/CommunityListOk.com'">커뮤니티</a></li>
                            <li>
                               <span>고객센터</span>

@@ -56,11 +56,11 @@
            
            
 //          클릭 상세
-         const $btns = $('.test');
+         const $btns = $('.wrap');
          const $aw = $('.td1');
          $.each($btns, function(index, item){
          $(item).click(function(){
-             $($aw[index]).toggle();
+             $($aw[index]).toggle('fast');
          })
      });           
    
@@ -94,11 +94,6 @@
          
   		 function prooo(profileNum) {
 			 
-
-    
-  			 
-  			 alert(profileNum);
-  			 
   			 
 		      $.ajax({
 		            url: context + "/admin/AdminAuthChangeOk.ad",      
@@ -113,9 +108,11 @@
 			    			"profileNum": profileNum},
 		            success:function(e){
 		            	alert('수정하였습니다');
+		            	  location.reload();
 		            },
 		            error:function(){
 		            	alert('수정하였습니다');
+		            	  location.reload();
 		            }
 		            
 		            });

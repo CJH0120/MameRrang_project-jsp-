@@ -12,13 +12,13 @@
             font-weight: normal;
             font-style: normal;
         }
-        
+         
         #chat{
        		    cursor: pointer;
 			    width: 17px;
 			    height: 19px;
 			    margin-left: 11px;
-			    margin-top: 5px;
+			    margin-top: 6px;
         }
         
         #chatGray{
@@ -26,7 +26,7 @@
 			    width: 17px;
 			    height: 19px;
 			    margin-left: 11px;
-			    margin-top: 5px;
+			    margin-top: 6px;
                 -webkit-filter: grayscale(100%);
             filter : gray;
         }

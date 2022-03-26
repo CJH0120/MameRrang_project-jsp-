@@ -40,7 +40,8 @@
 								<img id = "chatGray" src = "https://cdn.discordapp.com/attachments/954273372760571914/956603481786056774/d336679aaf436c35.png">                            
 							</c:when>
 							<c:otherwise>
-								<img id = "chat" src = "https://cdn.discordapp.com/attachments/954273372760571914/956603481786056774/d336679aaf436c35.png">  
+								<img id = "chat" src = "https://cdn.discordapp.com/attachments/954273372760571914/956603481786056774/d336679aaf436c35.png"> 
+								<p style = "font-size: 12px; color: tomato; margin-left: 5px;margin-top: 0px;">새로운 알림이 있습니다!</p> 
 							</c:otherwise>
 						</c:choose>
 				</header>
@@ -78,7 +79,7 @@
                                     ${userAge}세, 
                                     <c:choose>
                                     	<c:when test="${user.getUserGender() == 1}">남</c:when>
-                                    	<c:when test="${user.getUserGender() == 0}">여</c:when>
+                                    	<c:when test="${user.getUserGender() == 2}">여</c:when>
                                     	<c:otherwise>정보없음</c:otherwise>
                                     </c:choose> 
                                     </span>
@@ -97,7 +98,7 @@
                                                         <button class = "boldButtonBlu" >구직중</button>
                                                         <button class = "boldButtonRed">심사중</button><
                  
-                        -->
+                         -->
                  
                         <div class = "innerContent">
                             <img src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg" style="float:right;margin-top: 5px;">
@@ -164,8 +165,8 @@
 	<!-- 받은 요청 보기 아이프레임 -->
 
    			<div id="divToggle" style = "display:none;">
-	   			<iframe src = "${pageContext.request.contextPath}/chat/ChatListOk.chat" width= "417px !important" height="600px !important" 
-	        	style = "position:absolute; left:200px; top: 206px; border-radius:10px; box-shadow: 4px 4px 20px rgb(51 51 51 / 15%); z-index:20; overflow-x:hidden;"></iframe>
+	   			<iframe src = "${pageContext.request.contextPath}/chat/ChatListOk.chat" width= "400px !important" height="600px !important" 
+	        	style = "position:absolute; left:200px; top: 206px; border-radius:10px; box-shadow: 4px 4px 20px rgb(51 51 51 / 15%); z-index:20; overflow-x:hidden !important;"></iframe>
         	</div>
 
                 <!-- -------------------------------------------------------------- -->

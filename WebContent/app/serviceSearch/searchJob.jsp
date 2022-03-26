@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -25,7 +25,6 @@
 		<c:set var="page" value="${page}"/>
 		<c:set var="startPage" value="${startPage}"/>
 		<c:set var="endPage" value="${endPage}"/>
-		<c:set var="realEndPage" value="${realEndPage}"/>
 		<c:set var="total" value="${total}"/>
 		<c:set var="year" value="<%=new java.util.Date()%>" />
 		<c:set var="year"><fmt:formatDate value="${year}" pattern="yyyy" /></c:set> 
@@ -105,16 +104,22 @@
 			<c:choose>
 				<c:when test="${jobList != null and fn:length(jobList) > 0}">
 					<c:forEach var="job" items="${jobList}">
-				
-						
+					<input type="hidden" value="${mom.getProfileNum()}"> 
 								<!-- 유저정보 -->
 								<div class="userPf">
 								<%-- <img src="${pageContext.request.contextPath}/images/heart.png" class="heart"> --%>
 								
 								<div class="userImg">
 									<!-- 유저 사진 -->
+<%-- 									<c:choose>
+										<c:when test="${mom.getProfilePicture() eq null or empty mom.getProfilePicture()}">
 									<img src="${pageContext.request.contextPath}/images/아이.png"class="userImgDetail">
-								
+										</c:when>
+										<c:otherwise> --%>
+											<img src="/profileData/${mom.getProfilePicture()}" class="userImgDetail">
+										<%-- </c:otherwise>
+									</c:choose> --%>
+								  
 								</div>
 								<div class="userName">
 									<!-- 게시글 제목 -->
@@ -256,7 +261,7 @@
          
 				        <div class="content media4">
 				        
-				            <h3 style="text-align: left;" class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;아이 나이</h3>
+				            <h3  class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;아이 나이</h3>
 				            
 				            <span class="grade"><img src="${pageContext.request.contextPath}/images/신생아no.png" class="gradeImgSize media6"  id="newbornBaby"></span>
 				            <span class="grade"><img src="${pageContext.request.contextPath}/images/영아no.png"  class="gradeImgSize media6"  id="baby"></span>
@@ -272,7 +277,7 @@
         
 				        <hr>
 				        <div class="content media8">
-				            <h3 style="text-align: left;" class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;돌봄 요일</h3>
+				            <h3  class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;돌봄 요일</h3>
 				            <div style="     margin-bottom: 4px; margin-top: -14px;" class="media10">
 				                <img src="${pageContext.request.contextPath}/images/월.png"  class="days2 media11" 
 				                 id="monday">
@@ -294,7 +299,7 @@
 				        <hr>
 					
 					        <div class="content media12">
-					            <h3 style="text-align: left;" class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;돌봄 시간대</h3>
+					            <h3 " class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;돌봄 시간대</h3>
 					       
 					            <span class="timeIcon"><img src="${pageContext.request.contextPath}/images/아침1.png"  class="timeIcon media14" 
 					                id="morning"></span>
@@ -332,7 +337,7 @@
 					        <hr> --%>
 
 						        <div class="content media20">
-						            <h3 style="text-align: left;" class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;원하는 활동</h3>
+						            <h3  class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;원하는 활동</h3>
 						            
 						            <div class="time media22" style="margin-top: 15px height: 175px; ">
 						                <div style="margin-top: -16px !important;" >
@@ -381,7 +386,7 @@
         <h3 style="margin: 1px; font-family: GmarketSansMedium;" >어떤 돌봄이 필요하세요?</h3>
         <p style="margin: 0; color: gray;" class="media21">돌봄 유형을 선택하시면, 맞춤 시터를 보여드려요</p>
 
-        <div>
+        <div class="f_wrap">
             <div class="child">
                 2~10세 정기 돌봄
             </div>
@@ -404,7 +409,7 @@
 
 
 
-        <div>
+        <div class="s_wrap">
             <div class="child" style="margin-top:20px;">
                 신생아/영아 정기돌봄
             </div>
@@ -424,7 +429,7 @@
             </div>
         </div>
 
-
+		
         <div class="media15">
             <div class="child" style="margin-top:20px;">
                 긴급/단기 돌봄
@@ -484,37 +489,7 @@
 		
 				
 					
-								<%-- 		<!-- 페이징 처리 -->
-							
-											
-										<table style="font-size:1.3rem">
-											<tr align="center" valign="middle">
-												
-												<td class="web-view">
-													<c:if test="${startPage > 1}">
-														<a href="${pageContext.request.contextPath}/service/SearchJobOk.ser?page=${startPage - 1}">&lt;</a>
-													</c:if>
-												
-													<c:forEach var="i" begin="${startPage}" end="${endPage}">
-														<c:choose>
-															<c:when test="${i eq page}">
-																<c:out value="${i}"/>&nbsp;&nbsp;
-															</c:when>
-															<c:otherwise>
-																<a href="${pageContext.request.contextPath}/service/SearchJobOk.ser?page=${i}"><c:out value="${i}"/></a>&nbsp;&nbsp;
-															</c:otherwise>
-														</c:choose>
-													</c:forEach>
-													
-													<c:if test="${endPage < realEndPage}">
-														<a href="${pageContext.request.contextPath}/service/SearchJobOk.ser?page=${endPage + 1}">&gt;</a>
-													</c:if>
-												</td>
-											</tr>
-										</table>
-				
-				
-		 --%>
+						
 	
 	</section>	
 	

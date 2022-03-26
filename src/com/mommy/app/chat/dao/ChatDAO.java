@@ -46,5 +46,11 @@ public class ChatDAO {
 	   public int countNew (int userNum) {
 		   return sqlSession.selectOne("Chat.countNew", userNum);
 	   }
+	   
+	   // 이름 가져오기 
+	   public String userName (int userNum) {
+		   return sqlSession.selectOne("Chat.userName", userNum);
+	   }
+	   
 
 }

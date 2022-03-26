@@ -215,6 +215,7 @@ public class SearchMomOk2 implements Action{
 			mom.put("CheckTeacher", s.getCheckTeacher());
 			mom.put("CheckUniversity", s.getCheckUniversity());
 			mom.put("ProfilePicture", s.getProfilePicture());
+			mom.put("profileNum", s.getProfileNum());
 		
 			
 			moms.add(mom);

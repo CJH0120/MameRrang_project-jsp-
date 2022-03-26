@@ -103,6 +103,9 @@ public class WriteMomOk implements Action{
 		serviceVo.setCareCommit(transInt(multi.getParameter("commit")));
 		serviceVo.setCareFood(transInt(multi.getParameter("food")));
 		serviceVo.setCareClean(transInt(multi.getParameter("clean")));
+		serviceVo.setCareStudy(transInt(multi.getParameter("study")));
+		serviceVo.setCareEmergency(transInt(multi.getParameter("emergency")));
+		
 		serviceVo.setBabyNewborn(transInt(multi.getParameter("newborn")));  // n
 		serviceVo.setBabyChild(transInt(multi.getParameter("baby"))); 
 		serviceVo.setBabyKinder(transInt(multi.getParameter("kinder")));

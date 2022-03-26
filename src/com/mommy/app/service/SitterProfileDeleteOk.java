@@ -47,17 +47,18 @@ public class SitterProfileDeleteOk implements Action{
 		//상태번호가 부모라면
 		if(userStatus == statusParent) {
 			prodao.delete(profileNum);
-			serdao.delete(userNum);
 			favoriteDAO.deleteUserAll(userNum);
+			serdao.delete(userNum);
+//			System.out.println("삭제완료1");
 			af.setPath("/service/SearchJobOk.ser");
 		//상태번호가 시터라면
 		}else if(userStatus == statusSitter){
 			prodao.delete(profileNum);
-			serdao.delete(userNum);
 			favoriteDAO.deleteUserAll(userNum);
+			serdao.delete(userNum);
+//			System.out.println("삭제완료2");
 			af.setPath("/service/SearchMomOk.ser");
 		}
-		
 		
 		
 //		af.setPath(req.getContextPath() + "/service/SearchMomOk.ser");

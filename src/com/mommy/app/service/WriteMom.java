@@ -18,7 +18,7 @@ public class WriteMom implements Action{
 		
 		HttpSession session = req.getSession();
 		
-		
+		System.out.println("들어옴");
 		int userNum = (Integer)session.getAttribute("userNum");
 		UserVO userVO = new UserVO();
 		UserDAO userDao = new UserDAO();
@@ -27,9 +27,22 @@ public class WriteMom implements Action{
 		/*String userId = dao.getInfo((Integer)session.getAttribute("userNum")).getUserId();*/
 		userVO = userDao.getInfo(userNum);
 		
-		int birthYear = userVO.getUserBirthYear();
-		int nowYear = Calendar.getInstance().get(Calendar.YEAR);
-		int age = nowYear -  birthYear;
+		//나이(만나이)
+				int birthYear = userVO.getUserBirthYear();
+				int birthMonth = userVO.getUserBirthMonth();
+				int birthDay = userVO.getUserBirthDate();
+				
+		        Calendar current = Calendar.getInstance();
+		        int currentYear  = current.get(Calendar.YEAR);
+		        int currentMonth = current.get(Calendar.MONTH) + 1;
+		        int currentDay   = current.get(Calendar.DAY_OF_MONTH);
+		      
+		        int age = currentYear - birthYear;
+		        
+		        // 생일 안 지난 경우 -1
+		        if (birthMonth * 100 + birthDay > currentMonth * 100 + currentDay) 
+		            age--;
+		        
 		
 		req.setAttribute("userVO", userVO);
 		req.setAttribute("userAge", age);

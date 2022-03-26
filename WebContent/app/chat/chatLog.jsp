@@ -32,7 +32,14 @@
             <div style="background: #FFF7CA; height:50px; top:0px; padding:11px;">
                 <h1 style ="color:#ffb61a;">채팅</h1>
                 <i class="icon-down-dir"></i>
-                <span class="chat-balloon" id = "all">전체 읽음</span>
+                 <c:choose>
+                  	<c:when test = "${chatList != null and fn:length(chatList) > 0}">
+		                <span class="chat-balloon2" id = "all">전체 읽음</span>
+		            </c:when>
+		            <c:otherwise>
+		            	 <span class="chat-balloon3" id = "all">전체 읽음</span>
+		            </c:otherwise>
+                </c:choose>
             </div>
             <!-- 메인: 채팅 리스트 화면 -->
             <main style = "padding-left: 10px;">

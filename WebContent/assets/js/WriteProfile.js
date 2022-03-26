@@ -64,6 +64,13 @@
 		 
 	});
 
+	function modalClose(){
+		
+	   $("#my_modal").css('display','none');
+	   $("#modalBg").remove();
+	}
+	
+	
 	function modal(id) {
 		    var zIndex = 9999;
 		    var modal = document.getElementById(id);
@@ -71,20 +78,22 @@
 		    // 모달 div 뒤에 희끄무레한 레이어
 		    var bg = document.createElement('div');
 		    bg.setStyle({
-		        position: 'fixed',
-		        zIndex: zIndex,
-		        left: '0px',
-		        top: '0px',
-		        width: '100%',
-		        height: '100%',
-		        overflow: 'auto',
-		        // 레이어 색갈은 여기서 바꾸면 됨
-		        backgroundColor: 'rgba(0,0,0,0.4)'
+		    	position: 'fixed',
+		    	zIndex: zIndex,
+		    	left: '0px',
+		    	top: '0px',
+		    	width: '100%',
+		    	height: '100%',
+		    	overflow: 'auto',
+		    	// 레이어 색갈은 여기서 바꾸면 됨
+		    	backgroundColor: 'rgba(0,0,0,0.4)'
 		    });
+		    bg.id="modalBg";
 		    document.body.append(bg);
 
 		    // 닫기 버튼 처리, 시꺼먼 레이어와 모달 div 지우기
 		    modal.querySelector('.modal_close_btn').addEventListener('click', function() {
+		    	console.log("닫기버튼 눌림");
 		        bg.remove();
 		        modal.style.display = 'none';
 		    });
@@ -227,6 +236,35 @@
    			}
    		}
    	});
-   
-   
+	
+	//파일 업로드 확장자 체크
+	function checkFile(f) {
+		//files로 해당 파일 정보 얻기
+		var file = f.files;
+		// file[0].name 은 파일명
+		// 정규식으로 확장자 체크
+		if(!/\.(zip)$/i.test(file[0].name)) 
+			alert('zip 파일만 선택해 주세요.\n\n현재 파일 : ' + file[0].name);
+		// 체크를 통과했다면 종료.
+		else return;
+		// 체크에 걸리면 선택된  내용 취소 처리를 해야함.
+		// 파일선택 폼의 내용은 스크립트로 컨트롤 할 수 없다.
+		// 그래서 그냥 새로 폼을 새로 써주는 방식으로 초기화.
+		f.outerHTML = f.outerHTML;
+		
+	}
+//	//용량체크
+//	if($("#attachQ").value!=""){
+//		var fileSize = $("#attachQ").files[0].size;
+//		var maxSize = 10 * 1024 * 1024;// 10MB(앞에 숫자만 변경하면됌)
+//		
+//		if(fileSize > maxSize){
+//			alert("첨부파일 사이즈는 10MB 이내로 등록 가능합니다. ");
+//			$("#attachQ").val("");
+//			return;
+//		}
+//	}  
+	
+
+	
 	   

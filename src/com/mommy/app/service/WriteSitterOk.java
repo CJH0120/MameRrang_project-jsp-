@@ -98,11 +98,13 @@ public class WriteSitterOk implements Action{
 		serviceVo.setCareCommit(transInt(multi.getParameter("commit")));
 		serviceVo.setCareFood(transInt(multi.getParameter("food")));
 		serviceVo.setCareClean(transInt(multi.getParameter("clean")));
+		serviceVo.setCareStudy(transInt(multi.getParameter("careStudy")));
+		serviceVo.setCareEmergency(transInt(multi.getParameter("careEmergency")));
+		
 		serviceVo.setBabyNewborn(transInt(multi.getParameter("newborn")));  // n
 		serviceVo.setBabyChild(transInt(multi.getParameter("baby"))); 
 		serviceVo.setBabyKinder(transInt(multi.getParameter("kinder")));
 		serviceVo.setBabyElementary(transInt(multi.getParameter("elememtary")));
-		serviceVo.setCareEmergency(transInt(multi.getParameter("careEmergency")));
 
 		
 		serviceVo.setProfileDescription(multi.getParameter("message")); // ?? 

@@ -22,17 +22,20 @@ public class FavoriteDeleteOk implements Action{
 		FavoriteDAO dao = new FavoriteDAO();
 		int userNum = Integer.parseInt(req.getParameter("userNum"));
 		int profileUserNum = Integer.parseInt(req.getParameter("profileUserNum"));
-		int fromList = Integer.parseInt(req.getParameter("fromList"));
 		
+		int fromList = 0;
+		if(req.getParameter("fromList") !=null) {
+		 fromList = Integer.parseInt(req.getParameter("fromList"));
+		}
 		
 		System.out.println(userNum);
 		System.out.println(profileUserNum);
 		System.out.println(fromList);
 		favorite.setUserNum(userNum);
 		favorite.setProfileUserNum(profileUserNum);
-	
-		
 		dao.delete(favorite);
+		
+
 		if(fromList == 1) {
 			ActionForward af = new ActionForward();
 			af.setPath("/service/FavoriteListOk.ser");

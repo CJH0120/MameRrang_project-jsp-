@@ -1,25 +1,33 @@
-
+const body = document.querySelector('body');
     function open(){
       document.querySelector(".modal").classList.remove("hidden");
+      body.style.overflow = 'hidden'
     }
   
     function close(){
       document.querySelector(".modal").classList.add("hidden");
+      body.style.overflow = 'scroll'
     }
     
     function open2(){
     	document.querySelector(".modal2").classList.remove("hidden");
+    	  body.style.overflow = 'hidden'
     }
     
     function close2(){
     	document.querySelector(".modal2").classList.add("hidden");
+    	   body.style.overflow = 'scroll'
     }
+    
+    
     function open3(){
     	document.querySelector(".modal3").classList.remove("hidden");
+    	 body.style.overflow = 'hidden'
     }
     
     function close3(){
     	document.querySelector(".modal3").classList.add("hidden");
+    	  body.style.overflow = 'scroll'
     }
   
 
@@ -33,6 +41,7 @@
     document.querySelector(".bg3").addEventListener("click", close3);
 
     
+    console.log("찍힘");
  
 
 	
@@ -49,6 +58,10 @@
 			}
 			
 		});
+		
+		
+	    console.log("찍힘");
+		
 		
 /*		window.addEventListener( 'message', (e) => {
 		    // 전달 된 데이터 
@@ -225,7 +238,7 @@
 					}else{$study.attr('src','../images/학습지도.png');
 					$study.addClass('on');}
 		    })
-		   
+	    console.log("찍힘");	   
 
 		   
     var newbornBaby=0;
@@ -253,7 +266,7 @@
     var cleaning = 0;
     var study = 0;
     var check=0;
-    
+    console.log("찍힘");  
     
     $('#close').on("click",function(){
     	careType=false;
@@ -343,7 +356,7 @@
 
     });
 
-    
+    console.log("찍힘");
    
     
 //	돌봄유형 모달창--------------------------------------------------------------------------
@@ -355,7 +368,7 @@
 		const $fullType=$('#fullType');
 		var careType=false;
 		var careNum=0;
-		
+	    console.log("찍힘");	
 		$goToSchool.on("click",function(){
 			careType=true;
 			careNum=1;
@@ -549,6 +562,7 @@
 	var isLast = false; // 마지막 페이지 여부
 	
 	$(window).scroll(function(){
+	    console.log("찍힘");
 		console.log("스크롤이벤트들어옴");
 		var scrT = $(window).scrollTop();
 //		console.log(scrT + "스크롤값");
@@ -584,6 +598,7 @@
 	
 	// 리스트 조회
 	 function getList() {
+		
 		 // 페이지 파라미터 (필터링 값, 페이지 번호)
 		 const data = {
 				 "page": page,
@@ -637,9 +652,9 @@
 				var userProfile="<div class='userPf'>";
 				userProfile+="<div class='userImg'>";
 				userProfile+="	<!-- 유저 사진 -->";
-				if(result[i].ProfilePicture==""){
+				if(result[i].ProfilePicture=="" || result[i].ProfilePicture==null ){
 					console.log("픽쳐 널일때 들어옴")
-					userProfile+="<img src='../images/img1.jpeg'class='userImgDetail'>";
+					userProfile+="<img src='../images/아이.png'class='userImgDetail'>";
 				}else{
 					console.log("픽쳐 널아님")
 					userProfile+="<img src='/profileData/"+result[i].ProfilePicture+"'class='userImgDetail'>";
@@ -647,7 +662,7 @@
 				userProfile+="</div>";
 				userProfile+="<div class='userName'>";
 				userProfile+="	<!-- 게시글 제목 -->";
-				userProfile+="	<h4 style='margin-bottom: 0;'><a href='/service/LookMomProfileOk.ser?userNum=${job.getUserNum()}' style='border:none;'>";
+				userProfile+="	<h4 style='margin-bottom: 0;'><a href='/service/LookMomProfileOk.ser?userNum="+result[i].userNum+"&profile="+result[i].profileNum+"' style='border:none;'>";
 				userProfile+=""+result[i].ProfileDescription+"</a></h4>";
 				userProfile+="	<div class='mobileAd'>";
 				userProfile+="		<!-- 주소 -->";
@@ -737,6 +752,7 @@
 				
 				
 	function getList1(){
+		
 		$.ajax({
 		 type: "GET",
 		 url: "/mommy_workspace/service/SearchJobOk2.ser",
@@ -747,7 +763,6 @@
 			 console.log(result);
 			 if (result.length > 0) { 
 				 addList(result); 
-				 
 			 } else {
 				 isLast = true;
 			 }
@@ -761,6 +776,7 @@
 
 
 function getList2(){
+
 	$.ajax({
 		 type: "GET",
 		 url: "/mommy_workspace/service/SearchJobOk2.ser",
@@ -771,7 +787,6 @@ function getList2(){
 			 console.log(result);
 			 if (result.length > 0) { 
 				 addList(result); 
-				 
 			 } else {
 				 isLast = true;
 			 }
@@ -786,6 +801,7 @@ function getList2(){
 
 
 function getList3(){
+	
 	$.ajax({
 		 type: "GET",
 		 url: "/mommy_workspace/service/SearchJobOk2.ser",
@@ -796,7 +812,6 @@ function getList3(){
 			 console.log(result);
 			 if (result.length > 0) { 
 				 addList(result); 
-				 
 			 } else {
 				 isLast = true;
 			 }
@@ -809,6 +824,7 @@ function getList3(){
 
 
 function getList4(){
+	
 	$.ajax({
 		 type: "GET",
 		 url: "/mommy_workspace/service/SearchJobOk2.ser",
@@ -819,7 +835,6 @@ function getList4(){
 			 console.log(result);
 			 if (result.length > 0) { 
 				 addList(result); 
-				 
 			 } else {
 				 isLast = true;
 			 }
@@ -832,6 +847,7 @@ function getList4(){
 
 
 function getList5(){
+
 	$.ajax({
 		 type: "GET",
 		 url: "/mommy_workspace/service/SearchJobOk2.ser",
@@ -843,7 +859,6 @@ function getList5(){
 			 
 			 if (result.length > 0) { 
 				 addList(result); 
-				 
 			 } else {
 				 isLast = true;
 			 }
@@ -856,6 +871,7 @@ function getList5(){
 
 
 function getList6(){ 
+
 	$.ajax({
 		 type: "GET",
 		 url: "/mommy_workspace/service/SearchJobOk2.ser",
@@ -866,7 +882,6 @@ function getList6(){
 			 console.log(result);
 			 if (result.length > 0) { 
 				 addList(result); 
-				 
 			 } else {
 				 isLast = true;
 			 }
@@ -879,6 +894,7 @@ function getList6(){
 	
 
 function getList7(){ 
+	
 	var locationSido=$("#sido option:selected").text();
 	var locationSigun=$("#sigugun option:selected").text();
 	var locationDong=$("#dong option:selected").text();
@@ -893,7 +909,6 @@ function getList7(){
 		 console.log(result);
 		 if (result.length > 0) { 
 			 addList(result); 
-			 
 		 } else {
 			 isLast = true;
 		 }

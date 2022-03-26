@@ -36,7 +36,7 @@
                                     <p class="p-font-color">새로운 비밀번호 </p>
                                     <input type="password" name="newPw" id="newPw" class="input-font" style="width: 95%;" placeholder="새 비밀번호를 입력해주세요.">
                                 </div>
-                                <div id="result2">테스트</div>
+                                <div id="result2"></div>
                                     <br>
                                  <div id="newPwCkWrap">
                                         <p class="p-font-color">새로운 비밀번호 확인</p>

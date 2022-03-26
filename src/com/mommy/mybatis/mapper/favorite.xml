@@ -5,8 +5,8 @@
 	<!-- 찜목록 추가 -->
 	<insert id="insert" parameterType="FavoriteVO">
 		insert into tbl_favorite
-		(userNum, profileUserNum)
-		values (#{userNum}, #{profileUserNum})
+		(userNum, profileUserNum,profileNum)
+		values (#{userNum}, #{profileUserNum},#{profileNum})
 	</insert>
 	
 	<!--  찜목록 삭제 -->
@@ -24,7 +24,7 @@
 	
 	<!-- 찜 목록 보기 -->
 	<select id="selectAll" parameterType="_int" resultType="FavoriteDTO">
-	select f.profileUserNum, profilePicture, profileSalary, f.userNum ,p.profileNum  
+	select  p.profileProcess, f.profileUserNum, profilePicture, profileSalary, f.userNum ,p.profileNum  
 	from tbl_favorite f join tbl_profile p 
 	on f.profileNum = p.profileNum and f.userNum = #{userNum}
 	</select>

@@ -28,7 +28,7 @@ public class ServiceFrontController extends HttpServlet{
 		String command = requestURI.substring(contextPath.length());
 		ActionForward af = new ActionForward();
 		
-	System.out.println("찜하기 확인 FC 들어옴");
+	System.out.println("찜하기 확인 FC 들어옴.프론트컨트롤");
 	System.out.println(command);
 		
 		if(command.equals("/service/SearchJob.ser")) {
@@ -46,6 +46,12 @@ public class ServiceFrontController extends HttpServlet{
 			System.out.println("여기냐..??");
 
 			af=new SearchJobOk2().execute(req, resp);
+		}else if(command.equals("/service/SearchMomOk.ser")) {
+			af=new SearchMomOk().execute(req, resp);
+			
+		}else if(command.equals("/service/SearchJobOk.ser")) {
+			
+			af=new SearchJobOk().execute(req, resp);
 
 		}else if(command.equals("/service/FavoriteInsertOk.ser")) {
 			af =new FavoriteInsertOk().execute(req, resp);

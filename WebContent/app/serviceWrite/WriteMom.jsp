@@ -45,13 +45,14 @@
          <!-- 모달창 -->
 		   <div id="my_modal">
 	<iframe id="modalIframe"  src="${pageContext.request.contextPath}/app/modal/periodModal2.jsp" style="
-      position: absolute;
+       position: absolute;
     width: 106%;
     margin-left: -69px;
     height: 100%;
-    margin-top: -38px;
+    margin-top: -28px;
+    margin-left: -62px;
 			">대체 내용</iframe>  
-			  <a class="modal_close_btn"><img src="${pageContext.request.contextPath}/images/whiteX.png" style="width:20px;"></a>
+		  <a class="modal_close_btn"></a>  
         </div>
 			
 		<!-- Main -->
@@ -59,7 +60,9 @@
 			<!-- profile header -->
 			<form action="${pageContext.request.contextPath}/service/WriteMomOk.ser" name="writeProfileForm" method="post" enctype="multipart/form-data">
             <div style = "width: 100%; background: white; position:relative;" class="mediaMain">
-           
+           <span class="caution" style="float: right;font-size: 12px;color: #93999A; "><img style="max-width: 15px;" src="https://cdn.discordapp.com/attachments/954273372760571914/956558128898519090/aed53ff36d53bb73.jpg">
+                	글 저장후 프로필 수정은 불가능하오니 주의하시기 바랍니다.
+                </span>
                 <div style="text-align: left; display:inline-block; margin-left:15px;">
                 	<div class="profile">
                     <label><input type="file" name ="profilePicture"style="display:none;">
@@ -185,6 +188,10 @@
                      </div>
                 </div>
             </div>
+            
+             
+                
+            
             				<!-- 모달 데이터를 받기위해 생성되는 히든 인풋영역 -->				
 				<div id="formDataFromIf">
 				</div>

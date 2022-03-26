@@ -35,7 +35,14 @@
                     <c:forEach var="profile" items="${profileList}">
                     <div class="inline-block userInfoDiv" >
                     <!-- 이미지 경로추출 확인되는 데로 데이터 입력 -->
-                    <div class="profileImgWrap" style="width: 100%; height: 68%;">
+                    <c:choose>
+                    <c:when test="${profile.getProfileProcess() == 1}">
+                	   <div class="profileImgWrap" style="width: 100%; height: 68%;" onclick="location.href='${pageContext.request.contextPath}/service/LookMomProfileOk.ser?userNum=${profile.getProfileUserNum()}';">
+                    </c:when>
+                    <c:otherwise>
+                	   <div class="profileImgWrap" style="width: 100%; height: 68%;" onclick="location.href='${pageContext.request.contextPath}/service/LookSitterProfileOk.ser?userNum=${profile.getProfileUserNum()}';">
+                    </c:otherwise>
+                    </c:choose>
                     <c:choose>
                     	<c:when test="${empty profile.getFileName()}">
 		                     <img src="${pageContext.request.contextPath}/images/img1.jpeg" style="height: 100%;width: 100%; object-fit: contain; ">

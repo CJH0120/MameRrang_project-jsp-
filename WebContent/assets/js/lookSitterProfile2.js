@@ -15,7 +15,7 @@ $heart.on("click", function(){
 		  $.ajax({
 		        url: contextPath + "/service/FavoriteInsertOk.ser",
 		        type: "post",
-		        data: {"userNum": userNum, "profileNum": userNum2},
+		        data: {"userNum": userNum, "profileUserNum": userNum2,"profileNum":profileNum},
 		        
 		      
 		    });
@@ -25,7 +25,7 @@ $heart.on("click", function(){
 		 $.ajax({
 		        url: contextPath + "/service/FavoriteDeleteOk.ser",
 		        type: "post",
-		        data: {"userNum": userNum, "profileUserNum": userNum2},
+		        data: {"userNum": userNum, "profileUserNum": userNum2,"profileNum":profileNum},
 		        
 		     
 		    });
@@ -47,33 +47,31 @@ const open = () => {
   
   document.querySelector(".openBtn").addEventListener("click", open);
   document.querySelector(".submitBtn").addEventListener("click", close);
-  document.querySelector(".quit").addEventListener("click", close);
   document.querySelector(".bg").addEventListener("click", close);
   
   
 
-const $chat = $('#chatbutton');
-
-// api 
-$chat.on("click", function(){
+// 인서트하기  
+function insert(){
+	
+	var chatTitle = $('#chatTitle').val();
+	var chatContent = $('#chatContent').val();
 	console.log("요청");
 	$.ajax({
-	       url: "https://api-56CB17D6-60D6-4370-8D10-9836673EC992.sendbird.com/v3",
+	       url: contextPath + "/chat/ChatInsertOk.chat",
 	       type: "get",
 	       dataType: "json",
-	       data: {
-	    	 
-	    	   "Api-Token": 'd7c0bcf001c941b0971f5aeb0e6f9151e797de79',
-	    	
-	       },
+	       data: {"userNum": userNum , "userNum2": userNum2,
+	    	   "chatTitle": chatTitle, "chatContent": chatContent},
 	   	success:function(data){
 			console.log(data);
 		},
 		error:function(){
 			console.log("실패");
 		}
-	   });
-});
+	  
+	});
+}
 
 
 

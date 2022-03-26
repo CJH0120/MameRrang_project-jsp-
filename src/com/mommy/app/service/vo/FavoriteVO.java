@@ -5,8 +5,17 @@ public class FavoriteVO {
 	private int favoriteNum;
 	 private int userNum;
 	 private int profileUserNum;
+	 private String profileNum;
 	 
-	 public FavoriteVO() {;}
+	 public String getProfileNum() {
+		return profileNum;
+	}
+
+	public void setProfileNum(String profileNum) {
+		this.profileNum = profileNum;
+	}
+
+	public FavoriteVO() {;}
 	 
 	 public int getProfileUserNum() {
 		return profileUserNum;

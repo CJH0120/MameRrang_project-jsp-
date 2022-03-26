@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  <!DOCTYPE HTML>
 <!--
 	Exponent by Pixelarity
@@ -16,7 +17,7 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/etcMain.css" />
 	</head>
 
-	<body class="is-preload">
+	<body class="is-preload">		
 
  	  <!-- Header -->
          <div class="wrapper">
@@ -32,7 +33,17 @@
 					마미랑<br></h2>
 					<h4 style = "font-family: GmarketSansMedium !important;" >대한민국 1등 베이비시터 매칭 서비스</h4>
 					<ul class="actions special">
-							<li><a href="${pageContext.request.contextPath}/app/user/join.jsp" class="button large primary media13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;가입하기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+						<c:choose>
+							<c:when test="${userStatus eq 1}">
+								<li><a href="${pageContext.request.contextPath}/service/SearchMomOk.ser" class="button large primary media13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;시터찾기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+							</c:when>
+							<c:when test="${userStatus eq 2}">
+								<li><a href="${pageContext.request.contextPath}/service/SearchJobOk.ser" class="button large primary media13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;일자리찾기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="${pageContext.request.contextPath}/app/user/join.jsp" class="button large primary media13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;가입하기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+							</c:otherwise>
+						</c:choose>
 					</ul>
 					
 				</div>
@@ -177,7 +188,17 @@
 							<h2 class = "slideText media8" style = "color:#ff7065; font-size: 2.4em;">아이와 엄마가 행복해지는 마미랑</h2>
 							<p style = "color: #2E3364; font-weight: bold;" class="media9"> 내 아이에게 딱 맞는 우리 동네 베이비시터, 마미랑으로 만나보세요.</p>
 							<ul class="actions special">
-								<li><a href="${pageContext.request.contextPath}/app/user/join.jsp" class="button large primary media13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;가입하기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+							<c:choose>
+								<c:when test="${userStatus eq 1}">
+									<li><a href="${pageContext.request.contextPath}/app/user/join.jsp" class="button large primary media13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;시터찾기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+								</c:when>
+								<c:when test="${userStatus eq 2}">
+									<li><a href="${pageContext.request.contextPath}/app/user/join.jsp" class="button large primary media13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;일자리찾기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="${pageContext.request.contextPath}/app/user/join.jsp" class="button large primary media13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;가입하기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+								</c:otherwise>
+							</c:choose>	
 							</ul>
 						</div>
 						

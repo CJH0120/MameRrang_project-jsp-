@@ -12,9 +12,17 @@ public class FavoriteDTO {
 	 private int userGender;
 	 private int profileUserNum;
 	 private String fileName;
+	 private int profileProcess;
 	 
-	 
-	 public String getFileName() {
+	 public int getProfileProcess() {
+		return profileProcess;
+	}
+
+	public void setProfileProcess(int profileProcess) {
+		this.profileProcess = profileProcess;
+	}
+
+	public String getFileName() {
 		return fileName;
 	}
 

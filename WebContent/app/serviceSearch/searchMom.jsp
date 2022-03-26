@@ -26,7 +26,6 @@
 		<c:set var="page" value="${page}"/>
 		<c:set var="startPage" value="${startPage}"/>
 		<c:set var="endPage" value="${endPage}"/>
-		<c:set var="realEndPage" value="${realEndPage}"/>
 		<c:set var="total" value="${total}"/>
 		<c:set var="year" value="<%=new java.util.Date()%>" />
 		<c:set var="year"><fmt:formatDate value="${year}" pattern="yyyy" /></c:set> 
@@ -107,6 +106,7 @@
 							<div class="userImg">
 								<img src="${pageContext.request.contextPath}/images/img1.jpeg"class="userImgDetail">
 							<div>
+							</div>
 									<div class="certify">
 									<c:set var="count" value="${mom.getCheckMedi()+mom.getCheckUniversity()+mom.getCheckMom()+mom.getCheckTeacher()+mom.getCheckCitizen() }"/>
 									<p class="p">확인된 인증 <span class="span" style="color: rgb(247, 87, 87); font-weight: bold;">${count}</span>개</p>
@@ -138,7 +138,6 @@
 									
 
 									</div>
-							</div>
 							</div>
 								<div class="userName">
 

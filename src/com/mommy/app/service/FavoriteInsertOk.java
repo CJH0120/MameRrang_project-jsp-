@@ -22,11 +22,12 @@ public class FavoriteInsertOk implements Action{
 	
 		favorite.setUserNum(Integer.parseInt(req.getParameter("userNum")));
 	
-		favorite.setProfileUserNum(Integer.parseInt(req.getParameter("profileNum")));
-	
+		favorite.setProfileUserNum(Integer.parseInt(req.getParameter("profileUserNum")));
+		favorite.setProfileNum(req.getParameter("profileNum"));
 	System.out.println("//////////////////////");
 		System.out.println(favorite.getUserNum());
 		System.out.println(favorite.getProfileUserNum());
+		System.out.println(favorite.getProfileNum());
 		dao.insert(favorite);
 		
 	

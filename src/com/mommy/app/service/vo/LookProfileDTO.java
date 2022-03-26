@@ -38,6 +38,7 @@ public class LookProfileDTO {
 	private int careFood;
 	private int careClean;
 	private int careStudy;
+	private int careEmergency;
 	private int babyNewborn;
 	private int babyChild;
 	private int babyKinder;
@@ -253,6 +254,12 @@ public class LookProfileDTO {
 	}
 	public void setCareStudy(int careStudy) {
 		this.careStudy = careStudy;
+	}
+	public int getCareEmergency() {
+		return careEmergency;
+	}
+	public void setCareEmergency(int careEmergency) {
+		this.careEmergency = careEmergency;
 	}
 	public int getBabyNewborn() {
 		return babyNewborn;

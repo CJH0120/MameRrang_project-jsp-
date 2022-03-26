@@ -34,16 +34,17 @@
          <!-- 모달창 -->
 		   <div id="my_modal">
 	
-	<iframe id="modalIframe" src="${pageContext.request.contextPath}/app/modal/periodModal2.jsp" style="
+	<iframe id="modalIframe" src="${pageContext.request.contextPath}/app/modal/periodModal.jsp" style="
       position: absolute;
     width: 106%;
     margin-left: -69px;
     height: 100%;
-    margin-top: -38px;
+    margin-top: -28px;
+    margin-left: -62px;
 			"
 	class="mediaModal1"
 			>대체 내용</iframe>  
-			  <a class="modal_close_btn" style="border:none;"><img src="${pageContext.request.contextPath}/images/whiteX.png" style="width:20px;"></a>
+			  <a class="modal_close_btn" style="border:none;" id="close"></div></a> 
         </div>
 			
 		<!-- Main -->
@@ -96,8 +97,8 @@
                                 <label for="clean" style = "font-size:16px;">청소</label>
                             </div>
                             <div>
-                                <input type="checkbox" id="teach" name="teach"  >
-                                <label for="teach" style = "font-size:16px;">학습 지도</label>
+                                <input type="checkbox" id="careStudy" name="careStudy"  >
+                                <label for="careStudy" style = "font-size:16px;">학습 지도</label>
                             </div>
                             <div>
                                 <input type="checkbox" id="careEmergency" name="careEmergency"  >

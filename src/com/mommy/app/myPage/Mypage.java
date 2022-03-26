@@ -54,11 +54,23 @@ public class Mypage implements Action {
 				req.setAttribute("profileStatus", 0);
 			}
 		}
-	
 		
 		int birthYear = userVo.getUserBirthYear();
-		int nowYear = Calendar.getInstance().get(Calendar.YEAR);
-		int age = nowYear -  birthYear;
+		int birthMonth = userVo.getUserBirthMonth();
+		int birthDay = userVo.getUserBirthDate();
+		
+        Calendar current = Calendar.getInstance();
+        int currentYear  = current.get(Calendar.YEAR);
+        int currentMonth = current.get(Calendar.MONTH) + 1;
+        int currentDay   = current.get(Calendar.DAY_OF_MONTH);
+      
+        int age = currentYear - birthYear;
+        // 생일 안 지난 경우 -1
+        if (birthMonth * 100 + birthDay > currentMonth * 100 + currentDay) 
+            age--;
+		
+//		int nowYear = Calendar.getInstance().get(Calendar.YEAR);
+//		int age = nowYear -  birthYear;
 		req.setAttribute("user", userVo);
 		req.setAttribute("userAge", age);
 		req.setAttribute("fileName", fileName);
