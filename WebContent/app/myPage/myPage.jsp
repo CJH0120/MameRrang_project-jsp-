@@ -51,21 +51,23 @@
             <!--프로필 수정-->
             <div style="width:38%; font-size:16px; padding:40px 0;" class="media-main">
                     <div id = "profile" style = "position: relative; margin-left:20px;">
-                        <label><input type="file" style="display:none;">
+                       
  <!-- =====================================프로파일 테이블 정리 및 기능 구현이 될 후의 처리 ==============================  -->
+ 				<div style="width:100px; height:100px;">
  				 <c:choose>
                     	<c:when test="${empty fileName}">
-                        <img src="https://cdn.discordapp.com/attachments/954273372760571914/955479398054772796/unknown.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">
+                        <img src="https://cdn.discordapp.com/attachments/954273372760571914/955479398054772796/unknown.png" style="width: 100%; border-radius: 150px; cursor: pointer; ">
                     	</c:when>
                     	<c:otherwise>
-                        <img src="/profileData/${fileName}" style="width: 100px; border-radius: 150px; cursor: pointer; ">
+                        <img src="/profileData/${fileName}" style="width: 100%; border-radius: 150px;">
                     	</c:otherwise>
                     </c:choose>
-                        </label>
+                  </div>
+                       
                         <div style = "position:absolute; top: 0px; left: 120px;">
                             <span style = "font-size: 14px; font-weight: 500;">
                              <c:choose>
-                                    	<c:when test="${user.getUserStatus() == 0}">
+                                    	<c:when test="${user.getUserStatus() == 2}">
                                     		<button class = "boldButtonGray">시터</button>
                                     	</c:when>
                                     	<c:when test="${user.getUserStatus() == 1}">
@@ -108,6 +110,7 @@
                             	</c:when>
                             	<c:when test="${profileStatus eq 2}">
                             		 <button class = "boldButtonYel">인증 대기중</button>
+                            		 <!-- 부모일 때 2 / 시터일 때 1 인증 대기중 안뜸 -->
                             	</c:when>
                             </c:choose>
                             <a href = "${pageContext.request.contextPath}/service/Jobhunting.ser"><p class ="innerTitle">내 구인/구직 글</p></a>

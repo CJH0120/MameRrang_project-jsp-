@@ -46,9 +46,9 @@ public class Mypage implements Action {
 		}else if (userStatus == statusSitter){ // 시터 프로필 
 			if(userDao.myPageProfileCk(userNum)) { // 있음
 				if(userDao.profileProcess(userNum) == 1) { // 있음
-					req.setAttribute("profileStatus", 2);
+					req.setAttribute("profileStatus", 1);
 				}else {
-					req.setAttribute("profileStatus", 1); // 대기중
+					req.setAttribute("profileStatus", 2); // 대기중
 				}
 			}else {
 				req.setAttribute("profileStatus", 0);
@@ -61,13 +61,11 @@ public class Mypage implements Action {
 		
         Calendar current = Calendar.getInstance();
         int currentYear  = current.get(Calendar.YEAR);
-        int currentMonth = current.get(Calendar.MONTH) + 1;
-        int currentDay   = current.get(Calendar.DAY_OF_MONTH);
+      
       
         int age = currentYear - birthYear;
         // 생일 안 지난 경우 -1
-        if (birthMonth * 100 + birthDay > currentMonth * 100 + currentDay) 
-            age--;
+      
 		
 //		int nowYear = Calendar.getInstance().get(Calendar.YEAR);
 //		int age = nowYear -  birthYear;

@@ -19,8 +19,7 @@
             font-weight: normal;
             font-style: normal;
         }
-        
-        
+         
         
 .heart{
 width: 25px;
@@ -185,12 +184,14 @@ input::-moz-focus-inner, input::-moz-focus-outer {
 .imgIcon{
     width: 20px;
     margin-right: 10px;
+    float: left;
 }
 
 .liCss{
     margin-bottom: 16px;
     font-size: 15px;
     display: inline-block;
+    width: 145%;
 }
 .reviewText{
     font-weight: bold;
@@ -294,12 +295,7 @@ aside.aside2{
 
 
 
-#main{
-    padding: 3em 0 1em 0;
-      width: 85% !important;
-    margin-top: -21px !important;
 
-}
 
 aside.aside2{
 display: none;
@@ -475,12 +471,14 @@ input::-moz-focus-inner, input::-moz-focus-outer {
 .imgIcon{
     width: 20px;
     margin-right: 10px;
+    float: left;
 }
 
 .liCss{
     margin-bottom: 16px;
     font-size: 15px;
     display: inline-block;
+    width: 145%;
 }
 .reviewText{
     font-weight: bold;
@@ -586,4 +584,108 @@ width: 70%;
 	padding: 4.5em 0 4.5em 0 !important;
 }
         
+}
+
+
+
+
+/*모달*/
+ .modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow:hidden;
+        }
+
+        .modal .bg {
+          width: 100%;
+          height: 100%;
+        }
+
+        .modalBox {
+          position: absolute;
+          background-color: #fff3f0;
+          width: 400px;
+          height: 350px;
+          padding: 15px;
+          border-radius: 6px;
+          text-align: center;
+          top: 249px;
+         right: 160px;
+         box-shadow: 4px 4px 20px rgb(51 51 51 / 15%);
+        }
+
+        .modalBox button {
+          display: block;
+          width: 80px;
+          margin: 0 auto;
+        }
+
+        .hidden {
+          display: none;
+        }
+        
+        .modalText{
+            margin: 18px 0;
+            font-family: 'GmarketSansMedium';
+            color:black;
+
+        }
+
+        .modalSubText{
+            font-size:14px;
+            line-height: initial;
+            margin: -10px 0 2em 0 !important; 
+            
+        }
+
+        button.submitBtn {
+          background-color: #ff7065 ;
+          padding: 5px 10px;
+          border-radius: 4px;
+          border:hidden;
+          cursor: pointer;font-family: 'GmarketSansMedium';
+            width:50%;
+            height:50px;
+            color:white;
+        }
+
+        .quit{
+            font-size: 14px;
+            color: #d4cfcf;
+
+        }
+        
+div.activity{
+	background: #ffb61a !important;
+    border: 1px solid #ffb61a !important;
+    border-radius: 9px !important;
+    color: white !important;
+    width: 75px;
+    height: 27px;
+    text-align: center;
+    margin: 0 2px 0 2px;
+    float: left;
+ }
+ 
+ a.a{
+	color: gray;
+    border: none;
+    cursor: pointer;
+}
+
+#main{
+	padding: 1.5em 0 4.5em 0 !important;
+    width: 70% !important;
+}
+
+a.b{
+	color: gray;
+    border: none;
+    float: left;
 }

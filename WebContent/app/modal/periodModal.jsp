@@ -25,13 +25,13 @@
     color: white;
     font-size: 19px;"> <h3 style="display: inline; color:white;">돌봄 기간</h3>
     </div> 
-   	<button class="ok">완료</button>
+   	<button id="iframeBtn" class="ok">완료</button>
      <br>
      <div class = "wrapper" style = "text-align:center;">
       <h4 style="display: inline-block; width: 150px;">활동 시작일</h4>
         
        <div class="input_date_box" style="display: inline-block;">
-        <input type="date" placeholder="날짜를 입력해주세요">
+        <input type="date" placeholder="날짜를 입력해주세요" id="startDate">
      </div>
   
         <hr>

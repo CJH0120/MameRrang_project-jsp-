@@ -117,10 +117,8 @@ public class UserDAO {
       }
 
   	// 회원 전체 정보 조회
-  	public List<UserVO> selectAll() {
-  		List<UserVO> list = null; // 파라미터에 식별자 이름을 적는다.
-  		list = sqlSession.selectList("User.selectAll");
-  		return list; // memberSearchAll()
+  	public List<UserVO> selectAll(Map<String, Integer> userMap) {// 파라미터에 식별자 이름을 적는다.
+  		return sqlSession.selectList("User.selectAll", userMap); // memberSearchAll()
   	}
   	
   	// 회원 전체 수

@@ -105,3 +105,9 @@ const handleSelect = (label, item) => {
     label.parentNode.classList.remove('active');
 }
 
+
+$( '.activity:empty' ).css('display','none');
+
+
+
+

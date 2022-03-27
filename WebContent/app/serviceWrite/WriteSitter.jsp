@@ -59,7 +59,7 @@
                 <div style="text-align: left; display:inline-block; margin-left:15px;">
                 	<div class="profile">
                     <label><input type="file" name ="profilePicture"style="display:none;">
-                    <img class="profileImg"src="${pageContext.request.contextPath}/images/유저.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">
+                    <img class="profileImg"src="https://cdn.discordapp.com/attachments/954273372760571914/955479398054772796/unknown.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">
                     </label>
                     </div>
                     <div style = "position:absolute; top: 19px; left: 136px;">
@@ -193,7 +193,7 @@
                 
         
                     </div>
-                    <p style = "font-size: 16px; color:#d4cfcf !important;">인증서 업로드는 zip파일만 가능하며, 최대 1개까지 가능합니다.</p>
+                    <p style = "font-size: 16px; color:#d4cfcf !important;">인증서 업로드는 <span style="color: #ffb61a;">zip파일만 가능</span>하며, 최대 1개까지 가능합니다.</p>
                 </div>
 
    
@@ -242,7 +242,7 @@
             <div>
                 <h5 style = "font-weight:500">시터 게시글 목록</h5>
                 <p style = "font-size:16px;">마미랑 시터들의 프로필을 참고해서 나의 프로필을 더 멋지게 꾸며보세요! 멋진 프로필은 높은 매칭률에 도움이 됩니다!</p>
-                <a href = "${pageContext.request.contextPath}/app/serviceSearch/searchMom.jsp;"><button class = "buttonAside">시터 게시글 목록</button></a>
+                <a href = "${pageContext.request.contextPath}/service/SearchMomOk.ser"><button class = "buttonAside">시터 게시글 목록</button></a>
             </div>
         </div>
         <br>
@@ -256,7 +256,7 @@
             <div>
                 <h5 style = "font-weight:500">일자리 찾기</h5>
                 <p style = "font-size:16px;">어디서 일을 구해야할 지 모르겠다면, 부모님들과 손쉽게 만날 수 있는 마미랑을 이용해보세요.</p>
-                <a href = "${pageContext.request.contextPath}/app/serviceSearch/searchJob.jsp;"><button class = "buttonAside">일자리 찾기</button></a>
+                <a href = "${pageContext.request.contextPath}/service/SearchJobOk.ser"><button class = "buttonAside">일자리 찾기</button></a>
             </div>
             
         </div>

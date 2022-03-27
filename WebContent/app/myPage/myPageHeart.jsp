@@ -35,21 +35,22 @@
                     <c:forEach var="profile" items="${profileList}">
                     <div class="inline-block userInfoDiv" >
                     <!-- 이미지 경로추출 확인되는 데로 데이터 입력 -->
+                      <div class="profileImgWrap" style="width: 100%; height: 68%;" >
                     <c:choose>
-                    <c:when test="${profile.getProfileProcess() == 1}">
-                	   <div class="profileImgWrap" style="width: 100%; height: 68%;" onclick="location.href='${pageContext.request.contextPath}/service/LookMomProfileOk.ser?userNum=${profile.getProfileUserNum()}';">
-                    </c:when>
-                    <c:otherwise>
-                	   <div class="profileImgWrap" style="width: 100%; height: 68%;" onclick="location.href='${pageContext.request.contextPath}/service/LookSitterProfileOk.ser?userNum=${profile.getProfileUserNum()}';">
-                    </c:otherwise>
-                    </c:choose>
-                    <c:choose>
-                    	<c:when test="${empty profile.getFileName()}">
-		                     <img src="${pageContext.request.contextPath}/images/img1.jpeg" style="height: 100%;width: 100%; object-fit: contain; ">
-                    	</c:when>
-                    	<c:otherwise>
-		                     <img src="/profileData/${profile.getFileName()}" style="width: 100%; ">
-                    	</c:otherwise>
+                       <c:when test="${empty profile.getFileName()}">
+                           <img src="${pageContext.request.contextPath}/images/img1.jpeg" style="height: 100%;width: 100%; object-fit: contain; ">
+                       </c:when>
+                       <c:otherwise>
+							<c:choose>
+			                    <c:when test="${profile.getProfileProcess() == 1}">
+			                       <img src="/profileData/${profile.getFileName()}" style="width: 100%;" onclick="location.href='${pageContext.request.contextPath}/service/LookMomProfileOk.ser?userNum=${profile.getProfileUserNum()}';">
+			                    </c:when>
+			                    <c:otherwise>
+		                           <img src="/profileData/${profile.getFileName()}" style="width: 100%;" onclick="location.href='${pageContext.request.contextPath}/service/LookSitterProfileOk.ser?userNum=${profile.getProfileUserNum()}';">
+			                    </c:otherwise>
+		                    </c:choose>                           
+                           
+                       </c:otherwise>
                     </c:choose>
                      <img src="https://cdn.discordapp.com/attachments/954273372760571914/955479972280143972/447a140a0a8dd1b3.png" id="heart"style="width: 30px;
                      position: absolute;
@@ -78,9 +79,9 @@
       
       
    </body>
-   		<script >
-   		var contextPath = "${pageContext.request.contextPath}";
-   		</script>
+         <script >
+         var contextPath = "${pageContext.request.contextPath}";
+         </script>
        <!--   <script src ="assets/js/myPageHeart.js"></script> -->
         <%--  <script src="${pageContext.request.contextPath}/assets/js/myPage.js"></script>  --%>
    

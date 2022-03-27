@@ -20,12 +20,12 @@
 </head>
 
 <body>
-	<c:set var="mom" value="${momInfo}"/>
-	<c:set var="user" value="${user}"/>
-	<c:set var="userAge" value="${userAge}"/>
-	<c:set var="userNum2" value="${userNum2}"/>
-	<c:set var="profileNum" value="${profileNum}"/>
-	<c:set var="profile" value="${profile}"/>
+   <c:set var="mom" value="${momInfo}"/>
+   <c:set var="userNum2" value="${userNum2}"/>
+   <c:set var="profileNum" value="${profileNum}"/>
+   	<c:set var="fileName" value="${fileName}"/>
+   <c:set var="profile" value="${profile}"/>
+   <c:set var="userAge" value="${userAge}"/>
 <!-- Aside -->
    <div class="wrapper">
 	<div class="inner">
@@ -36,7 +36,25 @@
 <!-- Header -->
   <jsp:include page="../fix/header.jsp" flush="true"/>
          
-            <!-- aside -->
+       
+         
+      <!-- Main -->
+
+         
+
+     
+
+
+      <div id="main" class="container medium" style=";">
+         <!-- profile header -->
+        <p style="font-size: 15px; width: 57%; margin-top: -46px; display: inline-block;">작성시간[${mom.getProfileDate()}]</p>
+                     <div style="display:inline; position: relative;" class="media_correct">
+                  <br>
+            
+             <div  class="moMain" style = "width: 70%; background: white; position:relative;">
+            
+            
+                 <!-- aside -->
         <aside class = "aside2">
         
         <div style="
@@ -47,9 +65,9 @@
         background-color: white;
         ">
         <div>
-        	<h5 style = "font-weight:500">채팅 신청하기</h5>
-                <button class = "buttonAside" id = "chatbutton" style="background-color:#ff7065 !important;">채팅 신청하기</button>
-        	</div>
+        	<h5 style = "font-weight:500" >돌봄 신청하기</h5>
+              <button class = "buttonAside openBtn"  name="modal-btn" id = "modal-btn" style="background-color:#ff7065 !important;">돌봄 신청하기</button></a>
+           </div>
         </div>
         <br>
         <div style="
@@ -64,63 +82,108 @@
             <div>
                 <h5 style = "font-weight:500">일자리 찾기 바로가기</h5>
                 <p style = "font-size:16px;">다른 부모님이 올린 공고를 확인해보세요! 어디서 일을 구해야할 지 모르겠다면, 부모님들과 손쉽게 만날 수 있는 마미랑을 이용해보세요.</p>
-                <a href = "${pageContext.request.contextPath}/app/serviceSearch/searchJob.jsp;"><button class = "buttonAside">일자리 찾기</button></a>
+                <a href = "${pageContext.request.contextPath}/service/SearchJobOk.ser"><button class = "buttonAside">일자리 찾기</button></a>
             </div>
         </div>
   
     </aside>
          
+           <!--삭제 버튼 -->
+                     <!-- 미구현 ================================================================= -->
+                     <c:if test="${mom.getUserNum() eq userNum2}">
+                     
+                    <div class="top_wrap">
+                      <a class="a" style="font-size:17px;" onclick="location.href='${pageContext.request.contextPath}/service/MomProfileDeleteOk.ser?profile=${profile}&userNum2=${userNum2}'">
+                      <img class="can" style="max-width: 20px !important; display: inline-block; float: right;" src="https://cdn.discordapp.com/attachments/953473528030715988/955867805826297876/06f4ee6cc21129a5.png">
+                      </a>  
+                   </div>
+                      </c:if>
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      <!-- 완 -->
          
-      <!-- Main -->
-
-         
-   
-      <!-- Main -->
-
-         
-
-     
-
-
-      <div id="main" class="container medium" style=";">
-         <!-- profile header -->
-        <p style="font-size: 15px; width: 57%; margin-top: -46px; display: inline-block;">작성시간[2022-03-07]</p>
-         <br>
-            <div style = "width: 70%; background: white; position:relative; display: inline-block;" class="mobileDiv">
-              <div style="" class="media_correct">
-	                	<a class="a" style="font-size:17px; cursor: pointer;"   onclick="location.href='${pageContext.request.contextPath}/service/SitterProfileDeleteOk.ser?profile=${profile}&userNum2=${userNum2}'">
-	                	<img class="can" style="max-width: 20px !important; display: inline-block; float: right;" src="https://cdn.discordapp.com/attachments/953473528030715988/955867805826297876/06f4ee6cc21129a5.png">
-	                	</a>  
-	                  </div>
+                 
                 <div style="text-align: left; display:inline-block; margin-left:15px;">
-                    <label><input type="file" style="display:none;">
-                    <img src="${pageContext.request.contextPath}/images/후기1.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">
-                    </label>
+                  
+  
+                    
+                     <c:choose>
+                    	<c:when test="${empty fileName}">
+                        <img src="https://cdn.discordapp.com/attachments/954273372760571914/955479398054772796/unknown.png" style="width: 100px; border-radius: 150px; ">
+                    	</c:when>
+                    	<c:otherwise>
+                        <img src="/profileData/${fileName}" style="width: 100px; height: 100px;border-radius: 150px; ">
+                    	</c:otherwise>
+                    </c:choose>
+                 
                     <div style = "position:absolute; top: 20px; left: 136px;">
-                          <h3 style="margin-bottom: 3px; font-size: 18px;">${user.getUserName()}
-                          <img src="${pageContext.request.contextPath}/images/heart.png" class="heart" id="heart"></h3>
-                          <span style = "margin-top: 20px; font-size:16px;">${userAge}세,                                    
-                           <c:choose>
-                                    	<c:when test="${user.getUserGender() == 1}">남</c:when>
-                                    	<c:when test="${user.getUserGender() == 0}">여</c:when>
-                                    	<c:otherwise>정보없음</c:otherwise>
-                                    </c:choose> </span>
+                    <!-- 유저 이름===============================================     -->
+                       <h3 style="margin-bottom: 3px; font-size: 18px;">${mom.getUserName()}
+                     <c:choose>
+                        <c:when test="${check eq 1}">
+                         <img src="https://cdn.discordapp.com/attachments/954273372760571914/955209502918082700/heart.png" class="heart" id="heart">
+                        </c:when>
+                        <c:otherwise>
+                         <img src="https://cdn.discordapp.com/attachments/954273372760571914/955209503157145660/emptyHeart.png" class="heart" id="heart">
+                        </c:otherwise>
+                     </c:choose>
+                         </h3>
+                          <span style = "margin-top: 20px; font-size:16px;"><c:out value="${userAge}"/>살, 
+                          <c:choose>
+                             <c:when test="${mom.getUserGender()==2}">
+                                <c:out value="여"/>
+                             </c:when>
+                             <c:when test="${mom.getUserGender()==1}">
+                                <c:out value="남"/>
+                             </c:when>
+                             <c:otherwise>
+                                <c:out value="정보없음"/>
+                             </c:otherwise>
+                          </c:choose>
+                          </span>
+                          
+                          
+                          
+                          
                      </div>
                   
                 </div>
                 
-                
+                <!-- 미디어쿼리 부분 수정 필요 (js 연결) -->
                 <div class="mobileEntBut">  
                 <a href = "#"><button class = "buttonAside" style="background-color:#ff7065 !important; ">지원하기</button></a>
                 </div>
+                
+                
+                
+                
+                
                 <hr class="split">
-              		 	<div style="display: flex; margin-top: 23px; margin-bottom: 10px;" > 
-		              		 	<p class="innerTitle" style="width:100px; margin:0px ;">희망시급</p>
-		                        <div style="display: inline-block; width: 28px; margin-left: 33px;">
-		                            <img src="${pageContext.request.contextPath}/images/money.png" style="width: 100%;">
-		                        </div>
-		                        <div style="display:inline-block;"><span style="font-size:20px;">10,000원</span></div>
-                     </div>   
+              		 <div class = "innerContent" style = "position:relative;">
+                    <p class ="innerTitle" >희망 시급</p>   
+                    
+                    <div style="display: inline-block; width: 50px; "><img src="${pageContext.request.contextPath}/images/money.png" style="width: 100%;"></div>
+                    <div style="
+                    display: inline-block;
+                    display: inline-block;
+                    position: relative;
+                    top: -12px;
+                    left: 7px;
+                    margin-bottom: -25px;"><h3>${mom.getProfileSalary()} 원</h3></div>
+                     
+                </div>
+                     
+                     
+                     
+                     
+                     
                 <hr class="split">
 
                 <div class = "innerContent mobileWant">
@@ -138,36 +201,10 @@
 
 				<div class="mobileMoney" style="display: none;">
 				<p class ="innerTitle mobileP" style="margin:0px;">희망 시급</p>
-				<span>10,000원</span>
+				<span>${mom.getProfileSalary()} 원</span>
 				</div>
 
 				
-				<!-- 인증완료 여부========================================= -->			
-			<c:choose>
-			<c:when test="${mom.getCheckMedi()==1}">
-				<c:set var="medi" value="건강인증" />
-			</c:when>
-			</c:choose>
-				<c:choose>
-			<c:when test="${mom.getCheckMom()==1}">
-				<c:set var="mom" value="부모인증" />
-			</c:when>
-			</c:choose>
-				<c:choose>
-			<c:when test="${mom.getCheckTeacher()==1}">
-				<c:set var="teacher" value="교사인증" />
-			</c:when>
-			</c:choose>
-				<c:choose>
-			<c:when test="${mom.getCheckCitizen()==1}">
-				<c:set var="self" value="본인인증" />
-			</c:when>
-			</c:choose>
-			<c:choose>
-			<c:when test="${mom.getCheckUniversity()==1}">
-				<c:set var="univer" value="학력인증" />
-			</c:when>
-			</c:choose>
 										
 			<!-- 가능한 활동================================== -->							
 			<c:choose>
@@ -264,48 +301,100 @@
 
                         <ul style="list-style: none; margin-left: -28px; width: 423px; margin-bottom: 0; ">
                             
-                            <br><li class="liCss" id="li2"><img src="${pageContext.request.contextPath}/images/활동아이콘.png" class="imgIcon">
-                            <a>원하는 활동 : </a> 
-                            <span>${careIndoor} ${careCommit} ${CareFood} ${CareClean} ${CareStudy} ${CareEmergency}</span>
+                            <br>
+                            <div>
+                            <li class="liCss" id="li2"><img src="${pageContext.request.contextPath}/images/활동아이콘.png" class="imgIcon">
+                            <a class="b">원하는 활동 : </a> 
+                                <div class="activity">${careIndoor}</div>
+	                            <div class="activity">${careCommit}</div>
+	                            <div class="activity">${CareFood}</div>
+	                            <div class="activity">${CareClean}</div>
+	                            <div class="activity">${CareStudy}</div>
+	                            <div class="activity">${CareEmergency}</div>
                             </li>
+	                          </div> 
                             
-                            <br><li class="liCss" id="li3"><img src="${pageContext.request.contextPath}/images/돌봄가능연령아이콘.png" class="imgIcon">
-                              <a>아이 정보 :</a>
-                              <span>${BabyNewborn} ${BabyChild} ${BabyKinder} ${BabyElementary}</span>
+                            <br>
+                            <div>
+                            <li class="liCss" id="li3"><img src="${pageContext.request.contextPath}/images/돌봄가능연령아이콘.png" class="imgIcon">
+                              <a class="b">아이 정보 :</a>
+                              <div class="activity">${BabyNewborn}</div>
+                              <div class="activity">${BabyChild}</div>
+                              <div class="activity">${BabyKinder}</div>
+                              <div class="activity">${BabyElementary}</div>
                               </li>
+                            </div>
                             
-                            <br><li class="liCss" id="li4"><img src="${pageContext.request.contextPath}/images/돌봄가능기간.png" class="imgIcon">
-                              <a>원하는 돌봄 기간 : </a>
-                              <span>'${week} ${month} ${quarter} ${semiAnnual}</span>
-                              </li>
                             
-                            <br><li class="liCss" id="li5"><img src="${pageContext.request.contextPath}/images/활동가능시간.png" class="imgIcon">
-                              <a>원하는 돌봄 시간 : </a>
-                              <span>${morning} ${lunch} ${noon} </span>
+                            <br>
+                            <div>
+                            <li class="liCss" id="li4"><img src="${pageContext.request.contextPath}/images/돌봄가능기간.png" class="imgIcon">
+                              <a class="b">원하는 돌봄 기간 : </a>
+                              <div class="activity">${week}</div>
+                              <div class="activity">${month}</div>
+                              <div class="activity">${quarter}</div>
+                              <div class="activity">${semiAnnual}</div>
                               </li>
-                           
+                            </div>
+                            
+                            <br>
+						<div>
+							<li class="liCss" id="li5">
+							<img src="${pageContext.request.contextPath}/images/활동가능시간.png" class="imgIcon"> 
+								<a class="b">원하는 돌봄 시간 : </a>
+								<div class="activity" style="width: 86px;">${morning}</div>
+								<div class="activity" style="width: 86px;">${lunch}</div>
+								<div class="activity" style="width: 86px;">${noon}</div></li>
+						</div>
+						
+						<hr style="margin: 0;">
+						<!-- 지도 부분 -->
+                    <div class = "innerContent add">
+                        <p class ="innerTitle" style="margin: 0;"><img src="${pageContext.request.contextPath}/images/지역.png" style="width: 25px; margin-right: 10px; ">활동가능 지역</p>
+                        <p style="margin:0px; font-size: 14px;">(${mom.getLocationSido()}  ${mom.getLocationSigun()}  ${mom.getLocationDong()})</p>
+                        <div id="map" style="width:570px;height:252px;" class="map" ></div>
+                    </div>
 
-                        </ul>
+					</ul>
                        
 
                         
                     </div>
-                    <div class = "innerContent add" style="float: left;  margin-left: 32%;">
-                        <p class ="innerTitle" style="margin: 0;"><img src="${pageContext.request.contextPath}/images/지역.png" style="width: 25px; margin-right: 10px; ">활동가능 지역</p>
-                        <p style="margin:0px; font-size: 14px;">(${mom.getLocationSido()}  ${mom.getLocationSigun()}  ${mom.getLocationDong()})</p>
+                    
+                        
+                        
                         <div >
+   <!-- 모달 --> 
 
-								<div id="map" style="width:350px;height:220px;"class="map" ></div>
+                <div class="modal hidden">
+                    <div class="bg"></div>
+                    <div class="modalBox">
+                        <h3 class = "modalText">돌봄 신청하기</h3>
+                           <p class = "modalSubText">카카오톡 아이디를 남겨주시면<br>
+                                 빠른 시일 내에 연락드리겠습니다.</p>
+                         <!--  <form style = "padding:5px 20px;"> -->
+                           <div>
+                           <input id="chatTitle" name="chatTitle" type = "text" placeholder="카카오톡 아이디" style="font-size:16px; margin-bottom:10px;">
+                           <input id="chatContent" name="chatContent" type = "text" placeholder="한줄 요청 (최대 20자)" maxlength='20' style="font-size:16px;">
+                             <div style = "margin: 20px auto; text-align: center;">
+                                 <button class="submitBtn" onclick="insert()">요청 보내기</button>
+                                 
+                             </div>
+                          </div>
+                     <!--   </form>  -->
+                    </div>
+                </div>
+								
 						
 
  
 
                         </div>
-                    </div>
+        
 
 
                      
-        
+       
                                         
             <hr class="split" >
                
@@ -315,6 +404,7 @@
 
 
 
+</div>
 
 
 
@@ -345,6 +435,7 @@
 	var userNum2 = "${mom.getUserNum()}";
 	var profileNum = "${mom.getProfileNum()}";
 </script>
+<script>var contextPath = "${pageContext.request.contextPath }";</script>
 <script>
 
 var address="${mom.getLocationSido()}";

@@ -41,4 +41,11 @@
 	 select count(*) from tbl_chat
 		   where userNum= ${userNum} and chatStatus = 0
 	</select>
+	
+	<!-- userName 가져오기 -->
+	<select id ="userName" parameterType="_int" resultType="string"> 
+	select userName from tbl_user
+	where userNum= ${userNum}
+	</select>
+	
 </mapper>

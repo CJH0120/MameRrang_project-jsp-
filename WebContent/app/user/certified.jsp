@@ -28,7 +28,7 @@
 			
 			<div id="main" class="container">
 				<header class="major">
-					<a href="${pageContext.request.contextPath}/app/etc/main.jsp"><h2 class="logo-location" style="position: relative; top: -60px;"><img alt="" src="${pageContext.request.contextPath}/images/로고1.png"></h2></a>
+					<a href="${pageContext.request.contextPath}/user/UserMainOk.user"><h2 class="logo-location" style="position: relative; top: -60px;"><img alt="" src="${pageContext.request.contextPath}/images/로고1.png"></h2></a>
 				
 				<div class="first">
 					<div>

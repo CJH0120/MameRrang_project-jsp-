@@ -18,8 +18,7 @@ public class SitterProfileDeleteOk implements Action{
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		
 		//들어오는지 확인용
-//		System.out.println(req.getParameter("userNume2"));
-//		System.out.println(req.getParameter("profile"));
+		System.out.println("딜리트컨트롤");
 		ServiceDAO serdao  = new ServiceDAO();
 		ProfileFilesDAO prodao = new ProfileFilesDAO();
 		FavoriteDAO favoriteDAO = new FavoriteDAO();
@@ -56,7 +55,7 @@ public class SitterProfileDeleteOk implements Action{
 			prodao.delete(profileNum);
 			favoriteDAO.deleteUserAll(userNum);
 			serdao.delete(userNum);
-//			System.out.println("삭제완료2");
+			System.out.println("삭제완료2");
 			af.setPath("/service/SearchMomOk.ser");
 		}
 		

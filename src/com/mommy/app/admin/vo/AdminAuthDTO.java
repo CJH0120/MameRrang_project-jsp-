@@ -1,5 +1,7 @@
 package com.mommy.app.admin.vo;
 
+import com.mommy.app.service.vo.ProfileFilesVO;
+
 public class AdminAuthDTO {
 
 	private int profileNum;
@@ -14,6 +16,8 @@ public class AdminAuthDTO {
 	private int checkCitizen;
 	private int checkUniversity;
 	private int profileProcess;
+	private String fileName;
+	private String fileNameOriginal;
 	
 	
 
@@ -32,6 +36,12 @@ public class AdminAuthDTO {
 		this.checkUniversity = AdminAuthVO.getCheckUniversity();
 		this.profileProcess = AdminAuthVO.getProfileProcess();
 		
+	}
+	
+	public AdminAuthDTO(ProfileFilesVO ProfileFilesVO) {
+		super();
+		this.fileName = ProfileFilesVO.getFileName();
+		this.fileNameOriginal = ProfileFilesVO.getFileNameOriginal();
 	}
 
 	public int getProfileNum() {
@@ -130,5 +140,21 @@ public class AdminAuthDTO {
 	public void setProfileProcess(int profileProcess) {
 		this.profileProcess = profileProcess;
 	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public String getFileNameOriginal() {
+		return fileNameOriginal;
+	}
+
+	public void setFileNameOriginal(String fileNameOriginal) {
+		this.fileNameOriginal = fileNameOriginal;
+	}		
 	
 }

@@ -1,4 +1,4 @@
-
+const body = document.querySelector('body');
     function open(){
       document.querySelector(".modal").classList.remove("hidden");
     }
@@ -639,10 +639,10 @@
 			userProfile+="<div class='userImg'>";
 			if(result[i].ProfilePicture=="" || result[i].ProfilePicture==null ){
 				console.log("픽쳐 널일때 들어옴")
-				userProfile+="<img src='../images/img1.jpeg'class='userImgDetail'>";
+				userProfile+="<img src='../images/기본 이미지.png'class='userImgDetail medi2'>";
 			}else{
 				console.log("픽쳐 널아님")
-				userProfile+="<img src='/profileData/"+result[i].ProfilePicture+"'class='userImgDetail'>";
+				userProfile+="<img src='/profileData/"+result[i].ProfilePicture+"'class='userImgDetail  medi2'>";
 			}
 			userProfile+="<div>";
 			userProfile+="</div>";
@@ -652,70 +652,70 @@
 			userProfile+=result[i].CheckMedi+result[i].CheckCitizen+result[i].CheckMom+result[i].CheckTeacher+result[i].CheckUniversity+"</span>개</p>";
 			if(result[i].CheckMedi==1){
 				
-				userProfile+="<input type='button' value='건강인증' class='certifyList' style='color:white !important' >";
+				userProfile+="<input type='button' value='건강인증' class='certifyList medi5' style='color:white !important' >";
 			}
 			if(result[i].CheckCitizen==1){
 				
-				userProfile+="<input type='button' value='본인인증' class='certifyList' style='color:white !important' >";
+				userProfile+="<input type='button' value='본인인증' class='certifyList medi5' style='color:white !important' >";
 			}
 			if(result[i].CheckMom==1){
 				
-				userProfile+="<input type='button' value='부모님인증' class='certifyList' style='color:white !important' >";
+				userProfile+="<input type='button' value='부모님인증' class='certifyList medi5' style='color:white !important' >";
 			}
 			if(result[i].CheckTeacher==1){
 				
-				userProfile+="<input type='button' value='선생님인증' class='certifyList' style='color:white !important' >";
+				userProfile+="<input type='button' value='선생님인증' class='certifyList medi5' style='color:white !important' >";
 			}
 			if(result[i].CheckUniversity==1){
 				
-				userProfile+="<input type='button' value='학력인증' class='certifyList' style='color:white !important' >";
+				userProfile+="<input type='button' value='학력인증' class='certifyList medi5' style='color:white !important' >";
 			}
 			
 			userProfile+="</div>";
 			userProfile+="</div>";
 			userProfile+="<div class='userName'>";
-			userProfile+="<h4 style='margin-bottom: 4px;'><a href='/service/LookSitterProfileOk.ser?userNum="+result[i].userNum+"&profile="+result[i].profileNum+"' style='border:none;'>";                                                  
+			userProfile+="<h4 style='margin-bottom: 4px;' class='h4'><a href='"+contextPath+"/service/LookSitterProfileOk.ser?userNum="+result[i].userNum+"&profile="+result[i].profileNum+"' style='border:none;'>";                                                  
 			userProfile+=result[i].ProfileDescription+"</a></h4>";
-			userProfile+="<div class='infoDetail'>"+result[i].LocationSido+" "+result[i].LocationSigun+"</div>&nbsp;";
-			userProfile+="<div class='infoDetail'>"+result[i].age+"세</div>";
-			userProfile+="&nbsp;&nbsp;<div class='infoDetail'>희망시급 "+result[i].getProfileSalary+"원</div>";
+			userProfile+="<div class='infoDetail medi7'>"+result[i].LocationSido+" "+result[i].LocationSigun+"</div>&nbsp;";
+			userProfile+="<div class='infoDetail medi7'>"+result[i].age+"세</div>";
+			userProfile+="&nbsp;&nbsp;<div class='infoDetail medi7 medi13'>희망시급 "+result[i].getProfileSalary+"원</div>";
 			
 			userProfile+="<div class='day' style='margin-top: 7px; margin-left: -1px;'>";
-			userProfile+="<div class='days' style='margin-left: -3.5px;'>";				
+			userProfile+="<div class='days medi9' style='margin-left: -3.5px;' class='medi10'>";				
 				if(result[i].mon==1){
-					userProfile+="<img src='../images/월1.png' style='width: 35px;' >";
+					userProfile+="<img src='../images/월1.png' style='width: 35px;'  class='medi10'>";
 				}else{
-					userProfile+="	<img src='../images/월.png' style='width: 35px;'>";
+					userProfile+="	<img src='../images/월.png' style='width: 35px;' class='medi10'>";
 				}
 				if(result[i].tue==1){
-					userProfile+="<img src='../images/화1.png' style='width: 35px;'>";
+					userProfile+="<img src='../images/화1.png' style='width: 35px;' class='medi10'>";
 				}else{
-					userProfile+="	<img src='../images/화.png' style='width: 35px;' >";
+					userProfile+="	<img src='../images/화.png' style='width: 35px;'  class='medi10'>";
 				}
 				if(result[i].wed==1){
-					userProfile+="<img src='../images/수1.png' style='width: 35px;' >";
+					userProfile+="<img src='../images/수1.png' style='width: 35px;'  class='medi10'>";
 				}else{
-					userProfile+="	<img src='../images/수.png' style='width: 35px;'>";
+					userProfile+="	<img src='../images/수.png' style='width: 35px;' class='medi10'>";
 				}
 				if(result[i].thu==1){
-					userProfile+="<img src='../images/목1.png' style='width: 35px;' >";
+					userProfile+="<img src='../images/목1.png' style='width: 35px;'  class='medi10'>";
 				}else{
-					userProfile+="	<img src='../images/목.png' style='width: 35px;'>";
+					userProfile+="	<img src='../images/목.png' style='width: 35px;' class='medi10'>";
 				}
 				if(result[i].fri==1){
-					userProfile+="<img src='../images/금1.png' style='width: 35px;' >";
+					userProfile+="<img src='../images/금1.png' style='width: 35px;'  class='medi10'>";
 				}else{
-					userProfile+="	<img src='../images/금.png' style='width: 35px;'>";
+					userProfile+="	<img src='../images/금.png' style='width: 35px;' class='medi10'>";
 				}
 				if(result[i].sat==1){
-					userProfile+="<img src='../images/토1.png' style='width: 35px;' >";
+					userProfile+="<img src='../images/토1.png' style='width: 35px;'  class='medi10'>";
 				}else{
-					userProfile+="	<img src='../images/토.png' style='width: 35px;'>";
+					userProfile+="	<img src='../images/토.png' style='width: 35px;' class='medi10'>";
 				}
 				if(result[i].sun==1){
-					userProfile+="<img src='../images/일1.png' style='width: 35px;' >";
+					userProfile+="<img src='../images/일1.png' style='width: 35px;'  class='medi10'>";
 				}else{
-					userProfile+="	<img src='../images/일.png' style='width: 35px;'>";
+					userProfile+="	<img src='../images/일.png' style='width: 35px;' class='medi10'>";
 				}
 
 			userProfile+="</div>";

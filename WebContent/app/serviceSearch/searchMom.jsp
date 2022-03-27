@@ -19,7 +19,7 @@
 <link rel="preconnect" href="${pageContext.request.contextPath}/https://fonts.gstatic.com" >
 <link href="${pageContext.request.contextPath}/https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 	<link href="${pageContext.request.contextPath}/assets/css/searchMom.css" rel="stylesheet" >
-	
+	<link href="${pageContext.request.contextPath}/assets/css/loginModal.css" rel="stylesheet" type="text/css"> 
 	</head>
 	<body>
 		<c:set var="momList" value="${momList}"/>
@@ -45,50 +45,74 @@
         
         
 			<br><br>
-			<h3 style="font-family: 'GmarketSansLight'; font-size: 28px;     margin-bottom: 100px;"> 베이비 시터 찾기</h3>
+			<h3 style="font-family: 'GmarketSansLight'; font-size: 28px; margin-bottom: 100px;" class="h3"> 베이비 시터 찾기</h3>
 			 
-				<!--돌봄지역-->
-				<div class="locationFilter">
+			 
+			 				<!--돌봄지역-->
+		
+					<div class="locationFilter_1">
 					<div class="locationImg">
-						<img src="${pageContext.request.contextPath}/images/location2.png" style="width: 100%;" >
+						<img src="${pageContext.request.contextPath}/images/location2.png" style="width: 100%; " class="media_img">
 					</div>
-					<span class="locationInput span openBtn3" style="margin-left: 25px;
-					    font-size: 14px;
-					    cursor: pointer;
-					    color: #626c6e;
-					    position: absolute;
-					    top: 9px;"  
-						id="searchArea">
+					<span class="locationInput span openBtn3" id="searchArea">
 						돌봄지역을 선택해주세요.</span>
-				</div>
+					</div>
+				<div class="locationFilter_wrap">	
 					<!-- 돌봄유형 -->
-					<div class="locationFilter">
+				 	<div class="locationFilter_2">
 						<div class="locationImg baby">
-							<img src="${pageContext.request.contextPath}/images/baby2.png" style="width: 100%;" >
+							<img src="${pageContext.request.contextPath}/images/baby2.png" style="width: 100%; " class="media_img">
 						</div>
-						<span class="locationInput span openBtn2" style="margin-left: 25px;
-						    font-size: 14px;
-						    cursor: pointer;
-						    color: #626c6e;
-						    position: absolute;
-						    top: 9px; "" id="careType">
-							돌봄유형 선택하기.</span>
+						<span class="locationInput span openBtn2" id="careType">돌봄유형 선택하기.</span>
 					</div>
 	
+	
+	
 				<!-- 상세검색 -->
-				<div class="detailSearch" style="position:relative; ">
-					<img src="${pageContext.request.contextPath}/images/filter.png" class="filter">
-					<button class="openBtn" id="searchDetail" style="cursor: pointer;"
-					> &nbsp;&nbsp;&nbsp;&nbsp;상세검색</button>
-				</div>
+				<div class="detailSearch" >
+					<button class="openBtn" id="searchDetail" style="cursor: pointer;">
+					<img src="${pageContext.request.contextPath}/images/filter.png" class="filter" style=" margin-top: 4px;" >
+					
+					<span>상세검색</span></button>
+				</div> 
+
+		</div>
+
+			 
+		<c:choose>
+				 <c:when test="${userNum eq null}">
+				   <div id="modal" class="modal-overlay" style="z-index: 2 !important; position: fixed;">
+         
+        <div class="modal-window">
+            <div class="title">
+                <h3>1분만에 회원가입하고</h3>
+            </div>
+            <div class="content">
+                <br>
+                <br>
+                <br>
+                <img alt="icon" src="https://cdn.mom-sitter.com/momsitter-app/static/public/affordance/popup-image-1.svg">
+                <p>시터의 다양한 인증을 빠르고 정확하게 확인!</p>
+                <img alt="icon" src="https://cdn.mom-sitter.com/momsitter-app/static/public/affordance/popup-image-2.svg">
+                <p>시터의 활동 가능 시간을 쏙쏙 확인!</p>
+                <img alt="icon" src="https://cdn.mom-sitter.com/momsitter-app/static/public/affordance/popup-image-3.svg">
+                <p>부모 회원이 작성한 리뷰까지 챙겨보자!</p>
+                <a class= "a-button" href ="${pageContext.request.contextPath}/user/UserJoin.user"><button class="button-size01">가입하기</button></a>
+                
+            </div>
+        </div>
+    </div>
+				 
+				  </c:when>
+	
+				</c:choose>
+	 
 
 
 
 
 
-
-
-
+<!-- ********************************************************** -->
 
 		<div class="userAll" name="userAll">
 		
@@ -103,118 +127,129 @@
 							<!-- 유저정보 -->
 							<div class="userPf">
 						<%-- 	 	<img src="${pageContext.request.contextPath}/images/heart.png" class="heart" id="heart"> --%>
-							<div class="userImg">
-								<img src="${pageContext.request.contextPath}/images/img1.jpeg"class="userImgDetail">
+							
+							<div class="userImg ">
+							<c:choose>
+										<c:when test="${empty mom.getProfilePicture()}">
+											<img src="${pageContext.request.contextPath}/images/기본 이미지.png"class="userImgDetail medi2">
+										</c:when>
+										<c:otherwise>
+											<img src="/profileData/${mom.getProfilePicture()}" class="userImgDetail ">
+										 </c:otherwise>
+									</c:choose> 
 							<div>
 							</div>
-									<div class="certify">
 									<c:set var="count" value="${mom.getCheckMedi()+mom.getCheckUniversity()+mom.getCheckMom()+mom.getCheckTeacher()+mom.getCheckCitizen() }"/>
-									<p class="p">확인된 인증 <span class="span" style="color: rgb(247, 87, 87); font-weight: bold;">${count}</span>개</p>
+									<p class="p p4">확인된 인증 <span class="span" style="color: rgb(247, 87, 87); font-weight: bold;">${count}</span>개</p>
+									
+									<div class="certify ">
+									
+									<div>
 									<c:choose>
 										<c:when test="${mom.getCheckMedi() ==1 }">
-											<input type="button" value="건강인증" class="certifyList" style="color:white !important" >
+											<input type="button" value="건강인증" class="certifyList medi5 p3" style="color:white !important" >
 										</c:when>
 									</c:choose>
 									<c:choose>
 										<c:when test="${mom.getCheckUniversity() ==1 }">
-											<input type="button" value="학력인증" class="certifyList" style="color:white !important" >
+											<input type="button" value="학력인증" class="certifyList medi5 p3" style="color:white !important" >
 										</c:when>
 									</c:choose>
 									<c:choose>
 										<c:when test="${mom.getCheckMom() ==1 }">
-											<input type="button" value="부모님인증" class="certifyList" style="color:white !important" >
+											<input type="button" value="부모님인증" class="certifyList medi5 p3" style="color:white !important" >
 										</c:when>
 									</c:choose>
 									<c:choose>
 										<c:when test="${mom.getCheckTeacher() ==1 }">
-											<input type="button" value="선생님인증" class="certifyList" style="color:white !important" >
+											<input type="button" value="선생님인증" class="certifyList medi5 p3" style="color:white !important" >
 										</c:when>
 									</c:choose>
 									<c:choose>
 										<c:when test="${mom.getCheckCitizen() ==1 }">
-											<input type="button" value="본인인증" class="certifyList" style="color:white !important" >
+											<input type="button" value="본인인증" class="certifyList medi5 p3" style="color:white !important" >
 										</c:when>
 									</c:choose>
-									
-
+									</div>	
+			
 									</div>
 							</div>
 								<div class="userName">
 
 							<%-- 	<h4 style="margin-bottom: 4px;"><a href="${pageContext.request.contextPath}/service/LookSitterProfileOk.ser?userNum=${mom.getUserNum()}"  style="border:none;">             --%>                                      
 
-								<h4 style="margin-bottom: 0;"><a href="${pageContext.request.contextPath}/service/LookSitterProfileOk.ser?userNum=${mom.getUserNum()}&profile=${mom.getProfileNum()}"  style="border:none;">                                                  
+								<h4 style="margin-bottom: 0;" class="h4"><a href="${pageContext.request.contextPath}/service/LookSitterProfileOk.ser?userNum=${mom.getUserNum()}&profile=${mom.getProfileNum()}"  style="border:none;">                                                  
 
 								${mom.getProfileDescription()}</a></h4>
-								<div class="infoDetail">${mom.getLocationSido()}  ${mom.getLocationSigun()}</div>&nbsp;
-								<div class="infoDetail">${year-mom.getUserBirthYear()}세</div>
-								&nbsp;&nbsp;<div class="infoDetail">희망시급 ${mom.getProfileSalary()}원</div>
+								<div class="infoDetail medi7">${mom.getLocationSido()}  ${mom.getLocationSigun()}</div>&nbsp;
+								<div class="infoDetail medi7">${year-mom.getUserBirthYear()}세</div>
+								&nbsp;&nbsp;<div class="infoDetail medi7 medi13">희망시급 ${mom.getProfileSalary()}원</div>
 							
 							
 							<!-- 돌봄가능날짜 -->
-										<div class="day" style="    margin-top: 7px;  margin-left: -1px;">
+										<div class="day" style="margin-top: 7px;  margin-left: -1px;">
 										
-										<div class="days" style="margin-left: -3.5px;"> 
+										<div class="days medi9" style="margin-left: -3.5px;"> 
 										<c:choose>
 										<c:when test="${mom.getP_mon()==1}"> 
-											<img src="${pageContext.request.contextPath}/images/월1.png" style="width: 35px;" >
+											<img src="${pageContext.request.contextPath}/images/월1.png" style="width: 35px;" class="medi10">
 										</c:when>
 										<c:otherwise >
-											<img src="${pageContext.request.contextPath}/images/월.png" style="width: 35px;" >
+											<img src="${pageContext.request.contextPath}/images/월.png" style="width: 35px;" class="medi10" >
 										</c:otherwise>
 										</c:choose>
 										
 										<c:choose>
 										<c:when test="${mom.getP_tue()==1}">
-											<img src="${pageContext.request.contextPath}/images/화1.png" style="width: 35px;" >
+											<img src="${pageContext.request.contextPath}/images/화1.png" style="width: 35px;" class="medi10" >
 										</c:when>
 										<c:otherwise >
-											<img src="${pageContext.request.contextPath}/images/화.png" style="width: 35px;" >
+											<img src="${pageContext.request.contextPath}/images/화.png" style="width: 35px;"  class="medi10">
 										</c:otherwise>
 										</c:choose>
 										
 										<c:choose>
 										<c:when test="${mom.getP_wed()==1}">
-											<img src="${pageContext.request.contextPath}/images/수1.png" style="width: 35px;" >
+											<img src="${pageContext.request.contextPath}/images/수1.png" style="width: 35px;"  class="medi10">
 										</c:when>
 										<c:otherwise >
-											<img src="${pageContext.request.contextPath}/images/수.png" style="width: 35px;" >
+											<img src="${pageContext.request.contextPath}/images/수.png" style="width: 35px;"  class="medi10">
 										</c:otherwise>
 										</c:choose>
 										
 										<c:choose>
 										<c:when test="${mom.getP_thu()==1}">
-											<img src="${pageContext.request.contextPath}/images/목1.png" style="width: 35px;" >
+											<img src="${pageContext.request.contextPath}/images/목1.png" style="width: 35px;"  class="medi10">
 										</c:when>
 										<c:otherwise >
-											<img src="${pageContext.request.contextPath}/images/목.png" style="width: 35px;" >
+											<img src="${pageContext.request.contextPath}/images/목.png" style="width: 35px;"  class="medi10">
 										</c:otherwise>
 										</c:choose>
 										
 										<c:choose>
 										<c:when test="${mom.getP_fri()==1}">
-											<img src="${pageContext.request.contextPath}/images/금1.png" style="width: 35px;" >
+											<img src="${pageContext.request.contextPath}/images/금1.png" style="width: 35px;"  class="medi10">
 										</c:when>
 										<c:otherwise >
-											<img src="${pageContext.request.contextPath}/images/금.png" style="width: 35px;" >
+											<img src="${pageContext.request.contextPath}/images/금.png" style="width: 35px;"  class="medi10">
 										</c:otherwise>
 										</c:choose>
 										
 										<c:choose>
 										<c:when test="${mom.getP_sat()==1}">
-											<img src="${pageContext.request.contextPath}/images/토1.png" style="width: 35px;" >
+											<img src="${pageContext.request.contextPath}/images/토1.png" style="width: 35px;"  class="medi10">
 										</c:when>
 										<c:otherwise >
-											<img src="${pageContext.request.contextPath}/images/토.png" style="width: 35px;" >
+											<img src="${pageContext.request.contextPath}/images/토.png" style="width: 35px;"  class="medi10">
 										</c:otherwise>
 										</c:choose>
 										
 										<c:choose>
 										<c:when test="${mom.getP_sun()==1}">
-											<img src="${pageContext.request.contextPath}/images/일1.png" style="width: 35px;" >
+											<img src="${pageContext.request.contextPath}/images/일1.png" style="width: 35px;"  class="medi10">
 										</c:when>
 										<c:otherwise >
-											<img src="${pageContext.request.contextPath}/images/일.png" style="width: 35px;" >
+											<img src="${pageContext.request.contextPath}/images/일.png" style="width: 35px;"  class="medi10">
 										</c:otherwise>
 										</c:choose>
 								

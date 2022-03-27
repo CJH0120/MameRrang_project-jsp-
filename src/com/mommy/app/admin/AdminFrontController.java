@@ -106,7 +106,12 @@ public class AdminFrontController extends HttpServlet
 		}
 		else if(command.equals("/admin/AdminAuthChangeOk.ad")) {
 			 new adminAuth_DetailOk().execute(req, resp);
-		}	
+		
+		}else if(command.equals("/admin/AdminDownloadOk.ad")) {
+			 new AdminDownloadOk().execute(req, resp);
+				System.out.println("다운로드 들어옴");
+		}
+		
 		
 		
 		

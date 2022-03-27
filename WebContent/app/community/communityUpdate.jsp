@@ -27,6 +27,7 @@
 	<body class="is-preload">
 		<c:set var="page" value="${page}"/>
 		<c:set var="community" value="${community}"/>
+		<c:set var="fileName" value="${fileName}"/>
 		
 		<!-- Header -->
 			<div class="wrapper">
@@ -88,7 +89,29 @@
 						<input type ="text" id="title" name = "title" placeholder="제목을 입력하세요" style = "resize: none;" value="${community.getCommunityTitle()}">
 						<hr style = "margin-top: 2em !important; margin-bottom: 1em !important;">
 						
-						<div>
+					
+						 </div>
+					
+						<div class="profile">
+						
+                    <label><input type="file" name ="profilePicture"style="display:none;">
+                    
+                     <c:choose>
+                    	<c:when test="${empty fileName}">
+                    			<img class="profileImg"src="https://cdn.discordapp.com/attachments/953473528030715988/957320833628504125/unknown.png" 
+                    style="width: 30px; border-radius: 10px; cursor: pointer; ">
+                   		</c:when>
+                   		<c:otherwise>
+                   		<img class="profileImg"src="/communityData/${fileName}" 
+                    style="width: 30px; border-radius: 10px; cursor: pointer; ">
+                   		</c:otherwise>
+                   	</c:choose>
+                   
+                    	<span style = "font-size: 12px; vertical-align: top; font-weight: 200;"> 썸네일을 등록해주세요.</span></label>
+                    </div>    
+						
+						
+						<div    style =" margin-top: -30px;">
 							<br>
 							<textarea id="summernote" name="editordata" required>${community.getCommunityContent()}</textarea>
 			
@@ -123,7 +146,7 @@
   			<script src="${pageContext.request.contextPath}/assets/js/summernote/lang/summernote-ko-KR/js"></script>
   				<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 			<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
-  			
+  			<script src="${pageContext.request.contextPath}/assets/js/WriteProfile.js"></script>
   			<script>
   				
 				function send(){

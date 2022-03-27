@@ -110,8 +110,8 @@
 		p.checkMom, p.checkTeacher, p.checkCitizen, p.checkUniversity, u.userStatus ,
 		( P_mon + P_tue + P_wed + P_thu + P_fri + P_sat + P_sun) AS test
 		from tbl_profile p join tbl_user u on p.userNum = u.userNum
-		where u.userStatus =#{userStatus} and p.profileProcess=#{profileProcess}
-		having  5 > test >1
+		where u.userStatus =#{userStatus} and p.profileProcess=#{profileProcess} and p.careStudy=1
+		having  5 > test >0
 		order by p.profileNum desc  limit #{startRow}, #{rowCount}
 	</select>
 
@@ -139,7 +139,8 @@
 		p.babyNewborn, p.babyChild, p.babyKinder, p.babyElementary, p.checkMedi, 
 		p.checkMom, p.checkTeacher, p.checkCitizen, p.checkUniversity, u.userStatus
 		from tbl_profile p join tbl_user u on p.userNum = u.userNum
-		where u.userStatus =#{userStatus} and p.profileProcess=#{profileProcess} and P_morning=1 or P_lunch=1 or P_noon=1
+		where u.userStatus =#{userStatus} and p.profileProcess=#{profileProcess} 
+		and (P_morning=1 or P_lunch=1 or P_noon=1) and 2>(P_morning+P_lunch+P_noon)>0
 		order by p.profileNum desc  limit #{startRow}, #{rowCount}
 	 </select> 
 

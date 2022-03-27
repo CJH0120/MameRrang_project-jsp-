@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import com.mommy.action.Action;
 import com.mommy.action.ActionForward;
 import com.mommy.app.service.dao.FavoriteDAO;
+import com.mommy.app.service.dao.ProfileFilesDAO;
 import com.mommy.app.service.dao.ServiceDAO;
 import com.mommy.app.service.vo.FavoriteVO;
 import com.mommy.app.service.vo.LookProfileDTO;
@@ -23,6 +24,7 @@ public class LookSitterProfileOk implements Action  {
       ActionForward af = new ActionForward();
       ServiceDAO dao = new ServiceDAO();
       FavoriteDAO fdao = new FavoriteDAO();
+  	ProfileFilesDAO profileFilesDao = new ProfileFilesDAO();
       FavoriteVO favorite = new FavoriteVO();
       UserDAO userDao = new UserDAO();
       UserVO userVo = new UserVO();      
@@ -33,28 +35,31 @@ public class LookSitterProfileOk implements Action  {
       int userNum = (Integer)session.getAttribute("userNum");
       System.out.println("프로파일유저넘버"+req.getParameter("profileUserNum"));
       //int profileUserNum = Integer.parseInt(req.getParameter("profileUserNum")); 
-      int profileUserNum = Integer.parseInt(req.getParameter("userNum")); 
+      int profileUserNum = 0;
       
-      userVo = userDao.getInfo(profileUserNum);
+
+		if(req.getParameter("userNum") != null) {
+			profileUserNum = Integer.parseInt(req.getParameter("userNum")); 
+		}else {
+			profileUserNum = userNum;
+		}
+		
+	      userVo = userDao.getInfo(profileUserNum);
+      
       //나이(만나이)
             int birthYear = userVo.getUserBirthYear();
-            int birthMonth = userVo.getUserBirthMonth();
-            int birthDay = userVo.getUserBirthDate();
-            
+          
               Calendar current = Calendar.getInstance();
               int currentYear  = current.get(Calendar.YEAR);
-              int currentMonth = current.get(Calendar.MONTH) + 1;
-              int currentDay   = current.get(Calendar.DAY_OF_MONTH);
+            
             
               int age = currentYear - birthYear;
               
-              // 생일 안 지난 경우 -1
-              if (birthMonth * 100 + birthDay > currentMonth * 100 + currentDay) 
-                  age--;
+             
               
       req.setAttribute("userAge", age);
       req.setAttribute("user", userVo);
-      
+  	String fileName = profileFilesDao.selectUserImg(profileUserNum);
       dto=dao.lookSitterProfile(profileUserNum);
       System.out.println("들어옴1");
       
@@ -74,8 +79,9 @@ public class LookSitterProfileOk implements Action  {
       check = fdao.check(favorite);
       System.out.println(check + ": my check");
       req.setAttribute("sitterInfo", dto);
-   //   req.setAttribute("userNum2", session.getAttribute("userNum"));
+      req.setAttribute("userNum2", session.getAttribute("userNum"));
       req.setAttribute("check", check);
+      req.setAttribute("fileName", fileName);
       req.setAttribute("profile", req.getParameter("profile"));
       
       System.out.println(req.getParameter("profile"));

@@ -20,15 +20,18 @@
       <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin.css"  type="text/css"/>
    </head>
    <body class="is-preload" style="display:block; padding-top: 0; overflow-y: hidden">
-     <c:set var="members" value="${members}" />
+     <c:set var="userList" value="${userList}" />
      <c:set var="membersTotal" value="${membersTotal}" />
      <c:set var="membersMom" value="${membersMom}" />
      <c:set var="membersSitter" value="${membersSitter}" />
+     		<c:set var="startPage" value="${startPage}"/>
+		<c:set var="endPage" value="${endPage}"/>
+		<c:set var="realEndPage" value="${realEndPage}"/>
      <!-- Main -->
          <div id="main" class="container">
                <!-- 배너 -->
          <div class="mainBox" style="padding-top: 3.5em;">
-         	<a href="${pageContext.request.contextPath}/app/admin/admin.jsp"><img src="https://cdn.discordapp.com/attachments/954273372760571914/955478975797403648/1.png" style="width: 9%; position: absolute; margin: -50px 0px 0 26px;"></a>
+         	<a href="${pageContext.request.contextPath}/admin/AdminMainOk.ad"><img src="https://cdn.discordapp.com/attachments/954273372760571914/955478975797403648/1.png" style="width: 9%; position: absolute; margin: -50px 0px 0 26px;"></a>
             <h3 class="caption" style="position: absolute; margin: -46px 0px -1px 207px; padding-left: 20px;">관리자 페이지</h3>
             <ul class="actions small">
                <li><span id="memberList" class="s-title text bGray" style="padding: 0em 0 0 10em;" >회원목록</span></li>
@@ -65,8 +68,8 @@
                      						<td>분류</td>
                   						</tr>
                                           <c:choose>
-                                                <c:when test="${members != null}" >
-                                          	 <c:forEach var="members" items="${members}" >
+                                                <c:when test="${userList != null}" >
+                                          	 <c:forEach var="members" items="${userList}" >
                                                                  <tr>
                                                                     <td>${members.getUserNum()}</td>
                                                                     <td>${members.getUserId()}</td>
@@ -90,14 +93,32 @@
                                                        </tr>
                                                 </c:when>
                                           </c:choose>
-                				</table>
-               					<!-- 페이징 처리 -->	
-               															<!-- 페이징 처리 -->	
-					<table style="text-align:center;">
-						<tr>
-							<td >1 2 3 4 5 6 7 8 9 10 </td>
-						</tr>	
-					</table>
+                                  </table>        
+                				<!-- 페이징 처리 -->   
+                              <table style="font-size:1.3rem">
+											<tr align="center" valign="middle" style="background-color: white;">				
+												<td class="web-view">
+													<c:if test="${startPage > 1}">
+														<a href="${pageContext.request.contextPath}/admin/AdminMemberListOk.ad?page=${startPage - 1}">&lt;</a>
+													</c:if>
+												
+													<c:forEach var="i" begin="${startPage}" end="${endPage}">
+														<c:choose>
+															<c:when test="${i eq page}">
+																<c:out value="${i}"/>&nbsp;&nbsp;
+															</c:when>
+															<c:otherwise>
+																<a href="${pageContext.request.contextPath}/admin/AdminMemberListOk.ad?page=${i}"><c:out value="${i}"/></a>&nbsp;&nbsp;
+															</c:otherwise>
+														</c:choose>
+													</c:forEach>
+													
+													<c:if test="${endPage < realEndPage}">
+														<a href="${pageContext.request.contextPath}/admin/AdminMemberListOk.ad?page=${endPage + 1}">&gt;</a>
+													</c:if>
+												</td>
+											</tr>
+										</table>                           
 									</section>
 									</div>
 									</div>
@@ -129,6 +150,7 @@
 									</div>
 									
 								</div>
+							</div>
 							</div>
 						</section>
 					</div>

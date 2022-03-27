@@ -60,13 +60,25 @@
 					<div style = "background-color: white;">
 						<input type ="text" id="title" name = "title" placeholder="제목을 입력하세요" style = " resize: none;" required>
 						<hr style = "margin-top: 2em !important; margin-bottom: 1em !important;">
+                        </div>
+					
+						<div class="profile">
 						
-						<div>
+                    <label><input type="file" name ="communityPic"style="display:none;">
+                    <img class="profileImg"src="https://cdn.discordapp.com/attachments/953473528030715988/957320833628504125/unknown.png" 
+                    style="width: 30px; border-radius: 10px; cursor: pointer; ">
+                    	<span style = "font-size: 12px; vertical-align: top; font-weight: 200;"> 썸네일을 등록해주세요.</span></label>
+                    </div>    
+						
+						
+						<div    style =" margin-top: -30px;">
 							<br>
 							
 						<!-- 	<textarea id="summernote" name="content"></textarea> -->
 							 <textarea id="summernote" name="editordata" required></textarea>
 						</div>
+						
+						
 					</div>
 				</div>
 			
@@ -97,6 +109,7 @@
   			<script src="${pageContext.request.contextPath}/assets/js/summernote/lang/summernote-ko-KR/js"></script>
   			<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 			<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+			 <script src="${pageContext.request.contextPath}/assets/js/WriteProfile.js"></script>
   			
   			<script>
   				function send(){
@@ -111,7 +124,7 @@
   			       $('#summernote').summernote({
   			              tabsize: 2,
   			             // width: 600,
-  			              height: 500,
+  			              height: 490,
   			  
   			              toolbar: [
   			            	  ['fontname', ['fontname']],

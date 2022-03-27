@@ -37,6 +37,7 @@ public class FavoriteDeleteOk implements Action{
 		
 
 		if(fromList == 1) {
+			System.out.println("삭제 리스트 있음 확인");
 			ActionForward af = new ActionForward();
 			af.setPath("/service/FavoriteListOk.ser");
 			af.setRedirect(false);

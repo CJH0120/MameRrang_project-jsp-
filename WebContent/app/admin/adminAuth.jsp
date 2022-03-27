@@ -25,7 +25,6 @@
    </head>
    <body class="is-preload" style="display:block; padding-top: 0; overflow-y: hidden">
 		<c:set var="authList" value="${authList}"/>
-		<c:set var="pfFiles" value="${pfFiles}"/>
 		
 
 		<c:set var="page" value="${page}"/>
@@ -41,7 +40,7 @@
          <div id="main" class="container">
                <!-- 배너 -->
          <div class="mainBox" style="padding-top: 3.5em;">
-            <a href="${pageContext.request.contextPath}/app/admin/admin.jsp"><img src="https://cdn.discordapp.com/attachments/954273372760571914/955478975797403648/1.png" style="width: 9%; position: absolute; margin: -50px 0px 0 26px;"></a>
+            <a href="${pageContext.request.contextPath}/admin/AdminMainOk.ad"><img src="https://cdn.discordapp.com/attachments/954273372760571914/955478975797403648/1.png" style="width: 9%; position: absolute; margin: -50px 0px 0 26px;"></a>
             <h3 class="caption" style="position: absolute; margin: -46px 0px -1px 207px; padding-left: 20px;">관리자 페이지</h3>
             <ul class="actions small">
                <li><span id="memberList" class="s-title text bGray" style="padding: 0em 0 0 10em;" >인증</span></li>
@@ -69,34 +68,44 @@
                                        <td>이름</td>
                                        <td>아이디</td>
                                        <td>첨부파일</td>
+                                       <td>상태</td>
                                        <td>작성일</td>
                                     </tr>
 
 							
 								<tbody class="tr_wrap">
+									<tr class="wrap">
 								<c:choose>
 								<c:when test="${authList != null}">
-									<c:forEach var="auth" items="${authList}"  varStatus="status">
-									
-															
-									
+									<c:forEach var="auth" items="${authList}" varStatus="status">
+
 								
-								
-								
-								
-								<tr class="wrap">
 									<td class="test"><img id="qwe"
 										src="https://cdn.discordapp.com/attachments/954273372760571914/955482467148656700/v2.png"
 										style="width: 15px"></td>
 									<td id="abcd">${auth.getProfileNum()}</td>
 									<td>${auth.getUserName()}</td>
 									<td>${auth.getUserId()}</td>
+									
+									
 									<!-- 첨부파일 목록 -->
+											<c:set var="profile" value="${auth.getProfileNum()}"/> 
+										      <c:set var="name" value="${auth.getUserName()}"/>
+									     		 <c:set var="id" value="${auth.getUserId()}"/>
 	                           		<td>
-		                           		<a href="${pageContext.request.contextPath}">
+		                           		<a href="${pageContext.request.contextPath}/admin/AdminDownloadOk.ad?profileNum=${auth.getProfileNum()}&fileName=${auth.getFileName()}&fileNameOriginal=${auth.getFileNameOriginal()}">
 		                           			<c:out value="${auth.getProfileAttach()}"/>
 		                           		</a>
 		                           	</td>
+		                           	<c:choose>
+		                           	<c:when test="${auth.getProfileProcess() eq 0}">
+		                           	<td>대기중</td>
+		                           	</c:when>
+		                           	<c:when test="${auth.getProfileProcess() eq 1}">
+		                           	<td>완료</td>
+		                           	</c:when>
+		                           	</c:choose>
+		                           	
 		                           	<td>${auth.getProfileDate()}</td>
 								<tr class="td1">
 									<td colspan="7">
@@ -184,7 +193,6 @@
 												</c:when>
 												<c:when test="${auth.getProfileProcess() eq 1}">
 													<div>
-													<button type="button" class="btn" onclick="prooo(${auth.getProfileNum()});" >수정완료</button>
 													</div>
 												</c:when>
 											</c:choose>
@@ -205,12 +213,31 @@
                                  
                                  
                                  <!-- 페이징 처리 -->   
-                              <table style="text-align:center;">
-                                 <tr>
-                                    <td >1 2 3 4 5 6 7 8 9 10 </td>
-                                 </tr>   
-                              </table>
-                           </section>
+                              <table style="font-size:1.3rem">
+											<tr align="center" valign="middle" style="background-color: white;">				
+												<td class="web-view">
+													<c:if test="${startPage > 1}">
+														<a href="${pageContext.request.contextPath}/admin/AdminAuthListOk.ad?page=${startPage - 1}">&lt;</a>
+													</c:if>
+												
+													<c:forEach var="i" begin="${startPage}" end="${endPage}">
+														<c:choose>
+															<c:when test="${i eq page}">
+																<c:out value="${i}"/>&nbsp;&nbsp;
+															</c:when>
+															<c:otherwise>
+																<a href="${pageContext.request.contextPath}/admin/AdminAuthListOk.ad?page=${i}"><c:out value="${i}"/></a>&nbsp;&nbsp;
+															</c:otherwise>
+														</c:choose>
+													</c:forEach>
+													
+													<c:if test="${endPage < realEndPage}">
+														<a href="${pageContext.request.contextPath}/admin/AdminAuthListOk.ad?page=${endPage + 1}">&gt;</a>
+													</c:if>
+												</td>
+											</tr>
+										</table>                           
+										</section>
                            </div>
                            </div>
                            <div class="col-6 col-12-small v-total" style="width: 30%; display:table; height: 400px; border: 1px solid #bbb; border-radius: 3px; padding-top:1em;">

@@ -11,10 +11,9 @@ width: 25px;
 }
 
 a.a{
-color: gray;
+	color: gray;
     border: none;
     cursor: pointer;
-
 }
 
 aside.aside2{
@@ -294,12 +293,14 @@ input::-moz-focus-inner, input::-moz-focus-outer {
 .imgIcon{
     width: 20px;
     margin-right: 10px;
+    float: left;
 }
 
 .liCss{
     margin-bottom: 16px;
     font-size: 15px;
     display: inline-block;
+    width: 130%;
 }
 .reviewText{
     font-weight: bold;
@@ -540,6 +541,7 @@ input::-moz-focus-inner, input::-moz-focus-outer {
 .imgIcon{
     width: 20px;
     margin-right: 10px;
+    float: left;
 }
 
 .liCss{
@@ -668,5 +670,26 @@ display:none;
         .quit{
             font-size: 14px;
             color: #d4cfcf;
+        }
 
-        
+	div.activity{
+	background: #ffb61a !important;
+    border: 1px solid #ffb61a !important;
+    border-radius: 9px !important;
+    color: white !important;
+    width: 75px;
+    height: 27px;
+    text-align: center;
+    margin: 0 2px 0 2px;
+    float: left;
+ }
+ 
+ a.b{
+	color: gray;
+    border: none;
+    float: left;
+}
+
+ 
+ 
+ 

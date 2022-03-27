@@ -24,7 +24,9 @@
    <c:set var="sitter" value="${sitterInfo}"/>
    <c:set var="userNum2" value="${userNum2}"/>
    <c:set var="profileNum" value="${profileNum}"/>
+   	<c:set var="fileName" value="${fileName}"/>
    <c:set var="profile" value="${profile}"/>
+   <c:set var="userAge" value="${userAge}"/>
    <!--  userNum2 = 프로필을 쓴 사람의 유저넘 -->
    
     <!-- Aside -->
@@ -102,10 +104,19 @@
                    </div>
                       </c:if>
             
+            
+            
                 <div style="text-align: left; display:inline-block; margin-left:15px;">
-                    <label><input type="file" style="display:none;">
-                    <img src="${pageContext.request.contextPath}/images/img1.jpg" style="width: 100px; border-radius: 150px; cursor: pointer; ">
-                    </label>
+                  
+                     <c:choose>
+                    	<c:when test="${empty fileName}">
+                        <img src="https://cdn.discordapp.com/attachments/954273372760571914/955479398054772796/unknown.png" style="width: 100px; border-radius: 150px; ">
+                    	</c:when>
+                    	<c:otherwise>
+                        <img src="/profileData/${fileName}" style="width: 100px; height: 100px;border-radius: 150px; ">
+                    	</c:otherwise>
+                    </c:choose>
+                    
                     <div style = "position:absolute; top: 20px; left: 136px;">
                     <!-- 유저 이름===============================================     -->
                        <h3 style="margin-bottom: 3px; font-size: 18px;">${sitter.getUserName()}
@@ -118,7 +129,7 @@
                         </c:otherwise>
                      </c:choose>
                          </h3>
-                          <span style = "margin-top: 20px; font-size:16px;"><c:out value="${'2022'- sitter.getUserBirthYear()}"/>살, 
+                          <span style = "margin-top: 20px; font-size:16px;"><c:out value="${userAge}"/>살, 
                           <c:choose>
                              <c:when test="${sitter.getUserGender()==2}">
                                 <c:out value="여"/>
@@ -144,7 +155,7 @@
                 <hr class="split">
                 <div class = "innerContent">
                 <p class ="innerTitle" >한 줄 소개</p>
-                
+                <hr class = "split">
                 <div style = "float:left; margin-right:30px; margin-top: 20px;">
                     <p style="margin: 0;  font-size: 15px; color:#797d7e;
                     ">${sitter.getProfileDescription()}</p>
@@ -274,49 +285,86 @@
          
          
 
-                <hr class = "split">
+                
                     <div class = "innerContent2" style="float: left;">
                         <p class ="innerTitle" style="margin-bottom: 29px;">기본정보</p>
 
                         <ul style="list-style: none; margin-left: -28px; width: 446px; margin-bottom: 0; ">
+                        <div>
                             <li class="liCss" id="li1"> <img src="${pageContext.request.contextPath}/images/인증완료.png" class="imgIcon">
-                            <a  class="a"> 인증완료 여부 : </a> 
-                            <span>${medi}  ${mom}  ${teacher}  ${self}  ${univer}</span>
+                            <a  class="b"> 인증완료 여부 : </a> 
+	                            <div class="activity">${medi}</div>
+	                            <div class="activity">${mom}</div>
+	                            <div class="activity">${self} </div>
+	                            <div class="activity">${univer}</div>
                             </li>
-                            <br><li class="liCss" id="li2"><img src="${pageContext.request.contextPath}/images/활동아이콘.png" class="imgIcon">
-                            <a class="a" >가능한 활동 :  </a>
-                            <span>${careIndoor}  ${careCommit}  ${CareFood}  ${CareClean}  ${CareStudy} ${CareEmergency}</span>
-                            </li>
+                         </div>
                             
-                            <br><li class="liCss" id="li3"><img src="${pageContext.request.contextPath}/images/돌봄가능연령아이콘.png" class="imgIcon">
-                              <a class="a">돌봄가능 연령 : </a>
-                            <span> ${BabyNewborn}  ${BabyChild}  ${BabyKinder}  ${BabyElementary}</span>
-                            </li>
+                            <br>
+                            <div>
+	                            <li class="liCss" id="li2"><img  src="${pageContext.request.contextPath}/images/활동아이콘.png" class="imgIcon">
+	                            	<a class="b" >가능한 활동 :  </a>
+		                            <div style="" class="activity">${careCommit}</div>
+		                            <div class="activity">${CareFood}</div>
+		                            <div class="activity">${CareClean}</div>
+		                            <div class="activity">${CareStudy}</div>
+		                            <div class="activity">${CareEmergency}</div>
+	                            </li>
+                            </div>
                             
-                            <br><li class="liCss" id="li4"><img src="${pageContext.request.contextPath}/images/돌봄가능기간.png" class="imgIcon">
-                              <a class="a">활동가능 기간 : </a>
-                              <span>[${sitter.getP_periodStartDate()}] /${week} ${month} ${quarter} ${semiAnnual}</span>
-                              </li>
+                            <br>
+                            <div>
+	                            <li class="liCss" id="li3"><img src="${pageContext.request.contextPath}/images/돌봄가능연령아이콘.png" class="imgIcon">
+	                              <a class="b">돌봄가능 연령 : </a>
+	                            <span>       
+	                            </span>
+		                            <div class="activity">${BabyNewborn}</div>
+		                            <div class="activity">${BabyChild}</div>
+		                            <div class="activity">${BabyKinder}</div>
+		                            <div class="activity">${BabyElementary}</div>
+	                            </li>
+                            </div>
                             
-                            <br><li class="liCss" id="li5"><img src="${pageContext.request.contextPath}/images/활동가능시간.png" class="imgIcon">
-                              <a class="a" ${morning} ${lunch} ${noon}>활동가능 시간 : </a>
-                              <span>${morning} ${lunch} ${noon}</span>
-                              </li>
-                           
-
-                        </ul>
-                       
-
-                        
-                    </div>
-                    <div class = "innerContent moAd1" style="float: left;  margin-left: 35%;">
+                            <br>
+                            <div>
+	                            <li class="liCss" id="li4"><img src="${pageContext.request.contextPath}/images/돌봄가능기간.png" class="imgIcon">
+	                              <a class="b">활동가능 기간 : </a>
+	                              <span>   
+	                              </span>
+		                              <div style="width: 92px;" class="activity">[${sitter.getP_periodStartDate()}]</div>
+		                              <div class="activity">${week}</div>
+		                              <div class="activity">${month}</div>
+		                              <div class="activity">${quarter}</div>
+		                              <div class="activity">${semiAnnual}</div>
+	                              </li>
+                              </div>
+                            
+                            <br>
+                            <div>
+	                            <li class="liCss" id="li5"><img src="${pageContext.request.contextPath}/images/활동가능시간.png" class="imgIcon">
+	                              <a class="b">활동가능 시간 : </a>
+	                              <span>   
+	                              </span>
+		                              <div style="width: 86px;" class="activity">${morning}</div>
+		                              <div style="width: 86px;" class="activity">${lunch}</div>
+		                              <div style="width: 86px;" class="activity">${noon}</div>
+	                              </li>
+                              </div>
+                              <hr style="margin: 20px; color: #93999a;">
+                       <!-- 지도 부분 -->
+                    <div class = "map_wrap">
                         <p class ="innerTitle" style="margin: 0;"><img src="${pageContext.request.contextPath}/images/지역.png" style="width: 25px; margin-right: 5px; ">활동가능 지역</p>
                         <p style="margin:0px; font-size: 14px;">(${sitter.getLocationSido()}  ${sitter.getLocationSigun()}  ${sitter.getLocationDong()})</p>
-                        <div >
+                    	<div id="map" style="width:570px;height:252px;" class="map" ></div>
+                    </div>
+                        </ul>
+                       
+                        
+                    </div>
 
            
            <!-- 모달 --> 
-
+			<div class="innerContent moAd1 ">
                 <div class="modal hidden">
                     <div class="bg"></div>
                     <div class="modalBox">
@@ -335,10 +383,12 @@
                      <!--   </form>  -->
                     </div>
                 </div>
-                        <div id="map" style="width:350px;height:220px;"class="map" ></div>
+                
+                
+                        
 
                         </div>
-                    </div>
+                   
 
 
                      
@@ -362,6 +412,7 @@
                   </div>
                   </div>
 
+</div>
 </div>
 
 

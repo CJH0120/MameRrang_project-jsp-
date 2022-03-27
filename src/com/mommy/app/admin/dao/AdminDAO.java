@@ -145,6 +145,7 @@ public class AdminDAO
 		return sqlSession.selectOne("Admin.authGetTotal1");
 	}	
 	
+	
 }
 
 

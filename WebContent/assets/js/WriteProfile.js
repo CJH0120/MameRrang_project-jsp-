@@ -132,6 +132,9 @@
 	if(file[0].size > 1024 * 1024 * 10){
 	   // 용량 초과시 경고후 해당 파일의 용량도 보여줌
 	   alert('10MB 이하 파일만 등록할 수 있습니다.\n\n' + '현재파일 용량 : ' + (Math.round(file[0].size / 1024 / 1024 * 100) / 100) + 'MB');
+	}else if(!/\.(zip)$/i.test(file[0].name)) {
+		alert('zip 파일만 선택해 주세요.\n\n현재 파일 : ' + file[0].name);
+	
 	}else {
 		document.getElementById('upload').style.backgroundColor="#ffb61a";
 			
@@ -145,6 +148,8 @@
 	el.outerHTML = el.outerHTML;
 	}
 	   
+	   
+	
 	
 	   function getIframe() {
 		 /*  modalIframe.document.getElementById('sido_sel').value;*/
@@ -238,21 +243,7 @@
    	});
 	
 	//파일 업로드 확장자 체크
-	function checkFile(f) {
-		//files로 해당 파일 정보 얻기
-		var file = f.files;
-		// file[0].name 은 파일명
-		// 정규식으로 확장자 체크
-		if(!/\.(zip)$/i.test(file[0].name)) 
-			alert('zip 파일만 선택해 주세요.\n\n현재 파일 : ' + file[0].name);
-		// 체크를 통과했다면 종료.
-		else return;
-		// 체크에 걸리면 선택된  내용 취소 처리를 해야함.
-		// 파일선택 폼의 내용은 스크립트로 컨트롤 할 수 없다.
-		// 그래서 그냥 새로 폼을 새로 써주는 방식으로 초기화.
-		f.outerHTML = f.outerHTML;
-		
-	}
+	
 //	//용량체크
 //	if($("#attachQ").value!=""){
 //		var fileSize = $("#attachQ").files[0].size;

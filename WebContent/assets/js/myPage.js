@@ -346,6 +346,12 @@ var flag = false;
 					/* 	location.href = contextPath + "/service/FavoriteListOk.ser"; */
 						console.log(e);
 						$('div#informatiom').html(e);
+					},
+					error:function(a,b,c){
+						console.log('실패')
+						console.log(a)
+						console.log(b)
+						console.log(c)
 					} 
 			     
 			    });

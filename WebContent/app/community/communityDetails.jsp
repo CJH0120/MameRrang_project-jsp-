@@ -24,6 +24,7 @@
 		<c:set var="community" value="${community}"/>
 		<c:set var="files" value="${files}"/>
    		<c:set var="page" value="${page}"/>
+   		<c:set var="fileName" value="${fileName}"/>
    		<c:set var="communityNum" value="${communityNum}"/>
 			<!-- Aside -->
   <div class="wrapper">
@@ -78,8 +79,15 @@
                                
                                 <!--작성자, 시간, 수정 삭제-->
                                 <div style ="padding-top:15px; " class="media5">
-                                    <img class="profile" src="https://cdn.discordapp.com/attachments/954273372760571914/955485997880209468/d3a7d5b9f5ad22d2.jpg" style = "float:left;">
-                                    <!-- 프로필 이미지 아직 연결 안됐습니다. -->
+                                 <c:choose>
+			                    	<c:when test="${empty fileName}">
+			                       		 <img class="profile" src="https://cdn.discordapp.com/attachments/954273372760571914/955479398054772796/unknown.png" style = "float:left; height: 28px;">
+			                    	</c:when>
+			                    	<c:otherwise>
+			                       		 <img class="profile" src="/profileData/${fileName}" style = "float:left;">
+			                    	</c:otherwise>
+			                    </c:choose>
+                                   
                                         <p>&nbsp;<span id = "nickname" class="media6">${community.getUserId()}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class ="gray">${community.getBoardDate()}</span>
                                                    <c:if test="${userNum eq community.getUserNum()}">
                                             <a class = "gray " style ="float:right; margin-left:12px; cursor:pointer;" onclick="location.href='${pageContext.request.contextPath}/community/CommunityDeleteOk.com?communityNum=${communityNum}'">삭제</a>
@@ -104,7 +112,6 @@
                                    
                                   	
 				
-				<!-- 댓글 ㅣ 댓글 작성 했을 때 자동으로 열리게 구현 -->
 				  <!-- 댓글 글쓰기 -->
                                     <div style = "margin-top:30px;">
                                         <form method="post" action="#" class="combined" style="width:auto;">	                        

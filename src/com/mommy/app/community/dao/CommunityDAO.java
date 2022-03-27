@@ -54,5 +54,10 @@ public class CommunityDAO {
 		public void update(CommunityVO Community) {
 			sqlSession.update("Community.update", Community);
 		}
+		
+		//글쓴이 유저넘 조회 
+		public int getUserNum(int communityNum) {
+			return sqlSession.selectOne("Community.getUserNum", communityNum);
+		}
 	
 }

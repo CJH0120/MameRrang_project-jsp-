@@ -95,6 +95,14 @@ public class UserFrontController extends HttpServlet{
 			af = new UserLoginOk().execute(req, resp);	
 			af.setRedirect(false);
 			af.setPath("/app/user/loginFail.jsp");
+		}else if(command.equals("/user/findIdPw.user")) {
+			af = new ActionForward();
+			af.setRedirect(false);
+			af.setPath("/app/user/findIdPw.jsp");
+		}else if(command.equals("/user/joinInfo.user")) {
+			af = new ActionForward();
+			af.setRedirect(false);
+			af.setPath("/app/user/joinInfo.jsp");
 		}
 		
 		//전송안할지

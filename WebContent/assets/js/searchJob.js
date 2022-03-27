@@ -6,28 +6,23 @@ const body = document.querySelector('body');
   
     function close(){
       document.querySelector(".modal").classList.add("hidden");
-      body.style.overflow = 'scroll'
     }
     
     function open2(){
     	document.querySelector(".modal2").classList.remove("hidden");
-    	  body.style.overflow = 'hidden'
     }
     
     function close2(){
     	document.querySelector(".modal2").classList.add("hidden");
-    	   body.style.overflow = 'scroll'
     }
     
     
     function open3(){
     	document.querySelector(".modal3").classList.remove("hidden");
-    	 body.style.overflow = 'hidden'
     }
     
     function close3(){
     	document.querySelector(".modal3").classList.add("hidden");
-    	  body.style.overflow = 'scroll'
     }
   
 
@@ -650,44 +645,44 @@ const body = document.querySelector('body');
 			// result 개수만큼 반복
 			for (var i = 0; i < result.length; i++) {
 				var userProfile="<div class='userPf'>";
-				userProfile+="<div class='userImg'>";
+				userProfile+="<div class='userImg  medi2'>";
 				userProfile+="	<!-- 유저 사진 -->";
 				if(result[i].ProfilePicture=="" || result[i].ProfilePicture==null ){
 					console.log("픽쳐 널일때 들어옴")
 					userProfile+="<img src='../images/아이.png'class='userImgDetail'>";
 				}else{
 					console.log("픽쳐 널아님")
-					userProfile+="<img src='/profileData/"+result[i].ProfilePicture+"'class='userImgDetail'>";
+					userProfile+="<img src='/profileData/"+result[i].ProfilePicture+"'class='userImgDetail medi3'>";
 				}
 				userProfile+="</div>";
 				userProfile+="<div class='userName'>";
 				userProfile+="	<!-- 게시글 제목 -->";
-				userProfile+="	<h4 style='margin-bottom: 0;'><a href='/service/LookMomProfileOk.ser?userNum="+result[i].userNum+"&profile="+result[i].profileNum+"' style='border:none;'>";
+				userProfile+="	<h4 style='margin-bottom: 0;'><a href='"+contextPath+"/service/LookMomProfileOk.ser?userNum="+result[i].userNum+"&profile="+result[i].profileNum+"' style='border:none;'>";
 				userProfile+=""+result[i].ProfileDescription+"</a></h4>";
 				userProfile+="	<div class='mobileAd'>";
 				userProfile+="		<!-- 주소 -->";
-				userProfile+="		<span class='span'>"+result[i].LocationSido+result[i].LocationSigun+" </span>&nbsp;";
-				userProfile+="		<div class='line'></div>&nbsp;&nbsp;";
+				userProfile+="		<span class='span medi6'>"+result[i].LocationSido+result[i].LocationSigun+" </span>&nbsp;";
+				userProfile+="		<div class='line medi7'></div>&nbsp;&nbsp;";
 				userProfile+="		<!-- 아이정보 -->";
 					if(result[i].BabyNewborn==1){
-						userProfile+="<span class='span'>신생아</span>&nbsp;";
+						userProfile+="<span class='span medi6'>신생아</span>&nbsp;";
 					}
 					else if(result[i].BabyChild==1){
-						userProfile+="<span class='span'>유아</span>&nbsp;";
+						userProfile+="<span class='span medi6'>유아</span>&nbsp;";
 					}
 					else if(result[i].BabyKinder==1){
-						userProfile+="<span class='span'>유치원생</span>&nbsp;";
+						userProfile+="<span class='span medi6'>유치원생</span>&nbsp;";
 					}
 					else if(result[i].BabyElementary==1){
-						userProfile+="<span class='span'>초등학생</span>&nbsp;";
+						userProfile+="<span class='span medi6'>초등학생</span>&nbsp;";
 					}else{
-						userProfile+="<span class='span'>정보 없음</span>&nbsp;";
+						userProfile+="<span class='span medi6'>정보 없음</span>&nbsp;";
 						
 					}
 		
-				userProfile+="		<div class='line'></div>";
+				userProfile+="		<div class='line medi14'></div>";
 				userProfile+="		<!-- 시작날짜 -->";
-				userProfile+="		<span class='span'>&nbsp;&nbsp;&nbsp;"+result[i].periodStartDate+"시작</span>";
+				userProfile+="		<span class='span medi15'>&nbsp;&nbsp;&nbsp;"+result[i].periodStartDate+"시작</span>";
 				userProfile+="		&nbsp;&nbsp;";
 				userProfile+="</div>";
 				userProfile+="	<div class='fontSize'>";
@@ -696,44 +691,44 @@ const body = document.querySelector('body');
 				userProfile+="		</div>";
 				userProfile+="		<!-- 희망시급, 협의가능여부 -->";
 				userProfile+="		희망시급 "+result[i].getProfileSalary+"원</div>";
-				userProfile+="		<hr style='margin: 7px 0px;width: 100%;'>";
+				userProfile+="		<hr style='margin: 7px 0px;width: 100%;' class='medi16'>";
 				userProfile+="		<!-- 돌봄가능날짜 -->";
 				userProfile+="		<div class='day'>";
 				userProfile+="		<div class='days'>";
 					if(result[i].mon==1){
-						userProfile+="<img src='../images/월1.png' style='width: 30px;' >";
+						userProfile+="<img src='../images/월1.png' style='width: 35px;'  class='medi12'>";
 					}else{
-						userProfile+="	<img src='../images/월.png' style='width: 30px;'>";
+						userProfile+="	<img src='../images/월.png' style='width: 35px;'  class='medi12'>";
 					}
 					if(result[i].tue==1){
-						userProfile+="<img src='../images/화1.png' style='width: 30px;'>";
+						userProfile+="<img src='../images/화1.png' style='width: 35px;'  class='medi12'>";
 					}else{
-						userProfile+="	<img src='../images/화.png' style='width: 30px;' >";
+						userProfile+="	<img src='../images/화.png' style='width: 35px;'  class='medi12'>";
 					}
 					if(result[i].wed==1){
-						userProfile+="<img src='../images/수1.png' style='width: 30px;' >";
+						userProfile+="<img src='../images/수1.png' style='width: 35px;'  class='medi12'>";
 					}else{
-						userProfile+="	<img src='../images/수.png' style='width: 30px;'>";
+						userProfile+="	<img src='../images/수.png' style='width: 35px;' class='medi12'>";
 					}
 					if(result[i].thu==1){
-						userProfile+="<img src='../images/목1.png' style='width: 30px;' >";
+						userProfile+="<img src='../images/목1.png' style='width: 35px;'  class='medi12'>";
 					}else{
-						userProfile+="	<img src='../images/목.png' style='width: 30px;'>";
+						userProfile+="	<img src='../images/목.png' style='width: 35px;' class='medi12'>";
 					}
 					if(result[i].fri==1){
-						userProfile+="<img src='../images/금1.png' style='width: 30px;' >";
+						userProfile+="<img src='../images/금1.png' style='width: 35px;'  class='medi12'>";
 					}else{
-						userProfile+="	<img src='../images/금.png' style='width: 30px;'>";
+						userProfile+="	<img src='../images/금.png' style='width: 35px;' class='medi12'>";
 					}
 					if(result[i].sat==1){
-						userProfile+="<img src='../images/토1.png' style='width: 30px;' >";
+						userProfile+="<img src='../images/토1.png' style='width: 35px;'  class='medi12'>";
 					}else{
-						userProfile+="	<img src='../images/토.png' style='width: 30px;'>";
+						userProfile+="	<img src='../images/토.png' style='width: 35px;' class='medi12'>";
 					}
 					if(result[i].sun==1){
-						userProfile+="<img src='../images/일1.png' style='width: 30px;' >";
+						userProfile+="<img src='../images/일1.png' style='width: 35px;'  class='medi12'>";
 					}else{
-						userProfile+="	<img src='../images/일.png' style='width: 30px;'>";
+						userProfile+="	<img src='../images/일.png' style='width: 35px;' class='medi12'>";
 					}
 
 				userProfile+="		</div>";

@@ -100,7 +100,7 @@
                      <button class="button-size01" onclick="send()">로그인</button>
                   </div>   
                   <div style="display: flex; justify-content: space-evenly;">
-                     <a href="${pageContext.request.contextPath}/app/user/findIdPw.jsp" class="button small">아이디 혹은 비밀번호를 잊으셨나요 ?</a>
+                     <a href="${pageContext.request.contextPath}/user/findIdPw.user" class="button small">아이디 혹은 비밀번호를 잊으셨나요 ?</a>
                   </div>         
                </div>
             </div>

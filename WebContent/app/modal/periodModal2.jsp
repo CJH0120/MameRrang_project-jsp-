@@ -31,7 +31,7 @@
       <h4 style="display: inline-block; width: 150px;">원하는 활동 시작일</h4>
         
        <div class="input_date_box" style="display: inline-block;">
-        <input type="date" placeholder="날짜를 입력해주세요">
+        <input type="date" placeholder="날짜를 입력해주세요" id="startDate">
      </div>
   
         <hr>
@@ -123,5 +123,12 @@
 			
 		</div>
 </body>
+			<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+			<script src="${pageContext.request.contextPath}/assets/js/jquery.scrolly.min.js"></script>
+			<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
+			<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
+			<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
+			<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+			  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/periodModal.js"></script>
 </html>

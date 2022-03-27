@@ -66,7 +66,7 @@
                 <div style="text-align: left; display:inline-block; margin-left:15px;">
                 	<div class="profile">
                     <label><input type="file" name ="profilePicture"style="display:none;">
-                    <img class="profileImg"src="${pageContext.request.contextPath}/images/유저.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">
+                    <img class="profileImg"src="https://cdn.discordapp.com/attachments/954273372760571914/955479398054772796/unknown.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">
                     </label>
                     </div>                    
                     <div style = "position:absolute; top: 19px; left: 136px;">
@@ -109,8 +109,8 @@
                                 <label for="clean" style = "font-size:16px;">청소</label>
                             </div>
                             <div>
-                                <input type="checkbox" id="teach" name="teach"  >
-                                <label for="teach" style = "font-size:16px;">학습 지도</label>
+                                <input type="checkbox" id="study" name="study"  >
+                                <label for="study" style = "font-size:16px;">학습 지도</label>
                             </div>
                               <div>
                                 <input type="checkbox" id="careEmergency" name="careEmergency"  >
@@ -218,7 +218,7 @@
             <div>
                 <h5 style = "font-weight:500">부모님 게시글 목록</h5>
                 <p style = "font-size:16px;">마미랑 부모님들의 프로필을 참고해서 나의 프로필을 더 멋지게 꾸며보세요! 멋진 프로필은 좋은 시터와 높은 매칭률에 도움이 됩니다!</p>
-                <a href = "${pageContext.request.contextPath}/app/serviceSearch/searchJob.jsp;"><button class = "buttonAside">부모님 게시글 목록</button></a>
+                <a href = "${pageContext.request.contextPath}/service/SearchJobOk.ser"><button class = "buttonAside">부모님 게시글 목록</button></a>
             </div>
         </div>
         <br>
@@ -232,7 +232,7 @@
             <div>
                 <h5 style = "font-weight:500">시터 찾기 바로가기</h5>
                 <p style = "font-size:16px;">마미랑만의 인증 시스템을 거친 믿음직한 시터들을 지금 바로 만나보세요.</p>
-                <a href = "${pageContext.request.contextPath}/app/serviceSearch/searchMom.jsp;"><button class = "buttonAside">시터 찾기</button></a>
+                <a href = "${pageContext.request.contextPath}/service/SearchMomOk.ser"><button class = "buttonAside">시터 찾기</button></a>
             </div>
         </div>
     </aside>	
