@@ -15,6 +15,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/etcMain.css" />
+		<link rel="favicon" href="${pageContext.request.contextPath}/images/favicon3.ico"/>
+		<link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
 	</head>
 
 	<body class="is-preload">		
@@ -41,7 +43,7 @@
 								<li><a href="${pageContext.request.contextPath}/service/SearchJobOk.ser" class="button large primary media13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;일자리찾기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 							</c:when>
 							<c:otherwise>
-								<li><a href="${pageContext.request.contextPath}/app/user/join.jsp" class="button large primary media13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;가입하기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+								<li><a href="${pageContext.request.contextPath}/user/UserJoin.user" class="button large primary media13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;가입하기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 							</c:otherwise>
 						</c:choose>
 					</ul>
@@ -76,7 +78,7 @@
                     다양하고 까다로운 부모님의 니즈를 충족할<br>
                     베이비시터를 찾을 수 있는 공유 경제 서비스 입니다. </p>
                     <ul class="actions special media14" >
-						<li><a href="${pageContext.request.contextPath}/app/serviceSearch/searchMom.jsp" class="button large primary media15" style = "position: absolute;
+						<li><a href="${pageContext.request.contextPath}/service/SearchMomOk.ser" class="button large primary media15" style = "position: absolute;
                             color:#ffb61a !important;
                             background-color: white !important;
                             left: 22%;
@@ -101,30 +103,45 @@
                                         <li class="slideitem">
                                             <a>
                                                 <div class="textbox media21">
-                                                    <h3 class = "slideText media17">첫번째 슬라이드</h3>
-                                                    <p class="media15">첫번째 슬라이드 입니다.</p>
+                                                    <h3 class = "slideText media17">맞춤 시터 찾기</h3>
+                                                    <p class="media15">
+                                                        ① 돌봄지역, 돌봄유형, 상세검색 등
+                                                    <br>여러가지의 다양한 필터링을 통해 
+                                                    <br>나에게 딱 맞는 시터를 찾아보세요<br><br>
+                                                    ② 목록에서 원하는 시터의 프로필을 클릭</p>
+                                             
                                                 </div>
-                                                <img src="${pageContext.request.contextPath}/images/slide1.png">
+                                                <img src="https://cdn.discordapp.com/attachments/954273372760571914/957717837437358130/slider1.png">
                                             </a>
                                         </li>
                                         <li class="slideitem">
                                             <a>
                                                 
                                                 <div class="textbox">
-                                                    <h3 class = "slideText media17">두번째 슬라이드</h3>
-                                                    <p class="media15">두번째 슬라이드 입니다.</p>
+                                                    <h3 class = "slideText media17">돌봄 요청 보내기</h3>
+                                                    <p class="media15">
+                                                         ① 프로필에서 여러가지 정보를 조회하고
+                                                     <br>내 마음에 드는 시터를 찾았다면
+                                                     <br>
+                                                     <br>② 상단의 돌봄 신청 버튼을 누르고
+                                                     <br>내 카카오톡 아이디와 한 줄 요청을 남겨주세요
+                                                     <br></p>
                                                 </div>
-                                                <img src="${pageContext.request.contextPath}/images/slide2.png">
+                                                <img src="https://cdn.discordapp.com/attachments/954273372760571914/957717837647081512/slider2.png">
                                             </a>
                                         </li>
                                         <li class="slideitem">
                                             <a>
                                                 
                                                 <div class="textbox">
-                                                    <h3 class = "slideText media17">세번째 슬라이드</h3>
-                                                    <p class="media15">세번째 슬라이드 입니다.</p>
+                                                    <h3 class = "slideText media17">받은 요청 확인하기</h3>
+                                                    <p class="media15">
+                                                    ① 마이페이지 상단의 종 아이콘을 클릭
+                                                    <br><br>
+                                                    ② 내가 받은 요청의 목록을 볼 수 있습니다.
+                                                    </p>
                                                 </div>
-                                                <img src="${pageContext.request.contextPath}/images/slide3.png">
+                                                <img src="https://cdn.discordapp.com/attachments/954273372760571914/957717837814849576/slider3.png">
                                             </a>
                                         </li class="slideitem">
                                         
@@ -190,13 +207,13 @@
 							<ul class="actions special">
 							<c:choose>
 								<c:when test="${userStatus eq 1}">
-									<li><a href="${pageContext.request.contextPath}/app/user/join.jsp" class="button large primary media13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;시터찾기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+									<li><a href="${pageContext.request.contextPath}/service/SearchMomOk.ser" class="button large primary media13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;시터찾기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 								</c:when>
 								<c:when test="${userStatus eq 2}">
-									<li><a href="${pageContext.request.contextPath}/app/user/join.jsp" class="button large primary media13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;일자리찾기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+									<li><a href="${pageContext.request.contextPath}/service/SearchJobOk.ser" class="button large primary media13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;일자리찾기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 								</c:when>
 								<c:otherwise>
-									<li><a href="${pageContext.request.contextPath}/app/user/join.jsp" class="button large primary media13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;가입하기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+									<li><a href="${pageContext.request.contextPath}/user/UserJoin.user" class="button large primary media13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;가입하기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 								</c:otherwise>
 							</c:choose>	
 							</ul>

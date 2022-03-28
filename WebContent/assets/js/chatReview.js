@@ -42,9 +42,20 @@
 	            url: contextPath + "/chat/ChatReadOne.chat",      
 	            dataType: "json",         
 	            type:"get"   ,
+	            contentType: "application/json;charset=utf-8",
 	            data:  {
 		    			"chatNum": chatNum},
+		    	success: function(data){
+				            if (data.count == 0){
+				            	  $("p#newMSG", parent.document).css({"display" : "none"});
+				    		      $("img#chat", parent.document).css({ "-webkit-filter": "grayscale(100%)"});
+				            }
+				    	 },
+				  error: function(){
+				    		 console.log("실패");
+				    	 }
 	         });
+	      
 	   
 	  	$(this).find("span.chat-balloon").css({"display" : "none"});
 	 });
@@ -64,9 +75,12 @@
 		            type:"post"   ,
 		            data:  {
 			    			"chatNum": chatNum},
+			    	
 		         });
 		      $(".chat-balloon").css({"display" : "none"});
+		      $("p#newMSG", parent.document).css({"display" : "none"});
 		      $("img#chat", parent.document).css({ "-webkit-filter": "grayscale(100%)"});
+		    
 		  
 		 });
 		 

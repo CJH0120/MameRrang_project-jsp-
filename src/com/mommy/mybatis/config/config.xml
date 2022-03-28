@@ -35,6 +35,7 @@
       
        <typeAlias type="com.mommy.app.service.vo.ProfileFilesVO" alias="ProfileFilesVO"/>
        <typeAlias type="com.mommy.app.chat.vo.ChatVO" alias="ChatVO"/>
+       <typeAlias type="com.mommy.app.chat.vo.ChatDTO" alias="ChatDTO"/>
 	
    </typeAliases>
 

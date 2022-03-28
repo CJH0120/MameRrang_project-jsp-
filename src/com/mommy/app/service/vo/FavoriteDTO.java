@@ -13,8 +13,17 @@ public class FavoriteDTO {
 	 private int profileUserNum;
 	 private String fileName;
 	 private int profileProcess;
+	 private int userStatus;
 	 
-	 public int getProfileProcess() {
+	 public int getUserStatus() {
+		return userStatus;
+	}
+
+	public void setUserStatus(int userStatus) {
+		this.userStatus = userStatus;
+	}
+
+	public int getProfileProcess() {
 		return profileProcess;
 	}
 

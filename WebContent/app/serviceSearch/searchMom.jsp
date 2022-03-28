@@ -9,7 +9,7 @@
 
 <html>
 	<head>
-		<title>Untitled</title>
+		<title>시터 찾기</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
@@ -20,6 +20,7 @@
 <link href="${pageContext.request.contextPath}/https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 	<link href="${pageContext.request.contextPath}/assets/css/searchMom.css" rel="stylesheet" >
 	<link href="${pageContext.request.contextPath}/assets/css/loginModal.css" rel="stylesheet" type="text/css"> 
+	<link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
 	</head>
 	<body>
 		<c:set var="momList" value="${momList}"/>
@@ -45,7 +46,7 @@
         
         
 			<br><br>
-			<h3 style="font-family: 'GmarketSansLight'; font-size: 28px; margin-bottom: 100px;" class="h3"> 베이비 시터 찾기</h3>
+			<h3 style="font-family: 'GmarketSansLight'; font-size: 28px; margin-bottom: 100px;" class="h3"> 시터 찾기</h3>
 			 
 			 
 			 				<!--돌봄지역-->
@@ -94,9 +95,9 @@
                 <img alt="icon" src="https://cdn.mom-sitter.com/momsitter-app/static/public/affordance/popup-image-1.svg">
                 <p>시터의 다양한 인증을 빠르고 정확하게 확인!</p>
                 <img alt="icon" src="https://cdn.mom-sitter.com/momsitter-app/static/public/affordance/popup-image-2.svg">
-                <p>시터의 활동 가능 시간을 쏙쏙 확인!</p>
+                <p>시터의 활동 가능 시간을 간단하게 확인!</p>
                 <img alt="icon" src="https://cdn.mom-sitter.com/momsitter-app/static/public/affordance/popup-image-3.svg">
-                <p>부모 회원이 작성한 리뷰까지 챙겨보자!</p>
+                <p>원하는 시터에게 나의 카톡 연락처 남기기!</p>
                 <a class= "a-button" href ="${pageContext.request.contextPath}/user/UserJoin.user"><button class="button-size01">가입하기</button></a>
                 
             </div>
@@ -275,106 +276,124 @@
 		</div>
 		
 		
-		  <!-- 상세검색 모달 --> 
+		<!-- 상세검색 모달 --> 
 
                 <div class="modal hidden">
                  <div class="bg"></div>
-                    <div class="modalBox media1"> 
+                    <div class="modalBox"> 
 							<!-- main -->
    
-						<div class="main2 media2">
+						<div class="main2">
 				        <div class="header">
 				        <div	style="
 				           	background-color: #ffb61a9e;
 					    	width: 551px;
 					      	height: 83px;
-					   		line-height: 5;" class="media3">
-					    <h3 style="color:white; margin-left: -30px; font-size:23px;padding-top: 25px; " class="media4">상세 검색</h3></div>
+					   		line-height: 5;">
+					    <h3 style="color:white; margin-left: -30px; font-size:23px;padding-top: 25px; " class="media2">상세 검색</h3></div>
 				      <%--  onclick="location.href='${pageContext.request.contextPath}/service/MomDetailModalOk.ser'" --%>
-				        <input type="button" value="적용" class="apply media5" style="cursor: pointer; color: #ffb61a !important;" id="close" >
+				        <input type="button" value="적용" class="apply" style="cursor: pointer; color: #ffb61a !important;" id="close" >
 				        </div>
   
          
-				        <div class="content media6">
+				        <div class="content media4">
 				        
-				            <h3 style="text-align: left;" class="font-size media7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;아이 나이</h3>
+				            <h3  class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;아이 나이</h3>
 				            
-				            <span class="grade"><img src="${pageContext.request.contextPath}/images/신생아no.png" class="gradeImgSize media8"  id="newbornBaby"></span>
-				            <span class="grade"><img src="${pageContext.request.contextPath}/images/영아no.png"  class="gradeImgSize media8"  id="baby"></span>
-				            <span class="grade"><img src="${pageContext.request.contextPath}/images/유치원no.png" class="gradeImgSize media8"  id="kinder"></span>
-				            <span class="grade"><img src="${pageContext.request.contextPath}/images/초등학생no.png" class="gradeImgSize media8"   id="elementary"></span>
+				            <span class="grade"><img src="${pageContext.request.contextPath}/images/신생아no.png" class="gradeImgSize media6"  id="newbornBaby"></span>
+				            <span class="grade"><img src="${pageContext.request.contextPath}/images/영아no.png"  class="gradeImgSize media6"  id="baby"></span>
+				            <span class="grade"><img src="${pageContext.request.contextPath}/images/유치원no.png" class="gradeImgSize media6"  id="kinder"></span>
+				            <span class="grade"><img src="${pageContext.request.contextPath}/images/초등학생no.png" class="gradeImgSize media6"   id="elementary"></span>
 				    		<div style="margin-top: -11px;">
-				            <span class="grade2  media9">&nbsp;&nbsp;&nbsp;신생아</span>
-				            <span class="grade2 media9">&nbsp;&nbsp;영아</span>
-				            <span class="grade2 media9" >&nbsp;&nbsp;유치원</span>
-				            <span class="grade2 media9">초등학생</span>
+				            <span class="grade2  media7">&nbsp;&nbsp;&nbsp;신생아</span>
+				            <span class="grade2 media7">&nbsp;&nbsp;영아</span>
+				            <span class="grade2" >&nbsp;&nbsp;유치원</span>
+				            <span class="grade2 media7">초등학생</span>
 				            </div>
 				        </div>
         
 				        <hr>
-				        <div class="content media10">
-				            <h3 style="text-align: left;" class="font-size media11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;돌봄 요일</h3>
+				        <div class="content media8">
+				            <h3  class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;돌봄 요일</h3>
 				            <div style="     margin-bottom: 4px; margin-top: -14px;" class="media10">
-				                <img src="${pageContext.request.contextPath}/images/월.png"  class="days2 media12" 
+				                <img src="${pageContext.request.contextPath}/images/월.png"  class="days2 media11" 
 				                 id="monday">
-				                <img src="${pageContext.request.contextPath}/images/화.png" class="days2 media12" 
+				                <img src="${pageContext.request.contextPath}/images/화.png" class="days2 media11" 
 				                 id="tuesday" >
-				                <img src="${pageContext.request.contextPath}/images/수.png" class="days2 media12" 
+				                <img src="${pageContext.request.contextPath}/images/수.png" class="days2 media11" 
 				                id="wednesday">
-				                <img src="${pageContext.request.contextPath}/images/목.png" class="days2 media12" 
+				                <img src="${pageContext.request.contextPath}/images/목.png" class="days2 media11" 
 				                id="thursday">
-				                <img src="${pageContext.request.contextPath}/images/금.png" class="days2 media12" 
+				                <img src="${pageContext.request.contextPath}/images/금.png" class="days2 media11" 
 				                id="friday">
-				                <img src="${pageContext.request.contextPath}/images/토.png" class="days2 media12"  
+				                <img src="${pageContext.request.contextPath}/images/토.png" class="days2 media11"  
 				                id="saturday">
-				                <img src="${pageContext.request.contextPath}/images/일.png" class="days2 media12"  
+				                <img src="${pageContext.request.contextPath}/images/일.png" class="days2 media11"  
 				                id="sunday">
 				            </div>
 				        </div>
 				        
 				        <hr>
 					
-					        <div class="content media13">
-					            <h3 style="text-align: left;" class="font-size media14">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;돌봄 시간대</h3>
+					        <div class="content media12">
+					            <h3 " class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;돌봄 시간대</h3>
 					       
-					            <span class="timeIcon"><img src="${pageContext.request.contextPath}/images/아침1.png"  class="timeIcon media15" 
+					            <span class="timeIcon"><img src="${pageContext.request.contextPath}/images/아침1.png"  class="timeIcon media14" 
 					                id="morning"></span>
-					            <span class="timeIcon"><img src="${pageContext.request.contextPath}/images/오후1.png" class="timeIcon media15"
+					            <span class="timeIcon"><img src="${pageContext.request.contextPath}/images/오후1.png" class="timeIcon media14"
 					                id="lunch"></span>
-					            <span class="timeIcon"><img src="${pageContext.request.contextPath}/images/저녁1.png" class="timeIcon media15"
+					            <span class="timeIcon"><img src="${pageContext.request.contextPath}/images/저녁1.png" class="timeIcon media14"
 					               id="dinner"></span>
 					                <div style="margin-bottom: 13px;    margin-top: -17px;" class="media16">
-									<span class="time media17">오전9시~오후12시</span>
-									<span class="time media17">오후12시~오후3시</span>
-									<span class="time media17">오후3시~오후6시</span>
+									<span class="time media15">오전9시~오후12시</span>
+									<span class="time media15">오후12시~오후3시</span>
+									<span class="time media15">오후3시~오후6시</span>
 									</div>												
 					        </div>
        
 					        <hr>
 					
-				
+				<%-- 	        <div class="content media17">
+					            <h3 style="text-align: left;" class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;원하는 시터 나이대</h3>
+					            
+					            <div class="time">
+					                <img src="${pageContext.request.contextPath}/images/20대1.jpg"  class="age media19"
+					                id="twenty"> 
+					                <img src="${pageContext.request.contextPath}/images/30대1.jpg" class="age media19"
+					                id="thirty"> 
+					                <img src="${pageContext.request.contextPath}/images/40대1.jpg" class="age media19"
+					                id="fourty"> 
+					                <img src="${pageContext.request.contextPath}/images/50대1.jpg" class="age media19"
+					                id="fifty">
+					                <img src="${pageContext.request.contextPath}/images/60대1.jpg"  class="age media19"
+					                id="sixty">
+					                
+					            </div>
+					        </div>
+					        
+					        <hr> --%>
 
-						        <div class="content media18">
-						            <h3 style="text-align: left;" class="font-size media19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;원하는 활동</h3>
+						        <div class="content media20">
+						            <h3  class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;원하는 활동</h3>
 						            
-						            <div class="time media20" style="margin-top: 15px height: 175px; ">
+						            <div class="time media22" style="margin-top: 15px height: 175px; ">
 						                <div style="margin-top: -16px !important;" >
-						                <img src="${pageContext.request.contextPath}/images/no실내놀이.png" class="activity media21"
+						                <img src="${pageContext.request.contextPath}/images/no실내놀이.png" class="activity media23"
 						                id="play">
-						                <img src="${pageContext.request.contextPath}/images/no등하원.png" class="activity media21"
+						                <img src="${pageContext.request.contextPath}/images/no등하원.png" class="activity media23"
 						                id="goingSchool" >
-						                <img src="${pageContext.request.contextPath}/images/no밥챙겨주기.png"class="activity media21"
+						                <img src="${pageContext.request.contextPath}/images/no밥챙겨주기.png"class="activity media23"
 						                id="makeEat">
-						                <img src="${pageContext.request.contextPath}/images/no청소.png" class="activity media21" 
+						                <img src="${pageContext.request.contextPath}/images/no청소.png" class="activity media23" 
 						                id="cleaning">
-						                <img src="${pageContext.request.contextPath}/images/no학습지도.png" class="activity media21"
+						                <img src="${pageContext.request.contextPath}/images/no학습지도.png" class="activity media23"
 						                id="study">
-						                <div class="media22">
-						                    <span style="margin:37.3px;" class="media23">실내놀이</span>
-						                    <span style="margin: 9px;"class="media23">등하원</span>
-						                    <span style="margin: 33px;"class="media23">밥 챙겨주기</span>
-						                    <span style="margin: 16px;"class="media23">청소</span>
-						                    <span style="margin: 34px;"class="media23">학습 지도</span>
+						                <div class="media25">
+						                    <span style="margin:37.3px;" class="media24">실내놀이</span>
+						                    <span style="margin: 9px;"class="media24">등하원</span>
+						                    <span style="margin: 33px;"class="media24">밥 챙겨주기</span>
+						                    <span style="margin: 16px;"class="media24">청소</span>
+						                    <span style="margin: 34px;"class="media24">학습 지도</span>
 						
 						                </div>
 						                </div>
@@ -386,6 +405,7 @@
 		                    </div>
 	                    </div>
 					</div>
+                
                 
 		
 		

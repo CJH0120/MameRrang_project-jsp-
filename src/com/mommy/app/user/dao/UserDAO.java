@@ -40,6 +40,11 @@ public class UserDAO {
          try {userNum = sqlSession.selectOne("User.login", loginMap);} catch (Exception e) {;}
          return userNum;
       }
+      public int Emiallogin(Map<String, String> loginMap2) {
+          int userNum = 0;
+          try {userNum = sqlSession.selectOne("User.Emiallogin", loginMap2);} catch (Exception e) {;}
+          return userNum;
+       }
       
       //userStatus조회
       public int selectStatus(int userNum) {

@@ -29,7 +29,7 @@
                <c:otherwise>
                      <li>
                         <span style = "margin-top: 6px; margin-right: 20px; font-size: 14px;">
-                         <span style = "color:#ffb61a"> <c:out value = "${userName}" /></span>
+                         <span style = "color:#ffb61a; font-size:16px;"> <c:out value = "${userName}" /></span>
                           <c:choose>
                               <c:when test="${userStatus eq 0 }"><span>관리자</span></c:when>
                               <c:when test="${userStatus eq 1 }"><span>부모</span></c:when>
@@ -72,7 +72,7 @@
                      <a href="#menu" class="icon solid fa-bars">Menu</a>
                      <div id="menu">
                         <ul>
-                        <li><a href="${pageContext.request.contextPath}/user/UserJoin.user">로그아웃</a></li>
+                        <li><a href="${pageContext.request.contextPath}/user/UserLogout.user">로그아웃</a></li>
                            <li><a href="${pageContext.request.contextPath}/myPage/Mypage.my">마이페이지</a></li>
                             <li><a onclick="location.href='${pageContext.request.contextPath}/service/SearchJobOk.ser'">일자리 찾기</a></li>
                              <li><a onclick="location.href='${pageContext.request.contextPath}/service/SearchMomOk.ser'">시터 찾기</a></li>
@@ -81,7 +81,7 @@
                               <span>고객센터</span>
                               <ul>
                                  <li><a href="${pageContext.request.contextPath}/notice/NoticeListOk.no">공지사항</a></li>
-                                <li><a href="${pageContext.request.contextPath}/app/ask/askInsert.jsp">1:1 문의하기</a></li> 
+                                <li><a href="${pageContext.request.contextPath}/ask/AskInsert.ask">1:1 문의하기</a></li> 
                               </ul>
                            </li>
                         </ul>

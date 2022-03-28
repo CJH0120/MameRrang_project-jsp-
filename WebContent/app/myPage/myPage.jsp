@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPage.css" type="text/css"/>
+        <link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
       </head>
  
 	
@@ -41,7 +42,7 @@
 							</c:when>
 							<c:otherwise>
 								<img id = "chat" src = "https://cdn.discordapp.com/attachments/954273372760571914/956603481786056774/d336679aaf436c35.png"> 
-								<p style = "font-size: 12px; color: tomato; margin-left: 5px;margin-top: 0px;">새로운 알림이 있습니다!</p> 
+								<p id = "newMSG" style = "font-size: 11px; color: tomato; margin-left: 5px;margin-top: 0px;">새로운 알림이 있습니다!</p> 
 							</c:otherwise>
 						</c:choose>
 				</header>
@@ -56,7 +57,7 @@
  				<div style="width:100px; height:100px;">
  				 <c:choose>
                     	<c:when test="${empty fileName}">
-                        <img src="https://cdn.discordapp.com/attachments/954273372760571914/955479398054772796/unknown.png" style="width: 100%; border-radius: 150px; cursor: pointer; ">
+                        <img src="https://cdn.discordapp.com/attachments/954273372760571914/955479398054772796/unknown.png" style="width: 100%; border-radius: 150px; ">
                     	</c:when>
                     	<c:otherwise>
                         <img src="/profileData/${fileName}" style="width: 100%; border-radius: 150px;">
@@ -168,8 +169,7 @@
 	<!-- 받은 요청 보기 아이프레임 -->
 
    			<div id="divToggle" style = "display:none;">
-	   			<iframe src = "${pageContext.request.contextPath}/chat/ChatListOk.chat" width= "400px !important" height="600px !important" 
-	        	style = "position:absolute; left:200px; top: 206px; border-radius:10px; box-shadow: 4px 4px 20px rgb(51 51 51 / 15%); z-index:20; overflow-x:hidden !important;"></iframe>
+	   			<iframe id = "iframe" src = "${pageContext.request.contextPath}/chat/ChatListOk.chat" width= "400px !important" height="600px !important"></iframe>
         	</div>
 
                 <!-- -------------------------------------------------------------- -->

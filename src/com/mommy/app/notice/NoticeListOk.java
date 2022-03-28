@@ -25,7 +25,7 @@ public class NoticeListOk implements Action{
 		//사용자가 선택한 페이지가 없으면 1페이지로가고 선택한 페이지가 있으면 해당 페이지로 이동
 		int page = temp == null ? 1: Integer.parseInt(temp);
 		int rowCount = 10;
-		int pageSize = 6;
+		int pageSize = 1;
 		
 		int startRow = (page - 1)*rowCount;
 		

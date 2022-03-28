@@ -20,6 +20,20 @@
             font-style: normal;
         }
          
+   .area{
+   margin-left: 7px;
+   }
+       
+   .days{
+    background-color: white;
+    width: 29px;
+    border-radius: 30px;
+    color: #ffb61a;
+    font-weight: bold;
+    border: 1.5px solid #ffb61a;
+    height: 29px;
+    margin-left: 9px;
+   }     
         
 .heart{
 width: 25px;
@@ -52,7 +66,7 @@ width: 25px;
         }
         .innerContent2{
             padding: 1.5rem 0 0 0;
-            width: 167px;
+           width: 96%;
 
         }
         .innerTitle{
@@ -78,7 +92,7 @@ width: 25px;
         hr.split{
             margin: 0px;
             padding-bottom:10px;
-            width: 95%;
+           width: 95%;
           
         }
 
@@ -188,7 +202,6 @@ input::-moz-focus-inner, input::-moz-focus-outer {
 }
 
 .liCss{
-    margin-bottom: 16px;
     font-size: 15px;
     display: inline-block;
     width: 145%;
@@ -475,7 +488,6 @@ input::-moz-focus-inner, input::-moz-focus-outer {
 }
 
 .liCss{
-    margin-bottom: 16px;
     font-size: 15px;
     display: inline-block;
     width: 145%;
@@ -662,15 +674,16 @@ width: 70%;
         }
         
 div.activity{
-	background: #ffb61a !important;
-    border: 1px solid #ffb61a !important;
     border-radius: 9px !important;
-    color: white !important;
-    width: 75px;
-    height: 27px;
+    color: #ffb61a !important;
+    width: 70px;
+    height: 26px;
     text-align: center;
-    margin: 0 2px 0 2px;
+    margin: 0 2px 0 5px;
     float: left;
+    box-shadow: 1px 1px #ffb61a;
+    font-size: 12px;
+    font-weight: bold;
  }
  
  a.a{
@@ -688,4 +701,5 @@ a.b{
 	color: gray;
     border: none;
     float: left;
+    margin-bottom: 10px;
 }

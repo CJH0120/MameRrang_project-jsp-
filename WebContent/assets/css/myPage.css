@@ -30,6 +30,10 @@
                 -webkit-filter: grayscale(100%);
             filter : gray;
         }
+        
+        #iframe{
+        position:absolute; left:200px; top: 206px; border-radius:10px; box-shadow: 4px 4px 20px rgb(51 51 51 / 15%); z-index:20; overflow-x:hidden !important;
+        }
 
 @media (max-width: 576px){
 
@@ -39,6 +43,10 @@
     width: 99% !important;
 	} 
 
+ #iframe{
+        position:absolute; left:-3px; top: 139px; border-radius:10px; box-shadow: 4px 4px 20px rgb(51 51 51 / 15%); z-index:20; overflow-x:hidden !important;
+        }
+        
 	.media-main{
 	width:100% !important;
 	}

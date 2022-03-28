@@ -122,12 +122,12 @@
 	
 	<!-- 인증 대기 총 갯수 -->
 	<select id="authGetTotal0" resultType="_int">
-		select count(profileProcess) from tbl_profile where profileProcess = 0
+		select count(profileProcess) from tbl_profile where profileProcess = 0 and profileAttach is not null
 	</select>
 	
 		<!-- 인증 완료 총 갯수 -->
 	<select id="authGetTotal1" resultType="_int">
-		select count(profileProcess) from tbl_profile where profileProcess = 1
+		select count(profileProcess) from tbl_profile where profileProcess = 1 and profileAttach is not null
 	</select>
 	
 	<!-- 인증 업데이트 -->

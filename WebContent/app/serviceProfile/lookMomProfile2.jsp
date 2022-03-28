@@ -14,6 +14,7 @@
       <link rel="preconnect" href="${pageContext.request.contextPath}/https://fonts.gstatic.com" >
       <link href="${pageContext.request.contextPath}/https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/assets/css/lookMomProfile2.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
     <title>부모님 프로필 상세보기</title>
 
 
@@ -29,7 +30,7 @@
 <!-- Aside -->
    <div class="wrapper">
 	<div class="inner">
-        <jsp:include page="../fix/aside222.jsp" flush="true"/>
+        <jsp:include page="../fix/aside.jsp" flush="true"/>
             </div>
 	</div>
        
@@ -56,7 +57,10 @@
             
                  <!-- aside -->
         <aside class = "aside2">
-        
+          <c:choose>
+          <c:when test="${mom.getUserNum() eq userNum2}">
+          </c:when>
+          <c:otherwise>
         <div style="
         width: 300px; 
         border : solid 1px #e2eaec;
@@ -69,7 +73,10 @@
               <button class = "buttonAside openBtn"  name="modal-btn" id = "modal-btn" style="background-color:#ff7065 !important;">돌봄 신청하기</button></a>
            </div>
         </div>
-        <br>
+        </c:otherwise>
+        </c:choose>
+        
+       <!--  <br> -->
         <div style="
         width: 300px; 
         border : solid 1px #e2eaec;
@@ -93,7 +100,7 @@
                      <c:if test="${mom.getUserNum() eq userNum2}">
                      
                     <div class="top_wrap">
-                      <a class="a" style="font-size:17px;" onclick="location.href='${pageContext.request.contextPath}/service/MomProfileDeleteOk.ser?profile=${profile}&userNum2=${userNum2}'">
+                      <a class="a" style="font-size:17px;" onclick="location.href='${pageContext.request.contextPath}/service/SitterProfileDeleteOk.ser?profile=${profile}&userNum2=${userNum2}'">
                       <img class="can" style="max-width: 20px !important; display: inline-block; float: right;" src="https://cdn.discordapp.com/attachments/953473528030715988/955867805826297876/06f4ee6cc21129a5.png">
                       </a>  
                    </div>
@@ -183,20 +190,18 @@
                      
                      
                      
-                     
-                <hr class="split">
+            
+                <hr class="split"> 
 
                 <div class = "innerContent mobileWant">
                 <p class ="innerTitle" >⭐이런 사람을 원해요</p>
                 
-                <div style = "float:left; margin-right:30px; margin-top: 20px;">
+              <!--   <div style = "float:left; margin-right:30px; margin-top: 20px;"> -->
                     <p style="margin: 0;  font-size: 15px; color:#797d7e;
-                       
                     ">${mom.getProfileDescription()}</p>
-                   
-                </div>
-
-
+              <!--      
+                </div> -->
+                <hr class = "split">
                 </div>
 
 				<div class="mobileMoney" style="display: none;">
@@ -206,7 +211,7 @@
 
 				
 										
-			<!-- 가능한 활동================================== -->							
+	<%-- 		<!-- 가능한 활동================================== -->							
 			<c:choose>
 			<c:when test="${mom.getCareIndoor()==1}">
 				<c:set var="careIndoor" value="실내활동" />
@@ -231,10 +236,10 @@
 			<c:when test="${mom.getCareEmergency()==1}">
 				<c:set var="CareEmergency" value="긴급돌봄" />
 			</c:when>
-			</c:choose>				
+			</c:choose>				 --%>
 			
 			<!--돌봄가능 연령 ===============================  -->
-			<c:choose>
+	<%-- 		<c:choose>
 			<c:when test="${mom.getBabyNewborn()==1}">
 				<c:set var="BabyNewborn" value="신생아" />
 			</c:when>
@@ -253,10 +258,10 @@
 			<c:when test="${mom.getBabyElementary()==1}">
 				<c:set var="BabyElementary" value="초등학생" />
 			</c:when>
-			</c:choose>		
+			</c:choose>		 --%>
 		
 		<!-- 돌봄가능기간 ===================================== -->
-				<c:choose>
+	<%-- 			<c:choose>
 			<c:when test="${mom.getP_week()==1}">
 				<c:set var="week" value="1주일 이상" />
 			</c:when>
@@ -275,10 +280,10 @@
 			<c:when test="${mom.getP_semiAnnual()==1}">
 				<c:set var="semiAnnual" value="6개월" />
 			</c:when>
-			</c:choose>
+			</c:choose> --%>
 		
 		<!-- 활동가능시간=========================== -->
-			<c:choose>
+<%-- 			<c:choose>
 			<c:when test="${mom.getP_morning()==1}">
 				<c:set var="morning" value="09:00~12:00" />
 			</c:when>
@@ -293,63 +298,173 @@
 				<c:set var="noon" value="15:00~18:00" />
 			</c:when>
 			</c:choose>
-				
+				 --%>
 
-                <hr class = "split">
-                    <div class = "innerContent2" style="float: left;">
+               <!--  <hr class = "split"> -->
+                    <div class = "innerContent2" >
                         <p class ="innerTitle" style="margin-bottom: 29px;">기본정보</p>
 
-                        <ul style="list-style: none; margin-left: -28px; width: 423px; margin-bottom: 0; ">
+                        <ul style="list-style: none; margin-left: -28px; width: 859px; margin-bottom: 0; ">
                             
-                            <br>
+                          <!--   <br> -->
                             <div>
                             <li class="liCss" id="li2"><img src="${pageContext.request.contextPath}/images/활동아이콘.png" class="imgIcon">
                             <a class="b">원하는 활동 : </a> 
-                                <div class="activity">${careIndoor}</div>
-	                            <div class="activity">${careCommit}</div>
-	                            <div class="activity">${CareFood}</div>
-	                            <div class="activity">${CareClean}</div>
-	                            <div class="activity">${CareStudy}</div>
-	                            <div class="activity">${CareEmergency}</div>
+                            			<!-- 가능한 활동================================== -->							
+								<c:choose>
+								<c:when test="${mom.getCareIndoor()==1}">
+									 <div class="activity">실내활동</div>
+								</c:when>
+								</c:choose><c:choose>
+								<c:when test="${mom.getCareCommit()==1}">
+									<div class="activity">등하원</div>
+								</c:when>
+								</c:choose><c:choose>
+								<c:when test="${mom.getCareFood()==1}">
+									<div class="activity">밥챙겨주기</div>
+								</c:when>
+								</c:choose><c:choose>
+								<c:when test="${mom.getCareClean()==1}">
+									 <div class="activity">청소</div>
+								</c:when>
+								</c:choose><c:choose>
+								<c:when test="${mom.getCareStudy()==1}">
+								  <div class="activity">학습지도</div>
+								</c:when>
+								</c:choose><c:choose>
+								<c:when test="${mom.getCareEmergency()==1}">
+									 <div class="activity">긴급돌봄</div>
+								</c:when>
+								</c:choose>				
+				
                             </li>
 	                          </div> 
                             
-                            <br>
+                          <!--   <br> -->
                             <div>
                             <li class="liCss" id="li3"><img src="${pageContext.request.contextPath}/images/돌봄가능연령아이콘.png" class="imgIcon">
                               <a class="b">아이 정보 :</a>
-                              <div class="activity">${BabyNewborn}</div>
-                              <div class="activity">${BabyChild}</div>
-                              <div class="activity">${BabyKinder}</div>
-                              <div class="activity">${BabyElementary}</div>
+                              		<c:choose>
+									<c:when test="${mom.getBabyNewborn()==1}">
+										 <div class="activity">신생아</div>
+									</c:when>
+									</c:choose>		
+									<c:choose>
+									<c:when test="${mom.getBabyChild()==1}">
+										  <div class="activity">영아</div>
+									</c:when>
+									</c:choose>		
+									<c:choose>
+									<c:when test="${mom.getBabyKinder()==1}">
+										<div class="activity">유치원생</div>
+									</c:when>
+									</c:choose>		
+									<c:choose>
+									<c:when test="${mom.getBabyElementary()==1}">
+										<div class="activity">초등학생</div>
+									</c:when>
+									</c:choose>		
+                            
                               </li>
                             </div>
                             
                             
-                            <br>
+                          <!--   <br> -->
                             <div>
                             <li class="liCss" id="li4"><img src="${pageContext.request.contextPath}/images/돌봄가능기간.png" class="imgIcon">
                               <a class="b">원하는 돌봄 기간 : </a>
-                              <div class="activity">${week}</div>
-                              <div class="activity">${month}</div>
-                              <div class="activity">${quarter}</div>
-                              <div class="activity">${semiAnnual}</div>
+                            	  <c:choose>
+								<c:when test="${mom.getP_week()==1}">
+								<div class="activity">1주일 이상</div>
+								</c:when>
+								</c:choose>
+									<c:choose>
+								<c:when test="${mom.getP_month()==1}">
+									<div class="activity">1개월 이상</div>
+								</c:when>
+								</c:choose>
+									<c:choose>
+								<c:when test="${mom.getP_quarter()==1}">
+									 <div class="activity">3개월 이상</div>
+								</c:when>
+								</c:choose>
+									<c:choose>
+								<c:when test="${mom.getP_semiAnnual()==1}">
+									  <div class="activity">6개월 이상</div>
+								</c:when>
+								</c:choose>
+                         
                               </li>
                             </div>
                             
-                            <br>
+                            <!-- <br> -->
 						<div>
 							<li class="liCss" id="li5">
 							<img src="${pageContext.request.contextPath}/images/활동가능시간.png" class="imgIcon"> 
 								<a class="b">원하는 돌봄 시간 : </a>
-								<div class="activity" style="width: 86px;">${morning}</div>
-								<div class="activity" style="width: 86px;">${lunch}</div>
-								<div class="activity" style="width: 86px;">${noon}</div></li>
+									<c:choose>
+									<c:when test="${mom.getP_morning()==1}">
+									<div class="activity" style="width: 86px;">09:00~12:00</div>
+									</c:when>
+									</c:choose>
+									<c:choose>
+									<c:when test="${mom.getP_lunch()==1}">
+									<div class="activity" style="width: 86px;">12:00~15:00</div>
+									</c:when>
+									</c:choose>
+									<c:choose>
+									<c:when test="${mom.getP_noon()==1}">
+									<div class="activity" style="width: 86px;">15:00~18:00</div>
+									</c:when>
+									</c:choose>
+								</li>
+						</div>
+		
+						<div>
+							<li class="liCss" id="li6">
+							<img src="${pageContext.request.contextPath}/images/일주일.png" class="imgIcon"> 
+								<a class="b">원하는 돌봄 요일 : </a>
+								<c:choose>
+									<c:when test="${mom.getP_mon()==1}">
+										<button class="days">월</button>
+									</c:when>
+								</c:choose>
+								<c:choose>
+									<c:when test="${mom.getP_tue()==1}">
+										<button class="days">화</button>
+									</c:when>
+								</c:choose>
+								<c:choose>
+									<c:when test="${mom.getP_wed()==1}">
+										<button class="days">수</button>
+									</c:when>
+								</c:choose>
+								<c:choose>
+									<c:when test="${mom.getP_thu()==1}">
+										<button class="days">목</button>
+									</c:when>
+								</c:choose>
+								<c:choose>
+									<c:when test="${mom.getP_fri()==1}">
+										<button class="days">금</button>
+									</c:when>
+								</c:choose>
+								<c:choose>
+									<c:when test="${mom.getP_sat()==1}">
+										<button class="days">토</button>
+									</c:when>
+								</c:choose>
+								<c:choose>
+									<c:when test="${mom.getP_sun()==1}">
+										<button class="days">일</button>
+									</c:when>
+								</c:choose>
+								</li>
 						</div>
 						
-						<hr style="margin: 0;">
+						<hr class="split" >
 						<!-- 지도 부분 -->
-                    <div class = "innerContent add">
+                    <div class = "innerContent add area">
                         <p class ="innerTitle" style="margin: 0;"><img src="${pageContext.request.contextPath}/images/지역.png" style="width: 25px; margin-right: 10px; ">활동가능 지역</p>
                         <p style="margin:0px; font-size: 14px;">(${mom.getLocationSido()}  ${mom.getLocationSigun()}  ${mom.getLocationDong()})</p>
                         <div id="map" style="width:570px;height:252px;" class="map" ></div>
@@ -426,10 +541,11 @@
 			<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+			<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 			   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/additional.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/lookMomProfile2.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6316b3fde93fb6bb4a1526abb1494b47&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0fdbbaa54afec5bb9f05d991a900280f&libraries=services"></script>
 <script>
 	var userNum = "${userNum}";
 	var userNum2 = "${mom.getUserNum()}";

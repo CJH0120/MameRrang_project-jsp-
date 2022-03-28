@@ -38,6 +38,10 @@
       select userNum from tbl_user where userId=#{userId} and userPw =hex(aes_encrypt(#{userPw}, 'abc'))
    </select>
    
+   <select id="Emiallogin" parameterType="map" resultType="_int">
+      select userNum from tbl_user where userEmail=#{userEmail} and userPw =hex(aes_encrypt(#{userPw}, 'abc'))
+   </select>
+   
    <!-- userStatus -->
    <select id="selectStatus" parameterType="_int" resultType="_int">
       select userStatus from tbl_user where userNum=#{userNum}
@@ -92,6 +96,11 @@
 	 join tbl_user u on  p.userNum = u.userNum 
 	 where u.userNum = #{userNum};
 	</select> 
+	
+		<!-- profileProcess -->
+   <select id="profileProcess" parameterType="_int" resultType="_int">
+      select profileProcess from tbl_profile where userNum=#{userNum}
+   </select>
 	
 	
 		<!-- 비밀번호 변경 -->

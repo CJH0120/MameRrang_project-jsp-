@@ -20,7 +20,7 @@ public class AdminDownloadOk implements Action{
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
 		
-		String realPath =req.getSession().getServletContext().getRealPath("/") + "upload";
+		String realPath =req.getSession().getServletContext().getRealPath("/") + "profileData";
 		String uploadFolder = realPath;
 		String fileName = req.getParameter("fileName");
 		String fileNameOriginal = req.getParameter("fileNameOriginal");

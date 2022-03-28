@@ -71,6 +71,7 @@ function insert(){
 		}
 	  
 	});
+	alert("요청 전송 완료!");
 }
 
 

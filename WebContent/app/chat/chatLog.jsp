@@ -30,7 +30,7 @@
 	
 			<div id="content">
             <div style="background: #FFF7CA; height:50px; top:0px; padding:11px;">
-                <h1 style ="color:#ffb61a;">채팅</h1>
+                <h1 style ="color:#ffb61a;">내가 받은 요청</h1>
                 <i class="icon-down-dir"></i>
                  <c:choose>
                   	<c:when test = "${chatList != null and fn:length(chatList) > 0}">
@@ -62,7 +62,14 @@
                        			<c:forEach var = "chat" items="${chatList}">
                        				<li class = "chatBox" id = "${chat.getChatNum()}"> <!--  onclick="updateNew(${chat.getChatNum()})">    -->
 	                       				<a class = "openBtn">
-	                       				 <img src="${pageContext.request.contextPath}/images/댓글프로필아이콘.jpg" class="profile-img" alt="기영이누나프로필사진">
+	                       				<c:choose>
+								<c:when test="${empty chat.getProfilePicture()}">
+									<img src="https://cdn.discordapp.com/attachments/954273372760571914/957656539785724005/unknown.png" class="profile-img" alt=""/>
+								</c:when>
+								<c:otherwise>
+									<img src="/profileData/${chat.getProfilePicture()}" class="profile-img" style = "height:50px;">
+								</c:otherwise>
+							</c:choose>
 	                       					 <div class="talk">
 				                                <p class="friend-name">${chat.getChatTitle()}</p>
 				                                <p class="chat-content">${chat.getChatContent()}</p>

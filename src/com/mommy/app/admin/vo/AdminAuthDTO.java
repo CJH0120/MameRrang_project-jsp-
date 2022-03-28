@@ -7,6 +7,7 @@ public class AdminAuthDTO {
 	private int profileNum;
 	private int userNum;
 	private String userName;
+	private int userStatus;
 	private String userId;
 	private String profileAttach;
 	private String profileDate;
@@ -18,7 +19,6 @@ public class AdminAuthDTO {
 	private int profileProcess;
 	private String fileName;
 	private String fileNameOriginal;
-	
 	
 
 	public AdminAuthDTO() {;}
@@ -44,6 +44,7 @@ public class AdminAuthDTO {
 		this.fileNameOriginal = ProfileFilesVO.getFileNameOriginal();
 	}
 
+	
 	public int getProfileNum() {
 		return profileNum;
 	}
@@ -155,6 +156,14 @@ public class AdminAuthDTO {
 
 	public void setFileNameOriginal(String fileNameOriginal) {
 		this.fileNameOriginal = fileNameOriginal;
-	}		
+	}	
+	
+	public int getUserStatus() {
+		return userStatus;
+	}
+
+	public void setUserStatus(int userStatus) {
+		this.userStatus = userStatus;
+	}
 	
 }

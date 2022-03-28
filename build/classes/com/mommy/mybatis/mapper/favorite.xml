@@ -24,9 +24,11 @@
 	
 	<!-- 찜 목록 보기 -->
 	<select id="selectAll" parameterType="_int" resultType="FavoriteDTO">
-	select  p.profileProcess, f.profileUserNum, profilePicture, profileSalary, f.userNum ,p.profileNum  
-	from tbl_favorite f join tbl_profile p 
-	on f.profileNum = p.profileNum and f.userNum = #{userNum}
+	select tu.userStatus , p.profileProcess, f.profileUserNum, profilePicture, profileSalary, f.userNum ,p.profileNum  
+	from tbl_favorite f join tbl_profile p
+	on f.profileNum = p.profileNum
+	join tbl_user tu on tu.userNum = p.userNum 
+	and f.userNum = #{userNum}
 	</select>
 	
 	<!-- 유저의 찜목록 전체 삭제  -->

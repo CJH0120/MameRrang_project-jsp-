@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+
+|<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -16,6 +17,7 @@
 	
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/communityDetails.css" />
+		<link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
 	
 	</head>
 
@@ -114,10 +116,17 @@
 				
 				  <!-- 댓글 글쓰기 -->
                                     <div style = "margin-top:30px;">
+                                     <c:choose>
+              				 <c:when test="${userNum eq null}">
+                       			
+                    		</c:when>
+                    		<c:otherwise>
                                         <form method="post" action="#" class="combined" style="width:auto;">	                        
                                             <textarea name="content" id="content" class = "commentBox" placeholder="커뮤니티가 더 훈훈해지는 댓글 부탁드립니다." class="invert" rows="5"></textarea>
                                             <input type="button" value="등록하기" class = "submitButton" id = "register" onclick="regist()"/>
                                         </form>
+                                        </c:otherwise>
+                    	</c:choose>
                                        
                                     </div>
 				<div id="replyBackground" style = "margin: 80px 0 30px 0 !important;"> 

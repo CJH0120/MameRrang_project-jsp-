@@ -69,8 +69,9 @@ function insert(){
 		error:function(){
 			console.log("실패");
 		}
-	  
+	 
 	});
+	 alert("요청 전송 완료!");
 }
 
 

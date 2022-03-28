@@ -42,11 +42,11 @@
                        </c:when>
                        <c:otherwise>
 							<c:choose>
-			                    <c:when test="${profile.getProfileProcess() == 1}">
-			                       <img src="/profileData/${profile.getFileName()}" style="width: 100%;" onclick="location.href='${pageContext.request.contextPath}/service/LookMomProfileOk.ser?userNum=${profile.getProfileUserNum()}';">
+			                    <c:when test="${profile.getUserStatus() == 1}">
+			                       <img src="/profileData/${profile.getFileName()}" style="width: 100%;" onclick="location.href='${pageContext.request.contextPath}/service/LookMomProfileOk.ser?userNum=${profile.getProfileUserNum()}&profile=${profile.getProfileNum()}';">
 			                    </c:when>
 			                    <c:otherwise>
-		                           <img src="/profileData/${profile.getFileName()}" style="width: 100%;" onclick="location.href='${pageContext.request.contextPath}/service/LookSitterProfileOk.ser?userNum=${profile.getProfileUserNum()}';">
+		                           <img src="/profileData/${profile.getFileName()}" style="width: 100%;" onclick="location.href='${pageContext.request.contextPath}/service/LookSitterProfileOk.ser?userNum=${profile.getProfileUserNum()}&profile=${profile.getProfileNum()}';">
 			                    </c:otherwise>
 		                    </c:choose>                           
                            
@@ -59,7 +59,7 @@
                      </div>
                      <P class="userInfo">${profile.getUserName()}<span>(${profile.getAge()}세,                                     <c:choose>
                                        <c:when test="${profile.getUserGender() == 1}">남</c:when>
-                                       <c:when test="${profile.getUserGender() == 0}">여</c:when>
+                                       <c:when test="${profile.getUserGender() == 2}">여</c:when>
                                        <c:otherwise>정보없음</c:otherwise>
                                     </c:choose> )</span></P>
                      <div style="display: flex; margin: 0px;margin-top: -8px; align-items: center; justify-content: center;  gap: 5%;">

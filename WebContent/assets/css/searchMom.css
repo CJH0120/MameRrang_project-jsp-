@@ -47,7 +47,7 @@
     margin-top: 20px;
       }
       .userImg{
- 	width: 11.5%;
+ 	width: 10.7%;
     float: left;
     margin-top: 24px;
     margin-left: 24px;
@@ -624,6 +624,8 @@ margin-top:9px;
 	}
 	.locationImg{
 		padding: 5px 0;
+    position: absolute;
+    top: 190px;
 	}
 	.media_img{
 		margin-top: 0px;
@@ -728,6 +730,35 @@ margin-top:9px;
 	    padding-left: 113px !important;
 	} 
 
+	.filter{
+	width: 18px;
+    position: absolute;
+    right: 74px;
+    top: 237px;
+	}
+	
+	.baby{
+	width: 23px;
+    position: absolute !important;
+    top: 233px !important;
+    left: 17px !important;
+	}
+	.locationInput.span.openBtn3 {
+	font-size: 12px;
+	}
+	.locationInput.span.openBtn2{
+	    margin-left: 39px;
+    font-size: 12px;
+	}
+	#searchDetail{
+	width: 82px;
+    height: 34px;
+    font-size: 13px;
+	}
+	
+	body{
+	overflow-x: hidden;
+	}
 	
 }
 

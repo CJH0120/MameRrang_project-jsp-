@@ -17,6 +17,7 @@
       <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
       <noscript><link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/second.css" /></noscript>
       <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/community.css" />
+      <link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
    </head>
 
 
@@ -68,8 +69,14 @@
                            <option>시터</option>
                         </select> -->
                         <div style="margin-right:0px" class="media6">
-                         
-                        <input  class="media7" type="button" style = "height: 45px; line-height: 1.2em; color:#ffb61a !important; box-shadow: inset 0 0 0 1px #ffb61a !important;" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/communtiy/CommunityInsert.com'"><br>
+                          <c:choose>
+              				 <c:when test="${userNum eq null}">
+                       			
+                    		</c:when>
+                    		<c:otherwise>
+                    			 <input  class="media7" type="button" style = "height: 45px; line-height: 1.2em; color:#ffb61a !important; box-shadow: inset 0 0 0 1px #ffb61a !important;" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/communtiy/CommunityInsert.com'"><br>
+                    		</c:otherwise>
+                    	</c:choose>
                      </div>
                   </div>
                   
@@ -88,7 +95,7 @@
 									<img src="https://cdn.discordapp.com/attachments/954273372760571914/957620926793539584/picEmpty.jpg" alt=""/>
 								</c:when>
 								<c:otherwise>
-									<img src="/communityData/${community.getFileName()}" style = "width:370px; height:277.35px;">
+									<img src="/communityData/${community.getFileName()}" style = "width:370px; height:290px;">
 								</c:otherwise>
 							</c:choose>
                               		
@@ -97,7 +104,7 @@
                               		<h2 class = "myh2">${community.getCommunityTitle()}</h2>	  
                               		<div class="content">
                               		<!-- 15자 자른거 넣기 -->
-                                 	<p >${fn:substring(content,0,15)}...</p>
+                                 	<p>${fn:substring(content.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", ""), 0, 20)}...</p>
                                  	<p>작성일: ${community.getBoardDate()}</p>
                               </div>
                            </a>
@@ -109,14 +116,14 @@
 									<img src="https://cdn.discordapp.com/attachments/954273372760571914/957620926793539584/picEmpty.jpg" alt=""/>
 								</c:when>
 								<c:otherwise>
-									<img src="/communityData/${community.getFileName()}" style = "width:370px; height:277.35px;">
+									<img src="/communityData/${community.getFileName()}"  style = "width:370px; height:290px;">
 								</c:otherwise>
 							</c:choose>
 							</span>
                            			<a onclick="location.href ='${pageContext.request.contextPath}/community/CommunityDetailOk.com?communityNum=${community.getCommunityNum()}&page=${page}'">
                               		<h2 class = "myh2">${community.getCommunityTitle()}</h2>	  
                               		<div class="content">
-                                 	<p >${fn:substring(content,0,15)}...</p>
+                                 	<p>${fn:substring(content.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", ""), 0, 20)}...</p>
                                  	<p>작성일: ${community.getBoardDate()}</p>
                               </div>
                            </a>
@@ -128,13 +135,13 @@
 									<img src="https://cdn.discordapp.com/attachments/954273372760571914/957620926793539584/picEmpty.jpg" alt=""/>
 								</c:when>
 								<c:otherwise>
-									<img src="/communityData/${community.getFileName()}" style = "width:370px; height:277.35px;">
+									<img src="/communityData/${community.getFileName()}"  style = "width:370px; height:290px;">
 								</c:otherwise>
 							</c:choose>	</span>
                            			<a onclick="location.href ='${pageContext.request.contextPath}/community/CommunityDetailOk.com?communityNum=${community.getCommunityNum()}&page=${page}'">
                               		<h2 class = "myh2">${community.getCommunityTitle()}</h2>	  
                               		<div class="content">
-                                 	<p >${fn:substring(content,0,15)}...</p>
+                                 	<p>${fn:substring(content.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", ""), 0, 20)}...</p>
                                  	<p>작성일: ${community.getBoardDate()}</p>
                               </div>
                            </a>

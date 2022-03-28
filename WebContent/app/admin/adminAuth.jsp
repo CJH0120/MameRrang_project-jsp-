@@ -74,12 +74,10 @@
 
 							
 								<tbody class="tr_wrap">
-									<tr class="wrap">
 								<c:choose>
 								<c:when test="${authList != null}">
 									<c:forEach var="auth" items="${authList}" varStatus="status">
-
-								
+									<tr class="wrap">								
 									<td class="test"><img id="qwe"
 										src="https://cdn.discordapp.com/attachments/954273372760571914/955482467148656700/v2.png"
 										style="width: 15px"></td>
@@ -98,12 +96,12 @@
 		                           		</a>
 		                           	</td>
 		                           	<c:choose>
-		                           	<c:when test="${auth.getProfileProcess() eq 0}">
-		                           	<td>대기중</td>
-		                           	</c:when>
-		                           	<c:when test="${auth.getProfileProcess() eq 1}">
-		                           	<td>완료</td>
-		                           	</c:when>
+		                           		<c:when test="${auth.getProfileProcess() eq 0}">
+		                           			<td style="color: red">대기중</td>
+		                           		</c:when>
+		                           		<c:when test="${auth.getProfileProcess() eq 1}">
+		                           			<td style="color: blue">완료</td>
+		                           		</c:when>
 		                           	</c:choose>
 		                           	
 		                           	<td>${auth.getProfileDate()}</td>
@@ -195,8 +193,7 @@
 													<div>
 													</div>
 												</c:when>
-											</c:choose>
-			</form>			
+											</c:choose>		
 									</td>
 								</tr>
 								</c:forEach>

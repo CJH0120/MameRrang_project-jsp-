@@ -53,12 +53,11 @@
 									<div class="col-6 col-12-small" style=" margin-left: -3em; ">
 										<section id="content" style="width: 100%; padding: 0 0 0 0; font-size: 14px;">
           								<div class="col-12" style="width:12%; margin-bottom: 1em;">
-									<select name="category" id="category" style="font-size: 14px; margin: -7px 0 0px 0;">
-										<option value="">선택</option>
+<!-- 									<select name="category" id="category" style="font-size: 14px; margin: -7px 0 0px 0;">
 										<option value="1">전체</option>
 										<option value="2">맘</option>
 										<option value="3">시터</option>
-									</select>
+									</select> -->
 								</div>
                                 <table>
                   						<tr>

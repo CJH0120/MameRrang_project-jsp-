@@ -1,44 +1,4 @@
-//구글 차트 api
 
-           function drawChart() {
-
-          var data = new google.visualization.DataTable();
-          data.addColumn('number', 'Day');
-         data.addColumn('number', '글개수');
-          data.addColumn('number', '댓글수');
-          /*data.addColumn('number', '비회원'); */
-
-          data.addRows([
-            [1,  100 , 210, /*41.8 */],
-            [2,  100 , 240, /*41.8 */],
-            [3,  90 , 203, /*41.8 */],
-           [4,  80, 180, /*41.8 */],
-            [5,  90, 164,/* 41.8 */],
-            [6,   110, 202,/* 41.8 */],
-            [7,   120 , 197,/* 41.8 */],
-            [8,  130, 190,/* 41.8 */],
-            [9,  110, 160, /*41.8 */],
-            [10, 120 , 170, /*41.8 */],
-            [11,  125, 200,/* 41.8 */],
-            [12,  140 , 240,/* 41.8 */],
-            [13,  150 , 230,/* 41.8 */],
-            [14,  170 , 260, /*41.8 */]
-          ]);
-
-          var options = {
-            chart: {
-/*         title: 'Box Office Earnings in First Two Weeks of Opening',
-           subtitle: 'in millions of dollars (USD)' */
-            },
-            width: '100%',
-            height: 400
-          };
-
-          var chart = new google.charts.Line(document.getElementById('linechart_material'));
-
-          chart.draw(data, google.charts.Line.convertOptions(options));
-           }
-           
 // 팝업창
            function winPopup() {
                var popUrl = "adminMListDtail.jsp";

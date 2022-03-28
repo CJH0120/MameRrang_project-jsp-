@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>일자리찾기</title>
+		<title>일자리 찾기</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
@@ -18,6 +18,7 @@
   <script type="application/javascript" src="https://zelkun.tistory.com/attachment/cfile8.uf@99BB7A3D5D45C065343307.js"></script>
 		<link href="${pageContext.request.contextPath}/assets/css/searchJob.css" rel="stylesheet" >
 	<link href="${pageContext.request.contextPath}/assets/css/loginModal.css" rel="stylesheet" type="text/css"> 
+	<link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
 	</head>
 	<body>
 	
@@ -94,11 +95,11 @@
                 <br>
                 <br>
                 <img alt="icon" src="https://cdn.mom-sitter.com/momsitter-app/static/public/affordance/popup-image-1.svg">
-                <p>시터의 다양한 인증을 빠르고 정확하게 확인!</p>
+                <p>부모님이 원하는 요청사항을 빠르고 정확하게 확인!</p>
                 <img alt="icon" src="https://cdn.mom-sitter.com/momsitter-app/static/public/affordance/popup-image-2.svg">
-                <p>시터의 활동 가능 시간을 쏙쏙 확인!</p>
+                <p>부모가 원하는 활동 시간을 간단하게 확인!</p>
                 <img alt="icon" src="https://cdn.mom-sitter.com/momsitter-app/static/public/affordance/popup-image-3.svg">
-                <p>부모 회원이 작성한 리뷰까지 챙겨보자!</p>
+                <p>원하는 부모님께 나의 카톡 연락처 남기기!</p>
                 <a class= "a-button" href ="${pageContext.request.contextPath}/user/UserJoin.user"><button class="button-size01">가입하기</button></a>
                 
 			            </div>
@@ -171,9 +172,11 @@
 											<span class="span medi6">정보 없음</span>&nbsp;
 										</c:otherwise>
 										</c:choose>
+										<span id = "mediaDel">
 										<div class="line medi14"></div>
 										<!-- 시작날짜 -->
 										<span class="span medi15">&nbsp;&nbsp;&nbsp;${job.getP_periodStartDate()}시작</span>
+									</span>
 										&nbsp;&nbsp;
 								</div>
 									<div class="fontSize">

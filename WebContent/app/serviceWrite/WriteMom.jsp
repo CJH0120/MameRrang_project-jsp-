@@ -15,8 +15,8 @@
       <link href="${pageContext.request.contextPath}/https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
       
         <link href="${pageContext.request.contextPath}/assets/css/WriteSitter.css" rel="stylesheet" >
-	
-	
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/etcMain.css" />
+	<link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
 	<script src="https://code.jquery.com/jquery-latest.min.js" type="application/javascript"></script>
   <script type="application/javascript" src="https://zelkun.tistory.com/attachment/cfile8.uf@99BB7A3D5D45C065343307.js"></script>
       

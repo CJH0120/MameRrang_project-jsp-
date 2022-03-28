@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.mommy.app.chat.vo.ChatDTO;
 import com.mommy.app.chat.vo.ChatVO;
 import com.mommy.mybatis.config.MyBatisConfig;
 
@@ -23,7 +24,7 @@ public class ChatDAO {
 	      }
 	   
 	   // 받은 쪽지 목록 
-	   public List<ChatVO> selectAll(int userNum){
+	   public List<ChatDTO> selectAll(int userNum){
 		   return sqlSession.selectList("Chat.selectAll", userNum);
 	   }
 	   

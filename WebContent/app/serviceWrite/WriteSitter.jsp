@@ -14,10 +14,9 @@
       <link rel="preconnect" href="${pageContext.request.contextPath}/https://fonts.gstatic.com" >
       <link href="${pageContext.request.contextPath}/https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
         <link href="${pageContext.request.contextPath}/assets/css/WriteSitter.css" rel="stylesheet" type="text/css">
-    
+    <link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
 		<script src="https://code.jquery.com/jquery-latest.min.js" type="application/javascript"></script>
   <script type="application/javascript" src="https://zelkun.tistory.com/attachment/cfile8.uf@99BB7A3D5D45C065343307.js"></script>
-      
     <title>시터 글 작성 및 수정</title>
 
 </head>

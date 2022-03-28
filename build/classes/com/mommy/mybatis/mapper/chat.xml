@@ -9,10 +9,15 @@
 	</insert>
 
 	<!-- 전체 목록 -->
-	<select id="selectAll" parameterType="_int" resultType="ChatVO">
-		SELECT chatTitle, chatContent, chatDate, chatNum, chatStatus 
+	<select id="selectAll" parameterType="_int" resultType="ChatDTO">
+	<!-- 	SELECT chatTitle, chatContent, chatDate, chatNum, chatStatus 
 		FROM tbl_chat
-		where userNum = #{userNum};
+		where userNum = #{userNum}; -->
+			SELECT chatTitle, chatContent, chatDate, chatNum, chatStatus, profilePicture, c.sendUserName
+		FROM tbl_chat c left
+		join tbl_profile p on c.sendUserName = p.userNum 
+		where c.userNum = #{userNum}
+		order by 4 desc
 	</select>
 		
 	

@@ -22,6 +22,7 @@
    <style>
    		td{
    			background-color: white;
+   			font-size: 14px;
    		}
    		
 		a { text-decoration: none;
@@ -77,7 +78,7 @@
 					<!-- 문의 테이블 -->
 						<div>
 							<a href="${pageContext.request.contextPath}/admin/AdminQnaListOk.ad">
-								<span style="margin-right: 22em; font-size: 20px; position: fixed; margin-top: 0.6em;">문의</span>
+								<span style="margin-right: 22em; font-weight: bold; position: fixed; margin-top: 0.6em;">문의</span>
 								<img src="${pageContext.request.contextPath}/images/right.png" style="width:5%; margin-left: 26em;">
 							</a>
 						</div>
@@ -107,7 +108,7 @@
 				<!-- 신고 테이블 -->
 						<div style="position: absolute; margin-top: -17.65em; margin-left: 31.8em;">
 							<a href="${pageContext.request.contextPath}/admin/AdminReportListOk.ad">
-								<span style="margin-right: 22em; font-size: 20px; position: fixed; margin-top: 0.6em;">신고</span>
+								<span style="margin-right: 22em; font-weight: bold; position: fixed; margin-top: 0.6em;">신고</span>
 								<img src="${pageContext.request.contextPath}/images/right.png" style="width:8.051%; margin-left: 25.96em;">
 							</a>
 						</div>
@@ -140,7 +141,7 @@
 					<!-- 인증 테이블 -->
 						<div>
 							<a href="${pageContext.request.contextPath}/admin/AdminAuthListOk.ad">
-								<span style="margin-right: 22em; font-size: 20px; position: fixed; margin-top: 0.6em;">인증</span>
+								<span style="margin-right: 22em; font-weight: bold; position: fixed; margin-top: 0.6em;">인증</span>
 								<img src="${pageContext.request.contextPath}/images/right.png" style="width:5%; margin-left: 26em;">
 							</a>
 						</div>
@@ -167,7 +168,7 @@
 					<!-- 공지 테이블 -->
 						<div style="position: absolute; margin-top: -17.65em; margin-left: 31.8em;">
 							<a href="${pageContext.request.contextPath}/admin/AdminNoticeListOk.ad">
-								<span style="margin-right: 22em; font-size: 20px; position: fixed; margin-top: 0.6em;">공지</span>
+								<span style="margin-right: 22em; font-weight: bold; position: fixed; margin-top: 0.6em;">공지</span>
 								<img src="${pageContext.request.contextPath}/images/right.png" style="width:8.051%; margin-left: 25.96em;">
 							</a>
 						</div>

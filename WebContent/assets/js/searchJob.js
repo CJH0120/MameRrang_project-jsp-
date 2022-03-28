@@ -1,7 +1,6 @@
 const body = document.querySelector('body');
     function open(){
       document.querySelector(".modal").classList.remove("hidden");
-      body.style.overflow = 'hidden'
     }
   
     function close(){

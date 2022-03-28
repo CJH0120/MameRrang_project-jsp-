@@ -16,6 +16,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" >
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 		<link href="${pageContext.request.contextPath}/assets/css/join.css" rel="stylesheet" >
+		<link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
 	</head>
 
 	<body class="is-preload">
@@ -152,24 +153,13 @@
 						<div> 
                         <p class="p-font-color">생년월일</p>
                            <div class="col-1" style = "display:flex;">
-                           		<input type = "text"  class="input-font" placeholder ="년 (ex. 1998)" name="userBirthYear" style="width: 30%; margin-right:10px;height:40px; position: relative; left: -17px;">
-                                	<select name = "userBirthMonth" style="width: 95px;height: 41px; margin-right: 10px;
-                                	position: relative; left: -15px; top: -6px; border-radius: 0px; border: hidden; border-bottom: 3px solid #f6f6f6; background-color:white;">
-                                    	 <option value = "월"> 월</option>
-                                   	 	 <option value = "1"> 1</option>
-                                   	 	 <option value = "2"> 2</option>
-                                   		 <option value = "3"> 3</option>
-                                   		 <option value = "4"> 4</option>
-                                  		 <option value = "5"> 5</option>
-                                 		 <option value = "6"> 6</option>
-                                 		 <option value = "7"> 7</option>
-                                    	 <option value = "8"> 8</option>
-                                    	 <option value = "9"> 9</option>
-                                    	 <option value = "10"> 10</option>
-                                    	 <option value = "11"> 11</option>
-                                    	 <option value = "12"> 12</option>
-                                	</select>
-                                <input class="col-2" type = "text" placeholder ="일 (ex. 24)" name="userBirthDate" required style="width: 30%; margin-right:10px;height:40px; position: relative; left: -15px;">
+                           		<input type = "text"  class="input-font" placeholder ="년 (ex. 1998)" name="userBirthYear" id="yy" style="width: 30%; margin-right:10px;height:40px; position: relative; left: -17px;" maxlength="4">
+                           		
+                                <input type = "text" name = "userBirthMonth" placeholder ="월(ex. 1)"
+                                 	style="width: 95px;height: 41px; margin-right: 10px; position: relative; left: -15px; top: -16px; border-radius: 0px; border: hidden; border-bottom: 3px solid #f6f6f6; background-color:white;">
+                                    
+                                    
+                                <input class="col-2" type = "text" placeholder ="일 (ex. 24)" name="userBirthDate" required style="width: 30%; margin-right:10px;height:40px; position: relative; left: -15px;" maxlength="2">
                             </div>
                         </div>
 					</div>
