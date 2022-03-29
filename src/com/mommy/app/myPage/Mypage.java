@@ -66,8 +66,7 @@ public class Mypage implements Action {
 		
         Calendar current = Calendar.getInstance();
       int currentYear  = current.get(Calendar.YEAR);
-        int currentMonth = current.get(Calendar.MONTH) + 1;
-        int currentDay   = current.get(Calendar.DAY_OF_MONTH);
+       
       
         int age =  currentYear - birthYear;
 //        

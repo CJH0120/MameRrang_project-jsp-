@@ -41,10 +41,7 @@ public class WriteSitter implements Action{
 		        int currentDay   = current.get(Calendar.DAY_OF_MONTH);
 		      
 		        int age = currentYear - birthYear;
-		        
-		        // 생일 안 지난 경우 -1
-		        if (birthMonth * 100 + birthDay > currentMonth * 100 + currentDay) 
-		            age--;
+	
 		        
 		req.setAttribute("userAge", age);
 		req.setAttribute("userVO", userVO);

@@ -155,11 +155,11 @@
                     <div class="bg"></div>
                     <div class="modalBox">
                         <h3 class = "modalText">정말 마미랑을 떠나실 건가요?</h3>
-                        <p class = "modalSubText">계정 탈퇴 시 모든 개인정보가 삭제되며,<br>삭제된 계정은 다시 복구되지 않습니다. </p>
+                        <p class = "modalSubText">탈퇴한 아이디는 복구가 불가능하며,<br> 사용자의 정보는 삭제됩니다. </p>
                         <div>
 		                    <div style = "margin: 0 auto; text-align: center;">
 		                        <button class="submitBtn">다시 생각해 볼게요</button>
-                                <a class = "quit" href="${pageContext.request.contextPath}/user/UserDeleteOk.user">탈퇴하기</a>
+                                <a class = "quit" onclick="deleteUser()">탈퇴하기</a>
 		                    </div>
 	                    </div>
                     </div>
@@ -214,6 +214,7 @@
          
 			<script>
 				var contextPath = '${pageContext.request.contextPath}';
+
 			</script>
 
 		<!-- Scripts -->

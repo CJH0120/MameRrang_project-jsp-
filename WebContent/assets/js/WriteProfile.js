@@ -139,6 +139,8 @@
 		document.getElementById('upload').style.backgroundColor="#ffb61a";
 			
 	} 
+	
+
 	return;
 
 	// 체크에 걸리면 선택된 내용 취소 처리를 해야함.
@@ -220,11 +222,32 @@
 	}
 	   
 	   
-   function writeProfileFormSend() {
-	   		fransLocation();
-	   		getIframe();
-		   $("#writeProfileForm").submit();
+	//  var fileCheck = $("#attachQ").val();
+	  
+   function writeProfileFormSend2() {
+	   fransLocation();
+ 		getIframe();
+	   const element = document.getElementById('upload');
+
+	   	 if(document.getElementById('upload').style.backgroundColor == "rgb(255, 182, 26)"){	
+	   		 $("#writeProfileForm").submit();
+	     }else{
+	    	  alert("프로필 등록을 위해서는 최소한 1개의 인증이 필요합니다.");
+	     }
 	}
+   
+   function writeProfileFormSend() {
+  		fransLocation();
+  		getIframe();
+  		
+  
+   	 $("#writeProfileForm").submit();
+    
+	  
+}
+   
+  
+   
 	  
 	$(".profile").change(function(e){
 		console.log(e)

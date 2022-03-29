@@ -358,6 +358,40 @@ var flag = false;
 			
 			
 		}
+		
+		function deleteUser() {
+				$.ajax({
+					url:  contextPath + "/user/UserDeleteOk.user", 		// 통신할url
+					type:"get"	,
+					success:function(){
+						alert("회원 탈퇴가 완료되었습니다. 이용해 주셔서 감사합니다.")
+						window.location.href = contextPath+"/user/UserMainOk.user";
+					},
+			        beforeSend: function() {
+			            //마우스 커서를 로딩 중 커서로 변경
+			            $('html').css("cursor", "wait");
+			        },
+			        complete: function() {
+			            //마우스 커서를 원래대로 돌린다
+			            $('html').css("cursor", "auto");
+			        },
+					error:function(a,b,c){
+						alert("실패");
+						console.log(a)
+						console.log(b)
+						console.log(c)
+					}
+					
+					});
+				
+				
+				
+				
+		}
+		
+		
+		
+		
     
 /*		//AJAX 통신 시작
 		$( document ).ajaxStart(function() {

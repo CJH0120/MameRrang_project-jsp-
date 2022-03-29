@@ -104,6 +104,10 @@ public class UserFrontController extends HttpServlet{
 			af.setRedirect(false);
 			af.setPath("/app/user/joinInfo.jsp");
 		}
+		else if(command.equals("/user/LoginCancelUser.user")) {
+			af = new LoginCancelUser().execute(req, resp);
+	
+		}
 		
 		//전송안할지
 		if(af != null) {

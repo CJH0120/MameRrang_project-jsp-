@@ -19,7 +19,7 @@ public class UserLoginOk  implements Action{
    public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
       
       HashMap<String, String> loginMap = new HashMap<>();
-      HashMap<String, String> loginMap2 = new HashMap<>();
+     // HashMap<String, String> loginMap2 = new HashMap<>();
       UserDAO userDao = new UserDAO();
       UserVO user = new UserVO();
       ActionForward af = new ActionForward();
@@ -31,16 +31,16 @@ public class UserLoginOk  implements Action{
       
       loginMap.put("userId", req.getParameter("userId"));
       loginMap.put("userPw", req.getParameter("userPw"));
-      loginMap2.put("userEmail", req.getParameter("userId"));
-      loginMap2.put("userPw", req.getParameter("userPw"));      
+     // loginMap2.put("userEmail", req.getParameter("userId"));
+     // loginMap2.put("userPw", req.getParameter("userPw"));      
       if(userNum == 0) {
     	  userNum = userDao.login(loginMap);
     	  
       }
-      if(userNum == 0) {
+      /*if(userNum == 0) {
       userNum = userDao.Emiallogin(loginMap2);
       }
-
+*/
       
       selectStatus = userDao.selectStatus(userNum);
       selectName = userDao.selectName(userNum);
@@ -143,7 +143,7 @@ public class UserLoginOk  implements Action{
             af.setRedirect(true);
             af.setPath(req.getContextPath() + "/admin/AdminMainOk.ad");
          //회원 로그인 
-         }   else if(selectStatus>0){
+         }   else if(selectStatus == 1 ||selectStatus == 2  ){
             session.setAttribute("userNum", userNum);
             session.setAttribute("userStatus", selectStatus);
             session.setAttribute("userName", selectName);
@@ -151,6 +151,12 @@ public class UserLoginOk  implements Action{
             af.setPath(req.getContextPath() + "/user/UserMainOk.user");
       
          } 
+          else if(selectStatus==3){
+
+    	  af.setRedirect(true);
+    	  af.setPath(req.getContextPath() + "/user/LoginCancelUser.user");
+    	  
+      } 
    }
       
 		

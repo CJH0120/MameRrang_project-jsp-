@@ -116,7 +116,9 @@
 	
 	<!-- 인증 게시글 총 갯수 -->
 	<select id="authGetTotal" resultType="_int">
-		select count(profileNum) from tbl_profile
+		select count(profileNum) from tbl_profile p 
+		join tbl_user u 
+		where userStatus = 2 and p.userNum = u.userNum
 	
 	</select>
 	

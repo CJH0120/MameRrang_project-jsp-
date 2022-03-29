@@ -82,7 +82,7 @@
 								<img src="${pageContext.request.contextPath}/images/right.png" style="width:5%; margin-left: 26em;">
 							</a>
 						</div>
-				<div style="width: 45%; margin-right: 3em; height: 261.88px; border:1px solid #d3d3d3;">
+				<div style="width: 45%; margin-right: 3em; height: 244.94px; border:1px solid #d3d3d3;">
 					<table>
 						<c:choose>
 							<c:when test="${qnaList != null}">
@@ -106,13 +106,13 @@
 					</table>
 				</div>
 				<!-- 신고 테이블 -->
-						<div style="position: absolute; margin-top: -17.65em; margin-left: 31.8em;">
+						<div style="position: absolute; margin-top: -16.65em; margin-left: 31.8em;">
 							<a href="${pageContext.request.contextPath}/admin/AdminReportListOk.ad">
 								<span style="margin-right: 22em; font-weight: bold; position: fixed; margin-top: 0.6em;">신고</span>
 								<img src="${pageContext.request.contextPath}/images/right.png" style="width:8.051%; margin-left: 25.96em;">
 							</a>
 						</div>
-				<div style="width: 45%; margin-right: 3em; height: 261.88px; border:1px solid #d3d3d3; float: right; margin-top: -14em;">
+				<div style="width: 45%; margin-right: 3em; height: 244.94px; border:1px solid #d3d3d3; float: right; margin-top: -13.1em;">
 					<table>
 						<c:choose>
 							<c:when test="${reportList != null}">
@@ -145,14 +145,14 @@
 								<img src="${pageContext.request.contextPath}/images/right.png" style="width:5%; margin-left: 26em;">
 							</a>
 						</div>
-				<div style="width: 45%; margin-right: 3em; height: 261.88px; border:1px solid #d3d3d3;">
+				<div style="width: 45%; margin-right: 3em; height: 244.94px; border:1px solid #d3d3d3;">
 					<table>
 						<c:choose>
 							<c:when test="${authList != null}">
 								<c:forEach var="auth" items="${authList}">
 						<tr>
-							<td colspan = "4" style="width: 0em;">${auth.getProfileNum()}</td>
-							<td colspan = "4" style="width: 12em; padding-left: 2em;">${auth.getUserId()}</td>
+							<td colspan = "4" style="width: 3.6em;">&nbsp;&nbsp;&nbsp;&nbsp;${auth.getProfileNum()}</td>
+							<td colspan = "4" style="width: 15.6em; padding-left: 1em;">${auth.getUserId()}</td>
 							<td>${auth.getProfileDate()}</td>
 						</tr>
 								</c:forEach>
@@ -166,19 +166,19 @@
 					</table>
 				</div>
 					<!-- 공지 테이블 -->
-						<div style="position: absolute; margin-top: -17.65em; margin-left: 31.8em;">
+						<div style="position: absolute; margin-top: -16.65em; margin-left: 31.8em;">
 							<a href="${pageContext.request.contextPath}/admin/AdminNoticeListOk.ad">
 								<span style="margin-right: 22em; font-weight: bold; position: fixed; margin-top: 0.6em;">공지</span>
 								<img src="${pageContext.request.contextPath}/images/right.png" style="width:8.051%; margin-left: 25.96em;">
 							</a>
 						</div>
-				<div style="width: 45%; margin-right: 3em; height: 261.88px; border:1px solid #d3d3d3; float: right; margin-top: -14em;">
+				<div style="width: 45%; margin-right: 3em; height: 244.94px; border:1px solid #d3d3d3; float: right; margin-top: -13.1em;">
 					<table>
 						<c:choose>
 							<c:when test="${noticeList != null}">
 								<c:forEach var="notice" items="${noticeList}">
 									<tr>
-										<td colspan = "4" style="width: 16em; padding-left: 2em;">${notice.getNoticeTitle()}</td>
+										<td colspan = "4" style="width: 19em; padding-left: 2em;">${notice.getNoticeTitle()}</td>
 										<td>${notice.getNoticeDate()}</td>
 									</tr>
 								</c:forEach>

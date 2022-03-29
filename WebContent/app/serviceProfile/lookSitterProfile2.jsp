@@ -75,7 +75,7 @@
         ">
         <div>
            <h5 style = "font-weight:500" >돌봄 신청하기</h5>
-              <button class = "buttonAside openBtn"  name="modal-btn" id = "modal-btn" style="background-color:#ff7065 !important;">돌봄 신청하기</button></a>
+              <button class = "buttonAside openBtn apply"  name="modal-btn" id = "modal-btn" style="background-color:#ff7065 !important;">돌봄 신청하기</button></a>
            </div>
         </div>
         </c:otherwise>
@@ -274,7 +274,14 @@
 	                            <li class="liCss" id="li4"><img src="${pageContext.request.contextPath}/images/돌봄가능기간.png" class="imgIcon">
 	                              <a class="b">활동가능 기간 </a>
 		                              	 <div style="display: inline-block;"class="subContent ">
-		                              <div style="width: 92px;" class="activity activity2">${sitter.getP_periodStartDate()}</div>
+		                              	  <c:choose>
+									         <c:when test="${not empty sitter.getP_periodStartDate()}">
+									             <div style="width: 92px;" class="activity activity2">${sitter.getP_periodStartDate()} ~</div>
+									         </c:when>
+									         <c:otherwise> 
+									             <div style="width: 92px;" class="activity activity2">시작일 미입력</div>
+									         </c:otherwise>
+									       </c:choose>
 	                                         <c:choose>
 									         <c:when test="${sitter.getP_week()==1}">
 									          <div class="activity activity2">1주일 이상</div>
@@ -466,7 +473,7 @@
 				console.log('프로파일넘'+profileNum);
 			</script>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0fdbbaa54afec5bb9f05d991a900280f&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6316b3fde93fb6bb4a1526abb1494b47&libraries=services"></script>
 
 
 <script>

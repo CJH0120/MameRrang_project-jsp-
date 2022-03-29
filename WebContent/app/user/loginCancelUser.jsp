@@ -18,6 +18,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 		<link href="${pageContext.request.contextPath}/assets/css/login.css" rel="stylesheet" >
 		<link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/etcMain.css" />
 	</head>
 	
 	<body>
@@ -84,7 +85,7 @@
             <div class="col-3">
                <div class="col-1">
                   <div class="col-6 col-12-xsmall">
-                     <input type="text" name="userId" id="userId" placeholder="아이디"  value="<%=memberId%>"/>
+                     <input type="text" name="userId" id="userId" placeholder="이메일 또는 아이디"  value="<%=memberId%>"/>
                   </div>
                   <div class="col-6 col-12-xsmall">
                      <input type="password" name="userPw" id="userPw" placeholder="비밀번호" name="memberPw" value="<%=memberPw%>"/>
@@ -95,6 +96,8 @@
                      <input type="checkbox" id="contactChoice2" name="autoLogin" value="phone">
                          <label class ="label-position" for="contactChoice2">자동 로그인</label>
                     </div>
+                   <p id="fail_phrases" style="margin: 0 !important; text-align: center !important;
+                   		color: red !important;">탈퇴한 아이디입니다.</p>
                   <div>
                      <button class="button-size01" onclick="send()">로그인</button>
                   </div>   
@@ -111,8 +114,7 @@
                <jsp:include page="/app/fix/footer.jsp"/>
             </div>
           </div> 
-<script>
-</script>
+
 <!-- Scripts -->
 <script>var contextPath = "${pageContext.request.contextPath }"</script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

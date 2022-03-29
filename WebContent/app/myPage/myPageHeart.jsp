@@ -38,7 +38,7 @@
                       <div class="profileImgWrap" style="width: 100%; height: 68%;" >
                     <c:choose>
                        <c:when test="${empty profile.getFileName()}">
-                           <img src="${pageContext.request.contextPath}/images/img1.jpeg" style="height: 100%;width: 100%; object-fit: contain; ">
+                           <img src="https://cdn.discordapp.com/attachments/954273372760571914/958038149609709608/unknown.png" style="height: 100%;width: 100%; object-fit: contain; ">
                        </c:when>
                        <c:otherwise>
 							<c:choose>

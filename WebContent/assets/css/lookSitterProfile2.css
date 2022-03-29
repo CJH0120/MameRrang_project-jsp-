@@ -349,7 +349,19 @@ background-color: #9b9999;
 @media (max-width: 576px){
 #header{width: 100%;}
 
+ .area{
+   margin-left: 7px;
+   }
+       
 
+.apply{
+    position: absolute;
+    left: -49%;
+    width: 105px !important;
+    font-size: 13px !important;
+    top: -110px;
+    display: inline-block !important
+}
 .can{
 	margin-right: 18px;
 }
@@ -636,13 +648,17 @@ margin-left: -1% !important;
  margin-left: 63px;
 }
 .aside2{
-display:none;
+    margin-left: 140px;
+    position: absolute !important;
 }
 .media_star{
    display:none;
 }
 
-
+.modalBox {
+	    left: 35px;
+    width: 320px !important;
+}
 
 
 

@@ -71,7 +71,7 @@
                            </span>
                      </div>
                      <div  style = "position:absolute; top: 30px; left: 76%;">
-                            <button type="button" class = "button" onclick="writeProfileFormSend()">글 저장하기</button>
+                            <button type="button" class = "button" onclick="writeProfileFormSend2()">글 저장하기</button>
                      </div>
                 </div>
                 
@@ -154,7 +154,7 @@
                 <hr style = "margin: 0px; width: 95%; padding: 10px 0;" >
                 <div class = "innerContent" style = "position:relative;">
                     <p class ="innerTitle">자기소개</p>             
-                    <textarea name="message" id="message" placeholder="자기소개를 작성해주세요." rows="4"></textarea>
+                    <textarea name="message" id="message" placeholder="자기소개를 작성해주세요." rows="4" required></textarea>
                 </div>
 
                 <hr style = "margin: 0px; width: 95%; padding: 10px 0;" >
@@ -188,7 +188,7 @@
                          </div>
                     <div style = "display:flex;">     
                     <label class="input-file-button" for="attachQ" id = "upload">업로드</label>
-                    <input type="file" accept="" name="attachQ" id="attachQ" style= "display:none; margin-top:8px; margin-left: -72px; font-size:13px;" class = "input" onchange="checkFile(this)"> 
+                    <input type="file" accept="" name="attachQ" id="attachQ" style= "display:none; margin-top:8px; margin-left: -72px; font-size:13px;" class = "input" onchange="checkFile(this)" required> 
                 
         
                     </div>

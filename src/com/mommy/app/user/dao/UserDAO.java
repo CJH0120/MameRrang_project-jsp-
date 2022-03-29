@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.mommy.app.user.vo.DeleteUserDTO;
 import com.mommy.app.user.vo.UserVO;
 import com.mommy.mybatis.config.MyBatisConfig;
 
@@ -153,5 +154,14 @@ public class UserDAO {
   	}
   	
   	
+  	
+  	// 유저와 관련된 데이터를 삭제시 필요한 쿼리문
+  	public DeleteUserDTO getNumforDelete(int userNum) {
+  		return sqlSession.selectOne("User.getNumforDelete",userNum);
+  	}
+  	// 회원탈퇴 
+  	public void cancelUser(int userNum) {
+  		sqlSession.update("User.cancelUser",userNum);
+  	}
       
 }

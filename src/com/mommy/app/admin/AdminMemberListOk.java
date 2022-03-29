@@ -23,7 +23,7 @@ public class AdminMemberListOk implements Action{
 		//사용자가 선택한 페이지가 없으면 1페이지로가고 선택한 페이지가 있으면 해당 페이지로 이동
 		int page = temp == null ? 1: Integer.parseInt(temp);
 		int rowCount = 14;
-		int pageSize = 5;
+		int pageSize = 10;
 		
 		//페이지에서 출력되는 게시글 중 첫번째 게시글의 인덱스
 		int startRow = (page - 1) * rowCount;

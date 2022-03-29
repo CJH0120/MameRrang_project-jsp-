@@ -268,15 +268,19 @@
 	<delete id="delete" parameterType="_int">
 		delete from tbl_profile where userNum =#{userNum}
 	</delete>
+	<delete id="inFavoriteDelete" parameterType="_int">
+		delete from tbl_favorite where profileUserNum = #{userNum}
+	</delete>
 	<!--  프로필 조회 -->
 	<select id="selectProfileNum" parameterType="_int" resultType="_int">
-		select profileNum from tbl_profile where userNum = #{userNum};
+		select profileNum from tbl_profile where userNum = #{userNum}
 	</select>
 <!--  프로필 조회 -->
 	<!--  
     <select id="selectProfileNum" parameterType="_int" resultType="_int">
         select profileNum from tbl_profile where userNum = #{userNum}
     </select> -->
-	
+    
+
 
 </mapper>

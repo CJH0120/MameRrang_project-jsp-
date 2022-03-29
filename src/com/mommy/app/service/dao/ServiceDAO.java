@@ -111,6 +111,12 @@ public class ServiceDAO {
 	
 	// 프로필 번호 가져오기 
 	public int selectProfileNum(int userNum) {
+			if(sqlSession.selectOne("Service.selectProfileNum",userNum) == null) {
+				return -1;
+			}
 		return sqlSession.selectOne("Service.selectProfileNum",userNum);
+	}
+	public void inFavoriteDelete(int userNum) {
+		sqlSession.delete("Service.inFavoriteDelete",userNum);
 	}
 }

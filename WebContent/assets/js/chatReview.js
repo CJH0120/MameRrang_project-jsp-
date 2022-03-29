@@ -36,7 +36,6 @@
 
 // 클릭 시 읽음 처리
 	 $chatBox.on("click", function(){ 
-
 		 var chatNum = $(this).attr('id');
 	      $.ajax({
 	            url: contextPath + "/chat/ChatReadOne.chat",      

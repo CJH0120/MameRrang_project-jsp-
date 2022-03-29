@@ -4,6 +4,7 @@
 <configuration>
    <typeAliases>
       <typeAlias type="com.mommy.app.user.vo.UserVO" alias="UserVO"/>
+      <typeAlias type="com.mommy.app.user.vo.DeleteUserDTO" alias="DeleteUserDTO"/>
       <typeAlias type="com.mommy.app.ask.vo.AskVO" alias="askVO"/>
       <typeAlias type="com.mommy.app.ask.vo.AskDTO" alias="askDTO"/>
        

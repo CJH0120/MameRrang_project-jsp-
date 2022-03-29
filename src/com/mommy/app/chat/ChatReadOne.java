@@ -38,6 +38,7 @@ public class ChatReadOne implements Action{
 		
 		JSONObject count = new JSONObject();
 		count.put("count", dao.countNew(userNum));
+		System.out.println(count);
 		out.print(count.toJSONString());
 		out.close();
 		

@@ -94,8 +94,7 @@
 			<c:choose>
 				<c:when test="${askList != null and fn:length(askList) > 0}">
 					<c:forEach var="ask" items="${askList}">
-					<c:choose>
-					<c:when test="${ask.getUserNum() eq userNum}">
+
 						<tr class = "boarderInner">
 							<td class = "bold" style = "text-align: center;">
 							<c:choose>
@@ -112,10 +111,6 @@
 							<td class = "title"><a href ="${pageContext.request.contextPath}/ask/AskDetailsOk.ask?askNum=${ask.getAskNum()}&page=${page}" class = "titleTag">${ask.getAskTitle()}</a></td>
 							<td class = "date">${ask.getAskDate()}</td>
 						</tr>
-						</c:when>
-						<c:otherwise>
-						</c:otherwise>
-						</c:choose>	
 					</c:forEach>
 				</c:when>
 				<c:otherwise>

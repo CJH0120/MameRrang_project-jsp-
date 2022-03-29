@@ -52,6 +52,7 @@
                      <div id="menu">
                         <ul>
                         <li><a href="${pageContext.request.contextPath}/user/UserLogin.user">로그인</a></li>
+                         <li><a href="${pageContext.request.contextPath}/user/UserJoin.user">회원가입</a></li>
                            <%-- <li><a href="${pageContext.request.contextPath}/myPage/Mypage.my">마이페이지</a></li> --%>
                             <li><a onclick="location.href='${pageContext.request.contextPath}/service/SearchJobOk.ser'">일자리 찾기</a></li>
                              <li><a onclick="location.href='${pageContext.request.contextPath}/service/SearchMomOk.ser'">시터 찾기</a></li>

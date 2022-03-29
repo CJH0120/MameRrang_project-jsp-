@@ -52,6 +52,10 @@ public class ChatDAO {
 	   public String userName (int userNum) {
 		   return sqlSession.selectOne("Chat.userName", userNum);
 	   }
+	   // 채팅 삭제
+	   public void delete(int userNum) {
+		  sqlSession.delete("Chat.delete",userNum);
+	   }
 	   
 
 }

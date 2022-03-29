@@ -76,7 +76,7 @@
 					var $newPw = $('input[name=newPw]').val();
 					var $newPwCK = $('input[name=newPwCK]').val();
 	
-					if($newPw == $newPwCK && pwCheck.test($newPw)){
+					if($newPw == $newPwCK && pwCheck.test($('input[name=newPwCK]').val())) {
 						var param = { "beforePw":$beforePw ,
 								"newPw":$newPw	 
 									};
@@ -105,7 +105,7 @@
 					var text ="";
 						$("#newPwCkText").html(text);
 			 }else{
-					var text ="<p>비밀번호가 일치하지 않거나  <br> 8자리 이상이어야 하며, 영문/숫자/특수문자 모두 포함해야 합니다.</p>"
+					var text ="<p style = 'margin: 0px 0px -4em; font-size:14px;'>비밀번호가 일치하지 않거나 유효한 비밀번호가 아닙니다.<br> 8자리 이상이어야 하며, 영문/숫자/특수문자 모두 포함해야 합니다.</p>"
 					$("#newPwCkText").html(text);
 			 }
 				 

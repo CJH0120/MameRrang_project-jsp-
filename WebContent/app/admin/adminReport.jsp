@@ -116,7 +116,7 @@
                   				</c:when>
                   				<c:otherwise>
                   				<tr>
-                  					<td colspan="5" align="center">등록된 게시물이 없습니다.</td>
+                  					<td colspan="6" align="center">등록된 게시물이 없습니다.</td>
                   				</tr>
                   				</c:otherwise>
                   			</c:choose>

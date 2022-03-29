@@ -61,11 +61,7 @@
 	
 	</select>
 	
-	
-	<delete id="deleteUser" parameterType="_int">
-		delete from tbl_user
-		where userNum = #{userNum};
-	</delete>
+
 
 	<!-- 회원 전체 정보 조회 -->
    <select id="selectAll" parameterType="map" resultType="UserVO">
@@ -108,7 +104,26 @@
 			update tbl_user set userPw = hex(aes_encrypt(#{userPw}, 'abc')) where userId = #{userId};
 	</update>  
 	
+		<!--  회원 삭제 -->
+	<delete id="deleteUser" parameterType="_int">
+		delete from tbl_user
+		where userNum = #{userNum}
+	</delete>
+		<!--  회원 탈퇴 -->
+	<update id="cancelUser" parameterType="_int">
+		update  tbl_user 
+		set userStatus = 3
+		where userNum = #{userNum}
+	</update>
 	
+		<!-- 유저 삭제를 위한 sql문  -->
+	<select id="getNumforDelete" parameterType="_int" resultType="DeleteUserDTO" >
+	select communityNum ,profileNum ,askNum from tbl_community tc join tbl_profile tp 
+	on tc.userNum = tp.userNum 
+	join tbl_ask ta 
+	on tc.userNum = ta.userNum 
+	where tc.userNum = #{userNum}
+	</select>
 	
 	  
 </mapper>

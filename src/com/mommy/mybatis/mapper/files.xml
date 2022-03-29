@@ -15,6 +15,12 @@
   	set fileName = null 
   	where communityNum = #{communityNum}
 	</delete>
+	<!-- 첨부파일 전체 삭제 -->
+	<delete id="allDelete" parameterType="_int">
+	  update tbl_community 
+  	set fileName = null 
+  	where userNum = #{userNum};
+	</delete>
 	
 	<!-- 첨부파일 가져오기 -->
 	<select id="select" parameterType="_int" resultType="string">

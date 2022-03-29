@@ -53,4 +53,7 @@
 	where userNum= ${userNum}
 	</select>
 	
+	<delete id="delete" parameterType="_int" >
+		delete from tbl_chat where userNum = #{userNum}
+	</delete>
 </mapper>

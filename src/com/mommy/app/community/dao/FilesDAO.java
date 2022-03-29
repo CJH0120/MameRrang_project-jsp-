@@ -59,6 +59,10 @@ public class FilesDAO {
 	public void delete(int communityNum) {
 		sqlSession.delete("Files.delete", communityNum);
 	}
+	//첨부파일 삭제
+	public void allDelete(int userNum) {
+		sqlSession.delete("Files.allDelete", userNum);
+	}
 	
 	//첨부파일 가져오기
 	public String select(int communityNum){

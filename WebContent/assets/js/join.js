@@ -187,11 +187,11 @@ var form = document.joinForm;
          alert("아이디를 확인해주세요.");
          return;
       }
-      
-      if(!phoneCheck){
-          alert("휴대폰 인증을 다시 시도해주세요.");
-          return;
-       }
+//      
+//      if(!phoneCheck){
+//          alert("휴대폰 인증을 다시 시도해주세요.");
+//          return;
+//       }
       
       if(!joinForm.userPw.value){
          alert("패스워드를 확인해주세요.");
@@ -200,19 +200,19 @@ var form = document.joinForm;
       }
       
 
-      var yy=  /^(19[0-9][0-9]|20\d{2})$/;
+      var yy=  /^([0-9]{4})$/;
 	  if(!yy.test(joinForm.userBirthYear.value) ||!joinForm.userBirthYear.value){
 		  alert("생년월일을 확인해주세요.");
           
           return;
        }
-	  var mm =/^[1-12]{1,2}$/;
+	  var mm =/^(0?[1-9]|1[012])$/;
 	  if(!mm.test(joinForm.userBirthMonth.value) ||!joinForm.userBirthMonth.value){
 		  alert("생년월일을 확인해주세요.");
           
           return;
        }
-	  var dd= /^[1-30]{1,2}$/;
+	  var dd= /^(0?[1-9]|[12][0-9]|3[01])$/;
       if(!dd.test(joinForm.userBirthDate.value) ||!joinForm.userBirthDate.value){
     	 
           alert("생년월일을 확인해주세요.");

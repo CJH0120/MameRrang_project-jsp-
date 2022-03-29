@@ -28,9 +28,9 @@ public class AdminNoticeListOk {
 				//null이 아니면 요청한 페이지를 page에 담아준다.
 				int page = temp == null ? 1 : Integer.parseInt(temp);
 				//한 페이지에 출력되는 게시글의 개수
-				int rowCount = 2;
+				int rowCount = 14;
 				//한 화면에 나오는 페이지 번호 수
-				int pageSize = 5;
+				int pageSize = 10;
 				
 				//페이지에서 출력되는 게시글 중 첫번째 게시글의 인덱스
 				int startRow = (page - 1) * rowCount;
