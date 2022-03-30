@@ -77,7 +77,7 @@
 									<textarea id ="titleQ" name="content" cols = "30" rows = "10" class = "inputTextarea" required></textarea>
 								</div>
 							</div>
-								<div class= "label uploadBar" id="filebox">
+							<!-- 	<div class= "label uploadBar" id="filebox">
                                 <div class="uploadFile" style = "display:flex; flex-wrap: wrap">
                                     <p class="file-p" style = "margin-bottom: 35px;
                                         font-size: 16px;
@@ -87,15 +87,15 @@
                                     <label class="input-file-button" for="attachQ" id = "upload">업로드</label>
                                 <input class="file-select" type="file" accept="" id="attachQ" style= "display:none; margin-top:7px;padding-left:6px; color: #b7b7b7 !important;" class = "input" onchange="checkFile(this)"> 
 
-                                <!--
+                                
                         <label for = "attachQ"><button class = "attachButton">첨부하기</button></label>
                         <input type = "file" accept="" id ="attachQ"  class = "input" onchange="checkFile(this)" style = "margin-top:10px;">
-                                -->
+                               
                                 </div>
                                 <p id = "msgAttach">- 첨부파일은 5MB를 초과할 수 없으며, 최대 1개까지 가능합니다.</p>
 
 
-                        </div>
+                        </div> -->
 					
 					<br><br>
 					<div class="bButton" style = "text-align: center;">

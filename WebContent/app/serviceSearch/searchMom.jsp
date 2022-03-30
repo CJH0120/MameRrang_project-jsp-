@@ -181,7 +181,7 @@
 
 								<h4 style="margin-bottom: 0;" class="h4"><a href="${pageContext.request.contextPath}/service/LookSitterProfileOk.ser?userNum=${mom.getUserNum()}&profile=${mom.getProfileNum()}"  style="border:none;">                                                  
 
-								${mom.getProfileDescription()}</a></h4>
+								${fn:substring(mom.getProfileDescription(),0,15)}</a></h4>
 								<div class="infoDetail medi7">${mom.getLocationSido()}  ${mom.getLocationSigun()}</div>&nbsp;
 								<div class="infoDetail medi7">${year-mom.getUserBirthYear()}세</div>
 								&nbsp;&nbsp;<div class="infoDetail medi7 medi13">희망시급 ${mom.getProfileSalary()}원</div>
