@@ -21,6 +21,7 @@
  
  ### 프로젝트에서 사용한 기술 : JAVA , JavaScript, jQuery, HTML , CSS ,JSTL
 
+ <hr>
  
  <h3> 아래는 합류하고부터 일기형식으로 남겨두었고, 두고두고 볼 예정이다 </h3>
  
