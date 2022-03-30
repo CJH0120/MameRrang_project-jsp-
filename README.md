@@ -1,7 +1,7 @@
 <h1> 국비_JSP_프로젝트 </h1>
- <h2> 마미랑 Mamerrng </h2>
+ <h2><a href=">http://www.mamerrang.kro.kr/"> 마미랑 Mamerrng</a> </h2>
  <P>부모와 시터를 연결해주는 플랫폼 사이트 이다.소요기간 약 20일 참여인원 팀원은 10명이지만 실제 가용인원은 <strong>6명</strong>이다.</p>
- <p style="color:yellow"> <a>http://www.mamerrang.kro.kr/ </a></P>
+ 
  <p> 서버구축까지 완료하였기에 위 사이트 들어가면 확인할수있다. </p>
  
  ### 프로젝트를 통해 느낀점
