@@ -57,10 +57,12 @@
  				<div style="width:100px; height:100px;">
  				 <c:choose>
                     	<c:when test="${empty fileName}">
-                        <img src="https://cdn.discordapp.com/attachments/954273372760571914/955479398054772796/unknown.png" style="width: 100%; border-radius: 150px; ">
+                        <img src="https://cdn.discordapp.com/attachments/954273372760571914/955479398054772796/unknown.png" style="width: 100%; border-radius: 150px; object-fit: cover;
+    height: 100%;">
                     	</c:when>
                     	<c:otherwise>
-                        <img src="/profileData/${fileName}" style="width: 100%; border-radius: 150px;">
+                        <img src="/profileData/${fileName}" style="width: 100%; border-radius: 150px;object-fit: cover;
+    height: 100%;">
                     	</c:otherwise>
                     </c:choose>
                   </div>
