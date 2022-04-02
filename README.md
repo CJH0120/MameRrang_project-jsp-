@@ -2,8 +2,7 @@
 <h1>JSP TeamProject</h1>
  <h2><a href="http://www.mamerrang.kro.kr/" style="color=yellow">마미랑(Mamerrng)</a> </h2>
  <P ><strong>마미랑은?</strong> <span> 부모와 시터를 연결해주는 플랫폼 사이트 이다.</span></p>
- 
- <p>제작기간 <b>약 20일</b>이 걸렸고 참여인원은 10명이지만 실제 가용인원은 <strong>6명</strong>이다.</p>
+
  
  <p> 서버구축까지 완료하였기에 위 마미랑 태그를 클릭하면 확인할수있다. </p>
  
