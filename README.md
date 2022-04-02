@@ -7,7 +7,7 @@
  
  <p> 서버구축까지 완료하였기에 위 마미랑 태그를 클릭하면 확인할수있다. </p>
  
- <P ><strong>프로젝트에서 맡은 역할 : </strong><br> <span>회원가입 유효성검사(blur사용)</span>, <span>AJAX를 이용한 실시간 중복검사(아이디/이메일)</span>, <span>회원 인증, </span><span>비밀번호 업데이트, </span> <span>미디어쿼리 </span> 등등 </p>
+ <P ><strong>프로젝트에서 맡은 역할 : </strong><br> <span>회원가입 유효성검사</span>, <span>AJAX를 이용한 실시간 중복검사(아이디/이메일)</span>, <span>회원 인증, </span><span>비밀번호 업데이트, </span> <span>미디어쿼리 </span> 등등 </p>
  
  <hr>
  
